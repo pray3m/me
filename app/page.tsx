@@ -4,7 +4,7 @@ import { NextPage } from "next";
 
 const HomePage: NextPage = () => {
   return (
-    <Container>
+    <Container data-aos="fade-up">
       <Home />
     </Container>
   );

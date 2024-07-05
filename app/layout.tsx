@@ -1,3 +1,4 @@
+import { AOSInit } from "@/common/utils/aos";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,6 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <AOSInit />
       <body className={inter.className}>{children}</body>
     </html>
   );
