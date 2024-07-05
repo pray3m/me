@@ -4,7 +4,7 @@ import { NextPage } from "next";
 
 const PortfolioPage: NextPage = () => {
   return (
-    <Container className="bg-red-800">
+    <Container data-aos="fade-up">
       <Portfolio />
     </Container>
   );
