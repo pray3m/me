@@ -6,6 +6,7 @@ import Profile from "../../sidebar/Profile";
 import Breakline from "../../elements/Breakline";
 import Navigation from "../../sidebar/Navigation";
 import useIsMobile from "@/common/hooks/useIsMobile";
+import ToggleModeButton from "../../elements/ToggleModeButton";
 
 const Sidebar = () => {
   const isMobile = useIsMobile();
@@ -42,7 +43,7 @@ const Sidebar = () => {
           <Breakline />
           <Navigation />
           <Breakline />
-          <p>Dark Mode toggle</p>
+          <ToggleModeButton />
         </>
       )}
     </div>
