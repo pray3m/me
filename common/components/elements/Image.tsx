@@ -24,7 +24,7 @@ const Image = ({ alt, src, className, rounded, ...rest }: ImageProps) => {
           "duration-700 ease-in-out",
           isLoading
             ? "scale-[1.02] blur-xl grayscale"
-            : "scale-100 blur-0 grayscale-0",
+            : "scale-100 grayscale-0",
           rounded,
           className
         )}
@@ -32,7 +32,8 @@ const Image = ({ alt, src, className, rounded, ...rest }: ImageProps) => {
         alt={alt}
         loading="lazy"
         quality={100}
-        onLoadingComplete={() => setLoading(false)}
+        priority={false}
+        onLoad={() => setLoading(false)}
         {...rest}
       />
     </div>
