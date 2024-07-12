@@ -1,10 +1,10 @@
 "use client";
 
-import { ToggleModeContext } from "@/common/ToggleModeContext";
 import clsx from "clsx";
 import { ReactNode, useEffect, useState } from "react";
 import Footer from "./partials/Footer";
 import Sidebar from "./partials/Sidebar";
+import { ToggleModeContext } from "@/common/context/ToggleModeContext";
 
 interface LayoutProps {
   children: ReactNode;

@@ -7,7 +7,5 @@ interface ToggleModeContextType {
 
 export const ToggleModeContext = createContext<ToggleModeContextType>({
   isDarkMode: false,
-  toggleDarkMode: () => {
-    console.log("mode changed ");
-  },
+  toggleDarkMode: () => {},
 });

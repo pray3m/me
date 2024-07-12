@@ -1,4 +1,4 @@
-import { ToggleModeContext } from "@/common/ToggleModeContext";
+import { ToggleModeContext } from "@/common/context/ToggleModeContext";
 import { FC, useContext } from "react";
 import ToggleMode from "./ToggleMode";
 
