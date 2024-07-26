@@ -1,8 +1,9 @@
+import Layout from "@/common/components/layouts";
 import { AOSInit } from "@/common/utils/aos";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Layout from "@/common/components/layouts";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AOSInit />
-      <body className={inter.className}>
-        <Layout>{children}</Layout>
+      <body className="bg-white dark:bg-dark">
+        <Providers>
+          <Layout>{children}</Layout>
+        </Providers>
       </body>
     </html>
   );
