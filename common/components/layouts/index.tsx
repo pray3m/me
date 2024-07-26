@@ -35,7 +35,12 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <ToggleModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
-      <div className={clsx("max-w-6xl mx-auto lg:px-8 lg:py-4 xl:py-10")}>
+      <div
+        className={clsx(
+          "max-w-6xl mx-auto lg:px-8 lg:py-4 xl:py-10 bg-white dark:bg-dark ",
+          isDarkMode ? "dark:text-darkText" : ""
+        )}
+      >
         <div className="flex flex-col lg:flex-row lg:gap-5">
           <header className="lg:w-1/5">
             <Sidebar />
