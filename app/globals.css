@@ -8,6 +8,12 @@
   --color-light: #fafafa;
 }
 
+@layer components {
+  .b {
+    @apply border-2 border-orange-600;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   letter-spacing: 0.3px;

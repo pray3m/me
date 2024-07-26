@@ -5,6 +5,8 @@ import Status from "../elements/Status";
 import MobileMenuButton from "./MobileMenuButton";
 import ProfileHeader from "./ProfileHeader";
 import { MenuContext } from "@/common/context/MenuContext";
+import { AnimatePresence } from "framer-motion";
+import MobileMenu from "./MobileMenu";
 
 const Profile: FC = () => {
   const isMobile = useIsMobile();
@@ -34,6 +36,10 @@ const Profile: FC = () => {
             />
           )}
         </div>
+
+        {isMobile && (
+          <AnimatePresence>{expandMenu && <MobileMenu />}</AnimatePresence>
+        )}
       </div>
     </MenuContext.Provider>
   );
