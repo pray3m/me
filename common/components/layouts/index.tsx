@@ -45,7 +45,7 @@ const Layout = ({ children }: LayoutProps) => {
           <header className="lg:w-1/5">
             <Sidebar />
           </header>
-          <main className="lg:w-4/5 transition-all duration-300">
+          <main className="lg:w-4/5 transition-all duration-300 max-w-[854px]">
             {children}
             <Footer />
           </main>

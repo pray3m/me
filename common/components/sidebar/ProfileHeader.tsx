@@ -18,8 +18,8 @@ const ProfileHeader: FC<ProfileHeaderProps> = ({ expandMenu, imageSize }) => {
       <Image
         src="/images/prem.jpg"
         alt="Prem Gautam"
-        width={expandMenu ? 85 : imageSize}
-        height={expandMenu ? 85 : imageSize}
+        width={expandMenu ? 75 : imageSize}
+        height={expandMenu ? 75 : imageSize}
         rounded="rounded-full"
       />
       <h1 className="flex-grow text-lg lg:text-xl font-medium">Prem Gautam</h1>

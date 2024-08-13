@@ -15,7 +15,7 @@ const Status: FC = () => {
         }}
       />
       <span className="font-medium text-sm animate-pulse">
-        available for hire
+        Available for hire
       </span>
     </div>
   );
