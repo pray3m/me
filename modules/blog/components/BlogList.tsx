@@ -37,7 +37,7 @@ const BLOG_DATA = [
 
 const BlogList: FC = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col lg:gap-4 gap-6">
       {BLOG_DATA?.map((item: BlogItemProps, index: number) => (
         <BlogCard key={index} {...item} />
       ))}
