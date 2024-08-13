@@ -3,7 +3,9 @@ import React, { FC } from "react";
 const Introduction: FC = () => {
   return (
     <div className="space-y-5">
-      <h2 className="text-2xl lg:text-3xl font-bold">Hey, I&apos;m Prem 👋</h2>
+      <h2 className="text-2xl lg:text-3xl font-semibold">
+        Hey, I&apos;m Prem 👋
+      </h2>
       <>
         <ul className="flex flex-col lg:flex-row gap-1 lg:gap-8 ml-5 list-disc text-neutral-700 dark:text-neutral-400">
           <li>life-long learner</li>
