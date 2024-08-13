@@ -2,15 +2,17 @@ import Breakline from "@/common/components/elements/Breakline";
 import { FC } from "react";
 import Introduction from "./Introduction";
 import BlogPreview from "./BlogPreview";
+import Services from "./Services";
 
 const Home: FC = () => {
   return (
     <>
       <Introduction />
       <Breakline className="my-8" />
-
       <BlogPreview />
+
       <Breakline className="my-8" />
+      <Services />
     </>
   );
 };
