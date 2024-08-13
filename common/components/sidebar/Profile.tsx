@@ -1,4 +1,4 @@
-import useIsMobile from "@/common/hooks/useIsMobile";
+import useIsMobile from "@/common/hooks/use-is-mobile";
 import clsx from "clsx";
 import { FC, useState } from "react";
 import Status from "../elements/Status";
