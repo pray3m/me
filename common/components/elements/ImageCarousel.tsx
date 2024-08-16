@@ -1,11 +1,11 @@
 "use client";
 
+import useWindowSize from "@/common/hooks/use-window-size";
+import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useWindowSize } from "usehooks-ts";
-import Image from "next/image";
+import "slick-carousel/slick/slick.css";
 
 interface ImageCarouselProps {
   images: string[];
@@ -18,7 +18,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 }) => {
   const sliderRef = useRef<Slider>(null);
 
-  const { width } = useWindowSize();
+  const width = useWindowSize() ?? 1024;
   const isMobile = width < 480;
 
   const getDeviceWidth = () => {
@@ -89,8 +89,8 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
             src={image}
             alt={`Image ${index + 1}`}
             width={isMobile ? 130 : 145}
-            className="px-3 bg-white rounded-full hover:shadow-xl"
             height={isMobile ? 130 : 145}
+            className="px-3 bg-light rounded-full hover:shadow-xl"
           />
         </div>
       ))}
