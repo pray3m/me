@@ -1,7 +1,11 @@
 import Container from "@/common/components/elements/Container";
 import Dashboard from "@/modules/dashboard/components/Dashboard";
-import { NextPage } from "next";
+import { Metadata, NextPage } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Dashboard - Prem Gautam",
+};
 
 const DashboardPage: NextPage = () => {
   return (

@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 
-const useWindowSize = (): number | undefined => {
-  const [windowSize, setWindowSize] = useState<number | undefined>(undefined);
+const useWindowSize = (): number => {
+  const [windowSize, setWindowSize] = useState<number>(0);
 
   useEffect(() => {
     const handleResize = () => {
       setWindowSize(window.innerWidth);
     };
 
-    handleResize();
+    if (typeof window !== "undefined") {
+      handleResize();
+    }
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

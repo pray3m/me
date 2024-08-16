@@ -1,6 +1,10 @@
 import Container from "@/common/components/elements/Container";
 import Portfolio from "@/modules/portfolio/components/Portfolio";
-import { NextPage } from "next";
+import { Metadata, NextPage } from "next";
+
+export const metadata: Metadata = {
+  title: "Portfolio - Prem Gautam",
+};
 
 const PortfolioPage: NextPage = () => {
   return (
