@@ -1,14 +1,19 @@
+"use client";
+
 import clsx from "clsx";
 import React, { useEffect, useState } from "react";
 import Profile from "../../sidebar/Profile";
 import Breakline from "../../elements/Breakline";
 import Navigation from "../../sidebar/Navigation";
 import useIsMobile from "@/common/hooks/use-is-mobile";
-import ToggleModeButton from "../../elements/ToggleModeButton";
+import ThemeToggle from "../../elements/ThemeToggle";
+import useHasMounted from "@/common/hooks/use-has-mounted";
 
 const Sidebar = () => {
   const isMobile = useIsMobile();
   const [isSticky, setIsSticky] = useState<boolean>(false);
+
+  const hasMounted = useHasMounted();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +31,8 @@ const Sidebar = () => {
     };
   }, []);
 
+  if (!hasMounted) return null;
+
   return (
     <div
       id="sidebar"
@@ -41,7 +48,7 @@ const Sidebar = () => {
           <Breakline />
           <Navigation />
           <Breakline />
-          <ToggleModeButton />
+          <ThemeToggle />
         </>
       )}
     </div>

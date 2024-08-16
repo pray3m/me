@@ -1,57 +1,31 @@
 "use client";
 
 import clsx from "clsx";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import Footer from "./partials/Footer";
 import Sidebar from "./partials/Sidebar";
-import { ToggleModeContext } from "@/common/context/ToggleModeContext";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-
-  useEffect(() => {
-    const prefersDarkMode = window.matchMedia(
-      "(prefers-color-scheme:dark)"
-    ).matches;
-
-    setIsDarkMode(prefersDarkMode);
-  }, []);
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkMode]);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
   return (
-    <ToggleModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
-      <div
-        className={clsx(
-          "max-w-6xl mx-auto lg:px-8 lg:py-4 xl:py-10 bg-white dark:bg-dark ",
-          isDarkMode ? "dark:text-darkText" : ""
-        )}
-      >
-        <div className="flex flex-col lg:flex-row lg:gap-5">
-          <header className="lg:w-1/5">
-            <Sidebar />
-          </header>
-          <main className="lg:w-4/5 transition-all duration-300 max-w-[854px]">
-            {children}
-            <Footer />
-          </main>
-        </div>
+    <div
+      className={clsx(
+        "max-w-6xl mx-auto lg:px-8 lg:py-4 xl:py-10 bg-light dark:bg-dark dark:text-darkText "
+      )}
+    >
+      <div className="flex flex-col lg:flex-row lg:gap-5">
+        <header className="lg:w-1/5">
+          <Sidebar />
+        </header>
+        <main className="lg:w-4/5 transition-all duration-300 max-w-[854px]">
+          {children}
+          <Footer />
+        </main>
       </div>
-    </ToggleModeContext.Provider>
+    </div>
   );
 };
 
