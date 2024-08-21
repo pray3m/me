@@ -27,8 +27,8 @@ const GITHUB_USER_QUERY: string = `query {
   }
 }`;
 
-export const GetGithubUser = async () => {
-  const response = await fetch(GITHUB_USER_ENDPOINT, {
+export async function GET() {
+  const data = await fetch(GITHUB_USER_ENDPOINT, {
     method: "POST",
     headers: {
       Authorization: `bearer ${read_user_token}`,
@@ -36,13 +36,7 @@ export const GetGithubUser = async () => {
     body: JSON.stringify({
       query: GITHUB_USER_QUERY,
     }),
-  });
+  }).then((res) => res.json());
 
-  const status: number = response.status;
-  if (status > 400) {
-    return { status, data: {} };
-  }
-
-  const responseJson = await response.json();
-  return { status, data: responseJson.data.user };
-};
+  return Response.json({ data });
+}
