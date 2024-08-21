@@ -10,15 +10,12 @@ export const metadata: Metadata = {
 };
 
 const DashboardPage = () => {
-  const { status, data: githubData } = GetGithubUser();
-  console.log(githubData);
+  // const { status, data: githubData } = GetGithubUser();
 
   return (
-    <SWRConfig value={{ fallback: { "api/github": githubData } }}>
-      <Container data-aos="fade-up">
-        <Dashboard />
-      </Container>
-    </SWRConfig>
+    <Container data-aos="fade-up">
+      <Dashboard />
+    </Container>
   );
 };
 
