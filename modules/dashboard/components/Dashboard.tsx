@@ -2,6 +2,7 @@ import PageHeading from "@/common/components/elements/PageHeading";
 import React, { FC } from "react";
 import Contributions from "./Contributions";
 import Breakline from "@/common/components/elements/Breakline";
+import CodingActive from "./CodingActive";
 
 const Dashboard: FC = () => {
   return (
@@ -13,7 +14,7 @@ const Dashboard: FC = () => {
 
       <Contributions />
       <Breakline className="mt-10 mb-8" />
-      <div>Coding Active</div>
+      <CodingActive />
     </>
   );
 };
