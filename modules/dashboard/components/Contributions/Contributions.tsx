@@ -6,8 +6,12 @@ import { BsGithub } from "react-icons/bs";
 import useSWR from "swr";
 
 const Contributions: FC = () => {
-  const { data } = useSWR("api/github", fetcher);
-  console.log(data.data.data.user);
+  const { data, error } = useSWR("api/github", fetcher);
+
+  const contributionCalendar =
+    data?.contributionsCollection?.contributionCalendar;
+
+  console.log(contributionCalendar);
 
   return (
     <div className="flex flex-col gap-y-2 ">
@@ -20,8 +24,8 @@ const Contributions: FC = () => {
 
       {true && (
         <div className="space-y-3">
-          <p>Overview</p>
-          <p>Calendar</p>
+          {/* <p>Overview</p>  separate it into component and send data = {contributionCalendar} */}
+          {/* <p>Calendar</p> data = {contributionCalendar} */}
         </div>
       )}
     </div>
