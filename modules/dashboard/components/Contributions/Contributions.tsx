@@ -4,6 +4,8 @@ import { fetcher } from "@/services/fetcher";
 import React, { FC } from "react";
 import { BsGithub } from "react-icons/bs";
 import useSWR from "swr";
+import Overview from "./Overview";
+import Calendar from "./Calendar";
 
 const Contributions: FC = () => {
   const { data, error } = useSWR("api/github", fetcher);
@@ -22,10 +24,12 @@ const Contributions: FC = () => {
         My Github Contributions from last year.
       </p>
 
-      {true && (
+      {!data && <div className="dark:text-neutral-400">No Data</div>}
+
+      {data && (
         <div className="space-y-3">
-          {/* <p>Overview</p>  separate it into component and send data = {contributionCalendar} */}
-          {/* <p>Calendar</p> data = {contributionCalendar} */}
+          <Overview data={contributionCalendar} />
+          <Calendar data={contributionCalendar} />
         </div>
       )}
     </div>

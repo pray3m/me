@@ -3,31 +3,33 @@ const read_user_token: string | undefined = process.env.GITHUB_READ_USER_TOKEN;
 
 const GITHUB_USER_ENDPOINT: string = "https://api.github.com/graphql";
 
-const GITHUB_USER_QUERY: string = `query {
-  user(login: "${user_id}") {
-    contributionsCollection {
-      contributionCalendar {
-        colors
-        totalContributions
-        months {
-          firstDay
-          name
-          totalWeeks
-        }
-        weeks {
-          contributionDays {
-            color
-            contributionCount
-            date
+const GITHUB_USER_QUERY: string = `
+  query {
+    user(login: "${user_id}") {
+      contributionsCollection {
+        contributionCalendar {
+          colors
+          totalContributions
+          months {
+            firstDay
+            name
+            totalWeeks
           }
-          firstDay
+          weeks {
+            contributionDays {
+              color
+              contributionCount
+              date
+            }
+            firstDay
+          }
         }
       }
     }
   }
-}`;
+`;
 
-export const GetGithubUser = async () => {
+export const getGithubUser = async () => {
   const response = await fetch(GITHUB_USER_ENDPOINT, {
     method: "POST",
     headers: {
