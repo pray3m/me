@@ -13,8 +13,6 @@ const Contributions: FC = () => {
   const contributionCalendar =
     data?.contributionsCollection?.contributionCalendar;
 
-  console.log(contributionCalendar);
-
   return (
     <div className="flex flex-col gap-y-2 ">
       <h2 className="flex items-center text-xl lg:text-xl font-medium gap-2">
