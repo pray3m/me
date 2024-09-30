@@ -1,9 +1,6 @@
 import Container from "@/common/components/elements/Container";
 import Dashboard from "@/modules/dashboard/components/Dashboard";
-import { GetGithubUser } from "@/services/github";
-import { Metadata, NextPage } from "next";
-import React from "react";
-import { SWRConfig } from "swr";
+import { Metadata } from "next";
 import { SWRProvider } from "../providers";
 
 export const metadata: Metadata = {
@@ -11,8 +8,6 @@ export const metadata: Metadata = {
 };
 
 const DashboardPage = () => {
-  // const { status, data: githubData } = GetGithubUser();
-
   return (
     <SWRProvider>
       <Container data-aos="fade-up">

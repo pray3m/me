@@ -3,6 +3,7 @@ import { FC } from "react";
 import Introduction from "./Introduction";
 import BlogPreview from "./BlogPreview";
 import Services from "./Services";
+import React from "react";
 
 const Home: FC = () => {
   return (
