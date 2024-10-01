@@ -1,22 +1,18 @@
 "use client";
 
-import { FC, useEffect } from "react";
-import Link from "next/link";
 import moment from "moment";
-import useSWR from "swr";
+import Link from "next/link";
+import { FC } from "react";
 import { SiWakatime as WakatimeIcon } from "react-icons/si";
+import useSWR from "swr";
 
-import Overview from "./Overview";
 import CodingActiveList from "./CodingActiveList";
+import Overview from "./Overview";
 
 import { fetcher } from "@/services/fetcher";
 
 const CodingActive: FC = () => {
   const { data } = useSWR("/api/wakatime", fetcher);
-
-  useEffect(() => {
-    document.title = "Weekly Statistics | Coding Active";
-  }, []);
 
   const formatLastUpdate = (): string => {
     const lastUpdate = moment(data?.last_update);
