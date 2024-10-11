@@ -10,7 +10,7 @@ const Container = ({ children, className = "", ...others }: Props) => {
   return (
     <div
       className={`
-    mt-20 lg:mt-0 p-8 ${className}
+    mt-20 mb-10 lg:mt-0 p-8 ${className}
     `}
       {...others}
     >

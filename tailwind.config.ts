@@ -13,8 +13,8 @@ const config: Config = {
         emoji: ["Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"],
       },
       colors: {
-        darkText: "#FFFFFF", //! darkText: "#E4E6B",
-        dark: "#171717",
+        darkText: "#EEEEEE", //! darkText: "#E4E6B",
+        dark: "#121212",
         light: "#fafafa",
       },
     },
