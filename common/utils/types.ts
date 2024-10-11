@@ -4,6 +4,7 @@ export interface MenuItemProps {
   name: string;
   href: string;
   icon: ReactNode;
+  visible: boolean;
 }
 
 export interface BlogItemProps {
