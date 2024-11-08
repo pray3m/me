@@ -19,15 +19,12 @@ const Introduction: FC = () => {
         </ul>
       </>
       <p className="leading-loose">
-        a dedicated full-stack developer with {currentYear - workStart} years of
-        professional experience and {currentYear - codingStart} years in web
-        development since {codingStart}. I excel in building dynamic and
-        responsive user interfaces using React.js and Next.js, and crafting
-        robust backend systems with Node.js, NestJS, MongoDB , MysQL via Prisma
-        ORM. Additionally, I am enhancing my DevOps expertise to ensure
-        efficient deployment and scalable, reliable applications. I&apos;m
-        committed to continuous learning and evolving as a well-rounded
-        developer.
+        I&apos;m a full-stack developer with {currentYear - workStart} year
+        experience and {currentYear - codingStart} year in web development. I
+        specialize in building responsive interfaces with React.js and Next.js,
+        and developing robust backends using Node.js, NestJS, MongoDB, and MySQL
+        via Prisma ORM. Currently expanding my DevOps skills to create scalable
+        and reliable applications. Committed to continuous learning and growth.
       </p>
     </div>
   );
