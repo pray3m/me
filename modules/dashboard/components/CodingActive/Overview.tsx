@@ -15,6 +15,7 @@ interface OverviewProps {
     };
     start_date?: string;
     end_date?: string;
+    range?: string;
   };
 }
 
@@ -24,18 +25,24 @@ const Overview: FC<OverviewProps> = ({ data }) => {
   const bestDay = data?.best_day?.text ?? "N/A";
   const allTimeSinceToday = data?.all_time_since_today?.text ?? "N/A";
 
+  const startDate = data?.start_date
+    ? moment(data.start_date).format("MMMM DD, YYYY")
+    : data?.range === "last_7_days"
+    ? moment().subtract(7, "days").format("MMMM DD, YYYY")
+    : "N/A";
+
+  const endDate = data?.end_date
+    ? moment(data.end_date).format("MMMM DD, YYYY")
+    : data?.range === "last_7_days"
+    ? moment().format("MMMM DD, YYYY")
+    : "N/A";
+
   return (
     <div className="mb-1 grid md:grid-cols-2 gap-3 py-2">
-      <OverviewItem
-        label="Start Date"
-        value={moment(data?.start_date).format("MMMM DD, YYYY")}
-      />
-      <OverviewItem
-        label="End Date"
-        value={moment(data?.end_date).format("MMMM DD, YYYY")}
-      />
+      <OverviewItem label="Start Date" value={startDate} />
+      <OverviewItem label="End Date" value={endDate} />
       <OverviewItem label="Daily Coding Average" value={dailyAverage} />
-      <OverviewItem label="This Week Coding Time" value={dailyTotal} />
+      <OverviewItem label="This Month Coding Time" value={dailyTotal} />
       <OverviewItem
         label="Best Day Coding Time"
         value={`${moment(data?.best_day?.date).format(

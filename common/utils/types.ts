@@ -55,6 +55,7 @@ export interface ReadStats {
   last_update: string;
   start_date: string;
   end_date: string;
+  range: string;
   categories: string[];
   best_day: BestDay;
   human_readable_daily_average: string;

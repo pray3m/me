@@ -14,10 +14,6 @@ const ALL_TIME_SINCE_TODAY =
   "https://wakatime.com/api/v1/users/current/all_time_since_today";
 const TOKEN_ENDPOINT = "https://wakatime.com/oauth/token";
 
-// Module-level cache variables
-let cachedAccessToken: string | null = null;
-let tokenExpiry: number | null = null; // Unix timestamp in seconds
-
 /**
  * Fetches a new access token using the refresh token.
  * Implements in-memory caching to reuse the token until it expires.
@@ -25,13 +21,6 @@ let tokenExpiry: number | null = null; // Unix timestamp in seconds
  */
 export const getAccessToken = async (): Promise<string> => {
   try {
-    const currentTime = Math.floor(Date.now() / 1000);
-
-    if (cachedAccessToken && tokenExpiry && currentTime < tokenExpiry) {
-      console.log("Using cached access token.");
-      return cachedAccessToken;
-    }
-
     const response = await fetch(TOKEN_ENDPOINT, {
       method: "POST",
       headers: {
@@ -54,25 +43,11 @@ export const getAccessToken = async (): Promise<string> => {
     const responseBody = await response.text();
     const params = new URLSearchParams(responseBody);
     const access_token = params.get("access_token")?.trim();
-    const expires_in = Number(params.get("expires_in"));
 
     if (!access_token) {
       console.error("Access token not found in the response.");
       throw new Error("Access token not found in the response.");
     }
-
-    if (expires_in && !isNaN(expires_in)) {
-      tokenExpiry = currentTime + expires_in - 60; // Subtract 60 seconds as a buffer
-    } else {
-      tokenExpiry = currentTime + 3600; // Default to 1 hour if expires_in is missing or invalid
-      console.warn(
-        "Expires_in not found or invalid. Setting default expiry of 1 hour."
-      );
-    }
-
-    // Cache the access token
-    cachedAccessToken = access_token;
-    console.log("Access token obtained and cached successfully.");
 
     return access_token;
   } catch (error) {
@@ -80,7 +55,6 @@ export const getAccessToken = async (): Promise<string> => {
     throw error;
   }
 };
-
 /**
  * Fetches read stats (last 7 days) from Wakatime.
  * @returns {Promise<WakatimeResponse>} The read stats data.
@@ -89,38 +63,57 @@ export const getReadStats = async (): Promise<WakatimeResponse> => {
   try {
     const access_token = await getAccessToken();
 
-    const request = await fetch(`${STATS_ENDPOINT}/last_7_days`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${access_token}`,
-      },
-    });
+    let responseData;
+    let isUpToDate = false;
+    let request;
+    let status = 500;
 
-    const status = request.status;
+    // Loop to retry fetching data until it's up-to-date
+    while (!isUpToDate) {
+      request = await fetch(`${STATS_ENDPOINT}/last_30_days`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
 
-    if (status >= 400) {
-      const errorText = await request.text();
-      console.error("Error fetching read stats:", errorText);
-      return { status, data: {} };
+      status = request.status;
+
+      if (status >= 400) {
+        const errorText = await request.text();
+        console.error("Error fetching read stats:", errorText);
+        return { status, data: {} };
+      }
+
+      responseData = await request.json();
+      isUpToDate = responseData?.data?.is_up_to_date;
+
+      // If data is not up to date, wait before retrying
+      if (!isUpToDate) {
+        console.log("Data is stale; retrying in 5 minutes...");
+        await new Promise((resolve) => setTimeout(resolve, 300000)); // wait 5 minutes
+      }
     }
 
-    const getData = await request.json();
+    console.log(responseData);
 
     const data: ReadStats = {
-      last_update: getData?.data?.modified_at,
-      start_date: getData?.data?.start,
-      end_date: getData?.data?.end,
-      categories: getData?.data?.categories,
+      last_update: responseData?.data?.modified_at,
+      start_date: responseData?.data?.start,
+      end_date: responseData?.data?.end,
+      range: responseData?.data?.range,
+      categories: responseData?.data?.categories,
       best_day: {
-        date: getData?.data?.best_day?.date,
-        text: getData?.data?.best_day?.text,
+        date: responseData?.data?.best_day?.date,
+        text: responseData?.data?.best_day?.text,
       },
       human_readable_daily_average:
-        getData?.data?.human_readable_daily_average_including_other_language,
+        responseData?.data
+          ?.human_readable_daily_average_including_other_language,
       human_readable_total:
-        getData?.data?.human_readable_total_including_other_language,
-      languages: getData?.data?.languages?.slice(0, 3) || [],
-      editors: getData?.data?.editors || [],
+        responseData?.data?.human_readable_total_including_other_language,
+      languages: responseData?.data?.languages?.slice(0, 3) || [],
+      editors: responseData?.data?.editors || [],
     };
 
     return {

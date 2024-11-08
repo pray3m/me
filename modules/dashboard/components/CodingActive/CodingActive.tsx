@@ -26,7 +26,7 @@ const CodingActive: FC = () => {
     <div className="flex flex-col gap-y-2">
       <h2 className="flex items-center gap-2 text-xl">
         <WakatimeIcon />
-        <span>Weekly Statistics</span>
+        <span>Monthly Statistics</span>
       </h2>
 
       <div className="flex flex-col justify-between gap-1 dark:text-neutral-400 md:flex-row md:items-center">
@@ -38,7 +38,7 @@ const CodingActive: FC = () => {
           >
             WakaTime
           </Link>
-          <span> last 7 days stats. </span>
+          <span> last 30 days stats. </span>
         </div>
         <div className="text-sm text-neutral-600 dark:text-neutral-500">
           Last update: <span>{formatLastUpdate()}</span>
