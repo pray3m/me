@@ -19,12 +19,14 @@ const Introduction: FC = () => {
         </ul>
       </>
       <p className="leading-loose">
-        a passionate web developer with {currentYear - workStart} years of
-        professional experience and a total of {currentYear - codingStart} years
-        in web development since {codingStart} .Proficient in React.js, Next.js,
-        and Tailwind CSS, I create interactive and responsive UIs. I also have
-        experience with Node.js and MongoDB using Prisma. I&apos;m eager to
-        deepen my backend knowledge and become a well-rounded full-stack
+        a dedicated full-stack developer with {currentYear - workStart} years of
+        professional experience and {currentYear - codingStart} years in web
+        development since {codingStart}. I excel in building dynamic and
+        responsive user interfaces using React.js and Next.js, and crafting
+        robust backend systems with Node.js, NestJS, MongoDB , MysQL via Prisma
+        ORM. Additionally, I am enhancing my DevOps expertise to ensure
+        efficient deployment and scalable, reliable applications. I&apos;m
+        committed to continuous learning and evolving as a well-rounded
         developer.
       </p>
     </div>
