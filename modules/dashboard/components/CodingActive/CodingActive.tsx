@@ -33,7 +33,7 @@ const CodingActive: FC = () => {
         <div>
           <span>My </span>
           <Link
-            href="https://wakatime.com/@aulianza"
+            href="https://wakatime.com/@pray3m"
             className="hover:text-neutral-900 hover:underline dark:hover:text-neutral-100"
           >
             WakaTime
