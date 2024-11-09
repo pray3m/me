@@ -2,6 +2,7 @@ import { CareerProps } from "@/common/utils/types";
 import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
+import { BsBuildings as CompanyIcon } from "react-icons/bs";
 
 const CareerCard: FC<CareerProps> = ({
   position,
@@ -16,11 +17,11 @@ const CareerCard: FC<CareerProps> = ({
   link,
 }) => {
   return (
-    <div>
+    <div className="flex items-center gap-5 py-4 px-5 border border-neutral-300 dark:border-neutral-700 rounded-xl transition-all duration-300">
       {logo ? (
         <Image src={logo} width={50} height={50} alt={company} />
       ) : (
-        <h2> COmpanyt</h2>
+        <CompanyIcon size={30} />
       )}
 
       <div>

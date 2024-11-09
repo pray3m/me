@@ -12,18 +12,6 @@ export const CAREERS = [
     link: "https://sirka.io",
   },
   {
-    position: "Sr. Frontend Engineer",
-    company: "Sirka.io",
-    logo: "/images/careers/sirka.png",
-    location: "Jakarta",
-    location_type: "Remote",
-    type: "Fulltime",
-    start_date: "2021-12",
-    end_date: "2022-03",
-    industry: "wellness",
-    link: "https://sirka.io",
-  },
-  {
     position: "Founder",
     company: "FlexCode",
     logo: "/images/careers/flexcode.png",
