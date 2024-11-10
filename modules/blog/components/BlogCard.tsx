@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "@/common/components/elements/Image";
+import useWindowSize from "@/common/hooks/use-window-size";
 import { BlogItemProps } from "@/common/utils/types";
-import Icon from "supercons";
+import moment from "moment";
 import Link from "next/link";
 import { FC } from "react";
-import useWindowSize from "@/common/hooks/use-window-size";
+import Icon from "supercons";
 
 const BlogCard: FC<BlogItemProps> = ({
   title,
@@ -39,7 +40,9 @@ const BlogCard: FC<BlogItemProps> = ({
           <div className="flex gap-5">
             <div className="flex gap-1 items-center dark:text-neutral-400">
               <Icon glyph="clock" size={16} />
-              <span className="text-xs">{date}</span>
+              <span className="text-xs">
+                {moment(date).format("DD MMM YYYY")}
+              </span>
             </div>
             <div className="flex gap-1 items-center dark:text-neutral-400">
               <Icon glyph="view" size={16} />

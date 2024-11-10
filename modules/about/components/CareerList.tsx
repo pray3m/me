@@ -6,7 +6,7 @@ import CareerCard from "./CareerCard";
 import { HiOutlineBriefcase as CareerIcon } from "react-icons/hi";
 
 const CareerList = () => {
-  const RESUME_URL = "https://www.linkedin.com/in/premgautam/";
+  const RESUME_URL = "https://www.linkedin.com/in/pray3m/";
 
   return (
     <div className="space-y-6">
