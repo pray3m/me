@@ -4,18 +4,18 @@ import React from "react";
 import { LuDownload } from "react-icons/lu";
 import CareerCard from "./CareerCard";
 import { HiOutlineBriefcase as CareerIcon } from "react-icons/hi";
+import SectionHeading from "@/common/components/elements/SectionHeading";
+import SectionSubHeading from "@/common/components/elements/SectionSubHeading";
 
 const CareerList = () => {
   const RESUME_URL = "https://www.linkedin.com/in/pray3m/";
 
   return (
-    <div className="space-y-6">
+    <section className="space-y-6">
       <div className="space-y-2">
-        <h2 className="flex text-xl items-center gap-2">
-          <CareerIcon />
-          <span>Career</span>
-        </h2>
-        <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-3">
+        <SectionHeading title="Career" icon={<CareerIcon className="mr-1" />} />
+
+        <SectionSubHeading>
           <p className="dark:text-neutral-400">
             My professional career journey
           </p>
@@ -27,7 +27,8 @@ const CareerList = () => {
           >
             <LuDownload /> <span>Download Resume</span>
           </Link>
-        </div>
+        </SectionSubHeading>
+
         <p className="text-orange-500">
           ⚠️ Not my real data (for development purpose only){" "}
           {/* TODO: Remove this */}
@@ -39,7 +40,7 @@ const CareerList = () => {
           <CareerCard key={index} {...career} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

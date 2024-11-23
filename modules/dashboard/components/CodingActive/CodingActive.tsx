@@ -10,6 +10,8 @@ import CodingActiveList from "./CodingActiveList";
 import Overview from "./Overview";
 
 import { fetcher } from "@/services/fetcher";
+import SectionHeading from "@/common/components/elements/SectionHeading";
+import SectionSubHeading from "@/common/components/elements/SectionSubHeading";
 
 const CodingActive: FC = () => {
   const { data } = useSWR("/api/wakatime", fetcher);
@@ -23,14 +25,14 @@ const CodingActive: FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-y-2">
-      <h2 className="flex items-center gap-2 text-xl">
-        <WakatimeIcon />
-        <span>Monthly Statistics</span>
-      </h2>
+    <section className="flex flex-col gap-y-2">
+      <SectionHeading
+        title="Monthly Statistics"
+        icon={<WakatimeIcon className="mr-1" />}
+      />
 
-      <div className="flex flex-col justify-between gap-1 dark:text-neutral-400 md:flex-row md:items-center">
-        <div>
+      <SectionSubHeading>
+        <div className="dark:text-neutral-400 md:flex-row md:items-center">
           <span>My </span>
           <Link
             href="https://wakatime.com/@pray3m"
@@ -38,16 +40,16 @@ const CodingActive: FC = () => {
           >
             WakaTime
           </Link>
-          <span> last 30 days stats. </span>
+          <span> last 30 days stats.</span>
         </div>
         <div className="text-sm text-neutral-600 dark:text-neutral-500">
           Last update: <span>{formatLastUpdate()}</span>
         </div>
-      </div>
+      </SectionSubHeading>
 
       <Overview data={data} />
       <CodingActiveList data={data} />
-    </div>
+    </section>
   );
 };
 

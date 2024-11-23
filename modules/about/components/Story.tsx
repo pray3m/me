@@ -3,7 +3,7 @@ import React, { FC } from "react";
 
 const Story: FC = () => {
   return (
-    <div
+    <section
       className="space-y-4 leading-loose text-justify dark:text-neutral-300"
       dangerouslySetInnerHTML={{ __html: ABOUT }}
     />

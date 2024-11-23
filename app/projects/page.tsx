@@ -1,22 +1,22 @@
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
-import Portfolio from "@/modules/portfolio/components/Portfolio";
+import Projects from "@/modules/projects/components/Projects";
 import { Metadata, NextPage } from "next";
 
 export const metadata: Metadata = {
-  title: "Portfolio - Prem Gautam",
+  title: "Projects - Prem Gautam",
 };
 
-const PortfolioPage: NextPage = () => {
+const ProjectsPage: NextPage = () => {
   return (
     <Container data-aos="fade-up">
       <PageHeading
-        title="Portfolio"
-        subtitle="Exploring my passion for technology, design, and problem-solving through code"
+        title="Projects"
+        subtitle="Showcasing my passion for technology, design, and problem-solving through code"
       />
-      <Portfolio />
+      <Projects />
     </Container>
   );
 };
 
-export default PortfolioPage;
+export default ProjectsPage;
