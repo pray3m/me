@@ -1,3 +1,4 @@
+import Card from "@/common/components/elements/Card";
 import { CareerProps } from "@/common/utils/types";
 import moment from "moment";
 import Image from "next/image";
@@ -31,7 +32,7 @@ const CareerCard: FC<CareerProps> = ({
   }
 
   return (
-    <div className="flex items-center gap-5 py-4 px-6 border border-neutral-300 dark:border-neutral-700 rounded-xl transition-all duration-300 ">
+    <Card className="flex items-center gap-5 py-4 px-6 border border-neutral-300 dark:border-neutral-800">
       {logo ? (
         <Image src={logo} width={50} height={50} alt={company} />
       ) : (
@@ -64,7 +65,7 @@ const CareerCard: FC<CareerProps> = ({
           </div>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

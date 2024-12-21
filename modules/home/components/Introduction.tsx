@@ -18,7 +18,7 @@ const Introduction: FC = () => {
           </li>
         </ul>
       </>
-      <p className="leading-loose">
+      <p className="leading-loose text-neutral-800 dark:text-neutral-300">
         I&apos;m a full-stack developer with {currentYear - workStart} year
         experience and {currentYear - codingStart} year in web development. I
         specialize in building responsive interfaces with React.js and Next.js,
