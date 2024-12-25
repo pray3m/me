@@ -59,11 +59,11 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       if (slider && slider.innerSlider && slider.innerSlider.list) {
         slider.innerSlider.list.removeEventListener(
           "mouseenter",
-          stopScrolling
+          stopScrolling,
         );
         slider.innerSlider.list.removeEventListener(
           "mouseleave",
-          startScrolling
+          startScrolling,
         );
       }
     };
@@ -82,6 +82,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   };
 
   return (
+    // @ts-ignore
     <Slider ref={sliderRef} {...settings} className="pt-5">
       {images?.map((image, index) => (
         <div key={index}>
