@@ -11,36 +11,32 @@ import useHasMounted from "@/common/hooks/use-has-mounted";
 
 const Sidebar = () => {
   const isMobile = useIsMobile();
-  const [isSticky, setIsSticky] = useState<boolean>(false);
+  // const [isSticky, setIsSticky] = useState<boolean>(false);
 
-  const hasMounted = useHasMounted();
+  // const hasMounted = useHasMounted();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sidebar = document.getElementById("sidebar");
-      if (sidebar) {
-        const { top } = sidebar.getBoundingClientRect();
-        setIsSticky(top <= 0);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const sidebar = document.getElementById("sidebar");
+  //     if (sidebar) {
+  //       const { top } = sidebar.getBoundingClientRect();
+  //       setIsSticky(top <= 0);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
-  if (!hasMounted) return null;
+  // if (!hasMounted) return null;
 
   return (
     <div
       id="sidebar"
-      className={clsx(
-        "sticky ",
-        isSticky && "lg:py-14 transition-all duration-300",
-        "top-0 z-10 flex flex-col m-0 lg:mt-6"
-      )}
+      className="sticky top-0 z-10 flex flex-col transition-all duration-300 lg:py-14"
     >
       <Profile />
       {!isMobile && (
