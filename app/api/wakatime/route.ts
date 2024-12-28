@@ -10,7 +10,7 @@ export async function GET() {
     const headers = new Headers();
     headers.set(
       "Cache-Control",
-      "public, s-maxage=60, stale-while-revalidate=30"
+      "public, s-maxage=60, stale-while-revalidate=30",
     );
 
     const data = {
@@ -22,7 +22,7 @@ export async function GET() {
   } catch (error) {
     return NextResponse.json(
       { message: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

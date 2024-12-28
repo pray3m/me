@@ -17,7 +17,7 @@ const Contributions: FC = () => {
     data?.contributionsCollection?.contributionCalendar;
 
   return (
-    <section className="flex flex-col gap-y-2 ">
+    <section className="flex flex-col gap-y-2">
       <SectionHeading
         title="Contributions"
         icon={<BsGithub className="mr-1" />}
@@ -31,7 +31,7 @@ const Contributions: FC = () => {
           href={`https://github.com/pray3m`}
           target="_blank"
           passHref
-          className="text-sm font-mono text-neutral-400 dark:text-neutral-600 hover:text-netral-700 dark:hover:text-neutral-400"
+          className="hover:text-netral-700 font-mono text-sm text-neutral-400 dark:text-neutral-600 dark:hover:text-neutral-400"
         >
           @pray3m
         </Link>

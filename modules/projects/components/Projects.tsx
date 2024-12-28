@@ -46,7 +46,7 @@ const PROJECTS: ProjectItemProps[] = [
 
 const Projects: FC = () => {
   return (
-    <div className="grid sm:grid-cols-2 gap-5 pt-2">
+    <div className="grid gap-5 pt-2 sm:grid-cols-2">
       {PROJECTS?.map((project: ProjectItemProps, index: number) => (
         <ProjectCard key={index} {...project} />
       ))}
