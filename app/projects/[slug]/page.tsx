@@ -1,21 +1,27 @@
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
-import { Metadata } from "next";
+import { PROJECTS } from "@/data/projects";
+import ProjectDetail from "@/modules/projects/components/ProjectDetail";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  const { slug } = params;
-  return {
-    title: `Projects Details - ${slug}`,
-    description: `Details about project: ${slug}. Showcasing my passion for technology, design, and problem-solving through code.`,
-  };
+export async function generateStaticParams() {
+  return PROJECTS.map((project) => ({
+    slug: project.slug,
+  }));
 }
 
 const ProjectsDetailPage = ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
+  const project = PROJECTS.find((p) => p.slug === params.slug);
+
+  if (!project) {
+    return (
+      <Container>
+        <PageHeading
+          title="Project Not Found"
+          subtitle="Please check the URL."
+        />
+      </Container>
+    );
+  }
 
   return (
     <>
@@ -25,7 +31,7 @@ const ProjectsDetailPage = ({ params }: { params: { slug: string } }) => {
           subtitle="Showcasing my passion for technology, design, and problem-solving through code."
         />
 
-        <div>Details of the project: {slug}</div>
+        <ProjectDetail {...project} />
       </Container>
     </>
   );
