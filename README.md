@@ -2,6 +2,12 @@
 
 This is the source code for my personal website. It is built using Next.js and Tailwind CSS.
 
+## FOCUS TASKS
+
+- [x] feat: add skeleton (may 31 2023)
+- [ ] fix: remove unnecessary files
+- [ ] feat: project detail page (may 31 2023)
+
 ## Getting Started
 
 First, run the development server:
@@ -16,7 +22,7 @@ yarn dev
 
 This project is deployed on Vercel. Any push to the `main` branch will trigger a deployment.
 
-### TODO:
+### TODO LATER:
 
 - [ ] Integrate projects api (may 30 2023)
 - [ ] Integrate prisma client (may 31 2023)

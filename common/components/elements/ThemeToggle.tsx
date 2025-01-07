@@ -21,11 +21,11 @@ const ThemeToggle: FC = () => {
   return (
     <button
       onClick={handleToggle}
-      className="flex items-center gap-2 py-2 px-3 w-full lg:hover:dark:bg-zinc-800 lg:hover:bg-gray-200 lg:hover:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 "
+      className="flex w-full items-center gap-2 px-3 py-2 text-neutral-700 hover:text-neutral-900 dark:text-neutral-400 hover:dark:text-neutral-300 lg:transition-all lg:duration-300 lg:hover:scale-105 lg:hover:rounded-lg lg:hover:bg-gray-200 lg:hover:dark:bg-zinc-800"
     >
       <Icon glyph={isDarkMode ? "idea" : "moon-fill"} size={22} />
       <div className="flex lg:text-sm">
-        <span className="hidden xl:block xl:mr-1">{switchText}</span>
+        <span className="hidden xl:mr-1 xl:block">{switchText}</span>
         {isDarkMode ? "Light Mode" : "Dark Mode"}
       </div>
     </button>

@@ -10,6 +10,7 @@ export const PROJECTS: Project[] = [
     link_github: "https://github.com/pray3m/freelanceX",
 
     stacks: ["Next.js", "Node.js", "Prisma ORM"],
+    is_visible: true,
   },
   {
     title: "orbitcollege",
@@ -21,6 +22,7 @@ export const PROJECTS: Project[] = [
     link_demo: "https://orbitcollege.vercel.app",
     link_github: "https://github.com/pray3m/orbitcollege",
     stacks: ["React", "Tailwind CSS", "Firebase"],
+    is_visible: true,
   },
   {
     title: "pray3m.dev",
@@ -32,5 +34,6 @@ export const PROJECTS: Project[] = [
     link_demo: "https://pray3m.dev",
     link_github: "https://github.com/pray3m/portfolio",
     stacks: ["Next.js", "Tailwind CSS", "TypeScript"],
+    is_visible: false,
   },
 ];
