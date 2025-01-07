@@ -1,3 +1,4 @@
+import BackButton from "@/common/components/elements/BackButton";
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import { PROJECTS } from "@/data/projects";
@@ -26,6 +27,7 @@ const ProjectsDetailPage = ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <Container data-aos="fade-up">
+        <BackButton url="/projects" />
         <PageHeading
           title="Projects Details"
           subtitle="Showcasing my passion for technology, design, and problem-solving through code."

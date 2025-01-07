@@ -2,7 +2,7 @@
 
 import Button from "@/common/components/elements/Button";
 import React, { FC, ReactNode } from "react";
-import { AiOutlineWhatsApp as WhatsAppIcon } from "react-icons/ai";
+import { FaTelegramPlane as TelegramIcon } from "react-icons/fa";
 import { HiOutlineMail as EmailIcon } from "react-icons/hi";
 
 const CONTACTS = [
@@ -13,8 +13,8 @@ const CONTACTS = [
   },
   {
     title: "(+977) 9869933353",
-    icon: <WhatsAppIcon size={18} />,
-    link: "https://wa.me/9869933353",
+    icon: <TelegramIcon size={18} />,
+    link: "https://t.me/onlyprems",
   },
 ];
 
@@ -31,7 +31,7 @@ const Contact: FC = () => {
     <section className="space-y-5">
       <p>
         You can reach out to me directly by sending an email, texting on
-        WhatsApp, or connecting on social media.
+        Telegram, or connecting on social media.
       </p>
       <div className="flex gap-3">
         {CONTACTS.map((contact: ContactProps, index: number) => (
