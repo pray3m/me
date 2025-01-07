@@ -31,7 +31,7 @@ const ProjectCard: FC<Project> = ({
           <p className="text-[15px] leading-relaxed text-neutral-700 dark:text-neutral-400">
             {description}
           </p>
-          <div className="flex gap-2 pt-2">
+          <div className="flex flex-wrap gap-2 pt-2">
             {stacks?.map((stack, index) => (
               <span
                 key={index}

@@ -17,17 +17,19 @@ const ProjectDetail: FC<Project> = ({
   return (
     <div className="space-y-8">
       <div className="flex flex-col justify-between gap-5 sm:flex-row">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <span className="text-base">Tech Stack: </span>
 
-          {stacksArray?.map((stack: string, index: number) => (
-            <span
-              key={index}
-              className="rounded-full bg-neutral-200 px-3 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-700 dark:text-neutral-400"
-            >
-              {stack}
-            </span>
-          ))}
+          <div className="flex flex-grow gap-2">
+            {stacksArray?.map((stack: string, index: number) => (
+              <span
+                key={index}
+                className="rounded-full bg-neutral-200 px-3 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-700 dark:text-neutral-400"
+              >
+                {stack}
+              </span>
+            ))}
+          </div>
         </div>
         <ProjectLink link_demo={link_demo} link_github={link_github} />
       </div>
