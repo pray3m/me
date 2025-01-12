@@ -34,6 +34,6 @@ export const PROJECTS: Project[] = [
     link_demo: "https://pray3m.dev",
     link_github: "https://github.com/pray3m/portfolio",
     stacks: ["Next.js", "Tailwind CSS", "TypeScript"],
-    is_visible: false,
+    is_visible: true,
   },
 ];

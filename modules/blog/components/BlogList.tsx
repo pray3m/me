@@ -35,9 +35,13 @@ const BLOG_DATA = [
   },
 ];
 
+// if (!isLoading && blogData.length === 0) {
+//   return <EmptyState message="No Data" />;
+// }
+
 const BlogList: FC = () => {
   return (
-    <div className="flex flex-col sm:gap-4 gap-6">
+    <div className="flex flex-col gap-6 sm:gap-4">
       {BLOG_DATA?.map((item: BlogItemProps, index: number) => (
         <BlogCard key={index} {...item} />
       ))}

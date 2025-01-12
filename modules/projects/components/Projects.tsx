@@ -4,6 +4,7 @@ import { PROJECTS } from "@/data/projects";
 import { FC, useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import ProductCardSkeleton from "@/common/components/skeleton/ProductCardSkeleton";
+import EmptyState from "@/common/components/elements/EmptyState";
 
 const Projects: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -17,6 +18,10 @@ const Projects: FC = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  if (!isLoading && filteredProjects.length === 0) {
+    return <EmptyState message="No Data" />;
+  }
 
   return (
     <div className="grid gap-5 pt-2 sm:grid-cols-2">

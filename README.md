@@ -6,7 +6,6 @@ This is the source code for my personal website. It is built using Next.js and T
 
 - [x] feat: add skeleton
 - [x] feat: project detail page
-- [ ] feat: integrate blog (may 31 2023)
 - [ ] fix: add empty state (may 31 2023)
 
 ## Getting Started
@@ -29,3 +28,8 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 - [ ] Integrate prisma client (may 31 2023)
 - [ ] update prisma db (may 31 2023) to init project detail (may 31 2023)
 - [ ] feat: add favicon for different devices (may 31 2023)
+
+## FOR BLOGS (NOT SURE)
+
+- [ ] feat: integrate blog (may 31 2023)
+- [ ]
