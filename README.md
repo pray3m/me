@@ -32,4 +32,5 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 ## FOR BLOGS (NOT SURE)
 
 - [ ] feat: integrate blog (may 31 2023)
-- [ ]
+- [ ] feat: add pagination (Jun 1 2023)
+- [ ] feat: blog detail to add loading state (Jun 1 2023)

@@ -12,7 +12,7 @@ const CONTACTS = [
     link: "mailto:prem.gtm9@gmail.com",
   },
   {
-    title: "(+977) 9869933353",
+    title: "@onlyprems",
     icon: <TelegramIcon size={18} />,
     link: "https://t.me/onlyprems",
   },

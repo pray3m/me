@@ -4,8 +4,7 @@ export const PROJECTS: Project[] = [
     slug: "freelanceX",
     description:
       "Freelance Marketplace built with Next.js, Tailwind CSS, Node.js, Prisma, and MongoDB. Developed as a 4th-semester BCA project.",
-    image:
-      "https://repository-images.githubusercontent.com/123456789/abc123def456gh789ijk012lmn345opq678rstuv901wxyz234",
+    image: "/images/projects/freelancex.png",
     link_demo: "https://freelancex.vercel.app",
     link_github: "https://github.com/pray3m/freelanceX",
 
@@ -17,8 +16,7 @@ export const PROJECTS: Project[] = [
     slug: "orbitcollege",
     description:
       "A modern education platform built with React, Tailwind CSS, and Firebase, providing online courses and learning management.",
-    image:
-      "https://repository-images.githubusercontent.com/987654321/zyx987wvu654tsr321qpo098nml765kji432hgf210edcba543",
+    image: "/images/projects/orbit-college.png",
     link_demo: "https://orbitcollege.vercel.app",
     link_github: "https://github.com/pray3m/orbitcollege",
     stacks: ["React", "Tailwind CSS", "Firebase"],

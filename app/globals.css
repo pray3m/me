@@ -27,6 +27,11 @@ html {
   background-color: var(--color-light);
   color: rgb(var(--color-dark));
 
+  #nprogress .bar {
+    background: #15b8a6 !important;
+    height: 4px !important;
+  }
+
   ::-webkit-scrollbar {
     @apply w-1;
   }
