@@ -16,8 +16,8 @@ const MenuItem: FC<MenuItemProps> = ({ name, icon, href }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const activeClasses = isActive
-    ? "bg-gray-200 rounded-lg dark:bg-zinc-800 "
-    : "hover:dark:bg-zinc-800 md:hover:bg-gray-200 md:hover:rounded-lg md:hover:scale-105 lg:transition-all lg:duration-300 text-neutral-900 dark:!text-netral-300";
+    ? "bg-gray-200 rounded-lg dark:bg-neutral-800 "
+    : "hover:dark:bg-neutral-800 md:hover:bg-gray-200 md:hover:rounded-lg md:hover:scale-105 lg:transition-all lg:duration-300 text-neutral-900 dark:!text-netral-300";
 
   const handleClick = () => {
     hideNavbar();
@@ -34,7 +34,7 @@ const MenuItem: FC<MenuItemProps> = ({ name, icon, href }) => {
   return (
     <Link href={href} target={targetUrl} onClick={handleClick}>
       <div
-        className={`flex items-center gap-2 py-2 px-3 font-medium text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 ${activeClasses} `}
+        className={`flex items-center gap-2 px-3 py-2 font-medium text-neutral-700 hover:text-neutral-900 dark:text-neutral-400 hover:dark:text-neutral-300 ${activeClasses} `}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -45,7 +45,7 @@ const MenuItem: FC<MenuItemProps> = ({ name, icon, href }) => {
           <Icon
             glyph="external"
             size={22}
-            className="text-gray-500 -rotate-45 lg:transition-all lg:duration-300  "
+            className="-rotate-45 text-gray-500 lg:transition-all lg:duration-300"
           />
         )}
       </div>

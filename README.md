@@ -1,12 +1,23 @@
-# premgautam.me
+<div align="center">
+  <h1>premgautam.me</h1>
+  <p>🔥 Personal website built with Next.js, TypeScript, Tailwind CSS, SWR and Prisma with Vercel Postgres</p>
+</div>
 
-This is the source code for my personal website. It is built using Next.js and Tailwind CSS.
+<br />
+
+## Introduction
+
+This website was built from scratch using Next.js and was first initialized in April 2024. It will undergo regular updates and serve as both a valuable learning resource and a platform for me to share my knowledge.
+
+## Features
+
+On this website there are several features that will continue to be updated and added in the future.
 
 ## FOCUS TASKS
 
-- [x] feat: add skeleton
-- [x] feat: project detail page
-- [ ] fix: add empty state (may 31 2023)
+- [ ] fix: back button (jun 2 2023)
+- [ ] feat: integrate comment system (jun 2 2023)
+- [ ] fix : linter, prettier , blog , eslint (jun 2 2023)
 
 ## Getting Started
 
@@ -34,3 +45,6 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 - [ ] feat: integrate blog (may 31 2023)
 - [ ] feat: add pagination (Jun 1 2023)
 - [ ] feat: blog detail to add loading state (Jun 1 2023)
+- [ ] fix: improve ssr (Jun 1 2023) to fix: remove styled emotion library (Jun 1 2023)
+- [ ] feat: integrate comment system (Jun 2 2023)
+- [ ] feat: add blog tags (Jun 2 2023)
