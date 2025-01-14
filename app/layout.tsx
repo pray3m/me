@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ProvidersSandwich } from "./providers";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body className="bg-light dark:bg-dark">
         <ProvidersSandwich>
           <Layout>{children}</Layout>
+          <Analytics />
         </ProvidersSandwich>
       </body>
     </html>
