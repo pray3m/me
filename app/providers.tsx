@@ -1,7 +1,6 @@
 "use client";
 
-import theme from "@/common/styles/fonts";
-import { ChakraProvider } from "@chakra-ui/react";
+import { AOSInit } from "@/common/utils/aos";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { ThemeProvider } from "next-themes";
 import { SWRConfig } from "swr";
@@ -9,7 +8,8 @@ import { SWRConfig } from "swr";
 export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <ChakraProvider theme={theme}>
+      <SWRConfig>
+        <AOSInit />
         {children}
         <ProgressBar
           height="4px"
@@ -17,12 +17,7 @@ export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
           options={{ showSpinner: false }}
           shallowRouting
         />
-      </ChakraProvider>
-      ;
+      </SWRConfig>
     </ThemeProvider>
   );
 }
-
-export const SWRProvider = ({ children }: { children: React.ReactNode }) => {
-  return <SWRConfig>{children}</SWRConfig>;
-};

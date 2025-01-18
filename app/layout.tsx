@@ -1,12 +1,16 @@
 import Layout from "@/common/components/layouts";
-import { AOSInit } from "@/common/utils/aos";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ProvidersSandwich } from "./providers";
-import { Analytics } from "@vercel/analytics/react";
 
-const inter = Inter({ subsets: ["latin"] });
+const jakartaSans = Plus_Jakarta_Sans({
+  variable: "--jakartaSans-font",
+  subsets: ["latin"],
+  display: "fallback",
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   title: "Prem Gautam - Full Stack Developer | Tech Enthusiast",
@@ -54,8 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <AOSInit />
+    <html lang="en" className={jakartaSans.className} suppressHydrationWarning>
       <body className="bg-light dark:bg-dark">
         <ProvidersSandwich>
           <Layout>{children}</Layout>
