@@ -20,7 +20,7 @@ const ProjectCard: FC<Project> = ({
           width={400}
           height={200}
           alt={title}
-          className="h-48 rounded-t-xl object-cover"
+          className="h-48 rounded-t-xl object-cover object-top"
         />
         <div className="space-y-2 p-5">
           <div className="flex justify-between">

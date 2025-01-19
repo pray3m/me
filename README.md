@@ -16,7 +16,7 @@ On this website there are several features that will continue to be updated and 
 ## FOCUS TASKS
 
 - [x] fix: back button (jun 2 2023)
-- [ ] fix : linter, prettier , blog , eslint (jun 2 2023)
+- [x] fix : linter, prettier , blog , eslint (jun 2 2023)
 
 ## Getting Started
 
@@ -47,3 +47,4 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 - [ ] fix: improve ssr (Jun 1 2023) to fix: remove styled emotion library (Jun 1 2023)
 - [ ] feat: integrate comment system (Jun 2 2023)
 - [ ] feat: add blog tags (Jun 2 2023) && fix : blog
+- [ ] chore: add prisma migration (Jun 3 2023)
