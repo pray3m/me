@@ -15,8 +15,7 @@ On this website there are several features that will continue to be updated and 
 
 ## FOCUS TASKS
 
-- [ ] fix: back button (jun 2 2023)
-- [ ] feat: integrate comment system (jun 2 2023)
+- [x] fix: back button (jun 2 2023)
 - [ ] fix : linter, prettier , blog , eslint (jun 2 2023)
 
 ## Getting Started
@@ -47,4 +46,4 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 - [ ] feat: blog detail to add loading state (Jun 1 2023)
 - [ ] fix: improve ssr (Jun 1 2023) to fix: remove styled emotion library (Jun 1 2023)
 - [ ] feat: integrate comment system (Jun 2 2023)
-- [ ] feat: add blog tags (Jun 2 2023)
+- [ ] feat: add blog tags (Jun 2 2023) && fix : blog
