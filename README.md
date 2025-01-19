@@ -17,6 +17,8 @@ On this website there are several features that will continue to be updated and 
 
 - [x] fix: back button (jun 2 2023)
 - [x] fix : linter, prettier , blog , eslint (jun 2 2023)
+- [ ] feat: add clsxm lib / tailwind merge (jun 6)
+- [ ] feat: add ornament/ add bg-gradient
 
 ## Getting Started
 
@@ -38,6 +40,7 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 - [ ] Integrate prisma client (may 31 2023)
 - [ ] update prisma db (may 31 2023) to init project detail (may 31 2023)
 - [ ] feat: add favicon for different devices (may 31 2023)
+- [ ] chore: add prisma migration (Jun 3 2023)
 
 ## FOR BLOGS (NOT SURE)
 
@@ -47,4 +50,6 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 - [ ] fix: improve ssr (Jun 1 2023) to fix: remove styled emotion library (Jun 1 2023)
 - [ ] feat: integrate comment system (Jun 2 2023)
 - [ ] feat: add blog tags (Jun 2 2023) && fix : blog
-- [ ] chore: add prisma migration (Jun 3 2023)
+- [ ] All Commits on Jun 5, 2023
+- [ ] fix: blog card and params #8
+- [ ] fix: codeblock dynamic import #11

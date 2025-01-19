@@ -59,6 +59,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={jakartaSans.className} suppressHydrationWarning>
+      <head>
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="41fe1939-48a0-42dc-b7df-0399def615f2"
+        ></script>
+      </head>
       <body className="bg-light dark:bg-dark">
         <ProvidersSandwich>
           <Layout>{children}</Layout>
