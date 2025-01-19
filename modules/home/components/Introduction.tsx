@@ -7,11 +7,11 @@ const Introduction: FC = () => {
 
   return (
     <div className="space-y-5">
-      <h2 className="text-2xl lg:text-3xl font-semibold">
+      <h2 className="text-2xl font-semibold lg:text-3xl">
         Hey, I&apos;m Prem 👋
       </h2>
       <>
-        <ul className="flex flex-col lg:flex-row gap-1 lg:gap-8 ml-5 list-disc text-neutral-700 dark:text-neutral-400">
+        <ul className="ml-5 flex list-disc flex-col gap-1 text-neutral-700 dark:text-neutral-400 lg:flex-row lg:gap-8">
           <li>life-long learner</li>
           <li>
             Based in Butwal , Nepal <span className="ml-1">🇳🇵</span>

@@ -41,14 +41,14 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
     data?.months?.map((month: Month) => {
       const filterContributionDay = weeks
         .filter(
-          (week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7)
+          (week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7),
         )
         .map((item) => item.contributionDays)
         .flat(1);
       const getContributionsByMonth = filterContributionDay.reduce(
         (previousValue, currentValue) =>
           previousValue + currentValue.contributionCount,
-        0
+        0,
       );
 
       return {
@@ -144,7 +144,7 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
         <div
           className={clsx(
             `${selectContribution?.date ? "opacity-100" : "opacity-0"}`,
-            "rounded bg-neutral-200 px-2 text-sm dark:bg-neutral-700"
+            "rounded bg-neutral-200 px-2 text-sm dark:bg-neutral-700",
           )}
         >
           {selectContribution?.count} contributions on{" "}

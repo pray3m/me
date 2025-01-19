@@ -12,8 +12,8 @@ const ProfileHeader: FC<ProfileHeaderProps> = ({ expandMenu, imageSize }) => {
   return (
     <div
       className={clsx(
-        "flex  gap-4 flex-grow lg:flex-col",
-        expandMenu ? "flex-col !items-start" : "items-center"
+        "flex flex-grow gap-4 lg:flex-col",
+        expandMenu ? "flex-col !items-start" : "items-center",
       )}
     >
       <Image
@@ -24,7 +24,7 @@ const ProfileHeader: FC<ProfileHeaderProps> = ({ expandMenu, imageSize }) => {
         rounded="rounded-full"
       />
       <Link href="/" passHref>
-        <h1 className="flex-grow text-lg lg:text-xl font-medium">
+        <h1 className="flex-grow text-lg font-medium lg:text-xl">
           Prem Gautam
         </h1>
       </Link>

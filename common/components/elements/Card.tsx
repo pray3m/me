@@ -9,7 +9,7 @@ interface CardProps {
 const Card: FC<CardProps> = ({ children, className = "", ...others }) => {
   return (
     <div
-      className={` rounded-xl transition-all duration-300 shadow-sm lg:hover:shadow-md dark:bg-neutral-800   ${className}`}
+      className={`rounded-xl shadow-sm transition-all duration-300 dark:bg-neutral-800 lg:hover:shadow-md ${className}`}
       {...others}
     >
       {children}

@@ -28,11 +28,11 @@ const Profile: FC = () => {
     <MenuContext.Provider value={{ hideNavbar }}>
       <div
         className={clsx(
-          "z-10 absolute bg-light shadow-sm xl:shadow-none lg:border-none dark:border-b dark:border-neutral-800 dark:bg-dark w-full p-5 lg:relative lg:p-0",
-          expandMenu && "pb-0"
+          "absolute z-10 w-full bg-light p-5 shadow-sm dark:border-b dark:border-neutral-800 dark:bg-dark lg:relative lg:border-none lg:p-0 xl:shadow-none",
+          expandMenu && "pb-0",
         )}
       >
-        <div className="flex items-center lg:items-start justify-between lg:flex-col lg:space-y-3">
+        <div className="flex items-center justify-between lg:flex-col lg:items-start lg:space-y-3">
           <ProfileHeader expandMenu={expandMenu} imageSize={imageSize} />
           {!isMobile && <Status />}
           {isMobile && (

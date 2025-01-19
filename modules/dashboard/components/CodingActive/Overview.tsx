@@ -28,17 +28,17 @@ const Overview: FC<OverviewProps> = ({ data }) => {
   const startDate = data?.start_date
     ? moment(data.start_date).format("MMMM DD, YYYY")
     : data?.range === "last_7_days"
-    ? moment().subtract(7, "days").format("MMMM DD, YYYY")
-    : "N/A";
+      ? moment().subtract(7, "days").format("MMMM DD, YYYY")
+      : "N/A";
 
   const endDate = data?.end_date
     ? moment(data.end_date).format("MMMM DD, YYYY")
     : data?.range === "last_7_days"
-    ? moment().format("MMMM DD, YYYY")
-    : "N/A";
+      ? moment().format("MMMM DD, YYYY")
+      : "N/A";
 
   return (
-    <div className="mb-1 grid md:grid-cols-2 gap-3 py-2">
+    <div className="mb-1 grid gap-3 py-2 md:grid-cols-2">
       <OverviewItem label="Start Date" value={startDate} />
       <OverviewItem label="End Date" value={endDate} />
       <OverviewItem label="Daily Coding Average" value={dailyAverage} />
@@ -46,7 +46,7 @@ const Overview: FC<OverviewProps> = ({ data }) => {
       <OverviewItem
         label="Best Day Coding Time"
         value={`${moment(data?.best_day?.date).format(
-          "MMMM DD, YYYY"
+          "MMMM DD, YYYY",
         )} (${bestDay})`}
       />
       <OverviewItem label="All Time Since Today" value={allTimeSinceToday} />

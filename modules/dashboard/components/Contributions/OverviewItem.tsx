@@ -8,11 +8,11 @@ interface OverviewItemProps {
 }
 
 const OverviewItem: FC<OverviewItemProps> = ({ label, value, unit = "" }) => (
-  <div className=" flex flex-col rounded-xl bg-neutral-100 py-3 self-center px-4 dark:bg-neutral-800">
+  <div className="flex flex-col self-center rounded-xl bg-neutral-100 px-4 py-3 dark:bg-neutral-800">
     <span className="text-sm dark:text-neutral-400">{label}</span>
     <div>
       <AnimateCounter
-        className="text-xl lg:text-2xl font-medium text-green-600"
+        className="text-xl font-medium text-green-600 lg:text-2xl"
         total={value}
       />
       {unit && <span className="text-sm dark:text-neutral-400">{unit}</span>}

@@ -7,7 +7,7 @@ const Dashboard: FC = () => {
   return (
     <>
       <Contributions />
-      <Breakline className="mt-10 mb-8" />
+      <Breakline className="mb-8 mt-10" />
       <CodingActive />
     </>
   );

@@ -23,7 +23,7 @@ const CareerList = () => {
             href={RESUME_URL}
             passHref
             target="_blank"
-            className="flex gap-2 hover:gap-3 transition-all duration-300 items-center text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 hover:dark:text-neutral-300"
+            className="flex items-center gap-2 text-neutral-600 transition-all duration-300 hover:gap-3 hover:text-neutral-700 dark:text-neutral-500 hover:dark:text-neutral-300"
           >
             <LuDownload /> <span>Download Resume</span>
           </Link>
@@ -35,7 +35,7 @@ const CareerList = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-3 md:gap-4">
+      <div className="grid gap-3 md:grid-cols-2 md:gap-4">
         {CAREERS.map((career, index) => (
           <CareerCard key={index} {...career} />
         ))}

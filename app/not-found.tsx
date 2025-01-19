@@ -4,10 +4,10 @@ import { NextPage } from "next";
 const NotFoundPage: NextPage = () => {
   return (
     <Container
-      className="flex flex-col h-full justify-center items-center"
+      className="flex h-full flex-col items-center justify-center"
       data-aos="fade-up"
     >
-      <h2 className="text-xl lg:text-2xl animate-pulse">
+      <h2 className="animate-pulse text-xl lg:text-2xl">
         Whoops, there doesn&apos;t seem to be anything here!
       </h2>
     </Container>

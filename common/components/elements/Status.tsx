@@ -5,7 +5,7 @@ const Status: FC = () => {
   return (
     <div className="flex items-center gap-2 pb-2">
       <motion.div
-        className="h-2 w-2 bg-green-600 rounded-full"
+        className="h-2 w-2 rounded-full bg-green-600"
         animate={{
           scale: [1, 1.2, 1],
         }}
@@ -14,7 +14,7 @@ const Status: FC = () => {
           repeat: Infinity,
         }}
       />
-      <span className="font-medium text-sm animate-pulse">
+      <span className="animate-pulse text-sm font-medium">
         Available for hire
       </span>
     </div>

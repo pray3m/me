@@ -24,7 +24,7 @@ const BlogCard: FC<BlogItemProps> = ({
 
   return (
     <Link href={`blog/${slug}`}>
-      <Card className="flex flex-col sm:flex-row gap-6 sm:p-5 cursor-pointer border border-neutral-300 dark:border-neutral-800 lg:hover:scale-[102%]">
+      <Card className="flex cursor-pointer flex-col gap-6 border border-neutral-300 dark:border-neutral-800 sm:flex-row sm:p-5 lg:hover:scale-[102%]">
         <div className="w-fit">
           <Image
             src={image}
@@ -34,24 +34,24 @@ const BlogCard: FC<BlogItemProps> = ({
             className="rounded-t-xl sm:rounded-xl"
           />
         </div>
-        <div className="flex flex-col w-full sm:w-4/5 flex-grow space-y-2 px-5 sm:p-0 mb-5 sm:mb-0 ">
-          <h3 className="md:text-[17px] font-medium text-neutral-700 dark:text-neutral-200 lg:hover:text-sky-800 dark:hover:text-neutral-50 ">
+        <div className="mb-5 flex w-full flex-grow flex-col space-y-2 px-5 sm:mb-0 sm:w-4/5 sm:p-0">
+          <h3 className="font-medium text-neutral-700 dark:text-neutral-200 dark:hover:text-neutral-50 md:text-[17px] lg:hover:text-sky-800">
             {title}
           </h3>
           <div className="flex gap-5">
-            <div className="flex gap-1 items-center dark:text-neutral-400">
+            <div className="flex items-center gap-1 dark:text-neutral-400">
               <Icon glyph="clock" size={16} />
               <span className="text-xs">
                 {moment(date).format("DD MMM YYYY")}
               </span>
             </div>
-            <div className="flex gap-1 items-center dark:text-neutral-400">
+            <div className="flex items-center gap-1 dark:text-neutral-400">
               <Icon glyph="view" size={16} />
               <span className="text-xs">{views}</span>
               <span className="text-xs">views</span>
             </div>
           </div>
-          <p className="hidden sm:block leading-relaxed text-sm text-neutral-600 dark:text-neutral-400">
+          <p className="hidden text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 sm:block">
             {trimmedContent}
           </p>
         </div>
