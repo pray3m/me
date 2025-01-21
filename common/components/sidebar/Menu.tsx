@@ -1,7 +1,6 @@
 import { MenuItemProps } from "@/common/lib/types";
 import { FC } from "react";
 import MenuItem from "./MenuItem";
-import { title } from "process";
 
 interface MenuProps {
   title?: string;

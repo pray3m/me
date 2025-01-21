@@ -2,7 +2,6 @@
 
 import { MenuContext } from "@/common/context/MenuContext";
 import useIsMobile from "@/common/hooks/use-is-mobile";
-import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
 import { FC, useState } from "react";
 import Status from "../elements/Status";
@@ -10,6 +9,7 @@ import MobileMenu from "./MobileMenu";
 import MobileMenuButton from "./MobileMenuButton";
 import ProfileHeader from "./ProfileHeader";
 import useHasMounted from "@/common/hooks/use-has-mounted";
+import { cn } from "@/common/lib/utils";
 
 const Profile: FC = () => {
   const isMobile = useIsMobile();
@@ -27,8 +27,8 @@ const Profile: FC = () => {
   return (
     <MenuContext.Provider value={{ hideNavbar }}>
       <div
-        className={clsx(
-          "absolute z-10 w-full bg-light p-5 shadow-sm dark:border-b dark:border-neutral-800 dark:bg-dark lg:relative lg:border-none lg:p-0 xl:shadow-none",
+        className={cn(
+          "absolute z-10 w-full bg-light p-5 shadow-sm dark:border-b dark:border-neutral-800 dark:bg-dark sm:!bg-transparent lg:relative lg:border-none lg:p-0 xl:shadow-none",
           expandMenu && "pb-0",
         )}
       >
