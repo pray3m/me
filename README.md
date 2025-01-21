@@ -15,10 +15,13 @@ On this website there are several features that will continue to be updated and 
 
 ## FOCUS TASKS
 
-- [x] fix: back button (jun 2 2023)
-- [x] fix : linter, prettier , blog , eslint (jun 2 2023)
+- [x] fix: back button (jun 2 `23)
+- [x] fix : linter, prettier , blog , eslint (jun 2 `23)
 - [ ] feat: add clsxm lib / tailwind merge (jun 6)
 - [ ] feat: add ornament/ add bg-gradient
+- [ ] fix: navbar background color #12 (Jun 22 `23)
+- [ ] feat: add sitemap (Jun 22 `23)
+- [ ] remove vercel analytics and refactir wakatime weekly insight ( jun22 `23)
 
 ## Getting Started
 
@@ -36,20 +39,22 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 
 ### TODO LATER:
 
-- [ ] Integrate projects api (may 30 2023)
-- [ ] Integrate prisma client (may 31 2023)
-- [ ] update prisma db (may 31 2023) to init project detail (may 31 2023)
-- [ ] feat: add favicon for different devices (may 31 2023)
-- [ ] chore: add prisma migration (Jun 3 2023)
+- [ ] Integrate projects api (may 30 `23)
+- [ ] Integrate prisma client (may 31 `23)
+- [ ] update prisma db (may 31 `23) to init project detail (may 31 `23)
+- [ ] feat: add favicon for different devices (may 31 `23)
+- [ ] chore: add prisma migration (Jun 3 `23)
 
 ## FOR BLOGS (NOT SURE)
 
-- [ ] feat: integrate blog (may 31 2023)
-- [ ] feat: add pagination (Jun 1 2023)
-- [ ] feat: blog detail to add loading state (Jun 1 2023)
-- [ ] fix: improve ssr (Jun 1 2023) to fix: remove styled emotion library (Jun 1 2023)
-- [ ] feat: integrate comment system (Jun 2 2023)
-- [ ] feat: add blog tags (Jun 2 2023) && fix : blog
-- [ ] All Commits on Jun 5, 2023
-- [ ] fix: blog card and params #8
+- [ ] feat: integrate blog (may 31 `23)
+- [ ] feat: add pagination (Jun 1 `23)
+- [ ] feat: blog detail to add loading state (Jun 1 `23)
+- [ ] fix: improve ssr (Jun 1 `23) to fix: remove styled emotion library (Jun 1 `23)
+- [ ] feat: integrate comment system (Jun 2 `23)
+- [ ] feat: add blog tags (Jun 2 `23) && fix : blog
+- [ ] All Commits on Jun 5, `23
+- [ ] fix: blog card and params #8 (jun 6 )
 - [ ] fix: codeblock dynamic import #11
+- [ ] feat: add blog header sticky effect #13 (jun 22 )
+- [ ] feat: add blog list comment counter #22 (jun 23 `23)

@@ -1,4 +1,4 @@
-import { MenuItemProps } from "@/common/utils/types";
+import { MenuItemProps } from "@/common/lib/types";
 import { FC } from "react";
 import MenuItem from "./MenuItem";
 import { title } from "process";

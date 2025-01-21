@@ -1,5 +1,5 @@
 import Icon from "supercons";
-import { MenuItemProps } from "../utils/types";
+import { MenuItemProps } from "../lib/types";
 
 const iconSize = 26;
 

@@ -1,5 +1,5 @@
 import Card from "@/common/components/elements/Card";
-import { CareerProps } from "@/common/utils/types";
+import { CareerProps } from "@/common/lib/types";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";

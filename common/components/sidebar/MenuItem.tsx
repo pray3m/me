@@ -1,5 +1,5 @@
 import { MenuContext } from "@/common/context/MenuContext";
-import { MenuItemProps } from "@/common/utils/types";
+import { MenuItemProps } from "@/common/lib/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FC, useContext, useState } from "react";

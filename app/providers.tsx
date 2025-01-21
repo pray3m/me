@@ -1,6 +1,6 @@
 "use client";
 
-import { AOSInit } from "@/common/utils/aos";
+import { AOSInit } from "@/common/lib/aos";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { ThemeProvider } from "next-themes";
 import { SWRConfig } from "swr";
