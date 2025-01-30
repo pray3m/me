@@ -13,7 +13,7 @@ This website was built from scratch using Next.js and was first initialized in A
 
 On this website there are several features that will continue to be updated and added in the future.
 
-## FOCUS TASKS
+## 🎯  FOCUS TASKS 
 
 - [x] fix: back button (jun 2 `23)
 - [x] fix : linter, prettier , blog , eslint (jun 2 `23)
@@ -45,7 +45,7 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 - [ ] feat: add favicon for different devices (may 31 `23)
 - [ ] chore: add prisma migration (Jun 3 `23)
 
-## FOR BLOGS (NOT SURE)
+## FOR BLOGS (NICE TO HAVE )
 
 - [ ] feat: integrate blog (may 31 `23)
 - [ ] feat: add pagination (Jun 1 `23)
