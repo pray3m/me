@@ -19,7 +19,7 @@ On this website there are several features that will continue to be updated and 
 - [x] fix : linter, prettier , blog , eslint (jun 2 `23)
 - [x] feat: add clsxm lib / tailwind merge (jun 6)
 - [x] feat: add ornament/ add bg-gradient
-- [ ] fix: navbar background color #12 (Jun 22 `23)
+- [x] fix: navbar background color #12 (Jun 22 `23)
 - [ ] feat: add sitemap (Jun 22 `23)
 - [ ] remove vercel analytics and refactir wakatime weekly insight ( jun22 `23)
 
