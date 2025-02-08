@@ -37,18 +37,17 @@ const Overview: FC<OverviewProps> = ({ data }) => {
       ? moment().format("MMMM DD, YYYY")
       : "N/A";
 
+  const bestDayTime = data?.best_day?.date
+    ? ` ${moment(data.best_day.date).format("MMMM DD, YYYY")} ~ ${bestDay}`
+    : "N/A";
+
   return (
     <div className="mb-1 grid gap-3 py-2 md:grid-cols-2">
       <OverviewItem label="Start Date" value={startDate} />
       <OverviewItem label="End Date" value={endDate} />
       <OverviewItem label="Daily Coding Average" value={dailyAverage} />
       <OverviewItem label="This Month Coding Time" value={dailyTotal} />
-      <OverviewItem
-        label="Best Day Coding Time"
-        value={`${moment(data?.best_day?.date).format(
-          "MMMM DD, YYYY",
-        )} (${bestDay})`}
-      />
+      <OverviewItem label="Best Day Coding Time" value={bestDayTime} />
       <OverviewItem label="All Time Since Today" value={allTimeSinceToday} />
     </div>
   );
