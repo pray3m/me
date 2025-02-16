@@ -2,7 +2,7 @@ import SectionHeading from "@/common/components/elements/SectionHeading";
 import SectionSubHeading from "@/common/components/elements/SectionSubHeading";
 import BlogList from "@/modules/blog/components/BlogList";
 import Link from "next/link";
-import { FC } from "react";
+import type { FC } from "react";
 import Icon from "supercons";
 
 const BlogPreview: FC = () => {

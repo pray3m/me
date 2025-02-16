@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import moment from "moment";
 import OverviewItem from "./OverviewItem";
 

@@ -2,7 +2,8 @@
 
 import useWindowSize from "@/common/hooks/use-window-size";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import type React from "react";
+import { useEffect, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";

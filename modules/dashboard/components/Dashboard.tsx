@@ -1,7 +1,7 @@
 import Breakline from "@/common/components/elements/Breakline";
 import CodingActive from "./CodingActive";
 import Contributions from "./Contributions";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 
 const Dashboard: FC = () => {
   return (

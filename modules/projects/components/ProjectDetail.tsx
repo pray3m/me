@@ -1,5 +1,5 @@
 import Image from "@/common/components/elements/Image";
-import { FC } from "react";
+import type { FC } from "react";
 import ProjectLink from "./ProjectLink";
 
 const ProjectDetail: FC<Project> = ({

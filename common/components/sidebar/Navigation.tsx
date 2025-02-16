@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import Menu from "./Menu";
 import Breakline from "../elements/Breakline";
 import { MENU_ITEMS, SOCIAL_MEDIA } from "@/common/constant/menu";

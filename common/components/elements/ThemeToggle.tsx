@@ -2,7 +2,7 @@
 
 import useHasMounted from "@/common/hooks/use-has-mounted";
 import { useTheme } from "next-themes";
-import { FC } from "react";
+import type { FC } from "react";
 import Icon from "supercons";
 
 const ThemeToggle: FC = () => {

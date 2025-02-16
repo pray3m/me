@@ -2,7 +2,7 @@
 
 import moment from "moment";
 import Link from "next/link";
-import { FC } from "react";
+import type { FC } from "react";
 import { SiWakatime as WakatimeIcon } from "react-icons/si";
 import useSWR from "swr";
 

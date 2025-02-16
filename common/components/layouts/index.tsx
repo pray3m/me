@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import Footer from "./partials/Footer";
 import Sidebar from "./partials/Sidebar";
 

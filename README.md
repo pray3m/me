@@ -13,16 +13,12 @@ This website was built from scratch using Next.js and was first initialized in A
 
 On this website there are several features that will continue to be updated and added in the future.
 
-## 🎯  FOCUS TASKS 
+## 🎯 FOCUS TASKS
 
-- [x] fix: back button (jun 2 `23)
-- [x] fix : linter, prettier , blog , eslint (jun 2 `23)
-- [x] feat: add clsxm lib / tailwind merge (jun 6)
-- [x] feat: add ornament/ add bg-gradient
-- [x] fix: navbar background color #12 (Jun 22 `23)
 - [x] feat: add sitemap (Jun 22 `23)
 - [ ] remove vercel analytics ( jun22 `23)
-- [ ] 
+- [ ] feat: add scale avatar animate
+- feat: add packages, fix: change button color , fix: lint format , feat: add scale avatar animate , 
 
 ## Getting Started
 
@@ -59,3 +55,7 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 - [ ] fix: codeblock dynamic import #11
 - [ ] feat: add blog header sticky effect #13 (jun 22 )
 - [ ] feat: add blog list comment counter #22 (jun 23 `23)
+- [ ] fix: update blog detail reference #23 (jun 23 `23)
+- [ ] fix: validate blog data source owner
+- [ ] feat: change default blog list view #25 (jun 23 `23)
+- feat: add blog card skeleton component (jun 23 `23)

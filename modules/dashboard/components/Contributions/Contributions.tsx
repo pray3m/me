@@ -1,7 +1,7 @@
 "use client";
 
 import { fetcher } from "@/services/fetcher";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { BsGithub } from "react-icons/bs";
 import useSWR from "swr";
 import Overview from "./Overview";

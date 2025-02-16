@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import Link from "next/link";
 import Card from "@/common/components/elements/Card";
 import Image from "@/common/components/elements/Image";
+import Link from "next/link";
+import { FC } from "react";
 
 const ProjectCard: FC<Project> = ({
   title,

@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { motion, Variants } from "framer-motion";
-import { FC } from "react";
+import { motion, type Variants } from "framer-motion";
+import type { FC } from "react";
 
 interface ProgressProps {
   data: { name: string; percent?: number };

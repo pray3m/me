@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import NextImage, { ImageProps as NextImageProps } from "next/image";
+import NextImage, { type ImageProps as NextImageProps } from "next/image";
 import React from "react";
 
 type ImageProps = {

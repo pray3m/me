@@ -1,6 +1,6 @@
 import Container from "@/common/components/elements/Container";
 import Home from "@/modules/home/components/Home";
-import { NextPage } from "next";
+import type { NextPage } from "next";
 
 const HomePage: NextPage = () => {
   return (

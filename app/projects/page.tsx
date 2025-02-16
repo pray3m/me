@@ -1,7 +1,7 @@
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import Projects from "@/modules/projects/components/Projects";
-import { Metadata, NextPage } from "next";
+import type { Metadata, NextPage } from "next";
 
 export const metadata: Metadata = {
   title: "Projects - Prem Gautam",

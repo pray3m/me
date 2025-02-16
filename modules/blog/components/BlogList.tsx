@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { BlogItemProps } from "@/common/lib/types";
+import React, { type FC } from "react";
+import type { BlogItemProps } from "@/common/lib/types";
 import BlogCard from "./BlogCard";
 
 const BLOG_DATA = [

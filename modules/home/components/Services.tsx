@@ -1,7 +1,7 @@
 import ImageCarousel from "@/common/components/elements/ImageCarousel";
 import SectionHeading from "@/common/components/elements/SectionHeading";
 import { CLIENT_IMAGES } from "@/common/constant/client";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 
 const Services: FC = () => {
   return (

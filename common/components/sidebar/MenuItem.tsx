@@ -1,8 +1,8 @@
 import { MenuContext } from "@/common/context/MenuContext";
-import { MenuItemProps } from "@/common/lib/types";
+import type { MenuItemProps } from "@/common/lib/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FC, useContext, useState } from "react";
+import { type FC, useContext, useState } from "react";
 import Icon from "supercons";
 
 const MenuItem: FC<MenuItemProps> = ({ name, icon, href }) => {

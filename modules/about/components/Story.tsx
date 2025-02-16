@@ -1,5 +1,5 @@
 import { ABOUT } from "@/common/constant/about";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 
 const Story: FC = () => {
   return (

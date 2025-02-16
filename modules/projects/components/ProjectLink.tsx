@@ -1,5 +1,6 @@
 import Link from "next/link";
-import React, { ReactNode } from "react";
+import type React from "react";
+import type { ReactNode } from "react";
 import { BsGithub as GithubIcon } from "react-icons/bs";
 import { FiExternalLink as LinkIcon } from "react-icons/fi";
 

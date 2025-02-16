@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { type FC, useState } from "react";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 import React from "react";
@@ -43,8 +43,7 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
         .filter(
           (week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7),
         )
-        .map((item) => item.contributionDays)
-        .flat(1);
+        .flatMap((item) => item.contributionDays);
       const getContributionsByMonth = filterContributionDay.reduce(
         (previousValue, currentValue) =>
           previousValue + currentValue.contributionCount,

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { motion } from "framer-motion";
 
 const Status: FC = () => {
@@ -11,7 +11,7 @@ const Status: FC = () => {
         }}
         transition={{
           duration: 0.5,
-          repeat: Infinity,
+          repeat: Number.POSITIVE_INFINITY,
         }}
       />
       <span className="animate-pulse text-sm font-medium">

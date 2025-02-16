@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import OverviewItem from "./OverviewItem";
 
 interface OverviewProps {
@@ -23,13 +23,11 @@ const Overview: FC<OverviewProps> = ({ data }) => {
         (previousValue, currentValue) => previousValue + currentValue,
         0,
       ) || 0;
-  const totalContributionList = weeks
-    .map((week) =>
-      week.contributionDays.map(
-        (contributionDay) => contributionDay.contributionCount,
-      ),
-    )
-    .flat();
+  const totalContributionList = weeks.flatMap((week) =>
+    week.contributionDays.map(
+      (contributionDay) => contributionDay.contributionCount,
+    ),
+  );
 
   const bestContribution = Math.max(...totalContributionList) || 0;
   const averageContribution = totalContributions / totalContributionList.length;

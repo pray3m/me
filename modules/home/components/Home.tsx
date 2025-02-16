@@ -1,9 +1,8 @@
 import Breakline from "@/common/components/elements/Breakline";
-import { FC } from "react";
-import Introduction from "./Introduction";
+import type { FC } from "react";
 import BlogPreview from "./BlogPreview";
+import Introduction from "./Introduction";
 import Services from "./Services";
-import React from "react";
 
 const Home: FC = () => {
   return (

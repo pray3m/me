@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/common/components/elements/Button";
-import React, { FC, ReactNode } from "react";
+import React, { type FC, type ReactNode } from "react";
 import { FaTelegramPlane as TelegramIcon } from "react-icons/fa";
 import { HiOutlineMail as EmailIcon } from "react-icons/hi";
 

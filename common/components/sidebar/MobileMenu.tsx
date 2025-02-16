@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { motion } from "framer-motion";
 import Breakline from "../elements/Breakline";
 import Navigation from "./Navigation";

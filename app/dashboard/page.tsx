@@ -1,6 +1,6 @@
 import Container from "@/common/components/elements/Container";
 import Dashboard from "@/modules/dashboard/components/Dashboard";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import PageHeading from "@/common/components/elements/PageHeading";
 
 export const metadata: Metadata = {

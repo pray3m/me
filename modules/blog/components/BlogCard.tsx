@@ -3,10 +3,10 @@
 import Card from "@/common/components/elements/Card";
 import Image from "@/common/components/elements/Image";
 import useWindowSize from "@/common/hooks/use-window-size";
-import { BlogItemProps } from "@/common/lib/types";
+import type { BlogItemProps } from "@/common/lib/types";
 import moment from "moment";
 import Link from "next/link";
-import { FC } from "react";
+import type { FC } from "react";
 import Icon from "supercons";
 
 const BlogCard: FC<BlogItemProps> = ({

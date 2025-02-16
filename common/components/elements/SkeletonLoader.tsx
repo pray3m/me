@@ -1,5 +1,5 @@
 import { useTheme } from "next-themes";
-import { FC, ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 import { SkeletonTheme } from "react-loading-skeleton";
 
 type Props = {
