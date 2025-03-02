@@ -5,6 +5,7 @@ import { type FC, useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import ProductCardSkeleton from "@/common/components/skeleton/ProductCardSkeleton";
 import EmptyState from "@/common/components/elements/EmptyState";
+import { motion } from "framer-motion";
 
 const Projects: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -27,7 +28,14 @@ const Projects: FC = () => {
     <div className="grid gap-5 pt-2 sm:grid-cols-2">
       {!isLoading
         ? filteredProjects?.map((project, index: number) => (
-            <ProjectCard key={index} {...project} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+            >
+              <ProjectCard {...project} />
+            </motion.div>
           ))
         : [1, 2].map((_, index) => <ProductCardSkeleton key={index} />)}
     </div>
