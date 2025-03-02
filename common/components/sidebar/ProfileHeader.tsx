@@ -22,6 +22,7 @@ const ProfileHeader: FC<ProfileHeaderProps> = ({ expandMenu, imageSize }) => {
         width={expandMenu ? 75 : imageSize}
         height={expandMenu ? 75 : imageSize}
         rounded="rounded-full"
+        className="lg:hover:scale-105"
       />
       <Link href="/" passHref>
         <h1 className="flex-grow text-lg font-medium lg:text-xl">

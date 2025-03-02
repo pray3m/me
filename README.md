@@ -13,12 +13,18 @@ This website was built from scratch using Next.js and was first initialized in A
 
 On this website there are several features that will continue to be updated and added in the future.
 
-## 🎯 FOCUS TASKS
+## 🎯 FOCUS TASKS (Jun 23 '23)
 
 - [x] feat: add sitemap (Jun 22 `23)
-- [ ] remove vercel analytics ( jun22 `23)
-- [ ] feat: add scale avatar animate
-- feat: add packages, fix: change button color , fix: lint format , feat: add scale avatar animate , 
+- [x] feat: add scale avatar animate
+- [x] Fix update services  (Jun 23 `23)
+- [ ] Feature add project list render animation (Jun 23 `23)
+- [ ] Fix: toggle (Jun 23 `23)
+- [ ] docs : update readme (Jun 23 `23)
+
+## TODO :
+- [ ] remove vercel analytics 
+- [ ] Feature add jest unit test (Jun 23 `23)
 
 ## Getting Started
 
@@ -59,3 +65,8 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 - [ ] fix: validate blog data source owner
 - [ ] feat: change default blog list view #25 (jun 23 `23)
 - feat: add blog card skeleton component (jun 23 `23)
+- Fix update blog card
+- Feature add blog list render animation
+- Feature add blog carousel component
+- Feature new homepage blog preview for desktop view (Jun 23 `23)
+
