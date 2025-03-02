@@ -1,16 +1,9 @@
 import Layout from "@/common/components/layouts";
+import { jakartaSans } from "@/common/styles/fonts";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ProvidersSandwich } from "./providers";
-
-const jakartaSans = Plus_Jakarta_Sans({
-  variable: "--jakartaSans-font",
-  subsets: ["latin"],
-  display: "fallback",
-  weight: ["400", "500", "600", "700", "800"],
-});
 
 export const metadata: Metadata = {
   title: "Prem Gautam - Full Stack Developer | Tech Enthusiast",
@@ -24,14 +17,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://premgautam.com.np",
+    url: "https://premgautam.me",
     siteName: "Prem Gautam Portfolio",
     title: "Prem Gautam - Full Stack Developer & Tech Enthusiast",
     description:
       "Explore the portfolio of Prem Gautam, a passionate full stack developer and tech enthusiast.",
     images: [
       {
-        url: "https://premgautam.com.np/og-image.jpg", // Replace with your actual OG image URL
+        url: "https://premgautam.me/og-image.jpg", // Replace with your actual OG image URL
         width: 1200,
         height: 630,
         alt: "Prem Gautam Portfolio",
@@ -45,7 +38,7 @@ export const metadata: Metadata = {
     title: "Prem Gautam - Full Stack Developer & Tech Enthusiast",
     description:
       "Explore the portfolio of Prem Gautam, a passionate full stack developer and tech enthusiast.",
-    images: ["https://premgautam.com/twitter-image.jpg"], // Replace with your actual Twitter card image URL
+    images: ["https://premgautam.me/twitter-image.jpg"], // Replace with your actual Twitter card image URL
   },
   icons: {
     icon: "/favicon.ico",
