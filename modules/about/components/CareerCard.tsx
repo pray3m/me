@@ -44,7 +44,7 @@ const CareerCard: FC<CareerProps> = ({
         <div className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
           <div className="flex items-center gap-1 md:gap-2">
             <Link href={link || "#"} target="_blank">
-              <span className="cursor-pointer underline hover:text-dark hover:dark:text-white">
+              <span className="cursor-pointer underline hover:text-dark dark:hover:text-white">
                 {company}
               </span>
             </Link>

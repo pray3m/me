@@ -1,15 +1,83 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--jakartaSans-font);
+  --font-emoji: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+
+  --color-dark-text: #eeeeee;
   --color-dark: #121212;
   --color-light: #fafafa;
+
+  --animate-waving-hand: wave 2s linear infinite;
+  --animate-flying-card: flying 3s infinite normal;
+
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  @keyframes flying {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(0.8rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
 
-@layer components {
-  .b {
-    @apply border-2 border-orange-600;
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility b {
+  @apply border-2 border-orange-600;
+}
+
+@layer utilities {
+  :root {
+    --color-dark: #121212;
+    --color-light: #fafafa;
   }
 }
 

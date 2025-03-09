@@ -24,7 +24,7 @@ const ProjectLink: React.FC<ProjectLinkProps> = ({
         <div className="flex items-center gap-2 font-medium text-neutral-700 dark:text-neutral-300">
           {icon}
 
-          <span className="text-[15px] transition-all duration-300 dark:text-teal-500 hover:dark:text-teal-400">
+          <span className="text-[15px] transition-all duration-300 dark:text-teal-500 dark:hover:text-teal-400">
             {text}
           </span>
         </div>

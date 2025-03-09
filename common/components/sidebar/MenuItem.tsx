@@ -17,7 +17,7 @@ const MenuItem: FC<MenuItemProps> = ({ name, icon, href }) => {
 
   const activeClasses = isActive
     ? "bg-gray-200 rounded-lg dark:bg-neutral-800 "
-    : "hover:dark:bg-neutral-800 md:hover:bg-gray-200 md:hover:rounded-lg md:hover:scale-105 lg:transition-all lg:duration-300 text-neutral-900 dark:!text-netral-300";
+    : "dark:hover:bg-neutral-800 md:hover:bg-gray-200 md:hover:rounded-lg md:hover:scale-105 lg:transition-all lg:duration-300 text-neutral-900 dark:text-netral-300!";
 
   const handleClick = () => {
     hideNavbar();
@@ -34,12 +34,12 @@ const MenuItem: FC<MenuItemProps> = ({ name, icon, href }) => {
   return (
     <Link href={href} target={targetUrl} onClick={handleClick}>
       <div
-        className={`flex items-center gap-2 px-3 py-2 font-medium text-neutral-700 hover:text-neutral-900 dark:text-neutral-400 hover:dark:text-neutral-300 ${activeClasses} `}
+        className={`flex items-center gap-2 px-3 py-2 font-medium text-neutral-700 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300 ${activeClasses} `}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <div>{icon}</div>
-        <div className="flex-grow">{name}</div>
+        <div className="grow">{name}</div>
 
         {isExternalUrl && isHovered && (
           <Icon

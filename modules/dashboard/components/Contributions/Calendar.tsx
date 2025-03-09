@@ -96,7 +96,7 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
                         transition: { delay: getRandomDelayAnimate },
                       },
                     }}
-                    className="my-[2px] block h-[12px] w-[12px] rounded-sm bg-neutral-300 dark:bg-neutral-800"
+                    className="my-[2px] block h-[12px] w-[12px] rounded-xs bg-neutral-300 dark:bg-neutral-800"
                     style={backgroundColor ? { backgroundColor } : undefined}
                     onMouseEnter={() =>
                       setSelectContribution({
@@ -119,7 +119,7 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
         <div className="flex items-center gap-2 text-sm">
           <span className="dark:text-neutral-400">Less</span>
           <ul className="flex gap-1">
-            <motion.li className="h-[10px] w-[10px] rounded-sm bg-neutral-300 dark:bg-neutral-800" />
+            <motion.li className="h-[10px] w-[10px] rounded-xs bg-neutral-300 dark:bg-neutral-800" />
             {contributionColors.map((item, index) => (
               <motion.li
                 key={item}
@@ -132,7 +132,7 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
                     transition: { delay: index * 0.3 },
                   },
                 }}
-                className="h-[10px] w-[10px] rounded-sm"
+                className="h-[10px] w-[10px] rounded-xs"
                 style={{ backgroundColor: item }}
               />
             ))}
@@ -143,7 +143,7 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
         <div
           className={clsx(
             `${selectContribution?.date ? "opacity-100" : "opacity-0"}`,
-            "rounded bg-neutral-200 px-2 text-sm dark:bg-neutral-700",
+            "rounded-sm bg-neutral-200 px-2 text-sm dark:bg-neutral-700",
           )}
         >
           {selectContribution?.count} contributions on{" "}

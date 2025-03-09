@@ -24,7 +24,7 @@ const ProjectCard: FC<Project> = ({
         />
         <div className="space-y-2 p-5">
           <div className="flex justify-between">
-            <div className="cursor-pointer text-lg font-medium text-neutral-700 dark:text-neutral-300 hover:dark:text-neutral-50">
+            <div className="cursor-pointer text-lg font-medium text-neutral-700 dark:text-neutral-300 dark:hover:text-neutral-50">
               {title}
             </div>
           </div>

@@ -18,7 +18,7 @@ On this website there are several features that will continue to be updated and 
 - [x] feat: add sitemap (Jun 22 `23)
 - [x] feat: add scale avatar animate
 - [x] Fix update services  (Jun 23 `23)
-- [ ] Feature add project list render animation (Jun 23 `23)
+- [x] Feature add project list render animation (Jun 23 `23)
 - [ ] Fix: toggle (Jun 23 `23)
 - [ ] docs : update readme (Jun 23 `23)
 

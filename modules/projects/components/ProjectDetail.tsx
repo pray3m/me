@@ -20,7 +20,7 @@ const ProjectDetail: FC<Project> = ({
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-base">Tech Stack: </span>
 
-          <div className="flex flex-grow gap-2">
+          <div className="flex grow gap-2">
             {stacksArray?.map((stack: string, index: number) => (
               <span
                 key={index}
