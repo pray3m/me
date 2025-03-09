@@ -34,7 +34,7 @@ const BlogCard: FC<BlogItemProps> = ({
             className="rounded-t-xl sm:rounded-xl"
           />
         </div>
-        <div className="mb-5 flex w-full flex-grow flex-col space-y-2 px-5 sm:mb-0 sm:w-4/5 sm:p-0">
+        <div className="mb-5 flex w-full grow flex-col space-y-2 px-5 sm:mb-0 sm:w-4/5 sm:p-0">
           <h3 className="font-medium text-neutral-700 dark:text-neutral-200 dark:hover:text-neutral-50 md:text-[17px] lg:hover:text-sky-800">
             {title}
           </h3>

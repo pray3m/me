@@ -12,7 +12,7 @@ const ProductCardSkeleton = () => {
           <Skeleton
             height={192}
             containerClassName="flex"
-            className="!rounded-b-none !rounded-t-xl"
+            className="rounded-b-none! rounded-t-xl!"
           />
         </div>
         <div className="flex h-[164px] flex-col space-y-3 p-5">
@@ -20,11 +20,11 @@ const ProductCardSkeleton = () => {
           <Skeleton count={2} />
           <div className="flex gap-2">
             <Skeleton
-              className="h-5 !rounded-full"
+              className="h-5 rounded-full!"
               containerClassName="w-1/4"
             />
             <Skeleton
-              className="h-5 !rounded-full"
+              className="h-5 rounded-full!"
               containerClassName="w-1/4"
             />
           </div>
