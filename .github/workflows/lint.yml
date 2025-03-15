@@ -12,74 +12,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
-    name: ⬣ ESLint
+  biome:
+    name: 🔬 Biome Check
     runs-on: ubuntu-latest
     steps:
-      - name: ⬇️ Checkout repo
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: ⎔ Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.0.0
-
-      - name: ⎔ Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
 
-      - name: 📥 Install dependencies
+      - name: Install dependencies
         run: pnpm install
 
-      - name: 🔬 Lint
-        run: pnpm run lint:strict
-
-  typecheck:
-    name: ʦ TypeScript
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
-
-      - name: ⎔ Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.0.0
-
-      - name: ⎔ Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-
-      - name: 📥 Install dependencies
-        run: pnpm install
-
-      - name: 🔎 Type check
-        run: pnpm run typecheck
-
-  prettier:
-    name: 💅 Prettier
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
-
-      - name: ⎔ Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.0.0
-
-      - name: ⎔ Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-
-      - name: 📥 Install dependencies
-        run: pnpm install
-
-      - name: 💅 Prettier check
-        run: pnpm run format:check
+      - name: Run Biome checks
+        run: pnpm lint:strict
