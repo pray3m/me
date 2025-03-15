@@ -1,6 +1,11 @@
 <div align="center">
   <h1>premgautam.me</h1>
   <p>🔥 Personal website built with Next.js, TypeScript, Tailwind CSS, SWR and Prisma with Vercel Postgres</p>
+
+ <p align="center">
+<a href="https://biomejs.dev"><img alt="Checked with Biome" src="https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome"></a>
+</p>
+
 </div>
 
 <br />
@@ -15,13 +20,14 @@ On this website there are several features that will continue to be updated and 
 
 ## 🎯 FOCUS TASKS (Jun 23 '23)
 
-- [x] Fix update services  (Jun 23 `23)
+- [x] Fix update services (Jun 23 `23)
 - [x] Feature add project list render animation (Jun 23 `23)
 - [x] Fix: toggle (Jun 23 `23)
-- [ ] 
+- [ ]
 
 ## TODO :
-- [ ] remove vercel analytics 
+
+- [ ] remove vercel analytics
 - [ ] Feature add jest unit test (Jun 23 `23)
 
 ## Getting Started
@@ -67,4 +73,3 @@ This project is deployed on Vercel. Any push to the `main` branch will trigger a
 - Feature add blog list render animation
 - Feature add blog carousel component
 - Feature new homepage blog preview for desktop view (Jun 23 `23)
-
