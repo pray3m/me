@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { AOSInit } from "@/common/lib/aos";
-import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
-import { ThemeProvider } from "next-themes";
-import { SWRConfig } from "swr";
+import { AOSInit } from "@/common/lib/aos"
+import { AppProgressBar as ProgressBar } from "next-nprogress-bar"
+import { ThemeProvider } from "next-themes"
+import { SWRConfig } from "swr"
 
 export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
   return (
@@ -19,5 +19,5 @@ export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
         />
       </SWRConfig>
     </ThemeProvider>
-  );
+  )
 }

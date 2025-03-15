@@ -1,14 +1,14 @@
-import clsx from "clsx";
-import { motion, type Variants } from "framer-motion";
-import type { FC } from "react";
+import clsx from "clsx"
+import { type Variants, motion } from "framer-motion"
+import type { FC } from "react"
 
 interface ProgressProps {
-  data: { name: string; percent?: number };
-  className?: string;
+  data: { name: string; percent?: number }
+  className?: string
 }
 
 const Progress: FC<ProgressProps> = ({ data, className }) => {
-  const { name, percent = 0 } = data;
+  const { name, percent = 0 } = data
 
   const progressVariants: Variants = {
     initial: { width: 0 },
@@ -16,7 +16,7 @@ const Progress: FC<ProgressProps> = ({ data, className }) => {
       width: `${percent}%`,
       transition: { delay: 0.8 },
     },
-  };
+  }
 
   return (
     <div className="flex items-center justify-between gap-3">
@@ -28,7 +28,7 @@ const Progress: FC<ProgressProps> = ({ data, className }) => {
           variants={progressVariants}
           className={clsx(
             className,
-            "absolute left-0 top-0 h-3 rounded-full px-3",
+            "absolute left-0 top-0 h-3 rounded-full px-3"
           )}
         >
           &ensp;
@@ -38,7 +38,7 @@ const Progress: FC<ProgressProps> = ({ data, className }) => {
         {percent.toFixed(0)}%
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Progress;
+export default Progress

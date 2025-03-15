@@ -1,5 +1,5 @@
-import Container from "@/common/components/elements/Container";
-import type { NextPage } from "next";
+import Container from "@/common/components/elements/Container"
+import type { NextPage } from "next"
 
 const NotFoundPage: NextPage = () => {
   return (
@@ -11,7 +11,7 @@ const NotFoundPage: NextPage = () => {
         Whoops, there doesn&apos;t seem to be anything here!
       </h2>
     </Container>
-  );
-};
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage

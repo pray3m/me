@@ -1,17 +1,17 @@
-import Link from "next/link";
-import type React from "react";
-import type { ReactNode } from "react";
-import { BsGithub as GithubIcon } from "react-icons/bs";
-import { FiExternalLink as LinkIcon } from "react-icons/fi";
+import Link from "next/link"
+import type React from "react"
+import type { ReactNode } from "react"
+import { BsGithub as GithubIcon } from "react-icons/bs"
+import { FiExternalLink as LinkIcon } from "react-icons/fi"
 
 interface LinkComponentProps {
-  url: string;
-  text: string;
-  icon?: ReactNode;
+  url: string
+  text: string
+  icon?: ReactNode
 }
 interface ProjectLinkProps {
-  link_github?: string;
-  link_demo?: string;
+  link_github?: string
+  link_demo?: string
 }
 
 const ProjectLink: React.FC<ProjectLinkProps> = ({
@@ -29,8 +29,8 @@ const ProjectLink: React.FC<ProjectLinkProps> = ({
           </span>
         </div>
       </Link>
-    );
-  };
+    )
+  }
 
   return (
     <div className="flex gap-4">
@@ -53,7 +53,7 @@ const ProjectLink: React.FC<ProjectLinkProps> = ({
         />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default ProjectLink;
+export default ProjectLink

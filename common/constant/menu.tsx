@@ -1,7 +1,7 @@
-import Icon from "supercons";
-import type { MenuItemProps } from "../lib/types";
+import Icon from "supercons"
+import type { MenuItemProps } from "../lib/types"
 
-const iconSize = 26;
+const iconSize = 26
 
 export const MENU_ITEMS: MenuItemProps[] = [
   {
@@ -46,7 +46,7 @@ export const MENU_ITEMS: MenuItemProps[] = [
     icon: <Icon glyph="email" size={iconSize} />,
     visible: true,
   },
-];
+]
 
 export const SOCIAL_MEDIA: MenuItemProps[] = [
   {
@@ -73,4 +73,4 @@ export const SOCIAL_MEDIA: MenuItemProps[] = [
     icon: <Icon glyph="twitter" size={iconSize} />,
     visible: true,
   },
-];
+]

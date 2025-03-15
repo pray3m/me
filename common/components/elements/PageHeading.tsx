@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { FC } from "react"
 
 interface Props {
-  title: string;
-  subtitle?: string;
+  title: string
+  subtitle?: string
 }
 
 const PageHeading = ({ title, subtitle }: Props) => {
@@ -13,7 +13,7 @@ const PageHeading = ({ title, subtitle }: Props) => {
         {subtitle}
       </p>
     </>
-  );
-};
+  )
+}
 
-export default PageHeading;
+export default PageHeading

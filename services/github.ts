@@ -1,11 +1,11 @@
-const GITHUB_USER_ENDPOINT: string = "https://api.github.com/graphql";
+const GITHUB_USER_ENDPOINT: string = "https://api.github.com/graphql"
 
-const readUserToken: string | undefined = process.env.GITHUB_READ_USER_TOKEN;
+const readUserToken: string | undefined = process.env.GITHUB_READ_USER_TOKEN
 
 if (!readUserToken) {
   throw new Error(
-    "GitHub token is missing. Set GITHUB_READ_USER_TOKEN in environment variables.",
-  );
+    "GitHub token is missing. Set GITHUB_READ_USER_TOKEN in environment variables."
+  )
 }
 
 const GITHUB_USER_QUERY: string = `
@@ -32,7 +32,7 @@ const GITHUB_USER_QUERY: string = `
       }
     }
   }
-`;
+`
 
 export const getGithubUser = async (userID: string) => {
   const response = await fetch(GITHUB_USER_ENDPOINT, {
@@ -45,10 +45,10 @@ export const getGithubUser = async (userID: string) => {
       query: GITHUB_USER_QUERY,
       variables: { login: userID },
     }),
-  });
+  })
 
-  const status: number = response.status;
-  const responseJson = await response.json();
+  const status: number = response.status
+  const responseJson = await response.json()
 
   if (!response.ok) {
     return {
@@ -56,8 +56,8 @@ export const getGithubUser = async (userID: string) => {
       data: {
         error: responseJson.message || "Failed to fetch data from GitHub.",
       },
-    };
+    }
   }
 
-  return { status, data: responseJson.data.user };
-};
+  return { status, data: responseJson.data.user }
+}

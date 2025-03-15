@@ -20,7 +20,17 @@
       "recommended": true,
       "style": { "useBlockStatements": "off", "useImportType": "off" },
       "suspicious": {
-        "noArrayIndexKey": "off"
+        "noArrayIndexKey": "off",
+        "noExplicitAny": "warn"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "warn"
+      },
+      "complexity": {
+        "noBannedTypes": "warn"
+      },
+      "a11y": {
+        "useButtonType": "warn"
       }
     }
   },

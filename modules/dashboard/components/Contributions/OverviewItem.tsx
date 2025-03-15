@@ -1,10 +1,10 @@
-import AnimateCounter from "@/common/components/elements/AnimateCounter";
-import React, { type FC } from "react";
+import AnimateCounter from "@/common/components/elements/AnimateCounter"
+import React, { type FC } from "react"
 
 interface OverviewItemProps {
-  label: string;
-  value: number;
-  unit?: string;
+  label: string
+  value: number
+  unit?: string
 }
 
 const OverviewItem: FC<OverviewItemProps> = ({ label, value, unit = "" }) => (
@@ -18,6 +18,6 @@ const OverviewItem: FC<OverviewItemProps> = ({ label, value, unit = "" }) => (
       {unit && <span className="text-sm dark:text-neutral-400">{unit}</span>}
     </div>
   </div>
-);
+)
 
-export default OverviewItem;
+export default OverviewItem

@@ -1,28 +1,28 @@
-"use client";
+"use client"
 
-import moment from "moment";
-import Link from "next/link";
-import type { FC } from "react";
-import { SiWakatime as WakatimeIcon } from "react-icons/si";
-import useSWR from "swr";
+import moment from "moment"
+import Link from "next/link"
+import type { FC } from "react"
+import { SiWakatime as WakatimeIcon } from "react-icons/si"
+import useSWR from "swr"
 
-import CodingActiveList from "./CodingActiveList";
-import Overview from "./Overview";
+import CodingActiveList from "./CodingActiveList"
+import Overview from "./Overview"
 
-import { fetcher } from "@/services/fetcher";
-import SectionHeading from "@/common/components/elements/SectionHeading";
-import SectionSubHeading from "@/common/components/elements/SectionSubHeading";
+import SectionHeading from "@/common/components/elements/SectionHeading"
+import SectionSubHeading from "@/common/components/elements/SectionSubHeading"
+import { fetcher } from "@/services/fetcher"
 
 const CodingActive: FC = () => {
-  const { data } = useSWR("/api/wakatime", fetcher);
+  const { data } = useSWR("/api/wakatime", fetcher)
 
   const formatLastUpdate = (): string => {
-    const lastUpdate = moment(data?.last_update);
+    const lastUpdate = moment(data?.last_update)
     if (lastUpdate.isValid()) {
-      return lastUpdate.startOf("hour").fromNow();
+      return lastUpdate.startOf("hour").fromNow()
     }
-    return "";
-  };
+    return ""
+  }
 
   return (
     <section className="flex flex-col gap-y-2">
@@ -50,7 +50,7 @@ const CodingActive: FC = () => {
       <Overview data={data} />
       <CodingActiveList data={data} />
     </section>
-  );
-};
+  )
+}
 
-export default CodingActive;
+export default CodingActive

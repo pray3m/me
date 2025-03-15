@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import Button from "@/common/components/elements/Button";
-import React, { type FC, type ReactNode } from "react";
-import { FaTelegramPlane as TelegramIcon } from "react-icons/fa";
-import { HiOutlineMail as EmailIcon } from "react-icons/hi";
+import Button from "@/common/components/elements/Button"
+import React, { type FC, type ReactNode } from "react"
+import { FaTelegramPlane as TelegramIcon } from "react-icons/fa"
+import { HiOutlineMail as EmailIcon } from "react-icons/hi"
 
 const CONTACTS = [
   {
@@ -16,16 +16,16 @@ const CONTACTS = [
     icon: <TelegramIcon size={18} />,
     link: "https://t.me/onlyprems",
   },
-];
+]
 
 interface ContactProps {
-  title: string;
-  icon: ReactNode;
-  link: string;
+  title: string
+  icon: ReactNode
+  link: string
 }
 
 const Contact: FC = () => {
-  const handleAction = (link: string) => window.open(link, "_blank");
+  const handleAction = (link: string) => window.open(link, "_blank")
 
   return (
     <section className="space-y-5">
@@ -45,7 +45,7 @@ const Contact: FC = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

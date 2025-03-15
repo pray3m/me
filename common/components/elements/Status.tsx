@@ -1,5 +1,5 @@
-import React, { type FC } from "react";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
+import React, { type FC } from "react"
 
 const Status: FC = () => {
   return (
@@ -18,7 +18,7 @@ const Status: FC = () => {
         Available for hire
       </span>
     </div>
-  );
-};
+  )
+}
 
-export default Status;
+export default Status

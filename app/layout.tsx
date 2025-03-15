@@ -1,9 +1,9 @@
-import Layout from "@/common/components/layouts";
-import { jakartaSans } from "@/common/styles/fonts";
-import { Analytics } from "@vercel/analytics/react";
-import type { Metadata } from "next";
-import "./globals.css";
-import { ProvidersSandwich } from "./providers";
+import Layout from "@/common/components/layouts"
+import { jakartaSans } from "@/common/styles/fonts"
+import { Analytics } from "@vercel/analytics/react"
+import type { Metadata } from "next"
+import "./globals.css"
+import { ProvidersSandwich } from "./providers"
 
 export const metadata: Metadata = {
   title: "Prem Gautam - Full Stack Developer | Tech Enthusiast",
@@ -43,12 +43,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" className={jakartaSans.className} suppressHydrationWarning>
@@ -66,5 +66,5 @@ export default function RootLayout({
         </ProvidersSandwich>
       </body>
     </html>
-  );
+  )
 }

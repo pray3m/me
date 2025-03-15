@@ -1,58 +1,58 @@
-import React, { type FC } from "react";
-import clsx from "clsx";
+import clsx from "clsx"
+import React, { type FC } from "react"
 
-import Progress from "./Progress";
+import Progress from "./Progress"
 
 interface ItemProps {
-  name: string;
-  hours: number;
-  minutes: number;
+  name: string
+  hours: number
+  minutes: number
 }
 
 interface CodingActiveListProps {
   data?: {
-    languages?: ItemProps[];
-    categories?: ItemProps[];
-  };
+    languages?: ItemProps[]
+    categories?: ItemProps[]
+  }
 }
 
 const sumTotalFromArray = <T extends { hours: number; minutes: number }>(
   data: T[],
-  key: keyof T,
+  key: keyof T
 ) => {
   return (
     data.reduce(
       (previousValue, currentValue) =>
         previousValue + (currentValue[key] as number),
-      0,
+      0
     ) ?? 0
-  );
-};
+  )
+}
 
 const CodingActiveList: FC<CodingActiveListProps> = ({ data }) => {
   const getLanguagesTotalHours = sumTotalFromArray<ItemProps>(
     data?.languages || [],
-    "hours",
-  );
+    "hours"
+  )
   const getLanguagesTotalMinutes = sumTotalFromArray<ItemProps>(
     data?.languages || [],
-    "minutes",
-  );
+    "minutes"
+  )
   const getLanguagesTotalTimeDisplay = `${
     Math.floor((getLanguagesTotalMinutes % 3600) / 60) + getLanguagesTotalHours
-  } hrs ${getLanguagesTotalMinutes} mins`;
+  } hrs ${getLanguagesTotalMinutes} mins`
 
   const getEditorTotalHours = sumTotalFromArray<ItemProps>(
     data?.categories || [],
-    "hours",
-  );
+    "hours"
+  )
   const getEditorTotalMinutes = sumTotalFromArray<ItemProps>(
     data?.categories || [],
-    "minutes",
-  );
+    "minutes"
+  )
   const getEditorTotalTimeDisplay = `${
     Math.floor((getEditorTotalMinutes % 3600) / 60) + getEditorTotalHours
-  } hrs ${getEditorTotalMinutes} mins`;
+  } hrs ${getEditorTotalMinutes} mins`
 
   const actives = [
     {
@@ -71,7 +71,7 @@ const CodingActiveList: FC<CodingActiveListProps> = ({ data }) => {
         bg: "bg-linear-to-r from-blue-400 to-purple-600",
       },
     },
-  ];
+  ]
 
   return (
     <div className="mt-2 flex flex-col gap-6 sm:flex-row sm:gap-4">
@@ -80,7 +80,7 @@ const CodingActiveList: FC<CodingActiveListProps> = ({ data }) => {
           key={item?.title}
           className={clsx(
             item?.styles?.bg,
-            "relative flex flex-1 flex-col gap-2 rounded-lg p-[2px]",
+            "relative flex flex-1 flex-col gap-2 rounded-lg p-[2px]"
           )}
         >
           <div className="h-full w-full rounded-lg bg-neutral-50 p-2 dark:bg-dark">
@@ -99,7 +99,7 @@ const CodingActiveList: FC<CodingActiveListProps> = ({ data }) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default CodingActiveList;
+export default CodingActiveList

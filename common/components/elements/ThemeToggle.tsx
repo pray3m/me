@@ -1,21 +1,21 @@
-"use client";
+"use client"
 
-import useHasMounted from "@/common/hooks/use-has-mounted";
-import { useTheme } from "next-themes";
-import type { FC } from "react";
-import Icon from "supercons";
+import useHasMounted from "@/common/hooks/use-has-mounted"
+import { useTheme } from "next-themes"
+import type { FC } from "react"
+import Icon from "supercons"
 
 const ThemeToggle: FC = () => {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme()
 
-  const hasMounted = useHasMounted();
-  if (!hasMounted) return null;
+  const hasMounted = useHasMounted()
+  if (!hasMounted) return null
 
-  const isDarkMode = resolvedTheme === "dark";
+  const isDarkMode = resolvedTheme === "dark"
 
   const handleToggle = () => {
-    setTheme(isDarkMode ? "light" : "dark");
-  };
+    setTheme(isDarkMode ? "light" : "dark")
+  }
 
   return (
     <button
@@ -25,7 +25,7 @@ const ThemeToggle: FC = () => {
       <Icon glyph={isDarkMode ? "sun-fill" : "moon-fill"} size={22} />
       <div className="flex">{isDarkMode ? "Light Mode" : "Dark Mode"}</div>
     </button>
-  );
-};
+  )
+}
 
-export default ThemeToggle;
+export default ThemeToggle

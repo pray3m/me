@@ -1,8 +1,8 @@
-import Breakline from "@/common/components/elements/Breakline";
-import type { FC } from "react";
-import BlogPreview from "./BlogPreview";
-import Introduction from "./Introduction";
-import Services from "./Services";
+import Breakline from "@/common/components/elements/Breakline"
+import type { FC } from "react"
+import BlogPreview from "./BlogPreview"
+import Introduction from "./Introduction"
+import Services from "./Services"
 
 const Home: FC = () => {
   return (
@@ -14,7 +14,7 @@ const Home: FC = () => {
       <Breakline className="my-8" />
       <Services />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

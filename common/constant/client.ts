@@ -22,4 +22,4 @@ export const CLIENT_IMAGES = [
   "/images/placeholder.png",
   "/images/placeholder.png",
   "/images/placeholder.png",
-];
+]

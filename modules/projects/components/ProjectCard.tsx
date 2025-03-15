@@ -1,7 +1,7 @@
-import Card from "@/common/components/elements/Card";
-import Image from "@/common/components/elements/Image";
-import Link from "next/link";
-import { FC } from "react";
+import Card from "@/common/components/elements/Card"
+import Image from "@/common/components/elements/Image"
+import Link from "next/link"
+import { FC } from "react"
 
 const ProjectCard: FC<Project> = ({
   title,
@@ -44,6 +44,6 @@ const ProjectCard: FC<Project> = ({
         </div>
       </Card>
     </Link>
-  );
-};
-export default ProjectCard;
+  )
+}
+export default ProjectCard

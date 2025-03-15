@@ -1,10 +1,10 @@
-import type { MenuItemProps } from "@/common/lib/types";
-import type { FC } from "react";
-import MenuItem from "./MenuItem";
+import type { MenuItemProps } from "@/common/lib/types"
+import type { FC } from "react"
+import MenuItem from "./MenuItem"
 
 interface MenuProps {
-  title?: string;
-  list: MenuItemProps[];
+  title?: string
+  list: MenuItemProps[]
 }
 
 const Menu: FC<MenuProps> = ({ title, list }) => {
@@ -20,7 +20,7 @@ const Menu: FC<MenuProps> = ({ title, list }) => {
         <MenuItem key={index} {...item} />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Menu;
+export default Menu

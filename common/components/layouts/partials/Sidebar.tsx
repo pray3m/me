@@ -1,16 +1,16 @@
-"use client";
+"use client"
 
-import clsx from "clsx";
-import React, { useEffect, useState } from "react";
-import Profile from "../../sidebar/Profile";
-import Breakline from "../../elements/Breakline";
-import Navigation from "../../sidebar/Navigation";
-import useIsMobile from "@/common/hooks/use-is-mobile";
-import ThemeToggle from "../../elements/ThemeToggle";
-import useHasMounted from "@/common/hooks/use-has-mounted";
+import useHasMounted from "@/common/hooks/use-has-mounted"
+import useIsMobile from "@/common/hooks/use-is-mobile"
+import clsx from "clsx"
+import React, { useEffect, useState } from "react"
+import Breakline from "../../elements/Breakline"
+import ThemeToggle from "../../elements/ThemeToggle"
+import Navigation from "../../sidebar/Navigation"
+import Profile from "../../sidebar/Profile"
 
 const Sidebar = () => {
-  const isMobile = useIsMobile();
+  const isMobile = useIsMobile()
   // const [isSticky, setIsSticky] = useState<boolean>(false);
 
   // const hasMounted = useHasMounted();
@@ -48,7 +48,7 @@ const Sidebar = () => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

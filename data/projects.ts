@@ -34,4 +34,4 @@ export const PROJECTS: Project[] = [
     stacks: ["Next.js", "Tailwind CSS", "TypeScript"],
     is_visible: true,
   },
-];
+]

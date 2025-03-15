@@ -1,8 +1,8 @@
-import React, { type FC } from "react";
+import React, { type FC } from "react"
 
 interface OverviewItemProps {
-  label: string;
-  value: string;
+  label: string
+  value: string
 }
 
 const OverviewItem: FC<OverviewItemProps> = ({ label, value }) => (
@@ -10,6 +10,6 @@ const OverviewItem: FC<OverviewItemProps> = ({ label, value }) => (
     <span className="text-sm dark:text-neutral-400">{label}</span>
     <span>{value}</span>
   </div>
-);
+)
 
-export default OverviewItem;
+export default OverviewItem

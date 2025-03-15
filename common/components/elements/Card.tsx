@@ -1,9 +1,9 @@
-import type { FC, ReactNode } from "react";
+import type { FC, ReactNode } from "react"
 
 interface CardProps {
-  children: ReactNode;
-  className?: string;
-  [propName: string]: any;
+  children: ReactNode
+  className?: string
+  [propName: string]: any
 }
 
 const Card: FC<CardProps> = ({ children, className = "", ...others }) => {
@@ -14,7 +14,7 @@ const Card: FC<CardProps> = ({ children, className = "", ...others }) => {
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

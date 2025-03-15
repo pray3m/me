@@ -1,9 +1,9 @@
-import React, { type FC } from "react";
+import React, { type FC } from "react"
 
 const Introduction: FC = () => {
-  const currentYear = new Date().getFullYear();
-  const workStart = 2024;
-  const codingStart = 2022;
+  const currentYear = new Date().getFullYear()
+  const workStart = 2024
+  const codingStart = 2022
 
   return (
     <section className="space-y-5 bg-cover bg-no-repeat">
@@ -15,14 +15,12 @@ const Introduction: FC = () => {
       </div>
 
       <div className="space-y-3">
-        <>
-          <ul className="ml-5 flex list-disc flex-col gap-1 text-neutral-700 dark:text-neutral-400 lg:flex-row lg:gap-8">
-            <li>life-long learner</li>
-            <li>
-              Based in Butwal , Nepal <span className="ml-1">🇳🇵</span>
-            </li>
-          </ul>
-        </>
+        <ul className="ml-5 flex list-disc flex-col gap-1 text-neutral-700 dark:text-neutral-400 lg:flex-row lg:gap-8">
+          <li>life-long learner</li>
+          <li>
+            Based in Butwal , Nepal <span className="ml-1">🇳🇵</span>
+          </li>
+        </ul>
         <p className="leading-loose text-neutral-800 dark:text-neutral-300">
           I&apos;m a full-stack developer with {currentYear - workStart} year
           experience and {currentYear - codingStart} year in web development. I
@@ -34,7 +32,7 @@ const Introduction: FC = () => {
         </p>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Introduction;
+export default Introduction

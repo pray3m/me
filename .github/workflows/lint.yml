@@ -1,0 +1,27 @@
+name: Code Quality
+
+on:
+  push:
+    branches:
+      - main
+      - feat/code-check
+  pull_request: {}
+
+concurrency:
+  group: ${{ github.job }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v4
+
+      - name: 🛠️  Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+
+      - name: 🔍 Run Biome
+        run: biome ci .

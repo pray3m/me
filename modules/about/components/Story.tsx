@@ -1,5 +1,5 @@
-import { ABOUT } from "@/common/constant/about";
-import React, { type FC } from "react";
+import { ABOUT } from "@/common/constant/about"
+import React, { type FC } from "react"
 
 const Story: FC = () => {
   return (
@@ -7,7 +7,7 @@ const Story: FC = () => {
       className="space-y-4 leading-loose text-neutral-800 dark:text-neutral-300"
       dangerouslySetInnerHTML={{ __html: ABOUT }}
     />
-  );
-};
+  )
+}
 
-export default Story;
+export default Story

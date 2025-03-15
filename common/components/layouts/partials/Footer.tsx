@@ -1,4 +1,4 @@
-import React, { type FC } from "react";
+import React, { type FC } from "react"
 
 const Footer: FC = () => {
   return (
@@ -8,7 +8,7 @@ const Footer: FC = () => {
         <div>Made with ❤️ using Next.js</div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

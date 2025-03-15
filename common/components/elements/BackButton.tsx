@@ -1,10 +1,10 @@
-import React, { type FC } from "react";
-import Link from "next/link";
-import Icon from "supercons";
+import Link from "next/link"
+import React, { type FC } from "react"
+import Icon from "supercons"
 
 type Props = {
-  url: string;
-};
+  url: string
+}
 const BackButton: FC<Props> = ({ url }) => {
   return (
     <div className="w-fit">
@@ -15,6 +15,6 @@ const BackButton: FC<Props> = ({ url }) => {
         </div>
       </Link>
     </div>
-  );
-};
-export default BackButton;
+  )
+}
+export default BackButton

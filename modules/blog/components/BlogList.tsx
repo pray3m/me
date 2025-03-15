@@ -1,6 +1,6 @@
-import React, { type FC } from "react";
-import type { BlogItemProps } from "@/common/lib/types";
-import BlogCard from "./BlogCard";
+import type { BlogItemProps } from "@/common/lib/types"
+import React, { type FC } from "react"
+import BlogCard from "./BlogCard"
 
 const BLOG_DATA = [
   {
@@ -33,7 +33,7 @@ const BLOG_DATA = [
       "If you're planning your next vacation, consider these top 10 travel destinations for 2023. From stunning beaches to vibrant cities, these destinations offer unique experiences and unforgettable adventures.",
     slug: "top-10-travel-destinations-in-2023",
   },
-];
+]
 
 // if (!isLoading && blogData.length === 0) {
 //   return <EmptyState message="No Data" />;
@@ -46,7 +46,7 @@ const BlogList: FC = () => {
         <BlogCard key={index} {...item} />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default BlogList;
+export default BlogList

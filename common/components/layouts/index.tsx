@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import clsx from "clsx";
-import type { ReactNode } from "react";
-import Footer from "./partials/Footer";
-import Sidebar from "./partials/Sidebar";
+import clsx from "clsx"
+import type { ReactNode } from "react"
+import Footer from "./partials/Footer"
+import Sidebar from "./partials/Sidebar"
 
 interface LayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div
       className={clsx(
-        "mx-auto max-w-6xl bg-light dark:bg-dark dark:text-darkText lg:px-8 lg:py-4 xl:py-10",
+        "mx-auto max-w-6xl bg-light dark:bg-dark dark:text-darkText lg:px-8 lg:py-4 xl:py-10"
       )}
     >
       <div className="flex flex-col lg:flex-row lg:gap-5">
@@ -26,7 +26,7 @@ const Layout = ({ children }: LayoutProps) => {
         </main>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
