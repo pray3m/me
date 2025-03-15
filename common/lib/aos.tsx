@@ -9,6 +9,8 @@ export const AOSInit = () => {
     Aos.init({
       duration: 800,
       delay: 50,
+      // offset: 0,
+      // once: true,
     })
   }, [])
 
