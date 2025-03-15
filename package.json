@@ -11,7 +11,6 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "format": "biome format --write .",
-    "format:check": "biome format --ci .",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "lint:strict": "biome ci .",
