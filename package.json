@@ -11,7 +11,11 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "format": "pnpm prettier --write .",
+    "lint:fix": "eslint src --fix && yarn format",
+    "lint:strict": "eslint --max-warnings=0 src",
+    "typecheck": "tsc --noEmit --incremental false",
+    "format": "prettier --write .",
+    "format:check": "prettier -c .",
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },
