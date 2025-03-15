@@ -1,13 +1,13 @@
-"use client";
+"use client"
 
-import Card from "@/common/components/elements/Card";
-import Image from "@/common/components/elements/Image";
-import useWindowSize from "@/common/hooks/use-window-size";
-import type { BlogItemProps } from "@/common/lib/types";
-import moment from "moment";
-import Link from "next/link";
-import type { FC } from "react";
-import Icon from "supercons";
+import Card from "@/common/components/elements/Card"
+import Image from "@/common/components/elements/Image"
+import useWindowSize from "@/common/hooks/use-window-size"
+import type { BlogItemProps } from "@/common/lib/types"
+import moment from "moment"
+import Link from "next/link"
+import type { FC } from "react"
+import Icon from "supercons"
 
 const BlogCard: FC<BlogItemProps> = ({
   title,
@@ -17,10 +17,10 @@ const BlogCard: FC<BlogItemProps> = ({
   content,
   slug,
 }) => {
-  const width = useWindowSize();
-  const isMobile = width < 468;
+  const width = useWindowSize()
+  const isMobile = width < 468
   const trimmedContent =
-    content.slice(0, 100) + (content.length > 100 ? "..." : "");
+    content.slice(0, 100) + (content.length > 100 ? "..." : "")
 
   return (
     <Link href={`blog/${slug}`}>
@@ -57,7 +57,7 @@ const BlogCard: FC<BlogItemProps> = ({
         </div>
       </Card>
     </Link>
-  );
-};
+  )
+}
 
-export default BlogCard;
+export default BlogCard

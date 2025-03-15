@@ -1,9 +1,9 @@
-import type React from "react";
-import type { FC } from "react";
+import type React from "react"
+import type { FC } from "react"
 
 interface Props {
-  title: string;
-  icon?: React.ReactNode;
+  title: string
+  icon?: React.ReactNode
 }
 
 const SectionHeading: FC<Props> = ({ title, icon }) => {
@@ -12,7 +12,7 @@ const SectionHeading: FC<Props> = ({ title, icon }) => {
       {icon && <>{icon}</>}
       <h2 className="capitalize">{title}</h2>
     </div>
-  );
-};
+  )
+}
 
-export default SectionHeading;
+export default SectionHeading

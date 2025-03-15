@@ -1,6 +1,6 @@
-const yearOfBirth = 2001;
-const currentYear = new Date().getFullYear();
-const age = currentYear - yearOfBirth;
+const yearOfBirth = 2001
+const currentYear = new Date().getFullYear()
+const age = currentYear - yearOfBirth
 
 export const ABOUT = `
 <p>
@@ -22,4 +22,4 @@ export const ABOUT = `
 	attention to detail, and dedication to delivering high-quality products
 	make me a reliable and driven developer.
 </p>
-`;
+`

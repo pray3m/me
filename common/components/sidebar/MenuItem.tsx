@@ -1,35 +1,35 @@
-import { MenuContext } from "@/common/context/MenuContext";
-import type { MenuItemProps } from "@/common/lib/types";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { type FC, useContext, useState } from "react";
-import Icon from "supercons";
+import { MenuContext } from "@/common/context/MenuContext"
+import type { MenuItemProps } from "@/common/lib/types"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { type FC, useContext, useState } from "react"
+import Icon from "supercons"
 
 const MenuItem: FC<MenuItemProps> = ({ name, icon, href }) => {
-  const { hideNavbar } = useContext(MenuContext);
+  const { hideNavbar } = useContext(MenuContext)
 
-  const pathname = usePathname();
-  const isActive = pathname === href;
-  const isExternalUrl = href?.includes("http");
-  const targetUrl = isExternalUrl ? "_blank" : "";
+  const pathname = usePathname()
+  const isActive = pathname === href
+  const isExternalUrl = href?.includes("http")
+  const targetUrl = isExternalUrl ? "_blank" : ""
 
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false)
 
   const activeClasses = isActive
     ? "bg-gray-200 rounded-lg dark:bg-neutral-800 "
-    : "dark:hover:bg-neutral-800 md:hover:bg-gray-200 md:hover:rounded-lg md:hover:scale-105 lg:transition-all lg:duration-300 text-neutral-900 dark:text-netral-300!";
+    : "dark:hover:bg-neutral-800 md:hover:bg-gray-200 md:hover:rounded-lg md:hover:scale-105 lg:transition-all lg:duration-300 text-neutral-900 dark:text-netral-300!"
 
   const handleClick = () => {
-    hideNavbar();
-  };
+    hideNavbar()
+  }
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
+    setIsHovered(true)
+  }
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+    setIsHovered(false)
+  }
 
   return (
     <Link href={href} target={targetUrl} onClick={handleClick}>
@@ -50,7 +50,7 @@ const MenuItem: FC<MenuItemProps> = ({ name, icon, href }) => {
         )}
       </div>
     </Link>
-  );
-};
+  )
+}
 
-export default MenuItem;
+export default MenuItem

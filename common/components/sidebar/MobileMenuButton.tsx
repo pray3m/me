@@ -1,9 +1,9 @@
-import type { FC } from "react";
-import Icon from "supercons";
+import type { FC } from "react"
+import Icon from "supercons"
 
 interface MobileMenuButtonProps {
-  expandMenu: boolean;
-  setExpandMenu: (expand: boolean) => void;
+  expandMenu: boolean
+  setExpandMenu: (expand: boolean) => void
 }
 
 const MobileMenuButton: FC<MobileMenuButtonProps> = ({
@@ -23,7 +23,7 @@ const MobileMenuButton: FC<MobileMenuButtonProps> = ({
         )}
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default MobileMenuButton;
+export default MobileMenuButton

@@ -1,11 +1,11 @@
-import clsx from "clsx";
-import type { FC } from "react";
-import Image from "../elements/Image";
-import Link from "next/link";
+import clsx from "clsx"
+import Link from "next/link"
+import type { FC } from "react"
+import Image from "../elements/Image"
 
 interface ProfileHeaderProps {
-  expandMenu: boolean;
-  imageSize: number;
+  expandMenu: boolean
+  imageSize: number
 }
 
 const ProfileHeader: FC<ProfileHeaderProps> = ({ expandMenu, imageSize }) => {
@@ -13,7 +13,7 @@ const ProfileHeader: FC<ProfileHeaderProps> = ({ expandMenu, imageSize }) => {
     <div
       className={clsx(
         "flex grow gap-4 lg:flex-col",
-        expandMenu ? "flex-col items-start!" : "items-center",
+        expandMenu ? "flex-col items-start!" : "items-center"
       )}
     >
       <Image
@@ -25,12 +25,10 @@ const ProfileHeader: FC<ProfileHeaderProps> = ({ expandMenu, imageSize }) => {
         className="lg:hover:scale-105"
       />
       <Link href="/" passHref>
-        <h1 className="grow text-lg font-medium lg:text-xl">
-          Prem Gautam
-        </h1>
+        <h1 className="grow text-lg font-medium lg:text-xl">Prem Gautam</h1>
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default ProfileHeader;
+export default ProfileHeader

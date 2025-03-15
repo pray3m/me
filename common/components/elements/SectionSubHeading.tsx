@@ -1,7 +1,7 @@
-import React, { type FC, type ReactNode } from "react";
+import React, { type FC, type ReactNode } from "react"
 
 interface Props {
-  children?: ReactNode;
+  children?: ReactNode
 }
 
 const SectionSubHeading: FC<Props> = ({ children }) => {
@@ -9,7 +9,7 @@ const SectionSubHeading: FC<Props> = ({ children }) => {
     <div className="flex flex-col justify-between gap-2 text-neutral-600 dark:text-neutral-400 lg:flex-row lg:items-center">
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default SectionSubHeading;
+export default SectionSubHeading

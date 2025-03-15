@@ -1,10 +1,10 @@
-import Card from "@/common/components/elements/Card";
-import type { CareerProps } from "@/common/lib/types";
-import moment from "moment";
-import Image from "next/image";
-import Link from "next/link";
-import React, { type FC } from "react";
-import { BsBuildings as CompanyIcon } from "react-icons/bs";
+import Card from "@/common/components/elements/Card"
+import type { CareerProps } from "@/common/lib/types"
+import moment from "moment"
+import Image from "next/image"
+import Link from "next/link"
+import React, { type FC } from "react"
+import { BsBuildings as CompanyIcon } from "react-icons/bs"
 
 const CareerCard: FC<CareerProps> = ({
   position,
@@ -18,17 +18,17 @@ const CareerCard: FC<CareerProps> = ({
   industry,
   link,
 }) => {
-  const startDate = moment(start_date);
-  const endDate = end_date ? moment(end_date) : moment();
+  const startDate = moment(start_date)
+  const endDate = end_date ? moment(end_date) : moment()
 
-  const durationYears = endDate.diff(startDate, "years");
-  const durationMonths = endDate.diff(startDate, "months") % 12;
+  const durationYears = endDate.diff(startDate, "years")
+  const durationMonths = endDate.diff(startDate, "months") % 12
 
-  let durationText = "";
+  let durationText = ""
   if (durationYears > 0) {
-    durationText = `${durationYears} year${durationYears > 1 ? "s" : ""}`;
+    durationText = `${durationYears} year${durationYears > 1 ? "s" : ""}`
   } else {
-    durationText = `${durationMonths} month${durationMonths > 1 ? "s" : ""}`;
+    durationText = `${durationMonths} month${durationMonths > 1 ? "s" : ""}`
   }
 
   return (
@@ -66,7 +66,7 @@ const CareerCard: FC<CareerProps> = ({
         </div>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default CareerCard;
+export default CareerCard

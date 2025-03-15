@@ -59,4 +59,4 @@ export const CAREERS = [
     industry: "software house",
     link: "https://www.linkedin.com/company/rencongnetwork",
   },
-];
+]

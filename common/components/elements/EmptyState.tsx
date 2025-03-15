@@ -1,8 +1,8 @@
-import React, { type FC } from "react";
-import Icon from "supercons";
+import React, { type FC } from "react"
+import Icon from "supercons"
 
 interface Props {
-  message: string;
+  message: string
 }
 
 const EmptyState: FC<Props> = ({ message }) => {
@@ -11,7 +11,7 @@ const EmptyState: FC<Props> = ({ message }) => {
       <Icon glyph="sam" size={48} />
       <p>{message}</p>
     </div>
-  );
-};
+  )
+}
 
-export default EmptyState;
+export default EmptyState

@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
-import clsx from "clsx";
-import NextImage, { type ImageProps as NextImageProps } from "next/image";
-import React from "react";
+import clsx from "clsx"
+import NextImage, { type ImageProps as NextImageProps } from "next/image"
+import React from "react"
 
 type ImageProps = {
-  rounded?: string;
-} & NextImageProps;
+  rounded?: string
+} & NextImageProps
 
 const Image = (props: ImageProps) => {
-  const { alt, src, className, rounded, ...rest } = props;
-  const [isLoading, setLoading] = React.useState(true);
+  const { alt, src, className, rounded, ...rest } = props
+  const [isLoading, setLoading] = React.useState(true)
 
   return (
     <div
       className={clsx(
         "overflow-hidden",
         isLoading ? "animate-pulse" : "",
-        rounded,
+        rounded
       )}
     >
       <NextImage
@@ -27,7 +27,7 @@ const Image = (props: ImageProps) => {
             ? "scale-[1.02] blur-xl grayscale"
             : "scale-100 blur-0 grayscale-0",
           rounded,
-          className,
+          className
         )}
         src={src}
         alt={alt}
@@ -37,6 +37,6 @@ const Image = (props: ImageProps) => {
         {...rest}
       />
     </div>
-  );
-};
-export default Image;
+  )
+}
+export default Image

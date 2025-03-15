@@ -1,8 +1,8 @@
-import React, { type FC } from "react";
-import { motion } from "framer-motion";
-import Breakline from "../elements/Breakline";
-import Navigation from "./Navigation";
-import ThemeToggle from "../elements/ThemeToggle";
+import { motion } from "framer-motion"
+import React, { type FC } from "react"
+import Breakline from "../elements/Breakline"
+import ThemeToggle from "../elements/ThemeToggle"
+import Navigation from "./Navigation"
 
 const MobileMenu: FC = () => {
   return (
@@ -18,7 +18,7 @@ const MobileMenu: FC = () => {
       <Breakline className="mt-2" />
       <Navigation />
     </motion.div>
-  );
-};
+  )
+}
 
-export default MobileMenu;
+export default MobileMenu

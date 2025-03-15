@@ -1,11 +1,11 @@
-import Container from "@/common/components/elements/Container";
-import PageHeading from "@/common/components/elements/PageHeading";
-import Projects from "@/modules/projects/components/Projects";
-import type { Metadata, NextPage } from "next";
+import Container from "@/common/components/elements/Container"
+import PageHeading from "@/common/components/elements/PageHeading"
+import Projects from "@/modules/projects/components/Projects"
+import type { Metadata, NextPage } from "next"
 
 export const metadata: Metadata = {
   title: "Projects - Prem Gautam",
-};
+}
 
 const ProjectsPage: NextPage = () => {
   return (
@@ -16,7 +16,7 @@ const ProjectsPage: NextPage = () => {
       />
       <Projects />
     </Container>
-  );
-};
+  )
+}
 
-export default ProjectsPage;
+export default ProjectsPage

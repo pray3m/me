@@ -1,9 +1,9 @@
-import { createContext } from "react";
+import { createContext } from "react"
 
 interface MenuContextType {
-  hideNavbar: () => void;
+  hideNavbar: () => void
 }
 
 export const MenuContext = createContext<MenuContextType>({
   hideNavbar: () => {},
-});
+})

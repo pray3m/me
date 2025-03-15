@@ -1,14 +1,14 @@
-import { CAREERS } from "@/common/constant/careers";
-import Link from "next/link";
-import React from "react";
-import { LuDownload } from "react-icons/lu";
-import CareerCard from "./CareerCard";
-import { HiOutlineBriefcase as CareerIcon } from "react-icons/hi";
-import SectionHeading from "@/common/components/elements/SectionHeading";
-import SectionSubHeading from "@/common/components/elements/SectionSubHeading";
+import SectionHeading from "@/common/components/elements/SectionHeading"
+import SectionSubHeading from "@/common/components/elements/SectionSubHeading"
+import { CAREERS } from "@/common/constant/careers"
+import Link from "next/link"
+import React from "react"
+import { HiOutlineBriefcase as CareerIcon } from "react-icons/hi"
+import { LuDownload } from "react-icons/lu"
+import CareerCard from "./CareerCard"
 
 const CareerList = () => {
-  const RESUME_URL = "https://www.linkedin.com/in/pray3m/";
+  const RESUME_URL = "https://www.linkedin.com/in/pray3m/"
 
   return (
     <section className="space-y-6">
@@ -41,7 +41,7 @@ const CareerList = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CareerList;
+export default CareerList

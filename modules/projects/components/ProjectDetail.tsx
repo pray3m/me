@@ -1,6 +1,6 @@
-import Image from "@/common/components/elements/Image";
-import type { FC } from "react";
-import ProjectLink from "./ProjectLink";
+import Image from "@/common/components/elements/Image"
+import type { FC } from "react"
+import ProjectLink from "./ProjectLink"
 
 const ProjectDetail: FC<Project> = ({
   title,
@@ -12,7 +12,7 @@ const ProjectDetail: FC<Project> = ({
   link_github,
   updated_at,
 }) => {
-  const stacksArray = stacks;
+  const stacksArray = stacks
 
   return (
     <div className="space-y-8">
@@ -42,7 +42,7 @@ const ProjectDetail: FC<Project> = ({
       />
       <p>{title}</p>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectDetail;
+export default ProjectDetail
