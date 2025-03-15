@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -94,12 +94,12 @@ body {
 
 .dark {
   background-color: var(--color-dark);
-  color: rgb(var(--color-light));
+  color: var(--color-light);
 }
 
 .light {
   background-color: var(--color-light);
-  color: rgb(var(--color-dark));
+  color: var(--color-dark);
 
   #nprogress .bar {
     background: #15b8a6 !important;
@@ -112,7 +112,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  @apply h-2 w-1 bg-light dark:bg-dark;
+  @apply bg-light dark:bg-dark h-2 w-1;
 }
 
 ::-webkit-scrollbar-track {

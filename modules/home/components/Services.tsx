@@ -6,6 +6,7 @@ import SectionHeading from "@/common/components/elements/SectionHeading";
 import { CLIENT_IMAGES } from "@/common/constant/client";
 import { useRouter } from "next/navigation";
 import { type FC } from "react";
+import Icon from "supercons";
 
 const Services: FC = () => {
   const router = useRouter();
@@ -22,8 +23,11 @@ const Services: FC = () => {
         </p>
       </div>
       <div className="space-y-4 rounded-xl border bg-neutral-100 p-8 dark:border-none dark:bg-neutral-800">
-        <h3 className="text-xl font-medium">Lets work together!</h3>
-        <p className="leading-loose text-neutral-800 dark:text-neutral-300">
+        <div className="flex items-center gap-1">
+          <Icon glyph="send-fill" size={28} className="pt-1" />
+          <h3 className="text-xl font-medium">Lets work together!</h3>
+        </div>
+        <p className="pl-2 leading-loose text-neutral-800 dark:text-neutral-300">
           i&apos;m open for freelance projects, feel free to email me to see how
           can we collaborate.
         </p>
