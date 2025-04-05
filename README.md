@@ -29,6 +29,7 @@ On this website there are several features that will continue to be updated and 
 
 - [ ] remove vercel analytics
 - [ ] Feature add jest unit test (Jun 23 `23)
+- [ ] remove supercons (update icons with react-icons)
 
 ## Getting Started
 
