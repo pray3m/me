@@ -1,76 +1,99 @@
+import { BiLineChart as AnalyticsIcon } from "react-icons/bi"
 import Icon from "supercons"
 import type { MenuItemProps } from "../lib/types"
 
-const iconSize = 26
+const iconSize = 20
+const iconSizeSocial = 18
 
 export const MENU_ITEMS: MenuItemProps[] = [
   {
-    name: "Home",
+    title: "Home",
     href: "/",
     icon: <Icon glyph="home" size={iconSize} />,
-    visible: true,
+    isShow: true,
+    isExternal: false,
   },
   {
-    name: "Dashboard",
+    title: "Dashboard",
     href: "/dashboard",
     icon: <Icon glyph="grid" size={iconSize} />,
-    visible: true,
+    isShow: true,
+    isExternal: false,
   },
   {
-    name: "Projects",
+    title: "Projects",
     href: "/projects",
     icon: <Icon glyph="explore" size={iconSize} />,
-    visible: true,
+    isShow: true,
+    isExternal: false,
   },
   {
-    name: "Blog",
+    title: "Blog",
     href: "/blog",
     icon: <Icon glyph="post" size={iconSize} />,
-    visible: true,
+    isShow: false,
+    isExternal: false,
   },
   {
-    name: "Tools",
+    title: "Tools",
     href: "/tools",
     icon: <Icon glyph="bug" size={iconSize} />,
-    visible: false,
+    isShow: false,
+    isExternal: false,
   },
   {
-    name: "About",
+    title: "About",
     href: "/about",
     icon: <Icon glyph="profile" size={iconSize} />,
-    visible: true,
+    isShow: true,
+    isExternal: false,
   },
   {
-    name: "Contact",
+    title: "Contact",
     href: "/contact",
     icon: <Icon glyph="email" size={iconSize} />,
-    visible: true,
+    isShow: true,
+    isExternal: false,
   },
 ]
 
 export const SOCIAL_MEDIA: MenuItemProps[] = [
   {
-    name: "Linkedin",
+    title: "Linkedin",
     href: "https://www.linkedin.com/in/pray3m/",
-    icon: <Icon glyph="channels" size={iconSize} />,
-    visible: true,
+    icon: <Icon glyph="channels" size={iconSizeSocial} />,
+    isShow: true,
+    isExternal: true,
   },
   {
-    name: "Github",
+    title: "Github",
     href: "https://github.com/pray3m",
-    icon: <Icon glyph="github" size={iconSize} />,
-    visible: true,
+    icon: <Icon glyph="github" size={iconSizeSocial} />,
+    isShow: true,
+    isExternal: true,
   },
   {
-    name: "Instagram",
+    title: "Instagram",
     href: "https://instagram.com/pray3m",
-    icon: <Icon glyph="instagram" size={iconSize} />,
-    visible: true,
+    icon: <Icon glyph="instagram" size={iconSizeSocial} />,
+    isShow: true,
+    isExternal: true,
   },
   {
-    name: "Twitter",
+    title: "Twitter",
     href: "https://twitter.com/pray3m_",
-    icon: <Icon glyph="twitter" size={iconSize} />,
-    visible: true,
+    icon: <Icon glyph="twitter" size={iconSizeSocial} />,
+    isShow: true,
+    isExternal: true,
+  },
+]
+
+export const EXTERNAL_LINKS: MenuItemProps[] = [
+  {
+    title: "Analytics",
+    href: "https://us.umami.is/share/9Kv5WwvTGEXVmx0W/premgautam.me",
+    icon: <AnalyticsIcon size={iconSizeSocial} />,
+    isShow: true,
+    isExternal: true,
   },
 ]

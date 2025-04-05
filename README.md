@@ -23,8 +23,9 @@ On this website there are several features that will continue to be updated and 
 - [x] Fix update services (Jun 23 `23)
 - [x] Feature add project list render animation (Jun 23 `23)
 - [x] Fix: toggle (Jun 23 `23)
-- [ ]
-
+- [ ] Command Palette (Jun 25 `23)
+- [ ] Feature: add theme toggle button and update copyright (Jun 25 `23)
+- [ ] Feature: integrate Command Palette with chatGPT (ask ai assistant)
 ## TODO :
 
 - [ ] remove vercel analytics
@@ -40,6 +41,16 @@ npm run dev
 # or
 yarn dev
 ```
+
+### 🕗 Wakatime
+
+Data is retrieved using the Wakatime API and then displayed on the dashboard, built with Next.js API routes deployed as serverless functions.
+
+### 🗳 Projects
+
+The data projects on this blog are taken from the MySQL database connected through the Prisma Client. The database for this application is hosted on PlanetScale DB. (WIP)
+
+The data fetching method used to retrieve data projects is Incremental Static Regeneration (ISR) with 1 second revalidation and Server-Side Rendering (SSR) for the project details..
 
 ## Deployment
 
