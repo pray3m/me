@@ -1,5 +1,6 @@
 import { MENU_ITEMS } from "@/common/constant/menu"
 import { CommandPaletteContext } from "@/common/context/CommandPaletteContext"
+import useIsMobile from "@/common/hooks/use-is-mobile"
 import { MenuItemProps } from "@/common/lib/types"
 import {
   Combobox,
@@ -8,13 +9,14 @@ import {
   ComboboxOptions,
   Dialog,
   DialogBackdrop,
+  DialogPanel,
   Transition,
   TransitionChild,
 } from "@headlessui/react"
 import clsx from "clsx"
 import { useTheme } from "next-themes"
 import { useRouter } from "next/navigation"
-import React, { Fragment, useContext, useEffect } from "react"
+import React, { Fragment, useContext, useEffect, useState } from "react"
 import {
   BiMoon as DarkModeIcon,
   BiSun as LightModeIcon,
@@ -34,12 +36,33 @@ interface MenuOptionProps {
 
 export default function CommandPalette() {
   const router = useRouter()
+  const isMobile = useIsMobile()
 
   const { isOpen, setIsOpen } = useContext(CommandPaletteContext)
   const [query, setQuery] = React.useState<string>("")
   const [queryDebounce] = useDebounceValue(query, 300)
 
   const { resolvedTheme, setTheme } = useTheme()
+
+  const [placeholderIndex, setPlaceholderIndex] = useState(0)
+  const placeholders = [
+    "Search...",
+    "Press Cmd + K anytime to access this command palette",
+  ]
+
+  useEffect(() => {
+    if (!isMobile) {
+      const timer = setTimeout(() => {
+        setPlaceholderIndex((prevIndex) => (prevIndex === 0 ? 1 : 0))
+      }, 3000)
+
+      return () => {
+        clearTimeout(timer)
+      }
+    }
+  }, [isMobile])
+
+  const placeholder = placeholders[placeholderIndex]
 
   useEffect(() => {
     const handleKeyDown: (event: KeyboardEvent) => void = (
@@ -124,73 +147,76 @@ export default function CommandPalette() {
           transition
         />
 
-        <TransitionChild
-          enter="transition-transform duration-200 ease-out"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="transition-transform duration-100 ease-in"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          <Combobox
-            onChange={(menu: MenuOptionItemProps) => handleSelect(menu)}
-            as="div"
-            className="relative mx-auto max-w-lg overflow-hidden rounded-xl border-2 border-neutral-300 bg-white shadow-3xl ring-1 ring-black/5 dark:divide-neutral-600 dark:border-neutral-800  dark:bg-neutral-950 "
+        <DialogPanel>
+          <TransitionChild
+            as={Fragment}
+            enter="transition-transform duration-200 ease-out"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="transition-transform duration-100 ease-in"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
           >
-            <div className="flex gap-3 items-center border-b border-neutral-300 dark:border-neutral-800 px-4">
-              <SearchIcon size={22} />
-              <ComboboxInput
-                autoFocus
-                onChange={handleSearch}
-                className="h-12 w-full border-0 bg-transparent text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-0 dark:text-neutral-200"
-                placeholder="Press Cmd + K anytime to access this command palette"
-              />
-            </div>
+            <Combobox
+              onChange={(menu: MenuOptionItemProps) => handleSelect(menu)}
+              as="div"
+              className="relative mx-auto max-w-lg overflow-hidden rounded-xl border-2 border-neutral-300 bg-white shadow-3xl ring-1 ring-black/5 dark:divide-neutral-600 dark:border-neutral-800  dark:bg-neutral-950 "
+            >
+              <div className="flex gap-3 items-center border-b border-neutral-300 dark:border-neutral-800 px-4">
+                <SearchIcon size={22} />
+                <ComboboxInput
+                  autoFocus
+                  onChange={handleSearch}
+                  className="h-14 w-full border-0 bg-transparent text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-0 dark:text-neutral-200"
+                  placeholder={placeholder}
+                />
+              </div>
 
-            <div className="max-h-80 overflow-y-auto py-2 px-1">
-              {filterMenuOptions.map((menu) => (
-                <div
-                  key={menu.title}
-                  className={clsx(
-                    menu.children.length === 0 && "hidden",
-                    "py-1"
-                  )}
-                >
-                  <div className="my-2 px-5 text-xs text-neutral-500">
-                    {menu?.title}
+              <div className="max-h-80 overflow-y-auto py-2 px-1">
+                {filterMenuOptions.map((menu) => (
+                  <div
+                    key={menu.title}
+                    className={clsx(
+                      menu.children.length === 0 && "hidden",
+                      "py-1"
+                    )}
+                  >
+                    <div className="my-2 px-5 text-xs text-neutral-500">
+                      {menu?.title}
+                    </div>
+                    <ComboboxOptions static className="space-y-1">
+                      {menu.children.map((child) => (
+                        <ComboboxOption key={child.href} value={child}>
+                          {({ active }) => (
+                            <div
+                              className={clsx(
+                                active
+                                  ? "bg-neutral-200 text-neutral-600 dark:bg-neutral-700/60 dark:text-white"
+                                  : "text-neutral-600 dark:text-neutral-300",
+                                "mx-2 flex cursor-pointer items-center gap-3 rounded-md py-2 px-4"
+                              )}
+                            >
+                              {child?.icon && <span>{child?.icon}</span>}
+                              <span>{child?.title}</span>
+                            </div>
+                          )}
+                        </ComboboxOption>
+                      ))}
+                    </ComboboxOptions>
                   </div>
-                  <ComboboxOptions static className="space-y-1">
-                    {menu.children.map((child) => (
-                      <ComboboxOption key={child.href} value={child}>
-                        {({ active }) => (
-                          <div
-                            className={clsx(
-                              active
-                                ? "bg-neutral-200 text-neutral-600 dark:bg-neutral-700/60 dark:text-white"
-                                : "text-neutral-600 dark:text-neutral-300",
-                              "mx-2 flex cursor-pointer items-center gap-3 rounded-md py-2 px-4"
-                            )}
-                          >
-                            {child?.icon && <span>{child?.icon}</span>}
-                            <span>{child?.title}</span>
-                          </div>
-                        )}
-                      </ComboboxOption>
-                    ))}
-                  </ComboboxOptions>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-            {queryDebounce &&
-              filterMenuOptions.flatMap((item) => item.children).length ===
-                0 && (
-                <p className="p-4 mb-4 text-sm text-neutral-500 text-center">
-                  No results found.
-                </p>
-              )}
-          </Combobox>
-        </TransitionChild>
+              {queryDebounce &&
+                filterMenuOptions.flatMap((item) => item.children).length ===
+                  0 && (
+                  <p className="p-4 mb-4 text-sm text-neutral-500 text-center">
+                    No results found.
+                  </p>
+                )}
+            </Combobox>
+          </TransitionChild>
+        </DialogPanel>
       </Dialog>
     </Transition>
   )
