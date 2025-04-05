@@ -1,10 +1,12 @@
-import type { ReactNode } from "react"
+import type { JSX } from "react"
 
-export interface MenuItemProps {
-  name: string
+export type MenuItemProps = {
+  title: string
   href: string
-  icon: ReactNode
-  visible: boolean
+  icon: JSX.Element
+  isShow?: boolean
+  isExternal: boolean
+  onClick?: () => void
 }
 
 export interface BlogItemProps {
