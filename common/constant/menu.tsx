@@ -91,7 +91,7 @@ export const SOCIAL_MEDIA: MenuItemProps[] = [
 export const EXTERNAL_LINKS: MenuItemProps[] = [
   {
     title: "Analytics",
-    href: "https://umami.aulianza.id/share/LK5kiRuosw9pORLa/aulianza.id",
+    href: "https://us.umami.is/share/9Kv5WwvTGEXVmx0W/premgautam.me",
     icon: <AnalyticsIcon size={iconSizeSocial} />,
     isShow: true,
     isExternal: true,
