@@ -70,21 +70,21 @@ export const SOCIAL_MEDIA: MenuItemProps[] = [
     href: "https://github.com/pray3m",
     icon: <Icon glyph="github" size={iconSizeSocial} />,
     isShow: true,
-    isExternal: false,
+    isExternal: true,
   },
   {
     title: "Instagram",
     href: "https://instagram.com/pray3m",
     icon: <Icon glyph="instagram" size={iconSizeSocial} />,
     isShow: true,
-    isExternal: false,
+    isExternal: true,
   },
   {
     title: "Twitter",
     href: "https://twitter.com/pray3m_",
     icon: <Icon glyph="twitter" size={iconSizeSocial} />,
     isShow: true,
-    isExternal: false,
+    isExternal: true,
   },
 ]
 

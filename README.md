@@ -25,6 +25,7 @@ On this website there are several features that will continue to be updated and 
 - [x] Fix: toggle (Jun 23 `23)
 - [ ] Command Palette (Jun 25 `23)
 - [ ] Feature: add theme toggle button and update copyright (Jun 25 `23)
+- [ ] Feature: integrate commandPallete with chatGPT (ask ai assistant)
 
 ## TODO :
 
