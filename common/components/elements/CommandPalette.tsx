@@ -1,4 +1,4 @@
-import { MENU_ITEMS } from "@/common/constant/menu"
+import { EXTERNAL_LINKS, MENU_ITEMS } from "@/common/constant/menu"
 import { CommandPaletteContext } from "@/common/context/CommandPaletteContext"
 import useIsMobile from "@/common/hooks/use-is-mobile"
 import { MenuItemProps } from "@/common/lib/types"
@@ -22,7 +22,9 @@ import {
   BiSun as LightModeIcon,
   BiSearch as SearchIcon,
 } from "react-icons/bi"
+import { FiExternalLink as ExternalLinkIcon } from "react-icons/fi"
 import { useDebounceValue } from "usehooks-ts"
+import Button from "./Button"
 
 interface MenuOptionItemProps extends MenuItemProps {
   click?: () => void
@@ -62,6 +64,10 @@ export default function CommandPalette() {
     }
   }, [isMobile])
 
+  useEffect(() => {
+    if (isOpen === false) setQuery("")
+  }, [isOpen])
+
   const placeholder = placeholders[placeholderIndex]
 
   useEffect(() => {
@@ -70,6 +76,8 @@ export default function CommandPalette() {
     ) => {
       if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
         setIsOpen(!isOpen)
+      } else if (event.key === "Escape") {
+        setIsOpen(false)
       }
     }
     window.addEventListener("keydown", handleKeyDown)
@@ -100,6 +108,13 @@ export default function CommandPalette() {
     {
       title: "PAGES",
       children: MENU_ITEMS?.map((menu) => ({
+        ...menu,
+        closeOnSelect: true,
+      })),
+    },
+    {
+      title: "EXTERNAL LINKS",
+      children: EXTERNAL_LINKS?.map((menu) => ({
         ...menu,
         closeOnSelect: true,
       })),
@@ -135,6 +150,11 @@ export default function CommandPalette() {
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) =>
     setQuery(event.target.value)
+
+  const handleFindGoogle = () => {
+    const url = `https://www.google.com/search?q=${queryDebounce}&ref=premgautam.me`
+    window.open(url, "_blank")
+  }
 
   return (
     <Transition show={isOpen} as={Fragment}>
@@ -181,7 +201,7 @@ export default function CommandPalette() {
                       "py-1"
                     )}
                   >
-                    <div className="my-2 px-5 text-xs text-neutral-500">
+                    <div className="my-2 px-5 text-xs font-medium text-neutral-500">
                       {menu?.title}
                     </div>
                     <ComboboxOptions static className="space-y-1">
@@ -210,9 +230,14 @@ export default function CommandPalette() {
               {queryDebounce &&
                 filterMenuOptions.flatMap((item) => item.children).length ===
                   0 && (
-                  <p className="p-4 mb-4 text-sm text-neutral-500 text-center">
-                    No results found.
-                  </p>
+                  <div className="flex flex-col pt-5 pb-10 space-y-5 items-center">
+                    <p className="text-neutral-500 text-center">
+                      No result found. Find in Google instead?
+                    </p>
+                    <Button onClick={handleFindGoogle}>
+                      Find in Google <ExternalLinkIcon />
+                    </Button>
+                  </div>
                 )}
             </Combobox>
           </TransitionChild>

@@ -1,4 +1,4 @@
-import type { JSX } from "react"
+import type { JSX, ReactNode } from "react"
 
 export type MenuItemProps = {
   title: string
@@ -7,6 +7,8 @@ export type MenuItemProps = {
   isShow?: boolean
   isExternal: boolean
   onClick?: () => void
+  className?: string
+  children?: ReactNode
 }
 
 export interface BlogItemProps {

@@ -5,7 +5,14 @@ import { usePathname } from "next/navigation"
 import { type FC, useContext, useState } from "react"
 import { BsArrowRightShort as ExternalLinkIcon } from "react-icons/bs"
 
-const MenuItem: FC<MenuItemProps> = ({ title, icon, href, onClick }) => {
+const MenuItem: FC<MenuItemProps> = ({
+  title,
+  icon,
+  href,
+  onClick,
+  className,
+  children,
+}) => {
   const { hideNavbar } = useContext(MenuContext)
 
   const [isHovered, setIsHovered] = useState<boolean>(false)
@@ -36,7 +43,7 @@ const MenuItem: FC<MenuItemProps> = ({ title, icon, href, onClick }) => {
   }
 
   const elementProps = {
-    className: `${activeClasses}`,
+    className: `${activeClasses} ${className}`,
     onClick: handleClick,
     onMouseEnter: handleMouseEnter,
     onMouseLeave: handleMouseLeave,
@@ -47,6 +54,7 @@ const MenuItem: FC<MenuItemProps> = ({ title, icon, href, onClick }) => {
       <div {...elementProps}>
         <div>{icon}</div>
         <div className="flex-grow ml-0.5">{title}</div>
+        {children && <>{children}</>}
         {isExternalUrl && isHovered && (
           <ExternalLinkIcon
             size={22}

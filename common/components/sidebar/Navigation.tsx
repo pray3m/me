@@ -22,12 +22,16 @@ const Navigation: FC = () => {
 
       <div className="pt-1">
         <MenuItem
-          title="/cmd"
+          title="cmd + k"
           href="#"
           icon={<CommandIcon size={20} />}
           isExternal={false}
           onClick={() => handleOpenCommandPalette()}
-        />
+        >
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-green-200 text-green-700 border-green-700">
+            Try Now
+          </span>
+        </MenuItem>
       </div>
 
       <Breakline />
