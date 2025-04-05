@@ -23,7 +23,7 @@ On this website there are several features that will continue to be updated and 
 - [x] Fix update services (Jun 23 `23)
 - [x] Feature add project list render animation (Jun 23 `23)
 - [x] Fix: toggle (Jun 23 `23)
-- [ ]
+- [ ] Command Palette (Jun 25 `23)
 
 ## TODO :
 
