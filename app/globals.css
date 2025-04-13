@@ -84,6 +84,7 @@
 html {
   scroll-behavior: smooth;
   letter-spacing: 0.3px;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 body {
@@ -121,4 +122,21 @@ body {
 
 ::-webkit-scrollbar-thumb {
   @apply rounded-[3px] border-2 border-neutral-300 bg-neutral-600 dark:bg-neutral-400;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  clip-path: circle(0px at var(--bubble-x) var(--bubble-y));
+  animation: grow-bubble 0.6s ease-in-out forwards;
+}
+
+@keyframes grow-bubble {
+  to {
+    clip-path: circle(150% at var(--bubble-x) var(--bubble-y));
+  }
 }
