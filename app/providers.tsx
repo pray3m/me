@@ -3,7 +3,7 @@
 import CommandPalette from "@/common/components/elements/CommandPalette"
 import { CommandPaletteProvider } from "@/common/context/CommandPaletteContext"
 import { AOSInit } from "@/common/lib/aos"
-import { AppProgressBar as ProgressBar } from "next-nprogress-bar"
+import { AppProgressProvider as ProgressProvider } from "@bprogress/next"
 import { ThemeProvider } from "next-themes"
 import { SWRConfig } from "swr"
 
@@ -13,13 +13,14 @@ export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
       <CommandPaletteProvider>
         <SWRConfig>
           <AOSInit />
-          {children}
-          <ProgressBar
-            height="4px"
+          <ProgressProvider
+            height="2px"
             color="#fffd00"
             options={{ showSpinner: false }}
             shallowRouting
-          />
+          >
+            {children}
+          </ProgressProvider>
           <CommandPalette />
         </SWRConfig>
       </CommandPaletteProvider>

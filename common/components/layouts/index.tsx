@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div
       className={clsx(
-        "mx-auto max-w-6xl bg-light dark:bg-dark dark:text-darkText lg:px-8 lg:py-4 xl:py-10"
+        "mx-auto max-w-6xl bg-light dark:bg-dark dark:text-darkText lg:px-8 lg:py-4 xl:py-8"
       )}
     >
       <div className="flex flex-col lg:flex-row lg:gap-5">

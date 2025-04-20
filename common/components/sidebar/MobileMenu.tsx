@@ -1,7 +1,6 @@
 import { motion } from "framer-motion"
 import React, { type FC } from "react"
 import Breakline from "../elements/Breakline"
-import ThemeToggle from "../elements/ThemeToggle"
 import Navigation from "./Navigation"
 
 const MobileMenu: FC = () => {
@@ -13,8 +12,6 @@ const MobileMenu: FC = () => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
     >
-      <Breakline className="mb-2" />
-      <ThemeToggle />
       <Breakline className="mt-2" />
       <Navigation />
     </motion.div>

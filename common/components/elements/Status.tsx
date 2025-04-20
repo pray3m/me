@@ -14,7 +14,7 @@ const Status: FC = () => {
           repeat: Number.POSITIVE_INFINITY,
         }}
       />
-      <span className="animate-pulse text-sm font-medium">
+      <span className="animate-pulse text-sm font-medium text-neutral-600 dark:text-neutral-400">
         Available for hire
       </span>
     </div>

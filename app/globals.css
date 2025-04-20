@@ -102,7 +102,7 @@ body {
   background-color: var(--color-light);
   color: var(--color-dark);
 
-  #nprogress .bar {
+  .bprogress .bar {
     background: #15b8a6 !important;
     height: 4px !important;
   }

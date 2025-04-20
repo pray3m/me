@@ -26,11 +26,15 @@ On this website there are several features that will continue to be updated and 
 - [ ] Command Palette (Jun 25 `23)
 - [ ] Feature: add theme toggle button and update copyright (Jun 25 `23)
 - [ ] Feature: integrate Command Palette with chatGPT (ask ai assistant)
+
 ## TODO :
 
 - [ ] remove vercel analytics
 - [ ] Feature add jest unit test (Jun 23 `23)
 - [ ] remove supercons (update icons with react-icons)
+
+## NICE TO HAVE:
+- [ ] buy me a beer (support me)
 
 ## Getting Started
 

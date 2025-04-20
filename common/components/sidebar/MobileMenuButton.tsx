@@ -13,13 +13,14 @@ const MobileMenuButton: FC<MobileMenuButtonProps> = ({
   return (
     <div className="flex items-center justify-end lg:hidden">
       <button
+        type="button"
         className="block hover:text-gray-900 dark:hover:text-white"
         onClick={() => setExpandMenu(!expandMenu)}
       >
         {!expandMenu ? (
-          <Icon glyph="menu" size={40} />
+          <Icon glyph="menu" size={34} />
         ) : (
-          <Icon glyph="view-close" size={40} />
+          <Icon glyph="view-close" size={34} />
         )}
       </button>
     </div>

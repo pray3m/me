@@ -8,6 +8,7 @@ import Breakline from "../../elements/Breakline"
 import ThemeToggle from "../../elements/ThemeToggle"
 import Navigation from "../../sidebar/Navigation"
 import Profile from "../../sidebar/Profile"
+import Copyright from "./Copyright"
 
 const Sidebar = () => {
   const isMobile = useIsMobile()
