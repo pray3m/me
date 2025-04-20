@@ -91,5 +91,5 @@ export interface AllTimeStats {
 
 export interface WakatimeResponse {
   status: number
-  data: ReadStats | AllTimeStats | {}
+  data: ReadStats | AllTimeStats | Record<string, never>
 }

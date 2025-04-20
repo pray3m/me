@@ -1,8 +1,8 @@
-import React from "react"
+import React, { ReactNode } from "react"
 
 interface Props {
   className?: string
-  [propName: string]: any
+  [propName: string]: ReactNode | string | undefined
 }
 
 const Breakline = ({ className, ...others }: Props) => {

@@ -6,9 +6,62 @@ const STATS_ENDPOINT = "https://wakatime.com/api/v1/users/current/stats"
 const ALL_TIME_SINCE_TODAY =
   "https://wakatime.com/api/v1/users/current/all_time_since_today"
 
+interface WakatimeLanguage {
+  name: string
+  total_seconds: number
+  percent?: number
+  digital?: string
+  hours?: number
+  minutes?: number
+  text?: string
+}
+
+interface WakatimeEditor {
+  name: string
+  total_seconds: number
+  percent?: number
+  digital?: string
+  hours?: number
+  minutes?: number
+  text?: string
+}
+
+interface WakatimeCategory {
+  name: string
+  total_seconds: number
+  percent?: number
+  digital?: string
+  hours?: number
+  minutes?: number
+  text?: string
+}
+
+interface WakatimeBestDay {
+  date: string
+  text: string
+}
+
+interface ReadStatsData {
+  last_update: string
+  start_date: string
+  end_date: string
+  range?: string
+  categories: WakatimeCategory[]
+  best_day: WakatimeBestDay
+  human_readable_daily_average: string
+  human_readable_total: string
+  languages: WakatimeLanguage[]
+  editors: WakatimeEditor[]
+}
+
+interface AllTimeData {
+  text: string
+  total_seconds: number
+}
+
 export const getReadStats = async (): Promise<{
   status: number
-  data: any
+  data: ReadStatsData | Record<string, never>
 }> => {
   const response = await axios.get(`${STATS_ENDPOINT}/last_30_days`, {
     headers: {
@@ -17,7 +70,7 @@ export const getReadStats = async (): Promise<{
   })
 
   const status = response.status
-  if (status >= 400) return { status, data: [] }
+  if (status >= 400) return { status, data: {} }
 
   const getData = response.data
 
@@ -58,7 +111,7 @@ export const getReadStats = async (): Promise<{
 
 export const getALLTimeSinceToday = async (): Promise<{
   status: number
-  data: any
+  data: AllTimeData | Record<string, never>
 }> => {
   const response = await axios.get(ALL_TIME_SINCE_TODAY, {
     headers: {
