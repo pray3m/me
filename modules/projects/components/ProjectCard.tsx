@@ -15,13 +15,16 @@ const ProjectCard: FC<Project> = ({
   return (
     <Link href={`/projects/${slug}`}>
       <Card className="cursor-pointer border border-neutral-200 dark:border-neutral-800 lg:hover:scale-[102%]">
-        <Image
-          src={image}
-          width={400}
-          height={200}
-          alt={title}
-          className="h-48 rounded-t-xl object-cover object-top"
-        />
+        <div className="relative w-full aspect-[16/9] rounded-t-xl overflow-hidden">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 640px) 100vw, 50vw"
+            priority={false}
+          />
+        </div>
         <div className="space-y-2 p-5">
           <div className="flex justify-between">
             <div className="cursor-pointer text-lg font-medium text-neutral-700 dark:text-neutral-300 dark:hover:text-neutral-50">
