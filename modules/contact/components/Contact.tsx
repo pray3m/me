@@ -33,7 +33,7 @@ const Contact: FC = () => {
         You can reach out to me directly by sending an email, texting on
         Telegram, or connecting on social media.
       </p>
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3">
         {CONTACTS.map((contact: ContactProps, index: number) => (
           <Button
             key={index}
