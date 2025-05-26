@@ -31,7 +31,7 @@ const Profile: FC = () => {
     <MenuContext.Provider value={{ hideNavbar }}>
       <div
         className={cn(
-          "absolute z-10 w-full bg-light p-5 shadow-xs dark:border-b dark:border-neutral-800 dark:bg-dark lg:relative lg:border-none lg:bg-transparent! lg:p-0 xl:shadow-none",
+          "fixed z-10 w-full bg-light p-5 shadow-xs dark:border-b dark:border-neutral-800 dark:bg-dark lg:relative lg:border-none lg:bg-transparent! lg:p-0 xl:shadow-none",
           expandMenu && "pb-0"
         )}
       >
