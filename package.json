@@ -25,7 +25,7 @@
     "@headlessui/react": "^2.2.2",
     "@vercel/analytics": "^1.5.0",
     "aos": "3.0.0-beta.6",
-    "axios": "^1.8.4",
+    "axios": "^1.11.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.7.4",
     "moment": "^2.30.1",
