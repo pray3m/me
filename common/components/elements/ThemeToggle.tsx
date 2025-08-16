@@ -1,9 +1,9 @@
 "use client"
 
-import useHasMounted from "@/common/hooks/use-has-mounted"
 import { useTheme } from "next-themes"
 import { type FC, useRef } from "react"
 import Icon from "supercons"
+import useHasMounted from "@/common/hooks/use-has-mounted"
 
 const ThemeToggle: FC = () => {
   const { resolvedTheme, setTheme } = useTheme()

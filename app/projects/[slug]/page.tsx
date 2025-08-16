@@ -30,17 +30,15 @@ const ProjectsDetailPage = async ({
   }
 
   return (
-    <>
-      <Container data-aos="fade-up">
-        <BackButton url="/projects" />
-        <PageHeading
-          title="Projects Details"
-          subtitle="Showcasing my passion for technology, design, and problem-solving through code."
-        />
+    <Container data-aos="fade-up">
+      <BackButton url="/projects" />
+      <PageHeading
+        title="Projects Details"
+        subtitle="Showcasing my passion for technology, design, and problem-solving through code."
+      />
 
-        <ProjectDetail {...project} />
-      </Container>
-    </>
+      <ProjectDetail {...project} />
+    </Container>
   )
 }
 

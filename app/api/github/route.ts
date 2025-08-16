@@ -1,5 +1,5 @@
-import { getGithubUser } from "@/services/github"
 import { NextResponse } from "next/server"
+import { getGithubUser } from "@/services/github"
 
 const CACHE_HEADERS = {
   "Content-Type": "application/json",

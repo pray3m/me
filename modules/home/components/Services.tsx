@@ -1,12 +1,12 @@
 "use client"
 
+import { useRouter } from "next/navigation"
+import { type FC } from "react"
+import Icon from "supercons"
 import Button from "@/common/components/elements/Button"
 import ImageCarousel from "@/common/components/elements/ImageCarousel"
 import SectionHeading from "@/common/components/elements/SectionHeading"
 import { CLIENT_IMAGES } from "@/common/constant/client"
-import { useRouter } from "next/navigation"
-import { type FC } from "react"
-import Icon from "supercons"
 
 const Services: FC = () => {
   const router = useRouter()

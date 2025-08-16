@@ -1,5 +1,5 @@
-import Container from "@/common/components/elements/Container"
 import type { NextPage } from "next"
+import Container from "@/common/components/elements/Container"
 
 const NotFoundPage: NextPage = () => {
   return (

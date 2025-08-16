@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { type Variants, motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import type { FC } from "react"
 
 interface ProgressProps {

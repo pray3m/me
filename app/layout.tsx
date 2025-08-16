@@ -1,7 +1,7 @@
-import Layout from "@/common/components/layouts"
-import { jakartaSans } from "@/common/styles/fonts"
 import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next"
+import Layout from "@/common/components/layouts"
+import { jakartaSans } from "@/common/styles/fonts"
 import "./globals.css"
 import { ProvidersSandwich } from "./providers"
 

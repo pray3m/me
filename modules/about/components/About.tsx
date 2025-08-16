@@ -1,5 +1,5 @@
-import Breakline from "@/common/components/elements/Breakline"
 import type { FC } from "react"
+import Breakline from "@/common/components/elements/Breakline"
 import CareerList from "./CareerList"
 import Story from "./Story"
 

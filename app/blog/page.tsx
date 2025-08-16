@@ -1,8 +1,7 @@
+import type { Metadata, NextPage } from "next"
 import Container from "@/common/components/elements/Container"
 import PageHeading from "@/common/components/elements/PageHeading"
 import BlogList from "@/modules/blog/components/BlogList"
-import type { Metadata, NextPage } from "next"
-import React from "react"
 
 export const metadata: Metadata = {
   title: "Blog - Prem Gautam",

@@ -1,4 +1,4 @@
-import React, { type FC } from "react"
+import { type FC } from "react"
 import OverviewItem from "./OverviewItem"
 
 interface OverviewProps {

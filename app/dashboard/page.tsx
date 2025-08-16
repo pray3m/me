@@ -1,7 +1,7 @@
+import type { Metadata } from "next"
 import Container from "@/common/components/elements/Container"
 import PageHeading from "@/common/components/elements/PageHeading"
 import Dashboard from "@/modules/dashboard/components/Dashboard"
-import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Dashboard - Prem Gautam",

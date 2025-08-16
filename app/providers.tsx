@@ -1,11 +1,11 @@
 "use client"
 
-import CommandPalette from "@/common/components/elements/CommandPalette"
-import { CommandPaletteProvider } from "@/common/context/CommandPaletteContext"
-import { AOSInit } from "@/common/lib/aos"
 import { AppProgressProvider as ProgressProvider } from "@bprogress/next"
 import { ThemeProvider } from "next-themes"
 import { SWRConfig } from "swr"
+import CommandPalette from "@/common/components/elements/CommandPalette"
+import { CommandPaletteProvider } from "@/common/context/CommandPaletteContext"
+import { AOSInit } from "@/common/lib/aos"
 
 export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
   return (

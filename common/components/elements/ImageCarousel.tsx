@@ -1,10 +1,10 @@
 "use client"
 
-import useWindowSize from "@/common/hooks/use-window-size"
 import Image from "next/image"
 import type React from "react"
 import { useEffect, useRef } from "react"
 import Slider from "react-slick"
+import useWindowSize from "@/common/hooks/use-window-size"
 import "slick-carousel/slick/slick-theme.css"
 import "slick-carousel/slick/slick.css"
 
@@ -80,7 +80,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   }
 
   return (
-    // @ts-ignore
+    // @ts-expect-error
     <Slider ref={sliderRef} {...settings} className="pt-5">
       {images?.map((image, index) => (
         <div key={index}>

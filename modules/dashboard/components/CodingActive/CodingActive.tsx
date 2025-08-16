@@ -5,13 +5,11 @@ import Link from "next/link"
 import type { FC } from "react"
 import { SiWakatime as WakatimeIcon } from "react-icons/si"
 import useSWR from "swr"
-
-import CodingActiveList from "./CodingActiveList"
-import Overview from "./Overview"
-
 import SectionHeading from "@/common/components/elements/SectionHeading"
 import SectionSubHeading from "@/common/components/elements/SectionSubHeading"
 import { fetcher } from "@/services/fetcher"
+import CodingActiveList from "./CodingActiveList"
+import Overview from "./Overview"
 
 const CodingActive: FC = () => {
   const { data } = useSWR("/api/wakatime", fetcher)

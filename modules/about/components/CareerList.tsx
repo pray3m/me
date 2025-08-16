@@ -1,10 +1,9 @@
+import Link from "next/link"
+import { HiOutlineBriefcase as CareerIcon } from "react-icons/hi"
+import { LuDownload } from "react-icons/lu"
 import SectionHeading from "@/common/components/elements/SectionHeading"
 import SectionSubHeading from "@/common/components/elements/SectionSubHeading"
 import { CAREERS } from "@/common/constant/careers"
-import Link from "next/link"
-import React from "react"
-import { HiOutlineBriefcase as CareerIcon } from "react-icons/hi"
-import { LuDownload } from "react-icons/lu"
 import CareerCard from "./CareerCard"
 
 const CareerList = () => {
