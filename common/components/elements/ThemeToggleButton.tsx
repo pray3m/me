@@ -1,7 +1,7 @@
-import useHasMounted from "@/common/hooks/use-has-mounted"
 import styled from "@emotion/styled"
 import { useTheme } from "next-themes"
 import { useRef } from "react"
+import useHasMounted from "@/common/hooks/use-has-mounted"
 
 const ThemeToggleButton = () => {
   const { resolvedTheme, setTheme } = useTheme()

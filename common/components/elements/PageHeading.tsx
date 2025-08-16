@@ -1,5 +1,3 @@
-import React, { FC } from "react"
-
 interface Props {
   title: string
   subtitle?: string

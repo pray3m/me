@@ -1,7 +1,6 @@
 import clsx from "clsx"
 import { motion } from "framer-motion"
 import { type FC, useState } from "react"
-import React from "react"
 
 interface Contribution {
   date: string

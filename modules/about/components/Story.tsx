@@ -1,5 +1,5 @@
-import { ABOUT } from "@/common/constant/about"
 import { type FC } from "react"
+import { ABOUT } from "@/common/constant/about"
 
 const Story: FC = () => {
   return (

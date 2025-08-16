@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import React, { type FC } from "react"
+import { type FC } from "react"
 
 const Status: FC = () => {
   return (

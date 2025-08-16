@@ -1,5 +1,5 @@
-import type { MenuItemProps } from "@/common/lib/types"
 import type { FC } from "react"
+import type { MenuItemProps } from "@/common/lib/types"
 import MenuItem from "./MenuItem"
 
 interface MenuProps {
