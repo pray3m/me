@@ -9,7 +9,7 @@ const CACHE_HEADERS = {
 }
 
 export async function GET(req: NextRequest) {
-  const response = await getTopTracks()
+  const response = await getNowPlaying()
 
   if (response.status && response.status > 400) {
     return NextResponse.json(
