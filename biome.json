@@ -21,7 +21,8 @@
       "style": { "useBlockStatements": "off", "useImportType": "off" },
       "suspicious": {
         "noArrayIndexKey": "off",
-        "noExplicitAny": "warn"
+        "noExplicitAny": "warn",
+        "noUnknownAtRules": "off"
       },
       "security": {
         "noDangerouslySetInnerHtml": "warn"
@@ -31,7 +32,14 @@
       },
       "a11y": {
         "useButtonType": "warn"
+      },
+      "correctness": {
+        "useUniqueElementIds": "off",
+        "noUnknownTypeSelector": "warn"
       }
+    },
+    "domains": {
+      "next": "all"
     }
   },
   "javascript": {
