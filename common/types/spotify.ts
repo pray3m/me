@@ -22,6 +22,19 @@ export interface SongProps {
   }
 }
 
+export interface TrackProps {
+  album: {
+    name: string
+    image: {
+      width: number
+      url: string
+    }
+  }
+  artist: string
+  songUrl: string
+  title: string
+}
+
 export interface NowPlayingResponseProps {
   status: number
   isPlaying: boolean
@@ -32,4 +45,9 @@ export interface NowPlayingResponseProps {
     songUrl: string
     title: string
   } | null
+}
+
+export interface TopTracksResponseProps {
+  status: number
+  data: TrackProps[]
 }

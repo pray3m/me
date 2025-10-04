@@ -1,7 +1,7 @@
-import { getGithubUser } from "@/services/github"
-import { getNowPlaying } from "@/services/spotify"
 import { NextApiRequest, NextApiResponse } from "next"
 import { NextRequest, NextResponse } from "next/server"
+
+import { getNowPlaying, getTopTracks } from "@/services/spotify"
 
 const CACHE_HEADERS = {
   "Content-Type": "application/json",
@@ -9,7 +9,7 @@ const CACHE_HEADERS = {
 }
 
 export async function GET(req: NextRequest) {
-  const response = await getNowPlaying()
+  const response = await getTopTracks()
 
   if (response.status && response.status > 400) {
     return NextResponse.json(

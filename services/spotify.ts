@@ -3,6 +3,8 @@ import {
   AccessTokenResponseProps,
   NowPlayingResponseProps,
   SongProps,
+  TopTracksResponseProps,
+  TrackProps,
 } from "@/common/types/spotify"
 
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID
@@ -14,6 +16,7 @@ const TOKEN = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64")
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token"
 const NOW_PLAYING_ENDPOINT =
   "https://api.spotify.com/v1/me/player/currently-playing"
+const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`
 
 const getAccessToken = async (): Promise<AccessTokenResponseProps> => {
   const response = await fetch(TOKEN_ENDPOINT, {
@@ -77,4 +80,39 @@ export const getNowPlaying = async (): Promise<NowPlayingResponseProps> => {
       title,
     },
   }
+}
+
+export const getTopTracks = async (): Promise<TopTracksResponseProps> => {
+  const { access_token } = await getAccessToken()
+
+  const request = await fetch(`${TOP_TRACKS_ENDPOINT}?limit=10`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  })
+
+  const status = request.status
+
+  if (status === 204 || status > 400) {
+    return { status, data: [] }
+  }
+
+  const getData = await request.json()
+
+  const tracks: TrackProps[] = getData.items.map((track: any) => ({
+    album: {
+      name: track.album.name,
+      image: track.album.images.find(
+        (image: { width: number }) => image.width === 64
+      ),
+    },
+    artist: track.artists
+      .map((artist: { name: string }) => artist.name)
+      .join(", "),
+    songUrl: track.external_urls.spotify,
+    title: track.name,
+  }))
+
+  return { status, data: tracks }
 }
