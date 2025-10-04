@@ -55,7 +55,7 @@ export const CAREERS = [
     location_type: "Onsite",
     type: "Freelance",
     start_date: "2014-12",
-    end_date: "20219-09",
+    end_date: "2019-09",
     industry: "software house",
     link: "https://www.linkedin.com/company/rencongnetwork",
   },

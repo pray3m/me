@@ -1,4 +1,4 @@
-import React, { type FC } from "react"
+import { type FC } from "react"
 import Copyright from "./Copyright"
 
 const Footer: FC = () => {

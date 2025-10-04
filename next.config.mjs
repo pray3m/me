@@ -1,7 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["repository-images.githubusercontent.com", "premgautam.me"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "repository-images.githubusercontent.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "premgautam.me",
+        pathname: "**",
+      },
+    ],
   },
   experimental: {
     viewTransition: true,

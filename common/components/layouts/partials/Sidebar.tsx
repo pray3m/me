@@ -1,18 +1,16 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import useHasMounted from "@/common/hooks/use-has-mounted"
 import useIsMobile from "@/common/hooks/use-is-mobile"
-import clsx from "clsx"
-import React, { useEffect, useState } from "react"
 import Breakline from "../../elements/Breakline"
 import ThemeToggle from "../../elements/ThemeToggle"
 import Navigation from "../../sidebar/Navigation"
 import Profile from "../../sidebar/Profile"
-import Copyright from "./Copyright"
 
 const Sidebar = () => {
   const isMobile = useIsMobile()
-  const [isSticky, setIsSticky] = useState<boolean>(false)
+  const [_isSticky, setIsSticky] = useState<boolean>(false)
 
   const hasMounted = useHasMounted()
 

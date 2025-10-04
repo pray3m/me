@@ -1,5 +1,5 @@
-import { getALLTimeSinceToday, getReadStats } from "@/services/wakatime"
 import { NextResponse } from "next/server"
+import { getALLTimeSinceToday, getReadStats } from "@/services/wakatime"
 
 export async function GET() {
   try {
@@ -19,7 +19,7 @@ export async function GET() {
     }
 
     return NextResponse.json(data, { status: 200, headers })
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { message: "Internal Server Error" },
       { status: 500 }

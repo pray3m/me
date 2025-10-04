@@ -1,4 +1,4 @@
-import React, { type FC } from "react"
+import { type FC } from "react"
 import { HashLoader } from "react-spinners"
 
 const Loading: FC = () => {

@@ -1,5 +1,5 @@
-import { getApiData } from "@/services/pray3m"
 import { type NextRequest, NextResponse } from "next/server"
+import { getApiData } from "@/services/pray3m"
 
 export async function GET(req: NextRequest) {
   try {

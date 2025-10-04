@@ -1,9 +1,9 @@
-import { MenuContext } from "@/common/context/MenuContext"
-import type { MenuItemProps } from "@/common/lib/types"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { type FC, useContext, useState } from "react"
 import { BsArrowRightShort as ExternalLinkIcon } from "react-icons/bs"
+import { MenuContext } from "@/common/context/MenuContext"
+import type { MenuItemProps } from "@/common/lib/types"
 
 const MenuItem: FC<MenuItemProps> = ({
   title,
@@ -17,7 +17,7 @@ const MenuItem: FC<MenuItemProps> = ({
 
   const [isHovered, setIsHovered] = useState<boolean>(false)
   const isExternalUrl = href?.includes("http")
-  const targetUrl = isExternalUrl ? "_blank" : ""
+  const _targetUrl = isExternalUrl ? "_blank" : ""
   const pathname = usePathname()
   const isCurrentPath = pathname === href
 

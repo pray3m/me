@@ -1,12 +1,12 @@
 "use client"
 
+import Link from "next/link"
+import { type FC } from "react"
+import { BsGithub } from "react-icons/bs"
+import useSWR from "swr"
 import SectionHeading from "@/common/components/elements/SectionHeading"
 import SectionSubHeading from "@/common/components/elements/SectionSubHeading"
 import { fetcher } from "@/services/fetcher"
-import Link from "next/link"
-import React, { type FC } from "react"
-import { BsGithub } from "react-icons/bs"
-import useSWR from "swr"
 import Calendar from "./Calendar"
 import Overview from "./Overview"
 

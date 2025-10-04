@@ -1,9 +1,9 @@
 "use client"
 
-import Button from "@/common/components/elements/Button"
-import React, { type FC, type ReactNode } from "react"
+import { type FC, type ReactNode } from "react"
 import { FaTelegramPlane as TelegramIcon } from "react-icons/fa"
 import { HiOutlineMail as EmailIcon } from "react-icons/hi"
+import Button from "@/common/components/elements/Button"
 
 const CONTACTS = [
   {
@@ -33,7 +33,7 @@ const Contact: FC = () => {
         You can reach out to me directly by sending an email, texting on
         Telegram, or connecting on social media.
       </p>
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3">
         {CONTACTS.map((contact: ContactProps, index: number) => (
           <Button
             key={index}

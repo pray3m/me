@@ -1,5 +1,5 @@
 import Link from "next/link"
-import React, { type FC } from "react"
+import { type FC } from "react"
 import Icon from "supercons"
 
 type Props = {

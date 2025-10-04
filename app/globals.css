@@ -84,7 +84,9 @@
 html {
   scroll-behavior: smooth;
   letter-spacing: 0.3px;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
 }
 
 body {
@@ -103,8 +105,8 @@ body {
   color: var(--color-dark);
 
   .bprogress .bar {
-    background: #15b8a6 !important;
-    height: 4px !important;
+    background: #15b8a6;
+    height: 4px;
   }
 
   ::-webkit-scrollbar {
