@@ -20,12 +20,11 @@ On this website there are several features that will continue to be updated and 
 
 ## 🎯 FOCUS TASKS (Jun 23 '23)
 
-- [x] Fix update services (Jun 23 `23)
-- [x] Feature add project list render animation (Jun 23 `23)
 - [x] Fix: toggle (Jun 23 `23)
-- [ ] Command Palette (Jun 25 `23)
-- [ ] Feature: add theme toggle button and update copyright (Jun 25 `23)
-- [ ] Feature: integrate Command Palette with chatGPT (ask ai assistant)
+- [x] Command Palette (Jun 25 `23)
+- [x] Feature: integrate Command Palette with chatGPT (ask ai assistant)
+- [ ] add vercel json (memory, duration) for api/chat (Jun 27 & Jun 28 `23) ALL
+- [ ] spotify player (Jun 29 `23)
 
 ## TODO :
 
@@ -34,6 +33,7 @@ On this website there are several features that will continue to be updated and 
 - [ ] remove supercons (update icons with react-icons)
 
 ## NICE TO HAVE:
+
 - [ ] buy me a beer (support me)
 
 ## Getting Started
