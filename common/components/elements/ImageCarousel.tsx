@@ -80,7 +80,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   }
 
   return (
-    // @ts-expect-error
     <Slider ref={sliderRef} {...settings} className="pt-5">
       {images?.map((image, index) => (
         <div key={index}>
