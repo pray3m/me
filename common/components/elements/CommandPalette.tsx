@@ -389,7 +389,7 @@ export default function CommandPalette() {
 
                         {aiFinished && (
                           <div className="flex justify-center mt-6 transition-all duration-300">
-                            <Button onClick={handleAiClose}>
+                            <Button onClick={handleAiClose} aria-label="Go back">
                               <BackButton />
                               Back
                             </Button>
