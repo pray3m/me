@@ -9,7 +9,7 @@ export const postChatPrompt = async (prompt: string) => {
       OPENAI_URL,
       {
         model: "gpt-5-nano",
-        max_tokens: 100,
+        max_tokens: 200,
         messages: [
           {
             role: "system",

@@ -14,23 +14,21 @@ import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
 import React, { Fragment, useContext, useEffect, useState } from "react"
 import {
-  BiLeftArrowCircle as BackButton,
   BiMoon as DarkModeIcon,
-  BiLogoGoogle as GoogleIcon,
   BiSun as LightModeIcon,
   BiSearch as SearchIcon,
 } from "react-icons/bi"
-import { FiExternalLink as ExternalLinkIcon } from "react-icons/fi"
 import { HiOutlineChat as AiIcon } from "react-icons/hi"
-import Typewriter from "typewriter-effect"
 import { useDebounceValue } from "usehooks-ts"
 import { EXTERNAL_LINKS, MENU_ITEMS } from "@/common/constant/menu"
 import { CommandPaletteContext } from "@/common/context/CommandPaletteContext"
 import useIsMobile from "@/common/hooks/use-is-mobile"
 import { MenuItemProps } from "@/common/lib/types"
+import { cn } from "@/common/lib/utils"
+import AiLoading from "@/modules/cmdpalette/components/AiLoading"
+import AiResponses from "@/modules/cmdpalette/components/AiResponses"
+import QueryNotFound from "@/modules/cmdpalette/components/QueryNotFound"
 import { sendMessage } from "@/services/chatgpt"
-import Button from "./Button"
-import MarkdownRenderer from "./MarkdownRenderer"
 
 interface MenuOptionItemProps extends MenuItemProps {
   click?: () => void
@@ -47,6 +45,7 @@ export default function CommandPalette() {
   const isMobile = useIsMobile()
 
   const [query, setQuery] = React.useState<string>("")
+  const [isEmptyState, setEmptyState] = useState(false)
   const [placeholderIndex, setPlaceholderIndex] = useState(0)
   const [askAssistantClicked, setAskAssistantClicked] = useState(false)
   const [aiLoading, setAiLoading] = useState(false)
@@ -96,6 +95,20 @@ export default function CommandPalette() {
 
   const menuOptions: MenuOptionProps[] = [
     {
+      title: "PAGES",
+      children: MENU_ITEMS?.map((menu) => ({
+        ...menu,
+        closeOnSelect: true,
+      })),
+    },
+    {
+      title: "EXTERNAL LINKS",
+      children: EXTERNAL_LINKS?.map((menu) => ({
+        ...menu,
+        closeOnSelect: true,
+      })),
+    },
+    {
       title: "THEME",
       children: [
         {
@@ -114,20 +127,6 @@ export default function CommandPalette() {
           closeOnSelect: false,
         },
       ],
-    },
-    {
-      title: "PAGES",
-      children: MENU_ITEMS?.map((menu) => ({
-        ...menu,
-        closeOnSelect: true,
-      })),
-    },
-    {
-      title: "EXTERNAL LINKS",
-      children: EXTERNAL_LINKS?.map((menu) => ({
-        ...menu,
-        closeOnSelect: true,
-      })),
     },
   ]
 
@@ -171,8 +170,8 @@ export default function CommandPalette() {
     setAskAssistantClicked(true)
     setAiLoading(true)
 
-    const reply = await sendMessage(queryDebounce)
-    setAiResponse(reply)
+    const response = await sendMessage(queryDebounce)
+    setAiResponse(response)
     setAiLoading(false)
   }
 
@@ -181,6 +180,10 @@ export default function CommandPalette() {
     setAiResponse("")
     setAiFinished(false)
   }
+
+  useEffect(() => {
+    if (query) setEmptyState(false)
+  }, [query])
 
   useEffect(() => {
     if (!isMobile) {
@@ -198,6 +201,7 @@ export default function CommandPalette() {
   useEffect(() => {
     if (!isOpen) {
       setQuery("")
+      setEmptyState(false)
       handleAiClose()
     }
   }, [isOpen])
@@ -251,7 +255,12 @@ export default function CommandPalette() {
                 />
               </div>
 
-              <div className="max-h-80 overflow-y-auto py-2 px-1">
+              <div
+                className={cn(
+                  "max-h-80 overflow-y-auto py-2 px-1",
+                  isEmptyState && "!py-0"
+                )}
+              >
                 {filterMenuOptions.map((menu) => (
                   <div
                     key={menu.title}
@@ -286,42 +295,16 @@ export default function CommandPalette() {
                 ))}
               </div>
 
-              {!askAssistantClicked &&
+              {!isEmptyState &&
+                !askAssistantClicked &&
                 queryDebounce &&
                 filterMenuOptions.flatMap((item) => item.children).length ===
                   0 && (
-                  <div className="flex flex-col pt-5 pb-10 space-y-5 items-center">
-                    <div className="text-neutral-500 text-center space-y-2">
-                      <p>
-                        No result found about
-                        <span className="italic text-neutral-600 dark:text-neutral-400 ml-1 mr-2">
-                          `{queryDebounce}`
-                        </span>
-                        in this website.
-                      </p>
-                      <p className="text-neutral-600 dark:text-neutral-400">
-                        Ask my AI Assistant or find in Google instead?
-                      </p>
-                    </div>
-                    <div className="flex flex-col lg:flex-row gap-3 w-full justify-center">
-                      <Button
-                        onClick={handleAskAiAssistant}
-                        className="justify-center !bg-green-600"
-                      >
-                        <AiIcon size={20} /> Ask AI Assistant
-                      </Button>
-                      <Button
-                        onClick={handleFindGoogle}
-                        className="justify-center !bg-indigo-600"
-                      >
-                        <GoogleIcon size={20} />
-                        Find in Google
-                      </Button>
-                    </div>
-                    <p className="text-neutral-500 text-sm">
-                      Press `ESC` to close this window
-                    </p>
-                  </div>
+                  <QueryNotFound
+                    queryDebounce={queryDebounce}
+                    handleAskAiAssistant={handleAskAiAssistant}
+                    handleFindGoogle={handleFindGoogle}
+                  />
                 )}
 
               {askAssistantClicked &&
@@ -331,70 +314,14 @@ export default function CommandPalette() {
                 ) && (
                   <div className="max-h-80 overflow-y-auto px-8 pt-3 pb-8">
                     {aiLoading ? (
-                      <div className="flex gap-3 items-center justify-center">
-                        <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-neutral-400" />
-                        <div className="dark:text-neutral-400 animate-pulse">
-                          AI is processing...
-                        </div>
-                      </div>
+                      <AiLoading />
                     ) : (
-                      <>
-                        {aiResponse ? (
-                          aiResponse.includes("```") ? (
-                            <MarkdownRenderer>{aiResponse}</MarkdownRenderer>
-                          ) : (
-                            <Typewriter
-                              onInit={(typewriter) => {
-                                typewriter
-                                  .typeString(aiResponse)
-                                  .callFunction(() => {
-                                    setAiFinished(true)
-                                  })
-                                  .start()
-                              }}
-                              options={{
-                                delay: 10,
-                              }}
-                            />
-                          )
-                        ) : (
-                          <Typewriter
-                            onInit={(typewriter) => {
-                              typewriter
-                                .typeString(
-                                  "Oops! The AI seems to be lost. \u00A0 😵‍💫 \u00A0\u00A0"
-                                )
-                                .pauseFor(1000)
-                                .typeString("<br/><br/>")
-                                .typeString(
-                                  "Looks like the AI has gone on an unscheduled vacation to the Land of Confusion. Hope it brings back some souvenirs of clarity!. \u00A0\u00A0"
-                                )
-                                .pauseFor(1000)
-                                .typeString("<br/><br/>")
-                                .typeString("Please try again later. \u00A0")
-                                .callFunction(() => {
-                                  setAiFinished(true)
-                                })
-                                .start()
-                            }}
-                            options={{
-                              delay: 10,
-                            }}
-                          />
-                        )}
-
-                        {aiFinished && (
-                          <div className="flex justify-center mt-6 transition-all duration-300">
-                            <Button
-                              onClick={handleAiClose}
-                              aria-label="Go back"
-                            >
-                              <BackButton />
-                              Back
-                            </Button>
-                          </div>
-                        )}
-                      </>
+                      <AiResponses
+                        response={aiResponse}
+                        isAiFinished={aiFinished}
+                        onAiFinished={() => setAiFinished(true)}
+                        onAiClose={handleAiClose}
+                      />
                     )}
                   </div>
                 )}
