@@ -17,7 +17,7 @@ const MarkdownRenderer = ({ children }: MarkdownRendererProps) => {
             {...props}
           />
         ),
-        p: (props) => <div {...props} />,
+        p: (props) => <p {...props} />,
         h2: (props) => (
           <h2
             className="text-xl font-medium dark:text-neutral-300"
