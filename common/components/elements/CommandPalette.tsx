@@ -1,8 +1,3 @@
-import { EXTERNAL_LINKS, MENU_ITEMS } from "@/common/constant/menu"
-import { CommandPaletteContext } from "@/common/context/CommandPaletteContext"
-import useIsMobile from "@/common/hooks/use-is-mobile"
-import { MenuItemProps } from "@/common/lib/types"
-import { sendMessage } from "@/services/chatgpt"
 import {
   Combobox,
   ComboboxInput,
@@ -21,10 +16,10 @@ import React, { Fragment, useContext, useEffect, useState } from "react"
 import {
   BiLeftArrowCircle as BackButton,
   BiMoon as DarkModeIcon,
+  BiLogoGoogle as GoogleIcon,
   BiSun as LightModeIcon,
   BiSearch as SearchIcon,
 } from "react-icons/bi"
-import { BiLogoGoogle as GoogleIcon } from "react-icons/bi"
 import { FiExternalLink as ExternalLinkIcon } from "react-icons/fi"
 import { HiOutlineChat as AiIcon } from "react-icons/hi"
 import Typewriter from "typewriter-effect"
@@ -33,6 +28,7 @@ import { EXTERNAL_LINKS, MENU_ITEMS } from "@/common/constant/menu"
 import { CommandPaletteContext } from "@/common/context/CommandPaletteContext"
 import useIsMobile from "@/common/hooks/use-is-mobile"
 import { MenuItemProps } from "@/common/lib/types"
+import { sendMessage } from "@/services/chatgpt"
 import Button from "./Button"
 import MarkdownRenderer from "./MarkdownRenderer"
 
@@ -207,7 +203,7 @@ export default function CommandPalette() {
   }, [isOpen])
 
   useEffect(() => {
-    if (aiResponse.includes("```")) {
+    if (aiResponse?.includes("```")) {
       setAiFinished(true)
     }
   }, [aiResponse])
@@ -250,7 +246,7 @@ export default function CommandPalette() {
                   onChange={handleSearch}
                   className="h-14 w-full border-0 bg-transparent text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-0 dark:text-neutral-200"
                   placeholder={
-                    askAssistantClicked ? "AI Responses" : placeholder
+                    askAssistantClicked ? queryDebounce : placeholder
                   }
                 />
               </div>
@@ -389,7 +385,10 @@ export default function CommandPalette() {
 
                         {aiFinished && (
                           <div className="flex justify-center mt-6 transition-all duration-300">
-                            <Button onClick={handleAiClose} aria-label="Go back">
+                            <Button
+                              onClick={handleAiClose}
+                              aria-label="Go back"
+                            >
                               <BackButton />
                               Back
                             </Button>
