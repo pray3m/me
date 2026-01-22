@@ -18,6 +18,17 @@ This website was built from scratch using Next.js and was first initialized in A
 
 On this website there are several features that will continue to be updated and added in the future.
 
+### 🤖 ChatGPT AI
+
+You can access this feature by opening the command palette [cmd+k], then typing whatever you want to search/ask for.
+
+Note: 
+Due this site is using free cloud hosting services (Vercel) with certain limitations (Serverless Function Execution Timeout), sometimes an error will occur if the response from the open AI API is too long, but you can change it in the vercel.json file to upgrade memory and maxDuration to be bigger according to the capabilities of your vercel plan.
+
+### 🕗 Wakatime
+
+Data is retrieved using the Wakatime API and then displayed on the dashboard, built with Next.js API routes deployed as serverless functions.
+
 ## 🎯 FOCUS TASKS (Jun 23 '23)
 
 - [x] Fix: toggle (Jun 23 `23)

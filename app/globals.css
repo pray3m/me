@@ -4,6 +4,7 @@
 
 @theme {
   --font-sans: var(--jakartaSans-font);
+  --font-sora: var(--soraSans-font);
   --font-emoji: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 
   --color-dark-text: #eeeeee;
@@ -96,17 +97,17 @@ body {
 }
 
 .dark {
-  background-color: var(--color-dark);
   color: var(--color-light);
+  background-color: var(--color-dark);
 }
 
 .light {
-  background-color: var(--color-light);
   color: var(--color-dark);
+  background-color: var(--color-light);
 
   .bprogress .bar {
-    background: #15b8a6;
     height: 4px;
+    background: #15b8a6;
   }
 
   ::-webkit-scrollbar {
@@ -128,8 +129,8 @@ body {
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation: none;
   mix-blend-mode: normal;
+  animation: none;
 }
 
 ::view-transition-new(root) {

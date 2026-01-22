@@ -18,13 +18,17 @@ import {
   BiSun as LightModeIcon,
   BiSearch as SearchIcon,
 } from "react-icons/bi"
-import { FiExternalLink as ExternalLinkIcon } from "react-icons/fi"
+import { HiOutlineChat as AiIcon } from "react-icons/hi"
 import { useDebounceValue } from "usehooks-ts"
 import { EXTERNAL_LINKS, MENU_ITEMS } from "@/common/constant/menu"
 import { CommandPaletteContext } from "@/common/context/CommandPaletteContext"
 import useIsMobile from "@/common/hooks/use-is-mobile"
 import { MenuItemProps } from "@/common/lib/types"
-import Button from "./Button"
+import { cn } from "@/common/lib/utils"
+import AiLoading from "@/modules/cmdpalette/components/AiLoading"
+import AiResponses from "@/modules/cmdpalette/components/AiResponses"
+import QueryNotFound from "@/modules/cmdpalette/components/QueryNotFound"
+import { sendMessage } from "@/services/chatgpt"
 
 interface MenuOptionItemProps extends MenuItemProps {
   click?: () => void
@@ -40,15 +44,20 @@ export default function CommandPalette() {
   const router = useRouter()
   const isMobile = useIsMobile()
 
-  const { isOpen, setIsOpen } = useContext(CommandPaletteContext)
   const [query, setQuery] = React.useState<string>("")
-  const [queryDebounce] = useDebounceValue(query, 300)
+  const [isEmptyState, setEmptyState] = useState(false)
+  const [placeholderIndex, setPlaceholderIndex] = useState(0)
+  const [askAssistantClicked, setAskAssistantClicked] = useState(false)
+  const [aiLoading, setAiLoading] = useState(false)
+  const [aiResponse, setAiResponse] = useState("")
+  const [aiFinished, setAiFinished] = useState(false)
+  const { isOpen, setIsOpen } = useContext(CommandPaletteContext)
 
+  const [queryDebounce] = useDebounceValue(query, 300)
   const { resolvedTheme, setTheme } = useTheme()
 
-  const [placeholderIndex, setPlaceholderIndex] = useState(0)
   const placeholders = [
-    "Search...",
+    "Search or Ask anything...",
     "Press Cmd + K anytime to access this command palette",
   ]
 
@@ -86,6 +95,20 @@ export default function CommandPalette() {
 
   const menuOptions: MenuOptionProps[] = [
     {
+      title: "PAGES",
+      children: MENU_ITEMS?.map((menu) => ({
+        ...menu,
+        closeOnSelect: true,
+      })),
+    },
+    {
+      title: "EXTERNAL LINKS",
+      children: EXTERNAL_LINKS?.map((menu) => ({
+        ...menu,
+        closeOnSelect: true,
+      })),
+    },
+    {
       title: "THEME",
       children: [
         {
@@ -104,20 +127,6 @@ export default function CommandPalette() {
           closeOnSelect: false,
         },
       ],
-    },
-    {
-      title: "PAGES",
-      children: MENU_ITEMS?.map((menu) => ({
-        ...menu,
-        closeOnSelect: true,
-      })),
-    },
-    {
-      title: "EXTERNAL LINKS",
-      children: EXTERNAL_LINKS?.map((menu) => ({
-        ...menu,
-        closeOnSelect: true,
-      })),
     },
   ]
 
@@ -148,13 +157,60 @@ export default function CommandPalette() {
     }
   }
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setQuery(event.target.value)
+  const handleSearch = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => setQuery(value)
 
   const handleFindGoogle = () => {
     const url = `https://www.google.com/search?q=${queryDebounce}&ref=premgautam.me`
     window.open(url, "_blank")
   }
+
+  const handleAskAiAssistant = async () => {
+    setAskAssistantClicked(true)
+    setAiLoading(true)
+
+    const response = await sendMessage(queryDebounce)
+    setAiResponse(response)
+    setAiLoading(false)
+  }
+
+  const handleAiClose = () => {
+    setAskAssistantClicked(false)
+    setAiResponse("")
+    setAiFinished(false)
+  }
+
+  useEffect(() => {
+    if (query) setEmptyState(false)
+  }, [query])
+
+  useEffect(() => {
+    if (!isMobile) {
+      const timer = setTimeout(() => {
+        setPlaceholderIndex((prev) => (prev === 0 ? 1 : 0))
+      }, 3000)
+
+      return () => {
+        clearTimeout(timer)
+      }
+    }
+  }, [isMobile])
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => {
+    if (!isOpen) {
+      setQuery("")
+      setEmptyState(false)
+      handleAiClose()
+    }
+  }, [isOpen])
+
+  useEffect(() => {
+    if (aiResponse?.includes("```")) {
+      setAiFinished(true)
+    }
+  }, [aiResponse])
 
   return (
     <Transition show={isOpen} as={Fragment}>
@@ -181,18 +237,30 @@ export default function CommandPalette() {
               onChange={(menu: MenuOptionItemProps) => handleSelect(menu)}
               as="div"
               className="relative mx-auto max-w-lg overflow-hidden rounded-xl border-2 border-neutral-300 bg-white shadow-3xl ring-1 ring-black/5 dark:divide-neutral-600 dark:border-neutral-800  dark:bg-neutral-950 "
+              disabled={askAssistantClicked}
             >
               <div className="flex gap-3 items-center border-b border-neutral-300 dark:border-neutral-800 px-4">
-                <SearchIcon size={22} />
+                {askAssistantClicked ? (
+                  <AiIcon size={22} />
+                ) : (
+                  <SearchIcon size={22} />
+                )}
                 <ComboboxInput
                   autoFocus
                   onChange={handleSearch}
                   className="h-14 w-full border-0 bg-transparent text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-0 dark:text-neutral-200"
-                  placeholder={placeholder}
+                  placeholder={
+                    askAssistantClicked ? queryDebounce : placeholder
+                  }
                 />
               </div>
 
-              <div className="max-h-80 overflow-y-auto py-2 px-1">
+              <div
+                className={cn(
+                  "max-h-80 overflow-y-auto py-2 px-1",
+                  isEmptyState && "!py-0"
+                )}
+              >
                 {filterMenuOptions.map((menu) => (
                   <div
                     key={menu.title}
@@ -227,16 +295,34 @@ export default function CommandPalette() {
                 ))}
               </div>
 
-              {queryDebounce &&
+              {!isEmptyState &&
+                !askAssistantClicked &&
+                queryDebounce &&
                 filterMenuOptions.flatMap((item) => item.children).length ===
                   0 && (
-                  <div className="flex flex-col pt-5 pb-10 space-y-5 items-center">
-                    <p className="text-neutral-500 text-center">
-                      No result found. Find in Google instead?
-                    </p>
-                    <Button onClick={handleFindGoogle}>
-                      Find in Google <ExternalLinkIcon />
-                    </Button>
+                  <QueryNotFound
+                    queryDebounce={queryDebounce}
+                    handleAskAiAssistant={handleAskAiAssistant}
+                    handleFindGoogle={handleFindGoogle}
+                  />
+                )}
+
+              {askAssistantClicked &&
+                queryDebounce &&
+                filterMenuOptions.every(
+                  (item) => item.children.length === 0
+                ) && (
+                  <div className="max-h-80 overflow-y-auto px-8 pt-3 pb-8">
+                    {aiLoading ? (
+                      <AiLoading />
+                    ) : (
+                      <AiResponses
+                        response={aiResponse}
+                        isAiFinished={aiFinished}
+                        onAiFinished={() => setAiFinished(true)}
+                        onAiClose={handleAiClose}
+                      />
+                    )}
                   </div>
                 )}
             </Combobox>

@@ -28,9 +28,9 @@ const Navigation: FC = () => {
           isExternal={false}
           onClick={() => handleOpenCommandPalette()}
         >
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-green-200 text-green-700 border-green-700">
-            Try Now
-          </span>
+          <div className="relative inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-green-200 text-green-800">
+            <span>AI Powered</span>
+          </div>
         </MenuItem>
       </div>
 
