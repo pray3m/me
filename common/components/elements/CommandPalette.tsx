@@ -139,7 +139,7 @@ export default function CommandPalette() {
       }))
     : menuOptions
 
-  const handleSelect = (menu: MenuOptionItemProps) => {
+  const handleSelect = (menu: MenuOptionItemProps | null) => {
     if (!menu) return
 
     setQuery("")
@@ -234,7 +234,9 @@ export default function CommandPalette() {
             leaveTo="opacity-0 scale-95"
           >
             <Combobox
-              onChange={(menu: MenuOptionItemProps) => handleSelect(menu)}
+              onChange={(menu: MenuOptionItemProps | null) =>
+                handleSelect(menu)
+              }
               as="div"
               className="relative mx-auto max-w-lg overflow-hidden rounded-xl border-2 border-neutral-300 bg-white shadow-3xl ring-1 ring-black/5 dark:divide-neutral-600 dark:border-neutral-800  dark:bg-neutral-950 "
               disabled={askAssistantClicked}
