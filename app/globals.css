@@ -4,6 +4,7 @@
 
 @theme {
   --font-sans: var(--jakartaSans-font);
+  --font-sora: var(--soraSans-font);
   --font-emoji: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 
   --color-dark-text: #eeeeee;

@@ -9,11 +9,11 @@ export const postChatPrompt = async (prompt: string) => {
       OPENAI_URL,
       {
         model: "gpt-5-nano",
-        max_tokens: 200,
         messages: [
           {
             role: "system",
-            content: "Talk like a pirate.",
+            content:
+              "Talk like a pirate. Talk very briefly.  Role: You are a AI assistant for Prem Gautam (aka pray3m) (https://premgautam.me).",
           },
           {
             role: "user",

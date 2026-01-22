@@ -36,19 +36,13 @@ const getAccessToken = async (): Promise<AccessTokenResponseProps> => {
 export const getNowPlaying = async (): Promise<NowPlayingResponseProps> => {
   const { access_token } = await getAccessToken()
 
-  console.log("============> got the access token", access_token)
-
   const request = await fetch(NOW_PLAYING_ENDPOINT, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   })
 
-  console.log("===========request => ", request)
-
   const status = request.status
-
-  console.log("===========>after status", status)
 
   if (status === 204 || status > 400) {
     return { status, isPlaying: false, data: null }
