@@ -18,9 +18,9 @@ type CodeBlockProps = {
   inline?: boolean
   className?: string
   children?: ReactNode
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // biome-ignore lint/suspicious/noExplicitAny: node prop from react-markdown
   node?: any
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // biome-ignore lint/suspicious/noExplicitAny: props from react-markdown
   [key: string]: any
 }
 
@@ -45,7 +45,7 @@ const CodeBlock = ({
   ...props
 }: CodeBlockProps) => {
   const [isCopied, setIsCopied] = useState<boolean>(false)
-  const [value, copy] = useCopyToClipboard()
+  const [_value, copy] = useCopyToClipboard()
   const match = /language-(\w+)/.exec(className || "")
 
   const handleCopy = (code: string) => {
@@ -67,7 +67,7 @@ const CodeBlock = ({
       {!inline ? (
         <div className="relative">
           <button
-            className="absolute top-3 right-3 p-2 border border-neutral-700 rounded-lg hover:bg-neutral-800"
+            className="absolute top-3 right-3 rounded-lg border border-neutral-700 p-2 hover:bg-neutral-800"
             type="button"
             aria-label="Copy to Clipboard"
             onClick={() => handleCopy(children ? children.toString() : "")}
@@ -95,7 +95,7 @@ const CodeBlock = ({
           </SyntaxHighlighter>
         </div>
       ) : (
-        <code className="text-neutral-950 bg-neutral-200 dark:text-neutral-200 dark:bg-neutral-700 py-1 px-2 rounded-md text-[14px]">
+        <code className="rounded-md bg-neutral-200 px-2 py-1 text-[14px] text-neutral-950 dark:bg-neutral-700 dark:text-neutral-200">
           {children}
         </code>
       )}
@@ -103,7 +103,7 @@ const CodeBlock = ({
   )
 }
 
-const LoadingPlaceholder = () => <div className="w-full mt-12 mb-12 h-36" />
+const LoadingPlaceholder = () => <div className="mt-12 mb-12 h-36 w-full" />
 
 export default dynamic(() => Promise.resolve(CodeBlock), {
   ssr: false,

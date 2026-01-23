@@ -60,7 +60,7 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
   return (
     <>
       <div className="relative flex flex-col">
-        <ul className="flex justify-end gap-[3px] overflow-hidden text-xs dark:text-neutral-400 md:justify-start">
+        <ul className="flex justify-end gap-[3px] overflow-hidden text-xs md:justify-start dark:text-neutral-400">
           {months.map((month) => (
             <li
               key={month.firstDay}

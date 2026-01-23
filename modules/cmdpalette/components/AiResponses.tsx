@@ -63,7 +63,7 @@ const AiResponses = ({
       )}
 
       {isAiFinished && (
-        <div className="flex justify-center mt-6 transition-all duration-300">
+        <div className="mt-6 flex justify-center transition-all duration-300">
           <Button onClick={onAiClose} aria-label="Go back">
             <BackButton />
             Back

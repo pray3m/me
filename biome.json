@@ -18,14 +18,7 @@
     "attributePosition": "auto",
     "bracketSpacing": true
   },
-  "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on",
-        "useSortedProperties": "on"
-      }
-    }
-  },
+
   "linter": {
     "enabled": true,
     "rules": {
@@ -40,7 +33,16 @@
         "noDangerouslySetInnerHtml": "warn"
       },
       "complexity": {
-        "noBannedTypes": "warn"
+        "noExcessiveCognitiveComplexity": "error",
+        "noVoid": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "error",
+          "options": {
+            "functions": ["cn", "cva", "cx", "clsx", "twMerge"]
+          }
+        }
       },
       "a11y": {
         "useButtonType": "warn"
@@ -65,6 +67,30 @@
       "quoteStyle": "double",
       "attributePosition": "auto",
       "bracketSpacing": true
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true
+    },
+    "parser": {
+      "allowComments": true
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true
+    },
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on",
+        "useSortedProperties": "on"
+      }
     }
   }
 }

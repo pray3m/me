@@ -1,7 +1,8 @@
 import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next"
 import Layout from "@/common/components/layouts"
-import { jakartaSans } from "@/common/styles/fonts"
+import { cn } from "@/common/lib/utils"
+import { jakartaSans, soraSans } from "@/common/styles/fonts"
 import "./globals.css"
 import { ProvidersSandwich } from "./providers"
 
@@ -51,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={jakartaSans.className} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           defer
@@ -59,7 +60,13 @@ export default function RootLayout({
           data-website-id="41fe1939-48a0-42dc-b7df-0399def615f2"
         />
       </head>
-      <body className="bg-light dark:bg-dark">
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          jakartaSans.variable,
+          soraSans.variable
+        )}
+      >
         <ProvidersSandwich>
           <Layout>{children}</Layout>
           <Analytics />

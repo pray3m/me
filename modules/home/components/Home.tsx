@@ -8,7 +8,7 @@ const Home: FC = () => {
   return (
     <>
       <Introduction />
-      <Breakline className="mb-6 mt-8" />
+      <Breakline className="mt-8 mb-6" />
       <BlogPreview />
 
       <Breakline className="my-8" />

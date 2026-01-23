@@ -14,11 +14,11 @@ const QueryNotFound = ({
   handleFindGoogle,
 }: Props) => {
   return (
-    <div className="flex flex-col pt-5 pb-10 space-y-5 items-center">
-      <div className="text-neutral-500 text-center space-y-2">
+    <div className="flex flex-col items-center space-y-5 pt-5 pb-10">
+      <div className="space-y-2 text-center text-neutral-500">
         <p>
           No result found about
-          <span className="italic text-neutral-600 dark:text-neutral-400 ml-1 mr-2">
+          <span className="mr-2 ml-1 text-neutral-600 italic dark:text-neutral-400">
             `{queryDebounce}`
           </span>
           in this website.
@@ -27,16 +27,16 @@ const QueryNotFound = ({
           Ask my AI Assistant or find in Google instead?
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row gap-3 w-full justify-center">
+      <div className="flex w-full flex-col justify-center gap-3 lg:flex-row">
         <Button
           onClick={handleAskAiAssistant}
-          className="justify-center !bg-green-600"
+          className="!bg-green-600 justify-center"
         >
           <AiIcon size={20} /> Ask AI Assistant
         </Button>
         <Button
           onClick={handleFindGoogle}
-          className="justify-center !bg-indigo-600"
+          className="!bg-indigo-600 justify-center"
         >
           <GoogleIcon size={20} />
           Find in Google

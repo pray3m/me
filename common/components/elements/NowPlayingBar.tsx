@@ -1,8 +1,6 @@
 import Image from "next/image"
-import React, { useState } from "react"
 import { BsSpotify } from "react-icons/bs"
 import useSWR from "swr"
-import { cn } from "@/common/lib/utils"
 import { fetcher } from "@/services/fetcher"
 import AnimatedBars from "./AnimatedBars"
 
@@ -20,13 +18,13 @@ const NowPlayingBar = () => {
   }
 
   return (
-    <div className="hidden lg:block fixed bottom-0 w-full z-[99999]">
-      <div className="flex justify-between bg-green-400 dark:bg-green-500 py-0.5 px-4 text-neutral-800 dark:text-neutral-900 font-sora text-[14px]">
+    <div className="fixed bottom-0 z-[99999] hidden w-full lg:block">
+      <div className="flex justify-between bg-green-400 px-4 py-0.5 font-sora text-[14px] text-neutral-800 dark:bg-green-500 dark:text-neutral-900">
         {data?.songUrl ? (
           <div className="flex items-center gap-2">
             <AnimatedBars />
-            <div className="pt-0.5 hidden sm:block">Now Playing :</div>
-            <div className="flex gap-2 items-center transition-all duration-300">
+            <div className="hidden pt-0.5 sm:block">Now Playing :</div>
+            <div className="flex items-center gap-2 transition-all duration-300">
               {data?.albumImageUrl && (
                 <Image
                   className="rounded-sm"
@@ -39,7 +37,7 @@ const NowPlayingBar = () => {
               )}
               <button
                 type="button"
-                className="flex gap-1 hover:underline hover:cursor-pointer pt-0.5 bg-transparent border-none p-0 m-0"
+                className="m-0 flex gap-1 border-none bg-transparent p-0 pt-0.5 hover:cursor-pointer hover:underline"
                 onClick={() => handleOpenSongUrl(data?.songUrl)}
               >
                 <span>{data?.artist} -</span>

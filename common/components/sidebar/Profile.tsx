@@ -30,7 +30,7 @@ const Profile: FC = () => {
     <MenuContext.Provider value={{ hideNavbar }}>
       <div
         className={cn(
-          "fixed z-10 w-full bg-light p-5 shadow-xs dark:border-b dark:border-neutral-800 dark:bg-dark lg:relative lg:border-none lg:bg-transparent! lg:p-0 xl:shadow-none",
+          "fixed z-10 w-full border-border border-b bg-background p-5 shadow-xs lg:relative lg:border-none lg:bg-transparent! lg:p-0 xl:shadow-none",
           expandMenu && "pb-0"
         )}
       >
@@ -60,7 +60,7 @@ const Profile: FC = () => {
               className={clsx(
                 "flex items-center gap-5",
                 expandMenu &&
-                  "!items-end flex-col-reverse justify-between h-[120px]"
+                  "!items-end h-[120px] flex-col-reverse justify-between"
               )}
             >
               <ThemeToggleButton />

@@ -30,7 +30,7 @@ const CodingActive: FC = () => {
       />
 
       <SectionSubHeading>
-        <div className="dark:text-neutral-400 md:flex-row md:items-center">
+        <div className="md:flex-row md:items-center dark:text-neutral-400">
           <span>My </span>
           <Link
             href="https://wakatime.com/@pray3m"
@@ -40,7 +40,7 @@ const CodingActive: FC = () => {
           </Link>
           <span> last 30 days stats.</span>
         </div>
-        <div className="text-sm text-neutral-600 dark:text-neutral-500">
+        <div className="text-neutral-600 text-sm dark:text-neutral-500">
           Last update: <span>{formatLastUpdate()}</span>
         </div>
       </SectionSubHeading>

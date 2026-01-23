@@ -5,7 +5,6 @@ import type { ReactNode } from "react"
 import useIsMobile from "@/common/hooks/use-is-mobile"
 import NowPlayingBar from "../elements/NowPlayingBar"
 import NowPlayingCard from "../elements/NowPlayingCard"
-import Footer from "./partials/Footer"
 import Sidebar from "./partials/Sidebar"
 
 interface LayoutProps {
@@ -18,7 +17,7 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <div
         className={clsx(
-          "mx-auto max-w-6xl bg-light dark:bg-dark dark:text-darkText lg:px-8 lg:py-4 xl:py-8"
+          "mx-auto max-w-6xl bg-background text-foreground lg:px-8 lg:py-4 xl:py-8"
         )}
       >
         <div className="flex flex-col lg:flex-row lg:gap-5">

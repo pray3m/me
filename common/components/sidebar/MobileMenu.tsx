@@ -6,7 +6,7 @@ import Navigation from "./Navigation"
 const MobileMenu: FC = () => {
   return (
     <motion.div
-      className="my-5 h-screen flex flex-col"
+      className="my-5 flex h-screen flex-col"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import React, { useState } from "react"
+import { useState } from "react"
 import { BsSpotify } from "react-icons/bs"
 import { IoMdCloseCircleOutline } from "react-icons/io"
 import useSWR from "swr"
@@ -43,21 +43,21 @@ const NowPlayingCard = () => {
   return (
     <div
       className={cn(
-        "fixed bottom-0 p-3 z-[99999] w-full",
+        "fixed bottom-0 z-[99999] w-full p-3",
         !expand && "flex justify-end"
       )}
     >
       {!expand ? (
         <button
           type="button"
-          className="bg-neutral-950 rounded-full m-2 transition-all duration-100 cursor-pointer flex items-center justify-center"
+          className="m-2 flex cursor-pointer items-center justify-center rounded-full bg-neutral-950 transition-all duration-100"
           onClick={handleMusicToggle}
         >
-          <BsSpotify size={44} className="text-green-500 animate-pulse" />
+          <BsSpotify size={44} className="animate-pulse text-green-500" />
         </button>
       ) : (
-        <div className="flex items-center justify-between py-2 px-3 mt-5 bg-green-400 dark:bg-green-500 text-neutral-800 dark:text-neutral-900 rounded-md font-sora">
-          <div className="flex gap-3 items-center">
+        <div className="mt-5 flex items-center justify-between rounded-md bg-green-400 px-3 py-2 font-sora text-neutral-800 dark:bg-green-500 dark:text-neutral-900">
+          <div className="flex items-center gap-3">
             {data?.albumImageUrl && (
               <Image
                 className="rounded-sm"
@@ -70,13 +70,13 @@ const NowPlayingCard = () => {
             )}
             <button
               type="button"
-              className="flex flex-col hover:underline hover:cursor-pointer pt-0.5 bg-transparent border-none p-0 text-left"
+              className="flex flex-col border-none bg-transparent p-0 pt-0.5 text-left hover:cursor-pointer hover:underline"
               onClick={() => handleOpenSongUrl(data?.songUrl)}
             >
               <div className="font-medium text-[15px]">{trimmedSongTitle}</div>
-              <div className="flex gap-2 items-center">
+              <div className="flex items-center gap-2">
                 <AnimatedBars />
-                <span className="text-neutral-800 text-[14px] pt-1 ">
+                <span className="pt-1 text-[14px] text-neutral-800">
                   {trimmedSongArtist}
                 </span>
               </div>
@@ -85,7 +85,7 @@ const NowPlayingCard = () => {
           <div className="flex gap-3 pr-0.5">
             <IoMdCloseCircleOutline
               size={28}
-              className="text-neutral-900 pt-0.5 cursor-pointer"
+              className="cursor-pointer pt-0.5 text-neutral-900"
               onClick={handleMusicToggle}
             />
           </div>

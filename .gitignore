@@ -38,3 +38,6 @@ pnpm-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# sitemaps
+public/sitemap-0.xml

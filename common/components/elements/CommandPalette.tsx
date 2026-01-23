@@ -238,10 +238,10 @@ export default function CommandPalette() {
                 handleSelect(menu)
               }
               as="div"
-              className="relative mx-auto max-w-lg overflow-hidden rounded-xl border-2 border-neutral-300 bg-white shadow-3xl ring-1 ring-black/5 dark:divide-neutral-600 dark:border-neutral-800  dark:bg-neutral-950 "
+              className="relative mx-auto max-w-lg overflow-hidden rounded-xl border-2 border-neutral-300 bg-white shadow-3xl ring-1 ring-black/5 dark:divide-neutral-600 dark:border-neutral-800 dark:bg-neutral-950"
               disabled={askAssistantClicked}
             >
-              <div className="flex gap-3 items-center border-b border-neutral-300 dark:border-neutral-800 px-4">
+              <div className="flex items-center gap-3 border-neutral-300 border-b px-4 dark:border-neutral-800">
                 {askAssistantClicked ? (
                   <AiIcon size={22} />
                 ) : (
@@ -259,7 +259,7 @@ export default function CommandPalette() {
 
               <div
                 className={cn(
-                  "max-h-80 overflow-y-auto py-2 px-1",
+                  "max-h-80 overflow-y-auto px-1 py-2",
                   isEmptyState && "!py-0"
                 )}
               >
@@ -271,7 +271,7 @@ export default function CommandPalette() {
                       "py-1"
                     )}
                   >
-                    <div className="my-2 px-5 text-xs font-medium text-neutral-500">
+                    <div className="my-2 px-5 font-medium text-neutral-500 text-xs">
                       {menu?.title}
                     </div>
                     <ComboboxOptions static className="space-y-1">
@@ -283,7 +283,7 @@ export default function CommandPalette() {
                                 active
                                   ? "bg-neutral-200 text-neutral-600 dark:bg-neutral-700/60 dark:text-white"
                                   : "text-neutral-600 dark:text-neutral-300",
-                                "mx-2 flex cursor-pointer items-center gap-3 rounded-md py-2 px-4"
+                                "mx-2 flex cursor-pointer items-center gap-3 rounded-md px-4 py-2"
                               )}
                             >
                               {child?.icon && <span>{child?.icon}</span>}

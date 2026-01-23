@@ -13,25 +13,25 @@ const MarkdownRenderer = ({ children }: MarkdownRendererProps) => {
       components={{
         a: (props) => (
           <a
-            className="text-teal-500 hover:text-teal-400 hover:underline cursor-pointer"
+            className="cursor-pointer text-teal-500 hover:text-teal-400 hover:underline"
             {...props}
           />
         ),
         p: (props) => <p {...props} />,
         h2: (props) => (
           <h2
-            className="text-xl font-medium dark:text-neutral-300"
+            className="font-medium text-xl dark:text-neutral-300"
             {...props}
           />
         ),
         h3: (props) => (
           <h3
-            className="text-[18px] leading-snug pt-4 font-medium dark:text-neutral-300"
+            className="pt-4 font-medium text-[18px] leading-snug dark:text-neutral-300"
             {...props}
           />
         ),
         ol: (props) => (
-          <ol className="pl-10 space-y-3 list-decimal pb-5" {...props} />
+          <ol className="list-decimal space-y-3 pb-5 pl-10" {...props} />
         ),
         code: (props) => <CodeBlock {...props} />,
       }}

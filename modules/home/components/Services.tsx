@@ -25,9 +25,9 @@ const Services: FC = () => {
       <div className="space-y-4 rounded-xl border bg-neutral-100 p-8 dark:border-none dark:bg-neutral-800">
         <div className="flex items-center gap-1">
           <Icon glyph="send-fill" size={28} className="pt-1" />
-          <h3 className="text-xl font-medium">Lets work together!</h3>
+          <h3 className="font-medium text-xl">Lets work together!</h3>
         </div>
-        <p className="pl-2 leading-loose text-neutral-800 dark:text-neutral-300">
+        <p className="pl-2 text-neutral-800 leading-loose dark:text-neutral-300">
           i&apos;m open for freelance projects, feel free to email me to see how
           can we collaborate.
         </p>

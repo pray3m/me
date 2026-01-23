@@ -83,8 +83,8 @@ const CodingActiveList: FC<CodingActiveListProps> = ({ data }) => {
             "relative flex flex-1 flex-col gap-2 rounded-lg p-[2px]"
           )}
         >
-          <div className="h-full w-full rounded-lg bg-neutral-50 p-2 dark:bg-dark">
-            <p className="absolute -top-3 left-3 bg-neutral-50 px-2 dark:bg-dark">
+          <div className="h-full w-full rounded-lg bg-card p-2 text-card-foreground">
+            <p className="absolute -top-3 left-3 bg-card px-2 text-card-foreground">
               {item?.title}
             </p>
 

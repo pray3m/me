@@ -31,7 +31,7 @@ const Contributions: FC = () => {
           href={"https://github.com/pray3m"}
           target="_blank"
           passHref
-          className="hover:text-netral-700 font-mono text-sm text-neutral-400 dark:text-neutral-600 dark:hover:text-neutral-400"
+          className="font-mono text-neutral-400 text-sm hover:text-netral-700 dark:text-neutral-600 dark:hover:text-neutral-400"
         >
           @pray3m
         </Link>

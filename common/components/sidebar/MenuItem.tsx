@@ -53,12 +53,12 @@ const MenuItem: FC<MenuItemProps> = ({
     return (
       <div {...elementProps}>
         <div>{icon}</div>
-        <div className="flex-grow ml-0.5">{title}</div>
+        <div className="ml-0.5 flex-grow">{title}</div>
         {children && <>{children}</>}
         {isExternalUrl && isHovered && (
           <ExternalLinkIcon
             size={22}
-            className="text-gray-500 -rotate-45 lg:transition-all lg:duration-300"
+            className="-rotate-45 text-gray-500 lg:transition-all lg:duration-300"
           />
         )}
       </div>
