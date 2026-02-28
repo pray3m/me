@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion"
 import { type FC, useEffect, useState } from "react"
-import EmptyState from "@/common/components/elements/EmptyState"
-import ProductCardSkeleton from "@/common/components/skeleton/ProductCardSkeleton"
+import EmptyState from "@/components/ds/empty-state"
+import ProductCardSkeleton from "@/components/blocks/ProductCardSkeleton"
 import { PROJECTS } from "@/data/projects"
 import ProjectCard from "./ProjectCard"
 

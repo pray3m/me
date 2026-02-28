@@ -1,6 +1,6 @@
-import BackButton from "@/common/components/elements/BackButton"
-import Container from "@/common/components/elements/Container"
-import PageHeading from "@/common/components/elements/PageHeading"
+import BackButton from "@/components/ds/back-button"
+import Container from "@/components/ds/container"
+import PageHeading from "@/components/ds/page-heading"
 import { PROJECTS } from "@/data/projects"
 import ProjectDetail from "@/modules/projects/components/ProjectDetail"
 

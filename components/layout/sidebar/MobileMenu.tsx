@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { type FC } from "react"
-import Breakline from "../elements/Breakline"
+import Breakline from "@/components/ds/breakline"
 import Navigation from "./Navigation"
 
 const MobileMenu: FC = () => {

@@ -3,7 +3,7 @@
 import { AppProgressProvider as ProgressProvider } from "@bprogress/next"
 import { ThemeProvider } from "next-themes"
 import { SWRConfig } from "swr"
-import CommandPalette from "@/common/components/elements/CommandPalette"
+import CommandPalette from "@/components/blocks/CommandPalette"
 import { CommandPaletteProvider } from "@/common/context/CommandPaletteContext"
 import { AOSInit } from "@/common/lib/aos"
 

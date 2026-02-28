@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { type FC } from "react"
 import { BsBuildings as CompanyIcon } from "react-icons/bs"
-import Card from "@/common/components/elements/Card"
+import Card from "@/components/ds/card"
 import type { CareerProps } from "@/common/lib/types"
 
 const CareerCard: FC<CareerProps> = ({

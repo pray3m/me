@@ -1,5 +1,5 @@
 import { type FC } from "react"
-import AnimateCounter from "@/common/components/elements/AnimateCounter"
+import AnimateCounter from "@/components/ds/animate-counter"
 
 interface OverviewItemProps {
   label: string

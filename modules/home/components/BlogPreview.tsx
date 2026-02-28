@@ -1,8 +1,8 @@
 import Link from "next/link"
 import type { FC } from "react"
 import Icon from "supercons"
-import SectionHeading from "@/common/components/elements/SectionHeading"
-import SectionSubHeading from "@/common/components/elements/SectionSubHeading"
+import SectionHeading from "@/components/ds/section-heading"
+import SectionSubHeading from "@/components/ds/section-sub-heading"
 import BlogList from "@/modules/blog/components/BlogList"
 
 const BlogPreview: FC = () => {

@@ -162,14 +162,6 @@
     --sidebar-ring: oklch(0.556 0 0);
   }
 
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--border, currentColor);
-  }
-
   html {
     scroll-behavior: smooth;
     letter-spacing: 0.3px;

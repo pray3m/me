@@ -1,6 +1,6 @@
 import { BiLogoGoogle as GoogleIcon } from "react-icons/bi"
 import { HiOutlineChat as AiIcon } from "react-icons/hi"
-import Button from "@/common/components/elements/Button"
+import Button from "@/components/ds/button"
 
 interface Props {
   queryDebounce: string

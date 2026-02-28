@@ -2,7 +2,7 @@ import { type FC, useContext } from "react"
 import { BiCommand as CommandIcon } from "react-icons/bi"
 import { MENU_ITEMS, SOCIAL_MEDIA } from "@/common/constant/menu"
 import { CommandPaletteContext } from "@/common/context/CommandPaletteContext"
-import Breakline from "../elements/Breakline"
+import Breakline from "@/components/ds/breakline"
 import Menu from "./Menu"
 import MenuItem from "./MenuItem"
 

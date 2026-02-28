@@ -3,8 +3,8 @@
 import clsx from "clsx"
 import type { ReactNode } from "react"
 import useIsMobile from "@/common/hooks/use-is-mobile"
-import NowPlayingBar from "../elements/NowPlayingBar"
-import NowPlayingCard from "../elements/NowPlayingCard"
+import NowPlayingBar from "@/components/blocks/NowPlayingBar"
+import NowPlayingCard from "@/components/blocks/NowPlayingCard"
 import Sidebar from "./partials/Sidebar"
 
 interface LayoutProps {

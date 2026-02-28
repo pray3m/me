@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react"
 import useHasMounted from "@/common/hooks/use-has-mounted"
 import useIsMobile from "@/common/hooks/use-is-mobile"
-import Breakline from "../../elements/Breakline"
-import ThemeToggle from "../../elements/ThemeToggle"
-import Navigation from "../../sidebar/Navigation"
-import Profile from "../../sidebar/Profile"
+import Breakline from "@/components/ds/breakline"
+import ThemeToggle from "@/components/blocks/ThemeToggle"
+import Navigation from "@/components/layout/sidebar/Navigation"
+import Profile from "@/components/layout/sidebar/Profile"
 
 const Sidebar = () => {
   const isMobile = useIsMobile()

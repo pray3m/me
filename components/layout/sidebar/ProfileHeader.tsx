@@ -1,7 +1,7 @@
 import clsx from "clsx"
 import Link from "next/link"
 import type { FC } from "react"
-import Image from "../elements/Image"
+import Image from "@/components/ds/image"
 
 interface ProfileHeaderProps {
   expandMenu: boolean

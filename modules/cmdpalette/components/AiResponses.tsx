@@ -1,7 +1,7 @@
 import { BiLeftArrowCircle as BackButton } from "react-icons/bi"
 import Typewriter from "typewriter-effect"
-import Button from "@/common/components/elements/Button"
-import MarkdownRenderer from "@/common/components/elements/MarkdownRenderer"
+import Button from "@/components/ds/button"
+import MarkdownRenderer from "@/components/blocks/MarkdownRenderer"
 
 type AiResponseProps = {
   response: string

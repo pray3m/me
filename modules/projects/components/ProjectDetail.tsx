@@ -1,5 +1,5 @@
 import type { FC } from "react"
-import Image from "@/common/components/elements/Image"
+import Image from "@/components/ds/image"
 import ProjectLink from "./ProjectLink"
 
 const ProjectDetail: FC<Project> = ({

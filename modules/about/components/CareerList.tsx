@@ -1,8 +1,8 @@
 import Link from "next/link"
 import { HiOutlineBriefcase as CareerIcon } from "react-icons/hi"
 import { LuDownload } from "react-icons/lu"
-import SectionHeading from "@/common/components/elements/SectionHeading"
-import SectionSubHeading from "@/common/components/elements/SectionSubHeading"
+import SectionHeading from "@/components/ds/section-heading"
+import SectionSubHeading from "@/components/ds/section-sub-heading"
 import { CAREERS } from "@/common/constant/careers"
 import CareerCard from "./CareerCard"
 

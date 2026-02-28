@@ -3,7 +3,7 @@ import { useState } from "react"
 import { BsSpotify } from "react-icons/bs"
 import { IoMdCloseCircleOutline } from "react-icons/io"
 import useSWR from "swr"
-import { cn } from "@/common/lib/utils"
+import { cn } from "@/lib/utils"
 import { fetcher } from "@/services/fetcher"
 import AnimatedBars from "./AnimatedBars"
 

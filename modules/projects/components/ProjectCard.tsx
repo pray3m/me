@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { FC } from "react"
-import Card from "@/common/components/elements/Card"
-import Image from "@/common/components/elements/Image"
+import Card from "@/components/ds/card"
+import Image from "@/components/ds/image"
 
 const ProjectCard: FC<Project> = ({
   title,

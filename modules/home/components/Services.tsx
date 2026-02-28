@@ -3,9 +3,9 @@
 import { useRouter } from "next/navigation"
 import { type FC } from "react"
 import Icon from "supercons"
-import Button from "@/common/components/elements/Button"
-import ImageCarousel from "@/common/components/elements/ImageCarousel"
-import SectionHeading from "@/common/components/elements/SectionHeading"
+import Button from "@/components/ds/button"
+import ImageCarousel from "@/components/blocks/ImageCarousel"
+import SectionHeading from "@/components/ds/section-heading"
 import { CLIENT_IMAGES } from "@/common/constant/client"
 
 const Services: FC = () => {

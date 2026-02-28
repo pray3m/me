@@ -1,6 +1,6 @@
 import type { Metadata, NextPage } from "next"
-import Container from "@/common/components/elements/Container"
-import PageHeading from "@/common/components/elements/PageHeading"
+import Container from "@/components/ds/container"
+import PageHeading from "@/components/ds/page-heading"
 import About from "@/modules/about/components/About"
 
 export const metadata: Metadata = {
