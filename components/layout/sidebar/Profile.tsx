@@ -1,26 +1,33 @@
 "use client"
 
-import clsx from "clsx"
-import { AnimatePresence } from "framer-motion"
-import { type FC, useState } from "react"
+import { type FC, useEffect, useState } from "react"
+import { useMediaQuery } from "usehooks-ts"
 import { MenuContext } from "@/common/context/MenuContext"
-import useHasMounted from "@/common/hooks/use-has-mounted"
-import useIsMobile from "@/common/hooks/use-is-mobile"
-import { cn } from "@/lib/utils"
 import Status from "@/components/blocks/Status"
-import ThemeToggleButton from "@/components/blocks/ThemeToggleButton"
+import useHasMounted from "@/hooks/use-has-mounted"
+import { cn } from "@/lib/utils"
 import MobileMenu from "./MobileMenu"
 import MobileMenuButton from "./MobileMenuButton"
 import ProfileHeader from "./ProfileHeader"
 
 const Profile: FC = () => {
-  const isMobile = useIsMobile()
+  const isCompact = useMediaQuery("(max-width: 1023px)")
   const [expandMenu, setExpandMenu] = useState<boolean>(false)
 
   const hasMounted = useHasMounted()
+
+  useEffect(() => {
+    if (!hasMounted || !isCompact) return
+
+    document.body.style.overflow = expandMenu ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [expandMenu, hasMounted, isCompact])
+
   if (!hasMounted) return null
 
-  const imageSize = isMobile ? 40 : 100
+  const imageSize = isCompact ? 40 : 100
 
   const hideNavbar = () => {
     setExpandMenu(false)
@@ -30,13 +37,12 @@ const Profile: FC = () => {
     <MenuContext.Provider value={{ hideNavbar }}>
       <div
         className={cn(
-          "fixed z-10 w-full border-border border-b bg-background p-5 shadow-xs lg:relative lg:border-none lg:bg-transparent! lg:p-0 xl:shadow-none",
-          expandMenu && "pb-0"
+          "fixed z-10 w-full border-border border-b bg-background p-5 shadow-xs lg:relative lg:border-none lg:bg-transparent! lg:p-0 xl:shadow-none"
         )}
       >
         <div className="flex items-center justify-between lg:flex-col lg:items-start lg:space-y-3">
-          <ProfileHeader expandMenu={expandMenu} imageSize={imageSize} />
-          {!isMobile && <Status />}
+          <ProfileHeader imageSize={imageSize} />
+          {!isCompact && <Status />}
 
           {/* RY: new profile avatar design idea  */}
           {/* {!isMobile && (
@@ -55,15 +61,8 @@ const Profile: FC = () => {
             </div>
           )} */}
 
-          {isMobile && (
-            <div
-              className={clsx(
-                "flex items-center gap-5",
-                expandMenu &&
-                  "!items-end h-[120px] flex-col-reverse justify-between"
-              )}
-            >
-              <ThemeToggleButton />
+          {isCompact && (
+            <div className="flex items-center">
               <MobileMenuButton
                 expandMenu={expandMenu}
                 setExpandMenu={setExpandMenu}
@@ -72,8 +71,8 @@ const Profile: FC = () => {
           )}
         </div>
 
-        {isMobile && (
-          <AnimatePresence>{expandMenu && <MobileMenu />}</AnimatePresence>
+        {isCompact && (
+          <MobileMenu open={expandMenu} onOpenChange={setExpandMenu} />
         )}
       </div>
     </MenuContext.Provider>

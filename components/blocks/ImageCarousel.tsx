@@ -4,7 +4,7 @@ import Image from "next/image"
 import type React from "react"
 import { useEffect, useRef } from "react"
 import Slider from "react-slick"
-import useWindowSize from "@/common/hooks/use-window-size"
+import useWindowSize from "@/hooks/use-window-size"
 import "slick-carousel/slick/slick-theme.css"
 import "slick-carousel/slick/slick.css"
 

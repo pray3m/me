@@ -1,26 +1,19 @@
-import clsx from "clsx"
 import Link from "next/link"
 import type { FC } from "react"
 import Image from "@/components/ds/image"
 
 interface ProfileHeaderProps {
-  expandMenu: boolean
   imageSize: number
 }
 
-const ProfileHeader: FC<ProfileHeaderProps> = ({ expandMenu, imageSize }) => {
+const ProfileHeader: FC<ProfileHeaderProps> = ({ imageSize }) => {
   return (
-    <div
-      className={clsx(
-        "flex w-full grow gap-4 lg:flex-col",
-        expandMenu ? "items-start! flex-col" : "items-center"
-      )}
-    >
+    <div className="flex w-full grow items-center gap-4 lg:flex-col lg:items-start">
       <Image
         src="/images/prem.jpg"
         alt="Prem Gautam"
-        width={expandMenu ? 75 : imageSize}
-        height={expandMenu ? 75 : imageSize}
+        width={imageSize}
+        height={imageSize}
         rounded="rounded-full"
         className="lg:hover:scale-105"
       />

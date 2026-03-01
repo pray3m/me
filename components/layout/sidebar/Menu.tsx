@@ -11,7 +11,7 @@ const Menu: FC<MenuProps> = ({ title, list }) => {
   return (
     <div className="flex flex-col space-y-1">
       {title && (
-        <div className="mt-1 mb-2 ml-2 hidden text-neutral-600 text-sm lg:block dark:text-neutral-500">
+        <div className="mt-1 mb-2 ml-2 hidden text-muted-foreground text-sm lg:block">
           {title}
         </div>
       )}

@@ -1,15 +1,15 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import useHasMounted from "@/common/hooks/use-has-mounted"
-import useIsMobile from "@/common/hooks/use-is-mobile"
-import Breakline from "@/components/ds/breakline"
+import { useMediaQuery } from "usehooks-ts"
 import ThemeToggle from "@/components/blocks/ThemeToggle"
+import Breakline from "@/components/ds/breakline"
 import Navigation from "@/components/layout/sidebar/Navigation"
 import Profile from "@/components/layout/sidebar/Profile"
+import useHasMounted from "@/hooks/use-has-mounted"
 
 const Sidebar = () => {
-  const isMobile = useIsMobile()
+  const isCompact = useMediaQuery("(max-width: 1023px)")
   const [_isSticky, setIsSticky] = useState<boolean>(false)
 
   const hasMounted = useHasMounted()
@@ -38,7 +38,7 @@ const Sidebar = () => {
       className="sticky top-0 z-10 flex flex-col transition-all duration-300 lg:py-14"
     >
       <Profile />
-      {!isMobile && (
+      {!isCompact && (
         <>
           <Breakline />
           <Navigation />

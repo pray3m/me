@@ -3,10 +3,10 @@
 import { useRouter } from "next/navigation"
 import { type FC } from "react"
 import Icon from "supercons"
-import Button from "@/components/ds/button"
-import ImageCarousel from "@/components/blocks/ImageCarousel"
-import SectionHeading from "@/components/ds/section-heading"
 import { CLIENT_IMAGES } from "@/common/constant/client"
+import ImageCarousel from "@/components/blocks/ImageCarousel"
+import Button from "@/components/ds/button"
+import SectionHeading from "@/components/ds/section-heading"
 
 const Services: FC = () => {
   const router = useRouter()

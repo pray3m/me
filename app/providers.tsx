@@ -3,9 +3,9 @@
 import { AppProgressProvider as ProgressProvider } from "@bprogress/next"
 import { ThemeProvider } from "next-themes"
 import { SWRConfig } from "swr"
-import CommandPalette from "@/components/blocks/CommandPalette"
 import { CommandPaletteProvider } from "@/common/context/CommandPaletteContext"
 import { AOSInit } from "@/common/lib/aos"
+import CommandPalette from "@/components/blocks/CommandPalette"
 
 export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
   return (

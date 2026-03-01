@@ -31,7 +31,7 @@ const ProjectCard: FC<Project> = ({
               {title}
             </div>
           </div>
-          <p className="text-[15px] text-neutral-700 leading-relaxed dark:text-neutral-400">
+          <p className="text-[15px] text-muted-foreground leading-relaxed">
             {description}
           </p>
           <div className="flex flex-wrap gap-2 pt-2">

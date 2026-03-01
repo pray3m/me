@@ -106,7 +106,7 @@
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
     --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
+    --muted-foreground: oklch(0.41 0 0);
     --accent: oklch(0.97 0 0);
     --accent-foreground: oklch(0.205 0 0);
     --destructive: oklch(0.577 0.245 27.325);
@@ -126,6 +126,16 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+    --paper-tint:
+      radial-gradient(
+        78% 56% at 50% -22%,
+        rgb(244 252 255 / 0.16),
+        transparent 68%
+      ),
+      linear-gradient(180deg, rgb(243 249 253), rgb(235 243 250));
+    --paper-pattern-opacity: 0.042;
+    --paper-pattern-blend: multiply;
+    --paper-pattern-filter: invert(1) grayscale(1) contrast(112%);
   }
 
   .dark {
@@ -140,7 +150,7 @@
     --secondary: oklch(0.269 0 0);
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
+    --muted-foreground: oklch(0.829 0 0);
     --accent: oklch(0.269 0 0);
     --accent-foreground: oklch(0.985 0 0);
     --destructive: oklch(0.704 0.191 22.216);
@@ -160,21 +170,54 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+    --paper-tint:
+      radial-gradient(
+        58% 40% at 12% -12%,
+        rgb(72 86 102 / 0.14),
+        transparent 70%
+      ),
+      radial-gradient(
+        54% 38% at 86% -14%,
+        rgb(84 132 188 / 0.08),
+        transparent 72%
+      ),
+      linear-gradient(180deg, rgb(13 17 21), rgb(9 12 15));
+    --paper-pattern-opacity: 0.045;
+    --paper-pattern-blend: screen;
+    --paper-pattern-filter: none;
   }
 
   html {
     scroll-behavior: smooth;
-    letter-spacing: 0.3px;
+    scrollbar-gutter: stable;
     transition:
       background-color 0.5s ease,
       color 0.5s ease;
   }
 
   body {
-    background-image: url("/images/bg.png");
+    position: relative;
+    line-height: 1.65;
+    background-image: var(--paper-tint);
     background-repeat: no-repeat;
-    background-position: -200px -330px;
+    background-position: center;
+    background-size: cover;
+    isolation: isolate;
     @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  body::before {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+    background-image: url("/images/bg-pattern.png");
+    background-repeat: repeat;
+    background-position: center;
+    mix-blend-mode: var(--paper-pattern-blend);
+    opacity: var(--paper-pattern-opacity);
+    filter: var(--paper-pattern-filter);
   }
 
   * {

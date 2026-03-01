@@ -1,12 +1,13 @@
 import styled from "@emotion/styled"
 import { useTheme } from "next-themes"
-import { useRef } from "react"
-import useHasMounted from "@/common/hooks/use-has-mounted"
+import { useId, useRef } from "react"
+import useHasMounted from "@/hooks/use-has-mounted"
 
 const ThemeToggleButton = () => {
   const { resolvedTheme, setTheme } = useTheme()
   const hasMounted = useHasMounted()
   const buttonRef = useRef<HTMLDivElement>(null)
+  const inputId = useId()
 
   if (!hasMounted) return null
 
@@ -24,21 +25,26 @@ const ThemeToggleButton = () => {
       document.documentElement.style.setProperty("--bubble-y", `${y}px`)
     }
 
-    document.startViewTransition(() => {
-      setTheme(isDarkMode ? "light" : "dark")
-    })
+    if ("startViewTransition" in document) {
+      document.startViewTransition(() => {
+        setTheme(isDarkMode ? "light" : "dark")
+      })
+      return
+    }
+
+    setTheme(isDarkMode ? "light" : "dark")
   }
 
   return (
-    <StyledToggle onClick={handleToggle} ref={buttonRef}>
+    <StyledToggle ref={buttonRef}>
       <input
         checked={resolvedTheme === "dark"}
         type="checkbox"
         className="mode-toggle"
-        id="checkbox"
+        id={inputId}
         onChange={handleToggle}
       />
-      <label className="mode-toggle-label" htmlFor="checkbox">
+      <label className="mode-toggle-label" htmlFor={inputId}>
         <svg
           width="50"
           height="30"

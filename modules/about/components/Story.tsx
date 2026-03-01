@@ -4,7 +4,7 @@ import { ABOUT } from "@/common/constant/about"
 const Story: FC = () => {
   return (
     <section
-      className="space-y-4 text-neutral-800 leading-loose dark:text-neutral-300"
+      className="space-y-4 text-foreground leading-8"
       // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
       dangerouslySetInnerHTML={{ __html: ABOUT }}
     />

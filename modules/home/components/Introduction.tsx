@@ -15,13 +15,13 @@ const Introduction: FC = () => {
       </div>
 
       <div className="space-y-3">
-        <ul className="ml-5 flex list-disc flex-col gap-1 text-neutral-700 lg:flex-row lg:gap-8 dark:text-neutral-400">
+        <ul className="ml-5 flex list-disc flex-col gap-1 text-muted-foreground lg:flex-row lg:gap-8">
           <li>life-long learner</li>
           <li>
             Based in Butwal , Nepal <span className="ml-1">🇳🇵</span>
           </li>
         </ul>
-        <p className="text-neutral-800 leading-loose dark:text-neutral-300">
+        <p className="text-foreground leading-8">
           I&apos;m a full-stack developer with {currentYear - workStart} year
           experience and {currentYear - codingStart} year in web development. I
           specialize in building responsive interfaces with React.js and

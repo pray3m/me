@@ -1,8 +1,8 @@
 import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next"
+import { jakartaSans, soraSans } from "@/common/styles/fonts"
 import Layout from "@/components/layout"
 import { cn } from "@/lib/utils"
-import { jakartaSans, soraSans } from "@/common/styles/fonts"
 import "./globals.css"
 import { ProvidersSandwich } from "./providers"
 
@@ -61,11 +61,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          jakartaSans.variable,
-          soraSans.variable
-        )}
+        className={cn("min-h-screen", jakartaSans.variable, soraSans.variable)}
       >
         <ProvidersSandwich>
           <Layout>{children}</Layout>

@@ -1,8 +1,7 @@
 "use client"
 
-import clsx from "clsx"
 import type { ReactNode } from "react"
-import useIsMobile from "@/common/hooks/use-is-mobile"
+import { useMediaQuery } from "usehooks-ts"
 import NowPlayingBar from "@/components/blocks/NowPlayingBar"
 import NowPlayingCard from "@/components/blocks/NowPlayingCard"
 import Sidebar from "./partials/Sidebar"
@@ -12,14 +11,10 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const isMobile = useIsMobile()
+  const isCompact = useMediaQuery("(max-width: 1023px)")
   return (
     <>
-      <div
-        className={clsx(
-          "mx-auto max-w-6xl bg-background text-foreground lg:px-8 lg:py-4 xl:py-8"
-        )}
-      >
+      <div className="mx-auto max-w-6xl lg:px-8 lg:py-4 xl:py-8">
         <div className="flex flex-col lg:flex-row lg:gap-5">
           <header className="lg:w-1/5">
             <Sidebar />
@@ -30,7 +25,7 @@ const Layout = ({ children }: LayoutProps) => {
           </main>
         </div>
       </div>
-      {isMobile ? <NowPlayingCard /> : <NowPlayingBar />}
+      {isCompact ? <NowPlayingCard /> : <NowPlayingBar />}
     </>
   )
 }

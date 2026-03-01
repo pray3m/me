@@ -4,10 +4,10 @@ import moment from "moment"
 import Link from "next/link"
 import type { FC } from "react"
 import Icon from "supercons"
+import type { BlogItemProps } from "@/common/lib/types"
 import Card from "@/components/ds/card"
 import Image from "@/components/ds/image"
-import useWindowSize from "@/common/hooks/use-window-size"
-import type { BlogItemProps } from "@/common/lib/types"
+import useWindowSize from "@/hooks/use-window-size"
 
 const BlogCard: FC<BlogItemProps> = ({
   title,

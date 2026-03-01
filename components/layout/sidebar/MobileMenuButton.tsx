@@ -14,7 +14,7 @@ const MobileMenuButton: FC<MobileMenuButtonProps> = ({
     <div className="flex items-center justify-end lg:hidden">
       <button
         type="button"
-        className="block hover:text-gray-900 dark:hover:text-white"
+        className="inline-flex h-9 w-9 items-center justify-center hover:text-gray-900 dark:hover:text-white"
         onClick={() => setExpandMenu(!expandMenu)}
       >
         {!expandMenu ? (

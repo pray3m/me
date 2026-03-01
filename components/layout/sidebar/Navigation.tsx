@@ -6,10 +6,16 @@ import Breakline from "@/components/ds/breakline"
 import Menu from "./Menu"
 import MenuItem from "./MenuItem"
 
-const Navigation: FC = () => {
+interface NavigationProps {
+  excludedHrefs?: string[]
+}
+
+const Navigation: FC<NavigationProps> = ({ excludedHrefs = [] }) => {
   const { setIsOpen } = useContext(CommandPaletteContext)
 
-  const filteredMenu = MENU_ITEMS?.filter((item) => item?.isShow)
+  const filteredMenu = MENU_ITEMS?.filter(
+    (item) => item?.isShow && !excludedHrefs.includes(item.href)
+  )
   const filteredSocialMedia = SOCIAL_MEDIA?.filter((item) => item?.isShow)
 
   const handleOpenCommandPalette = () => {
