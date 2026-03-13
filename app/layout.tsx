@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next"
 import { jakartaSans, soraSans } from "@/common/styles/fonts"
 import Layout from "@/components/layout"
@@ -65,7 +64,6 @@ export default function RootLayout({
       >
         <ProvidersSandwich>
           <Layout>{children}</Layout>
-          <Analytics />
         </ProvidersSandwich>
       </body>
     </html>
