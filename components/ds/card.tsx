@@ -27,11 +27,11 @@ const Card = ({ className, ...props }: CardProps) => {
 
 export {
   Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
   CardAction,
-  CardDescription,
   CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
 }
 export default Card

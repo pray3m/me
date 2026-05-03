@@ -45,20 +45,14 @@ function DrawerOverlay({
   )
 }
 
-type DrawerContentProps = React.ComponentProps<
-  typeof DrawerPrimitive.Content
-> & {
-  showHandle?: boolean
-  handleClassName?: string
-}
-
 function DrawerContent({
   className,
   children,
-  showHandle = true,
   handleClassName,
   ...props
-}: DrawerContentProps) {
+}: React.ComponentProps<typeof DrawerPrimitive.Content> & {
+  handleClassName?: string
+}) {
   return (
     <DrawerPortal data-slot="drawer-portal">
       <DrawerOverlay />
@@ -74,14 +68,12 @@ function DrawerContent({
         )}
         {...props}
       >
-        {showHandle && (
-          <div
-            className={cn(
-              "mx-auto mt-4 hidden h-2 w-[100px] shrink-0 rounded-full bg-muted group-data-[vaul-drawer-direction=bottom]/drawer-content:block",
-              handleClassName
-            )}
-          />
-        )}
+        <div
+          className={cn(
+            "mx-auto mt-4 hidden h-2 w-25 shrink-0 rounded-full bg-muted group-data-[vaul-drawer-direction=bottom]/drawer-content:block",
+            handleClassName
+          )}
+        />
         {children}
       </DrawerPrimitive.Content>
     </DrawerPortal>
@@ -139,13 +131,13 @@ function DrawerDescription({
 
 export {
   Drawer,
-  DrawerPortal,
-  DrawerOverlay,
-  DrawerTrigger,
   DrawerClose,
   DrawerContent,
-  DrawerHeader,
-  DrawerFooter,
-  DrawerTitle,
   DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerPortal,
+  DrawerTitle,
+  DrawerTrigger,
 }

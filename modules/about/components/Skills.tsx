@@ -23,20 +23,20 @@ const shuffleBySeed = <T,>(items: readonly T[], seed: number) => {
 const rows = [
   {
     stacks: shuffleBySeed(STACKS, 1),
-    duration: "22s",
+    duration: "80s",
     delay: "0s",
     reverse: false,
   },
   {
     stacks: shuffleBySeed(STACKS, 2),
-    duration: "30s",
-    delay: "-10s",
+    duration: "100s",
+    delay: "-30s",
     reverse: true,
   },
   {
     stacks: shuffleBySeed(STACKS, 3),
-    duration: "26s",
-    delay: "-18s",
+    duration: "90s",
+    delay: "-55s",
     reverse: false,
   },
 ] as const
@@ -46,7 +46,7 @@ function SkillBadge({ skill }: { skill: (typeof STACKS)[number] }) {
   return (
     <Badge
       variant="outline"
-      className="shrink-0 gap-2 rounded-full border-border bg-background/85 px-5 py-2 font-medium text-[15px] text-foreground shadow-sm backdrop-blur supports-backdrop-filter:bg-background/70 [&>svg]:size-5"
+      className="shrink-0 gap-2 rounded-full border-border bg-background px-5 py-2 font-medium text-[15px] text-foreground shadow-sm [&>svg]:size-5"
     >
       <Icon className={cn(skill.className)} aria-hidden="true" />
       <span>{skill.name}</span>

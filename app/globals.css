@@ -51,6 +51,8 @@
 
   --animate-waving-hand: wave 2s linear infinite;
   --animate-flying-card: flying 3s infinite normal;
+  --animate-marquee: marquee-scroll var(--marquee-duration, 24s)
+    var(--marquee-delay, 0s) linear infinite;
 
   @keyframes wave {
     0% {
@@ -88,6 +90,15 @@
     }
     100% {
       transform: translateY(0);
+    }
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
     }
   }
 }
@@ -251,11 +262,5 @@
 @keyframes grow-bubble {
   to {
     clip-path: circle(150% at var(--bubble-x) var(--bubble-y));
-  }
-}
-
-@keyframes skills-marquee {
-  to {
-    transform: translate3d(calc(-100% / var(--skills-marquee-repeat)), 0, 0);
   }
 }

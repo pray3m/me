@@ -6,16 +6,14 @@ interface MarqueeProps {
   className?: string
   duration?: string
   delay?: string
-  repeat?: number
   reverse?: boolean
 }
 
 const Marquee = ({
   children,
   className,
-  duration = "36s",
+  duration = "24s",
   delay = "0s",
-  repeat = 3,
   reverse = false,
 }: MarqueeProps) => {
   return (
@@ -25,25 +23,19 @@ const Marquee = ({
       role="presentation"
     >
       <div
-        className="hover:paused data-[reverse=true]:direction-[reverse] flex w-max min-w-full transform-gpu animate-[skills-marquee_var(--skills-marquee-duration)_var(--skills-marquee-delay)_linear_infinite] will-change-transform motion-reduce:animate-none"
+        className="flex w-max transform-gpu animate-marquee will-change-transform motion-reduce:animate-none hover:[animation-play-state:paused] data-[reverse=true]:[animation-direction:reverse]"
         data-reverse={reverse ? "true" : undefined}
         style={
           {
-            "--skills-marquee-repeat": repeat,
-            "--skills-marquee-duration": duration,
-            "--skills-marquee-delay": delay,
+            "--marquee-duration": duration,
+            "--marquee-delay": delay,
           } as CSSProperties
         }
       >
-        {Array.from({ length: repeat }, (_, index) => (
-          <div
-            key={index}
-            aria-hidden={index > 0}
-            className="flex shrink-0 gap-3 pr-3"
-          >
-            {children}
-          </div>
-        ))}
+        <div className="flex shrink-0 gap-3 pr-3">{children}</div>
+        <div aria-hidden="true" className="flex shrink-0 gap-3 pr-3">
+          {children}
+        </div>
       </div>
     </div>
   )
