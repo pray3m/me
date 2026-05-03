@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--jakartaSans-font);
+  --font-sans: var(--onestSans-font);
   --font-sora: var(--soraSans-font);
   --font-emoji: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 
@@ -251,5 +251,11 @@
 @keyframes grow-bubble {
   to {
     clip-path: circle(150% at var(--bubble-x) var(--bubble-y));
+  }
+}
+
+@keyframes skills-marquee {
+  to {
+    transform: translate3d(calc(-100% / var(--skills-marquee-repeat)), 0, 0);
   }
 }

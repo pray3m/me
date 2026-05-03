@@ -3,8 +3,6 @@
 import { useRouter } from "next/navigation"
 import { type FC } from "react"
 import Icon from "supercons"
-import { CLIENT_IMAGES } from "@/common/constant/client"
-import ImageCarousel from "@/components/blocks/ImageCarousel"
 import Button from "@/components/ds/button"
 import SectionHeading from "@/components/ds/section-heading"
 
@@ -33,7 +31,7 @@ const Services: FC = () => {
         </p>
         <Button onClick={() => router.push("/contact")}>Contact me</Button>
       </div>
-      <ImageCarousel images={CLIENT_IMAGES} interval={4000} />
+      {/* <ImageCarousel images={CLIENT_IMAGES} interval={4000} /> */}
     </section>
   )
 }

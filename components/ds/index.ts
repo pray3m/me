@@ -72,6 +72,7 @@ export {
 export { default as Image } from "@/components/ds/image"
 export { Input } from "@/components/ds/input"
 export { Label } from "@/components/ds/label"
+export { default as Marquee } from "@/components/ds/marquee"
 export { default as PageHeading } from "@/components/ds/page-heading"
 export { default as SectionHeading } from "@/components/ds/section-heading"
 export { default as SectionSubHeading } from "@/components/ds/section-sub-heading"

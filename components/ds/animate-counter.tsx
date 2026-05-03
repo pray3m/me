@@ -1,3 +1,5 @@
+"use client"
+
 import { type AnimationPlaybackControls, animate } from "framer-motion"
 import { type FC, type HTMLProps, useEffect, useRef } from "react"
 

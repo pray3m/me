@@ -1,4 +1,4 @@
-import { Plus_Jakarta_Sans, Sora } from "next/font/google"
+import { Onest, Plus_Jakarta_Sans, Sora } from "next/font/google"
 
 export const jakartaSans = Plus_Jakarta_Sans({
   variable: "--jakartaSans-font",
@@ -12,4 +12,11 @@ export const soraSans = Sora({
   subsets: ["latin"],
   display: "fallback",
   weight: ["400", "500", "600", "700", "800"],
+})
+
+export const onestSans = Onest({
+  variable: "--onestSans-font",
+  subsets: ["latin"],
+  display: "fallback",
+  weight: ["300", "400", "500", "600", "700", "800"],
 })

@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
-import { jakartaSans, soraSans } from "@/common/styles/fonts"
+import { onestSans, soraSans } from "@/common/styles/fonts"
 import Layout from "@/components/layout"
 import { cn } from "@/lib/utils"
 import "./globals.css"
+import Script from "next/script"
 import { ProvidersSandwich } from "./providers"
 
 export const metadata: Metadata = {
@@ -52,19 +53,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="41fe1939-48a0-42dc-b7df-0399def615f2"
-        />
-      </head>
       <body
-        className={cn("min-h-screen", jakartaSans.variable, soraSans.variable)}
+        className={cn("min-h-screen", soraSans.variable, onestSans.variable)}
       >
         <ProvidersSandwich>
           <Layout>{children}</Layout>
         </ProvidersSandwich>
+
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="41fe1939-48a0-42dc-b7df-0399def615f2"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
