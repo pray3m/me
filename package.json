@@ -19,34 +19,34 @@
     "commitlint": "commitlint --edit"
   },
   "dependencies": {
-    "@base-ui/react": "^1.4.1",
+    "@base-ui/react": "^1.5.0",
     "@bprogress/next": "^3.2.12",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@headlessui/react": "^2.2.10",
-    "@hookform/resolvers": "^5.2.2",
-    "aos": "3.0.0-beta.6",
-    "axios": "^1.16.0",
+    "@hookform/resolvers": "^5.4.0",
+    "aos": "2.3.4",
+    "axios": "^1.16.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
-    "date-fns": "^4.1.0",
+    "date-fns": "^4.2.1",
     "embla-carousel-react": "^8.6.0",
-    "framer-motion": "^12.38.0",
+    "framer-motion": "^12.40.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.577.0",
     "moment": "^2.30.1",
-    "next": "16.2.4",
+    "next": "16.2.6",
     "next-themes": "^0.4.6",
     "radix-ui": "^1.4.3",
-    "react": "19.2.4",
+    "react": "19.2.6",
     "react-day-picker": "^9.14.0",
-    "react-dom": "19.2.4",
-    "react-hook-form": "^7.75.0",
+    "react-dom": "19.2.6",
+    "react-hook-form": "^7.76.0",
     "react-icons": "^5.6.0",
     "react-loading-skeleton": "^3.5.0",
     "react-markdown": "^10.1.0",
-    "react-resizable-panels": "^4.11.0",
+    "react-resizable-panels": "^4.11.1",
     "react-slick": "^0.31.0",
     "react-spinners": "^0.17.0",
     "react-syntax-highlighter": "^16.1.1",
@@ -56,19 +56,19 @@
     "sonner": "^2.0.7",
     "supercons": "^0.2.0",
     "swr": "^2.4.1",
-    "tailwind-merge": "^3.5.0",
+    "tailwind-merge": "^3.6.0",
     "typewriter-effect": "^2.22.0",
     "usehooks-ts": "^3.1.1",
     "vaul": "^1.1.2",
-    "zod": "^4.4.2"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.14",
+    "@biomejs/biome": "^2.4.15",
     "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^20.5.3",
-    "@tailwindcss/postcss": "^4.2.4",
-    "@types/aos": "^3.0.7",
-    "@types/node": "^24.12.2",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/aos": "^3.0.8",
+    "@types/node": "^24.12.4",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@types/react-slick": "^0.23.13",
@@ -77,9 +77,9 @@
     "lint-staged": "^16.4.0",
     "next-sitemap": "^4.2.3",
     "pinst": "^3.0.0",
-    "postcss": "^8.5.13",
-    "shadcn": "^4.6.0",
-    "tailwindcss": "^4.2.4",
+    "postcss": "^8.5.15",
+    "shadcn": "^4.8.0",
+    "tailwindcss": "^4.3.0",
     "tw-animate-css": "^1.4.0",
     "typescript": "^5.9.3"
   },
@@ -88,15 +88,5 @@
       "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
     ]
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "msw",
-      "sharp"
-    ],
-    "overrides": {
-      "@types/react": "19.2.14",
-      "@types/react-dom": "19.2.3"
-    }
-  },
-  "packageManager": "pnpm@10.33.2"
+  "packageManager": "pnpm@11.2.2"
 }
