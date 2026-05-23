@@ -16,6 +16,7 @@ const Image = (props: ImageProps) => {
     <div
       className={clsx(
         "overflow-hidden",
+        rest.fill ? "relative size-full" : "",
         isLoading ? "animate-pulse" : "",
         rounded
       )}

@@ -27,11 +27,6 @@ const CareerList = () => {
             <LuDownload /> <span>Download Resume</span>
           </Link>
         </SectionSubHeading>
-
-        <p className="text-orange-500">
-          ⚠️ Not my real data (for development purpose only){" "}
-          {/* TODO: Remove this */}
-        </p>
       </div>
 
       <div className="grid gap-3 md:grid-cols-2 md:gap-4">
