@@ -197,7 +197,7 @@ export default function CommandPalette() {
     }
   }, [isMobile])
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: only reset palette state when open/close toggles
   useEffect(() => {
     if (!isOpen) {
       setQuery("")

@@ -6,10 +6,11 @@ import {
   TopTracksResponseProps,
   TrackProps,
 } from "@/common/types/spotify"
+import { env } from "@/lib/env"
 
-const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID
-const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET
-const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN
+const CLIENT_ID = env.SPOTIFY_CLIENT_ID
+const CLIENT_SECRET = env.SPOTIFY_CLIENT_SECRET
+const REFRESH_TOKEN = env.SPOTIFY_REFRESH_TOKEN
 
 const TOKEN = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64")
 
@@ -94,19 +95,21 @@ export const getTopTracks = async (): Promise<TopTracksResponseProps> => {
 
   const getData = await request.json()
 
-  const tracks: TrackProps[] = getData.items.map((track: any) => ({
-    album: {
-      name: track.album.name,
-      image: track.album.images.find(
-        (image: { width: number }) => image.width === 64
-      ),
-    },
-    artist: track.artists
-      .map((artist: { name: string }) => artist.name)
-      .join(", "),
-    songUrl: track.external_urls.spotify,
-    title: track.name,
-  }))
+  const tracks: TrackProps[] = getData.items.map(
+    (track: SongProps["item"]) => ({
+      album: {
+        name: track.album.name,
+        image: track.album.images.find(
+          (image: { width: number }) => image.width === 64
+        ),
+      },
+      artist: track.artists
+        .map((artist: { name: string }) => artist.name)
+        .join(", "),
+      songUrl: track.external_urls.spotify,
+      title: track.name,
+    })
+  )
 
   return { status, data: tracks }
 }

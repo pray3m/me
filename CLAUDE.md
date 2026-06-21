@@ -51,7 +51,11 @@ Layered by responsibility. Adding a page typically touches an `app/` shell + a `
 Copy [.env.example](.env.example). Keys: `NEXT_PUBLIC_API`, `SITE_URL`, `SPOTIFY_*`, `WAKATIME_API_KEY`, `GITHUB_READ_USER_TOKEN`, `OPENAI_API_KEY`. The `/api/chat` function has raised memory/duration in [vercel.json](vercel.json).
 
 ## Commit messages
-Conventional commits with a creative twist. Dont add claude as a co-author.
+- **Conventional Commits** (enforced by commitlint; custom `vercel` type also allowed) with a **creative twist** — the subject line should be informative but have personality, not robotic.
+- Subject: lowercase `type(scope): summary`, imperative mood, no trailing period.
+- Add a short body only when the *why* isn't obvious from the subject.
+- **Never** add Claude as a co-author or include any `Co-Authored-By`/"Generated with" trailer.
+- Unless told otherwise, commit everything currently staged in a single commit; don't stage extra files yourself.
 
 ## Gotchas
 

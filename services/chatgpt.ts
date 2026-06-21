@@ -1,6 +1,7 @@
 import axios from "axios"
+import { env } from "@/lib/env"
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+const OPENAI_API_KEY = env.OPENAI_API_KEY
 const OPENAI_URL = "https://api.openai.com/v1/chat/completions"
 
 export const postChatPrompt = async (prompt: string) => {

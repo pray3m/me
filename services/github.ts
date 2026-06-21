@@ -1,12 +1,8 @@
+import { env } from "@/lib/env"
+
 const GITHUB_USER_ENDPOINT: string = "https://api.github.com/graphql"
 
-const readUserToken: string | undefined = process.env.GITHUB_READ_USER_TOKEN
-
-if (!readUserToken) {
-  throw new Error(
-    "GitHub token is missing. Set GITHUB_READ_USER_TOKEN in environment variables."
-  )
-}
+const readUserToken: string = env.GITHUB_READ_USER_TOKEN
 
 const GITHUB_USER_QUERY: string = `
   query GetUserContributions($login: String!){

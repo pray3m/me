@@ -1,4 +1,6 @@
-const API_URL = process.env.NEXT_PUBLIC_API as string
+import { env } from "@/lib/env"
+
+const API_URL = env.NEXT_PUBLIC_API
 
 export const getApiData = async (query: string) => {
   const response = await fetch(`${API_URL}/fetch?query=${query}`, {
