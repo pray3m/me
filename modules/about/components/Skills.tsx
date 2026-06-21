@@ -46,7 +46,7 @@ function SkillBadge({ skill }: { skill: (typeof STACKS)[number] }) {
   return (
     <Badge
       variant="outline"
-      className="shrink-0 gap-2 rounded-full border-border bg-background px-5 py-2 font-medium text-[15px] text-foreground shadow-sm [&>svg]:size-5"
+      className="shrink-0 gap-2 rounded-full border-border bg-background px-5 py-4 font-medium text-[15px] text-foreground shadow-sm [&>svg]:size-5"
     >
       <Icon className={cn(skill.className)} aria-hidden="true" />
       <span>{skill.name}</span>

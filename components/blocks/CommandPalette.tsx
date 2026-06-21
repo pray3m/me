@@ -1,5 +1,8 @@
 "use client"
 
+import { Dialog as DialogPrimitive } from "@base-ui/react/dialog"
+import { Command as CommandPrimitive } from "cmdk"
+import { Search, Sparkles } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
 import { useContext, useEffect, useState } from "react"
@@ -10,10 +13,8 @@ import { CommandPaletteContext } from "@/common/context/CommandPaletteContext"
 import type { MenuItemProps } from "@/common/lib/types"
 import {
   Command,
-  CommandDialog,
   CommandEmpty,
   CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
 } from "@/components/ui/command"
@@ -49,8 +50,8 @@ export default function CommandPalette() {
   const { resolvedTheme, setTheme } = useTheme()
 
   const placeholders = [
-    "Search or Ask anything...",
-    "Press Cmd + K anytime to access this command palette",
+    "Search or ask anything...",
+    "Press Cmd + K anytime to open this palette",
   ]
   const placeholder = placeholders[placeholderIndex]
 
@@ -156,58 +157,78 @@ export default function CommandPalette() {
   }
 
   return (
-    <CommandDialog open={isOpen} onOpenChange={setIsOpen} className="max-w-lg">
-      <Command shouldFilter={!askAssistantClicked}>
-        <CommandInput
-          autoFocus
-          value={query}
-          onValueChange={setQuery}
-          disabled={askAssistantClicked}
-          placeholder={askAssistantClicked ? queryDebounce : placeholder}
-        />
+    <DialogPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
+      <DialogPrimitive.Portal>
+        <DialogPrimitive.Backdrop className="data-closed:fade-out-0 data-open:fade-in-0 fixed inset-0 z-50 bg-background/70 backdrop-blur-sm duration-150 data-closed:animate-out data-open:animate-in" />
+        <DialogPrimitive.Popup className="data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 fixed top-[14vh] left-1/2 z-50 w-[calc(100%-2rem)] max-w-xl -translate-x-1/2 overflow-hidden rounded-2xl border border-border bg-popover text-popover-foreground shadow-2xl outline-none ring-1 ring-foreground/10 duration-150 data-closed:animate-out data-open:animate-in">
+          <DialogPrimitive.Title className="sr-only">
+            Command Palette
+          </DialogPrimitive.Title>
 
-        {askAssistantClicked ? (
-          <div className="max-h-80 overflow-y-auto px-6 pt-3 pb-6">
-            {aiLoading ? (
-              <AiLoading />
-            ) : (
-              <AiResponses
-                response={aiResponse}
-                isAiFinished={aiFinished}
-                onAiFinished={() => setAiFinished(true)}
-                onAiClose={handleAiClose}
+          <Command
+            shouldFilter={!askAssistantClicked}
+            className="bg-transparent p-0"
+          >
+            <div className="flex items-center gap-3 border-border/70 border-b px-4">
+              {askAssistantClicked ? (
+                <Sparkles className="size-5 shrink-0 text-muted-foreground" />
+              ) : (
+                <Search className="size-5 shrink-0 text-muted-foreground" />
+              )}
+              <CommandPrimitive.Input
+                autoFocus
+                value={query}
+                onValueChange={setQuery}
+                disabled={askAssistantClicked}
+                placeholder={askAssistantClicked ? queryDebounce : placeholder}
+                className="h-14 w-full bg-transparent text-[15px] text-foreground outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-60"
               />
-            )}
-          </div>
-        ) : (
-          <CommandList className="max-h-80">
-            {queryDebounce && (
-              <CommandEmpty className="p-0">
-                <QueryNotFound
-                  queryDebounce={queryDebounce}
-                  handleAskAiAssistant={handleAskAiAssistant}
-                  handleFindGoogle={handleFindGoogle}
-                />
-              </CommandEmpty>
-            )}
-            {menuOptions.map((menu) => (
-              <CommandGroup key={menu.title} heading={menu.title}>
-                {menu.children.map((child) => (
-                  <CommandItem
-                    key={child.href}
-                    value={child.title}
-                    onSelect={() => handleSelect(child)}
-                    className="cursor-pointer gap-3"
-                  >
-                    {child?.icon && <span>{child.icon}</span>}
-                    <span>{child.title}</span>
-                  </CommandItem>
+            </div>
+
+            {askAssistantClicked ? (
+              <div className="max-h-[60vh] overflow-y-auto px-6 pt-4 pb-6">
+                {aiLoading ? (
+                  <AiLoading />
+                ) : (
+                  <AiResponses
+                    response={aiResponse}
+                    isAiFinished={aiFinished}
+                    onAiFinished={() => setAiFinished(true)}
+                    onAiClose={handleAiClose}
+                  />
+                )}
+              </div>
+            ) : (
+              <CommandList className="max-h-[60vh] p-2">
+                {queryDebounce && (
+                  <CommandEmpty className="p-0">
+                    <QueryNotFound
+                      queryDebounce={queryDebounce}
+                      handleAskAiAssistant={handleAskAiAssistant}
+                      handleFindGoogle={handleFindGoogle}
+                    />
+                  </CommandEmpty>
+                )}
+                {menuOptions.map((menu) => (
+                  <CommandGroup key={menu.title} heading={menu.title}>
+                    {menu.children.map((child) => (
+                      <CommandItem
+                        key={child.href}
+                        value={child.title}
+                        onSelect={() => handleSelect(child)}
+                        className="cursor-pointer gap-3 rounded-lg px-3 py-2.5"
+                      >
+                        {child?.icon && <span>{child.icon}</span>}
+                        <span>{child.title}</span>
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
                 ))}
-              </CommandGroup>
-            ))}
-          </CommandList>
-        )}
-      </Command>
-    </CommandDialog>
+              </CommandList>
+            )}
+          </Command>
+        </DialogPrimitive.Popup>
+      </DialogPrimitive.Portal>
+    </DialogPrimitive.Root>
   )
 }
