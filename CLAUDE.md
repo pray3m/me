@@ -50,6 +50,9 @@ Layered by responsibility. Adding a page typically touches an `app/` shell + a `
 
 Copy [.env.example](.env.example). Keys: `NEXT_PUBLIC_API`, `SITE_URL`, `SPOTIFY_*`, `WAKATIME_API_KEY`, `GITHUB_READ_USER_TOKEN`, `OPENAI_API_KEY`. The `/api/chat` function has raised memory/duration in [vercel.json](vercel.json).
 
+## Commit messages
+Conventional commits with a creative twist. Dont add claude as a co-author.
+
 ## Gotchas
 
 - **README is stale.** It claims Prisma + Vercel Postgres and lists 2023 TODOs; there is no Prisma dependency or schema in the repo, and the `db` tsconfig alias points at a missing file. Treat data as static (`data/`, `common/constant/`) unless code proves otherwise.

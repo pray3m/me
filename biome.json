@@ -60,6 +60,18 @@
       "next": "all"
     }
   },
+  "overrides": [
+    {
+      "includes": ["components/ui/**"],
+      "linter": {
+        "rules": {
+          "complexity": { "noExcessiveCognitiveComplexity": "off" },
+          "a11y": { "noLabelWithoutControl": "off" },
+          "suspicious": { "noDocumentCookie": "off" }
+        }
+      }
+    }
+  ],
   "javascript": {
     "formatter": {
       "jsxQuoteStyle": "double",

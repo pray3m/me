@@ -24,10 +24,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ open, onOpenChange }) => {
       onOpenChange={onOpenChange}
       shouldScaleBackground={false}
     >
-      <DrawerContent
-        className="max-h-[86dvh] rounded-b-none border-border/80 bg-background px-5 pt-0 pb-[calc(env(safe-area-inset-bottom)+0.9rem)] shadow-[0_-12px_35px_rgba(0,0,0,0.22)] sm:inset-x-4 sm:mx-auto sm:max-w-2xl sm:rounded-t-[34px] sm:rounded-b-none sm:border lg:hidden"
-        handleClassName="mt-2.5 mb-1.5 h-1 w-20 rounded-full bg-neutral-400 dark:bg-neutral-500"
-      >
+      <DrawerContent className="max-h-[86dvh] rounded-b-none border-border/80 bg-background px-5 pt-0 pb-[calc(env(safe-area-inset-bottom)+0.9rem)] shadow-[0_-12px_35px_rgba(0,0,0,0.22)] sm:inset-x-4 sm:mx-auto sm:max-w-2xl sm:rounded-t-[34px] sm:rounded-b-none sm:border lg:hidden">
         <DrawerTitle className="sr-only">Mobile navigation menu</DrawerTitle>
         <Navigation excludedHrefs={[isHome ? "/dashboard" : "/"]} />
 
