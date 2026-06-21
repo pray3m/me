@@ -40,6 +40,7 @@ const ThemeToggleButton = () => {
       <input
         checked={resolvedTheme === "dark"}
         type="checkbox"
+        aria-label="Toggle dark mode"
         className="mode-toggle"
         id={inputId}
         onChange={handleToggle}

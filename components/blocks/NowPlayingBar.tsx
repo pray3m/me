@@ -19,7 +19,7 @@ const NowPlayingBar = () => {
 
   return (
     <div className="fixed bottom-0 z-[99999] hidden w-full lg:block">
-      <div className="flex justify-between bg-green-400 px-4 py-0.5 font-sora text-[14px] text-neutral-800 dark:bg-green-500 dark:text-neutral-900">
+      <div className="flex justify-between bg-green-400 px-4 py-0.5 text-neutral-900 text-sm dark:bg-green-500">
         {data?.songUrl ? (
           <div className="flex items-center gap-2">
             <AnimatedBars />

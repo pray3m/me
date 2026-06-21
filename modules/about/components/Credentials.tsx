@@ -16,7 +16,7 @@ const Credentials: FC = () => {
           icon={<CredentialIcon className="mr-1" />}
         />
         <SectionSubHeading>
-          <p className="dark:text-neutral-400">
+          <p className="text-muted-foreground">
             Certifications, hackathons & things I&apos;ve shipped
           </p>
         </SectionSubHeading>
@@ -30,16 +30,14 @@ const Credentials: FC = () => {
             target="_blank"
             className="group"
           >
-            <Card className="h-full space-y-2 border border-neutral-300 px-6 py-4 transition-all duration-300 lg:hover:scale-[102%] dark:border-neutral-800">
+            <Card className="h-full space-y-2 border border-border px-6 py-4 transition-all duration-300 lg:hover:scale-[102%]">
               <div className="flex items-start justify-between gap-2">
                 <h6 className="font-medium">{credential.title}</h6>
                 <LuArrowUpRight className="shrink-0 text-muted-foreground transition-all group-hover:text-foreground" />
               </div>
               <div className="flex items-center gap-2 text-muted-foreground text-sm">
                 <span>{credential.issuer}</span>
-                <span className="text-neutral-300 dark:text-neutral-700">
-                  •
-                </span>
+                <span className="text-muted-foreground">•</span>
                 <span>{credential.year}</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed">

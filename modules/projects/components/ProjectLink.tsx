@@ -29,7 +29,7 @@ const ProjectLink: React.FC<ProjectLinkProps> = ({
       )}
 
       {link_github && link_demo && (
-        <span className="text-neutral-400 dark:text-neutral-600">|</span>
+        <span className="text-muted-foreground">|</span>
       )}
       {link_demo && (
         <LinkComponent
@@ -45,10 +45,10 @@ const ProjectLink: React.FC<ProjectLinkProps> = ({
 const LinkComponent = ({ icon, text, url }: LinkComponentProps) => {
   return (
     <Link href={url} target="_blank" passHref>
-      <div className="flex items-center gap-2 font-medium text-neutral-700 dark:text-neutral-300">
+      <div className="flex items-center gap-2 font-medium text-muted-foreground">
         {icon}
 
-        <span className="text-[15px] transition-all duration-300 dark:text-teal-500 dark:hover:text-teal-400">
+        <span className="text-sm transition-all duration-300 dark:text-teal-500 dark:hover:text-teal-400">
           {text}
         </span>
       </div>

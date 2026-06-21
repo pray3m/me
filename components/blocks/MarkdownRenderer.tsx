@@ -19,14 +19,11 @@ const MarkdownRenderer = ({ children }: MarkdownRendererProps) => {
         ),
         p: (props) => <p {...props} />,
         h2: (props) => (
-          <h2
-            className="font-medium text-xl dark:text-neutral-300"
-            {...props}
-          />
+          <h2 className="font-medium text-foreground text-xl" {...props} />
         ),
         h3: (props) => (
           <h3
-            className="pt-4 font-medium text-[18px] leading-snug dark:text-neutral-300"
+            className="pt-4 font-medium text-foreground text-lg leading-snug"
             {...props}
           />
         ),

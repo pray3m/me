@@ -23,10 +23,10 @@ const MenuItem: FC<MenuItemProps> = ({
 
   const isHashLink = href === "#"
 
-  const activeClasses = `flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 ${
+  const activeClasses = `flex items-center gap-2 py-2 px-4 text-muted-foreground hover:text-foreground ${
     isCurrentPath
-      ? "bg-neutral-200 rounded-lg dark:bg-neutral-800 text-neutral-900 dark:!text-neutral-300"
-      : "rounded-lg hover:bg-neutral-200 hover:dark:bg-neutral-800 lg:transform-gpu lg:transition-[transform,background-color,color] lg:duration-200 lg:ease-out lg:hover:scale-[1.01]"
+      ? "bg-muted rounded-lg text-foreground"
+      : "rounded-lg hover:bg-muted lg:transform-gpu lg:transition-[transform,background-color,color] lg:duration-200 lg:ease-out lg:hover:scale-[1.01]"
   }`
 
   const handleClick = () => {
@@ -58,7 +58,7 @@ const MenuItem: FC<MenuItemProps> = ({
         {isExternalUrl && isHovered && (
           <ExternalLinkIcon
             size={22}
-            className="-rotate-45 text-gray-500 lg:transition-all lg:duration-300"
+            className="-rotate-45 text-muted-foreground lg:transition-all lg:duration-300"
           />
         )}
       </div>
@@ -71,7 +71,9 @@ const MenuItem: FC<MenuItemProps> = ({
     <Link
       href={href}
       target={isExternalUrl ? "_blank" : ""}
+      rel={isExternalUrl ? "noopener noreferrer" : undefined}
       onClick={handleClick}
+      className="block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
       {itemComponent()}
     </Link>

@@ -20,12 +20,12 @@ const Services: FC = () => {
           collaborated with.
         </p>
       </div>
-      <div className="space-y-4 rounded-xl border bg-neutral-100 p-8 dark:border-none dark:bg-neutral-800">
+      <div className="space-y-4 rounded-xl border bg-muted p-8 dark:border-none">
         <div className="flex items-center gap-1">
           <Send size={28} className="pt-1" />
           <h3 className="font-medium text-xl">Lets work together!</h3>
         </div>
-        <p className="pl-2 text-neutral-800 leading-loose dark:text-neutral-300">
+        <p className="pl-2 text-muted-foreground leading-loose">
           i&apos;m open for freelance projects, feel free to email me to see how
           can we collaborate.
         </p>

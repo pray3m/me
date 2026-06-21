@@ -15,15 +15,15 @@ const QueryNotFound = ({
 }: Props) => {
   return (
     <div className="flex flex-col items-center space-y-5 pt-5 pb-10">
-      <div className="space-y-2 text-center text-neutral-500">
+      <div className="space-y-2 text-center text-muted-foreground">
         <p>
           No result found about
-          <span className="mr-2 ml-1 text-neutral-600 italic dark:text-neutral-400">
+          <span className="mr-2 ml-1 text-muted-foreground italic">
             `{queryDebounce}`
           </span>
           in this website.
         </p>
-        <p className="text-neutral-600 dark:text-neutral-400">
+        <p className="text-muted-foreground">
           Ask my AI Assistant or find in Google instead?
         </p>
       </div>
@@ -42,7 +42,7 @@ const QueryNotFound = ({
           Find in Google
         </Button>
       </div>
-      <p className="text-neutral-500 text-sm">
+      <p className="text-muted-foreground text-sm">
         Press `ESC` to close this window
       </p>
     </div>

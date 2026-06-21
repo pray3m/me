@@ -67,13 +67,13 @@ const CodeBlock = ({
       {!inline ? (
         <div className="relative">
           <button
-            className="absolute top-3 right-3 rounded-lg border border-neutral-700 p-2 hover:bg-neutral-800"
+            className="absolute top-3 right-3 rounded-lg border border-border p-2 hover:bg-muted"
             type="button"
             aria-label="Copy to Clipboard"
             onClick={() => handleCopy(children ? children.toString() : "")}
           >
             {!isCopied ? (
-              <CopyIcon size={18} className="text-neutral-400" />
+              <CopyIcon size={18} className="text-muted-foreground" />
             ) : (
               <CheckIcon size={18} className="text-green-600" />
             )}
@@ -95,7 +95,7 @@ const CodeBlock = ({
           </SyntaxHighlighter>
         </div>
       ) : (
-        <code className="rounded-md bg-neutral-200 px-2 py-1 text-[14px] text-neutral-950 dark:bg-neutral-700 dark:text-neutral-200">
+        <code className="rounded-md bg-muted px-2 py-1 text-foreground text-sm">
           {children}
         </code>
       )}

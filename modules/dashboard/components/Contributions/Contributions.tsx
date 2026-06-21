@@ -6,6 +6,7 @@ import { BsGithub } from "react-icons/bs"
 import useSWR from "swr"
 import SectionHeading from "@/components/ds/section-heading"
 import SectionSubHeading from "@/components/ds/section-sub-heading"
+import Skeleton from "@/components/ds/skeleton"
 import { fetcher } from "@/services/fetcher"
 import Calendar from "./Calendar"
 import Overview from "./Overview"
@@ -24,12 +25,13 @@ const Contributions: FC = () => {
       />
 
       <SectionSubHeading>
-        <p className="dark:text-neutral-400">
+        <p className="text-muted-foreground">
           My Github Contributions from last year.
         </p>
         <Link
           href={"https://github.com/pray3m"}
           target="_blank"
+          rel="noopener noreferrer"
           passHref
           className="font-mono text-muted-foreground text-sm hover:text-foreground"
         >
@@ -37,7 +39,13 @@ const Contributions: FC = () => {
         </Link>
       </SectionSubHeading>
 
-      {!data && <div className="dark:text-neutral-400">No Data</div>}
+      {!data && !error && <Skeleton className="mt-2 h-32 w-full rounded-xl" />}
+
+      {error && (
+        <p className="text-muted-foreground text-sm">
+          Couldn&apos;t load contributions right now.
+        </p>
+      )}
 
       {data && (
         <div className="space-y-3">

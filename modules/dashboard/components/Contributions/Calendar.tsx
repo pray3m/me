@@ -60,7 +60,7 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
   return (
     <>
       <div className="relative flex flex-col">
-        <ul className="flex justify-end gap-[3px] overflow-hidden text-xs md:justify-start dark:text-neutral-400">
+        <ul className="flex justify-end gap-[3px] overflow-hidden text-muted-foreground text-xs md:justify-start">
           {months.map((month) => (
             <li
               key={month.firstDay}
@@ -95,7 +95,7 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
                         transition: { delay: getRandomDelayAnimate },
                       },
                     }}
-                    className="my-[2px] block h-[12px] w-[12px] rounded-xs bg-neutral-300 dark:bg-neutral-800"
+                    className="my-[2px] block h-[12px] w-[12px] rounded-xs bg-muted"
                     style={backgroundColor ? { backgroundColor } : undefined}
                     onMouseEnter={() =>
                       setSelectContribution({
@@ -116,9 +116,9 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
 
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2 text-sm">
-          <span className="dark:text-neutral-400">Less</span>
+          <span className="text-muted-foreground">Less</span>
           <ul className="flex gap-1">
-            <m.li className="h-[10px] w-[10px] rounded-xs bg-neutral-300 dark:bg-neutral-800" />
+            <m.li className="h-[10px] w-[10px] rounded-xs bg-muted" />
             {contributionColors.map((item, index) => (
               <m.li
                 key={item}
@@ -142,7 +142,7 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
         <div
           className={clsx(
             `${selectContribution?.date ? "opacity-100" : "opacity-0"}`,
-            "rounded-sm bg-neutral-200 px-2 text-sm dark:bg-neutral-700"
+            "rounded-sm bg-muted px-2 text-sm"
           )}
         >
           {selectContribution?.count} contributions on{" "}

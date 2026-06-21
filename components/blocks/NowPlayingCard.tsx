@@ -50,13 +50,14 @@ const NowPlayingCard = () => {
       {!expand ? (
         <button
           type="button"
+          aria-label="Open music player"
           className="m-2 flex cursor-pointer items-center justify-center rounded-full bg-neutral-950 transition-all duration-100"
           onClick={handleMusicToggle}
         >
           <BsSpotify size={44} className="animate-pulse text-green-500" />
         </button>
       ) : (
-        <div className="mt-5 flex items-center justify-between rounded-md bg-green-400 px-3 py-2 font-sora text-neutral-800 dark:bg-green-500 dark:text-neutral-900">
+        <div className="mt-5 flex items-center justify-between rounded-md bg-green-400 px-3 py-2 text-neutral-900 dark:bg-green-500">
           <div className="flex items-center gap-3">
             {data?.albumImageUrl && (
               <Image
@@ -73,21 +74,24 @@ const NowPlayingCard = () => {
               className="flex flex-col border-none bg-transparent p-0 pt-0.5 text-left hover:cursor-pointer hover:underline"
               onClick={() => handleOpenSongUrl(data?.songUrl)}
             >
-              <div className="font-medium text-[15px]">{trimmedSongTitle}</div>
+              <div className="font-medium text-sm">{trimmedSongTitle}</div>
               <div className="flex items-center gap-2">
                 <AnimatedBars />
-                <span className="pt-1 text-[14px] text-neutral-800">
+                <span className="pt-1 text-neutral-900 text-sm">
                   {trimmedSongArtist}
                 </span>
               </div>
             </button>
           </div>
           <div className="flex gap-3 pr-0.5">
-            <IoMdCloseCircleOutline
-              size={28}
-              className="cursor-pointer pt-0.5 text-neutral-900"
+            <button
+              type="button"
+              aria-label="Hide music player"
+              className="cursor-pointer text-neutral-900"
               onClick={handleMusicToggle}
-            />
+            >
+              <IoMdCloseCircleOutline size={28} className="pt-0.5" />
+            </button>
           </div>
         </div>
       )}

@@ -24,7 +24,7 @@ const ProjectDetail: FC<Project> = ({
             {stacksArray?.map((stack: string, index: number) => (
               <span
                 key={index}
-                className="rounded-full bg-neutral-200 px-3 py-1 font-medium text-neutral-600 text-xs dark:bg-neutral-700 dark:text-neutral-400"
+                className="rounded-full bg-muted px-3 py-1 font-medium text-muted-foreground text-xs"
               >
                 {stack}
               </span>

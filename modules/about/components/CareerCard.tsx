@@ -32,7 +32,7 @@ const CareerCard: FC<CareerProps> = ({
         <h6> {position}</h6>
         <div className="space-y-2 text-muted-foreground text-sm">
           <div className="flex items-center gap-1 md:gap-2">
-            <Link href={link || "#"} target="_blank">
+            <Link href={link || "#"} target="_blank" rel="noopener noreferrer">
               <span className="cursor-pointer underline hover:text-foreground">
                 {company}
               </span>

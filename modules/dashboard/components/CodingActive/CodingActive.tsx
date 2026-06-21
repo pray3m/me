@@ -6,13 +6,14 @@ import { SiWakatime as WakatimeIcon } from "react-icons/si"
 import useSWR from "swr"
 import SectionHeading from "@/components/ds/section-heading"
 import SectionSubHeading from "@/components/ds/section-sub-heading"
+import Skeleton from "@/components/ds/skeleton"
 import { relativeTimeFromNow } from "@/lib/date"
 import { fetcher } from "@/services/fetcher"
 import CodingActiveList from "./CodingActiveList"
 import Overview from "./Overview"
 
 const CodingActive: FC = () => {
-  const { data } = useSWR("/api/wakatime", fetcher)
+  const { data, error } = useSWR("/api/wakatime", fetcher)
 
   const formatLastUpdate = (): string => {
     if (!data?.last_update) return ""
@@ -30,23 +31,29 @@ const CodingActive: FC = () => {
       />
 
       <SectionSubHeading>
-        <div className="md:flex-row md:items-center dark:text-neutral-400">
+        <div className="text-muted-foreground md:flex-row md:items-center">
           <span>My </span>
           <Link
             href="https://wakatime.com/@pray3m"
-            className="hover:text-neutral-900 hover:underline dark:hover:text-neutral-100"
+            className="hover:text-foreground hover:underline"
           >
             WakaTime
           </Link>
           <span> last 30 days stats.</span>
         </div>
-        <div className="text-neutral-600 text-sm dark:text-neutral-500">
+        <div className="text-muted-foreground text-sm">
           Last update: <span>{formatLastUpdate()}</span>
         </div>
       </SectionSubHeading>
 
-      <Overview data={data} />
-      <CodingActiveList data={data} />
+      {!data && !error ? (
+        <Skeleton className="mt-2 h-44 w-full rounded-xl" />
+      ) : (
+        <>
+          <Overview data={data} />
+          <CodingActiveList data={data} />
+        </>
+      )}
     </section>
   )
 }

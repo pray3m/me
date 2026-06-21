@@ -15,14 +15,14 @@ const CareerList = () => {
         <SectionHeading title="Career" icon={<CareerIcon className="mr-1" />} />
 
         <SectionSubHeading>
-          <p className="dark:text-neutral-400">
+          <p className="text-muted-foreground">
             My professional career journey
           </p>
           <Link
             href={RESUME_URL}
             passHref
             target="_blank"
-            className="flex items-center gap-2 text-neutral-600 transition-all duration-300 hover:gap-3 hover:text-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-300"
+            className="flex items-center gap-2 text-muted-foreground transition-all duration-300 hover:gap-3 hover:text-foreground"
           >
             <LuDownload /> <span>Download Resume</span>
           </Link>

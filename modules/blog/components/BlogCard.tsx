@@ -24,7 +24,7 @@ const BlogCard: FC<BlogItemProps> = ({
 
   return (
     <Link href={`blog/${slug}`}>
-      <Card className="flex cursor-pointer flex-col gap-6 border border-neutral-300 sm:flex-row sm:p-5 lg:hover:scale-[102%] dark:border-neutral-800">
+      <Card className="flex cursor-pointer flex-col gap-6 border border-border sm:flex-row sm:p-5 lg:hover:scale-[102%]">
         <div className="w-fit">
           <Image
             src={image}
@@ -35,21 +35,21 @@ const BlogCard: FC<BlogItemProps> = ({
           />
         </div>
         <div className="mb-5 flex w-full grow flex-col space-y-2 px-5 sm:mb-0 sm:w-4/5 sm:p-0">
-          <h3 className="font-medium text-neutral-700 md:text-[17px] lg:hover:text-sky-800 dark:text-neutral-200 dark:hover:text-neutral-50">
+          <h3 className="font-medium text-muted-foreground md:text-lg lg:hover:text-sky-800">
             {title}
           </h3>
           <div className="flex gap-5">
-            <div className="flex items-center gap-1 dark:text-neutral-400">
+            <div className="flex items-center gap-1">
               <Clock size={16} />
               <span className="text-xs">{formatShortDate(date)}</span>
             </div>
-            <div className="flex items-center gap-1 dark:text-neutral-400">
+            <div className="flex items-center gap-1">
               <Eye size={16} />
               <span className="text-xs">{views}</span>
               <span className="text-xs">views</span>
             </div>
           </div>
-          <p className="hidden text-neutral-600 text-sm leading-relaxed sm:block dark:text-neutral-400">
+          <p className="hidden text-muted-foreground text-sm leading-relaxed sm:block">
             {trimmedContent}
           </p>
         </div>
