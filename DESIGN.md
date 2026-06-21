@@ -28,10 +28,14 @@ reinvent their values inline.
 | `muted-foreground` | `oklch(.41 0 0)` | `oklch(.829 0 0)` | secondary text |
 | `border` · `input` | `oklch(.922 0 0)` | `oklch(1 0 0 / 10%)` | hairlines, fields |
 | `ring` | `oklch(.708 0 0)` | `oklch(.556 0 0)` | focus rings |
+| `brand` (`-foreground`) | `oklch(.58 .2 255)` | `oklch(.65 .19 255)` | **the one accent** — primary action, links, focus |
 | `destructive` | `oklch(.577 .245 27)` | `oklch(.704 .191 22)` | errors |
 
 **Radius** — base `--radius: 0.625rem` (10px), scaled `sm … 4xl`.
-**Type** — one family, **Onest** (`--font-sans`). Tailwind step scale.
+**Type** — **Onest** (`--font-sans`) for everything; **Geist Mono** (`--font-mono`)
+for code and tabular figures. Tailwind step scale.
+**Motion** — `--ease-snappy` (one curve) + 150/200/300ms tiers.
+**Elevation** — `--shadow-card` / `--shadow-popover` / `--shadow-modal`.
 **Spacing** — Tailwind 4px scale; rhythm in §Layout.
 
 ---
@@ -65,8 +69,12 @@ so a `dark:` on a color is the signal you reached for a raw value you shouldn't.
 | Quiet fill / hover fill | `bg-muted` · `bg-secondary` · `bg-accent` |
 | Hairline / divider | `border-border` |
 | Input | `bg-input` · `border-input` |
-| Focus ring | `ring-ring` |
+| Focus ring | `ring-brand` (2px ring + offset) |
+| **Accent** — the single most important action + state | `bg-brand` · `text-brand` |
 | Error | `text-destructive` · `bg-destructive` |
+
+**Use the accent sparingly** (Geist principle): the primary CTA, links, focus
+rings, and the active nav state — not decoration. Everything else stays neutral.
 
 **Allowed literals** (brand accents that must read identically in both themes):
 the `green-400/500` "available / now-playing" strip, the `#fffd00` route
@@ -77,10 +85,11 @@ correctly inherit `text-foreground`), and syntax-highlighting colors.
 
 ## Typography
 
-- **Onest** is the only family — body, UI, and headings. It's applied on
+- **Onest** is the only sans family — body, UI, and headings. Applied on
   `<body>`; never set it explicitly. (Sora and Plus Jakarta were removed: loaded
-  but unused. Re-add a display face in [fonts.ts](common/styles/fonts.ts) only
-  if the system genuinely needs one.)
+  but unused.)
+- **Geist Mono** (`font-mono`) for **code blocks and figures that should align** —
+  stats, counts, percentages. Pair with `tabular-nums` so digits line up.
 - Weights: 400 / 500 / 600 / 700.
 
 **Scale — use the steps, not arbitrary px:**
@@ -116,9 +125,10 @@ Headings always go through `PageHeading` / `SectionHeading` / `SectionSubHeading
 
 Prefer **hairline + soft shadow** over heavy borders.
 
-- Cards: `border border-border` + `shadow-sm`.
-- Floating surfaces (dialog, command palette): `shadow-2xl` + `ring-1
-  ring-foreground/10` for a crisp edge.
+- Use the layered shadow tokens: `shadow-card` (raised cards), `shadow-popover`
+  (menus), `shadow-modal` (dialogs) — subtle and multi-layer, not flat.
+- Floating surfaces (dialog, command palette) add `ring-1 ring-foreground/10` for
+  a crisp edge. In dark mode, lean on borders/rings (shadows fade on dark).
 - Modal backdrop: `bg-background/70 backdrop-blur-sm` — strong enough to focus
   attention.
 - **Paper texture:** `--paper-tint` gradient on `<body>` + a tiled
@@ -143,9 +153,14 @@ Radius is consistent **per element type** — hold this line.
 
 ## Motion
 
-Durations `150–300ms`, `ease-out`. Apply `transition-*` at the element's base, not
-inside a `lg:` variant, so mobile gets it too.
+One easing — **`ease-snappy`** (`cubic-bezier(0.175, 0.885, 0.32, 1.1)`, slight
+overshoot) — and three duration tiers: **150ms** state · **200ms** popover ·
+**300ms** modal. Apply `transition-*` at the element's base, not inside a `lg:`
+variant, so mobile gets it too.
 
+- **Reduced motion:** honored globally — a `prefers-reduced-motion` CSS reset
+  plus `<MotionConfig reducedMotion="user">` for framer. Non-essential motion
+  (marquee, reveals, the theme bubble) stops for users who ask.
 - **Scroll reveal:** AOS via `data-aos` on containers.
 - **Component animation:** `framer-motion` through **`LazyMotion` + `m.*`** with
   `domAnimation` (provider in [app/providers.tsx](app/providers.tsx)). Never
@@ -172,10 +187,11 @@ Three buckets — keep them separate:
 
 Component states:
 
-- **Buttons** are `bg-primary text-primary-foreground` (default) with
-  `hover:bg-primary/90` and `hover:scale-[101%]`.
-- **Focus:** every interactive element shows `focus-visible:ring-2
-  focus-visible:ring-ring`. Don't rely on hover alone.
+- **Buttons** — the primary CTA is `bg-brand text-brand-foreground` with
+  `hover:bg-brand/90`, `ease-snappy`, and `hover:scale-[101%]`.
+- **Focus:** every interactive element shows a brand ring —
+  `focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2
+  focus-visible:ring-offset-background`. Don't rely on hover alone.
 - **Loading:** data-driven components render a `Skeleton` while fetching and a
   quiet error line on failure — never a blank flash or layout shift.
 

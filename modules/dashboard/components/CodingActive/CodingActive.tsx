@@ -1,9 +1,9 @@
 "use client"
 
+import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
 import type { FC } from "react"
 import { SiWakatime as WakatimeIcon } from "react-icons/si"
-import useSWR from "swr"
 import SectionHeading from "@/components/ds/section-heading"
 import SectionSubHeading from "@/components/ds/section-sub-heading"
 import Skeleton from "@/components/ds/skeleton"
@@ -13,7 +13,10 @@ import CodingActiveList from "./CodingActiveList"
 import Overview from "./Overview"
 
 const CodingActive: FC = () => {
-  const { data, error } = useSWR("/api/wakatime", fetcher)
+  const { data, error } = useQuery({
+    queryKey: ["wakatime"],
+    queryFn: () => fetcher("/api/wakatime"),
+  })
 
   const formatLastUpdate = (): string => {
     if (!data?.last_update) return ""

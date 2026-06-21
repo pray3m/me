@@ -7,6 +7,7 @@ import {
   TrackProps,
 } from "@/common/types/spotify"
 import { env } from "@/lib/env"
+import { resilientFetch } from "@/lib/http"
 
 const CLIENT_ID = env.SPOTIFY_CLIENT_ID
 const CLIENT_SECRET = env.SPOTIFY_CLIENT_SECRET
@@ -20,7 +21,7 @@ const NOW_PLAYING_ENDPOINT =
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`
 
 const getAccessToken = async (): Promise<AccessTokenResponseProps> => {
-  const response = await fetch(TOKEN_ENDPOINT, {
+  const response = await resilientFetch(TOKEN_ENDPOINT, {
     method: "POST",
     headers: {
       Authorization: `Basic ${TOKEN}`,
@@ -37,7 +38,7 @@ const getAccessToken = async (): Promise<AccessTokenResponseProps> => {
 export const getNowPlaying = async (): Promise<NowPlayingResponseProps> => {
   const { access_token } = await getAccessToken()
 
-  const request = await fetch(NOW_PLAYING_ENDPOINT, {
+  const request = await resilientFetch(NOW_PLAYING_ENDPOINT, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
@@ -80,7 +81,7 @@ export const getNowPlaying = async (): Promise<NowPlayingResponseProps> => {
 export const getTopTracks = async (): Promise<TopTracksResponseProps> => {
   const { access_token } = await getAccessToken()
 
-  const request = await fetch(`${TOP_TRACKS_ENDPOINT}?limit=10`, {
+  const request = await resilientFetch(`${TOP_TRACKS_ENDPOINT}?limit=10`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${access_token}`,

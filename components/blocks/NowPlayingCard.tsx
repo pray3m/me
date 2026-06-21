@@ -1,8 +1,8 @@
+import { useQuery } from "@tanstack/react-query"
 import Image from "next/image"
 import { useState } from "react"
 import { BsSpotify } from "react-icons/bs"
 import { IoMdCloseCircleOutline } from "react-icons/io"
-import useSWR from "swr"
 import { cn } from "@/lib/utils"
 import { fetcher } from "@/services/fetcher"
 import AnimatedBars from "./AnimatedBars"
@@ -10,13 +10,16 @@ import AnimatedBars from "./AnimatedBars"
 const NowPlayingCard = () => {
   const [expand, setExpand] = useState<boolean>(true)
 
-  const { data } = useSWR<{
+  const { data } = useQuery<{
     songUrl: string
     albumImageUrl: string
     album: string
     title: string
     artist: string
-  }>("/api/now-playing", fetcher)
+  }>({
+    queryKey: ["now-playing"],
+    queryFn: () => fetcher("/api/now-playing"),
+  })
 
   // album: 'Qayde Se (From "Metro ... In Dino")'
   // albumImageUrl: "https://i.scdn.co/image/ab67616d00004851127b091422dfbcc367062145"

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { onestSans } from "@/common/styles/fonts"
+import { geistMono, onestSans } from "@/common/styles/fonts"
 import Layout from "@/components/layout"
 import { cn } from "@/lib/utils"
 import "./globals.css"
@@ -53,7 +53,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body className={cn("min-h-screen", onestSans.variable)}>
+      <body
+        className={cn("min-h-screen", onestSans.variable, geistMono.variable)}
+      >
         <ProvidersSandwich>
           <Layout>{children}</Layout>
         </ProvidersSandwich>

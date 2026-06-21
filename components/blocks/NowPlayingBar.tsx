@@ -1,17 +1,20 @@
+import { useQuery } from "@tanstack/react-query"
 import Image from "next/image"
 import { BsSpotify } from "react-icons/bs"
-import useSWR from "swr"
 import { fetcher } from "@/services/fetcher"
 import AnimatedBars from "./AnimatedBars"
 
 const NowPlayingBar = () => {
-  const { data } = useSWR<{
+  const { data } = useQuery<{
     songUrl: string
     albumImageUrl: string
     album: string
     title: string
     artist: string
-  }>("/api/now-playing", fetcher)
+  }>({
+    queryKey: ["now-playing"],
+    queryFn: () => fetcher("/api/now-playing"),
+  })
 
   const handleOpenSongUrl = (url?: string) => {
     url && window.open(url, "_blank")

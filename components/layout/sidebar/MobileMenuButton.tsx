@@ -18,7 +18,7 @@ const MobileMenuButton: FC<MobileMenuButtonProps> = ({
           expandMenu ? "Close navigation menu" : "Open navigation menu"
         }
         aria-expanded={expandMenu}
-        className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-foreground/80 outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+        className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-foreground/80 outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         onClick={() => setExpandMenu(!expandMenu)}
       >
         {!expandMenu ? <Menu size={34} /> : <X size={34} />}

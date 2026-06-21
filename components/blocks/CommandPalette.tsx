@@ -2,7 +2,7 @@
 
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog"
 import { Command as CommandPrimitive } from "cmdk"
-import { Search, Sparkles } from "lucide-react"
+import { Palette, Search, Sparkles } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
 import { useContext, useEffect, useState } from "react"
@@ -125,6 +125,22 @@ export default function CommandPalette() {
       ],
     },
   ]
+
+  // Easter egg: the design system page is unlisted — it surfaces here only when the search is "design".
+  if (query.trim().toLowerCase() === "design") {
+    menuOptions.push({
+      title: "✦ FOUND A SECRET",
+      children: [
+        {
+          icon: <Palette size={20} />,
+          title: "Design system",
+          href: "/design",
+          isExternal: false,
+          closeOnSelect: true,
+        },
+      ],
+    })
+  }
 
   const handleSelect = (menu: MenuOptionItemProps) => {
     setQuery("")

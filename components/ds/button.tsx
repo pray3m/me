@@ -11,7 +11,7 @@ const Button = ({ icon, children, className, ...props }: ButtonProps) => {
   return (
     <UiButton
       className={cn(
-        "rounded-lg bg-primary text-primary-foreground text-sm shadow-md transition-all duration-300 hover:scale-[101%] hover:bg-primary/90",
+        "rounded-lg bg-brand text-brand-foreground text-sm shadow-sm transition-all duration-200 ease-snappy hover:scale-[101%] hover:bg-brand/90",
         className
       )}
       {...props}

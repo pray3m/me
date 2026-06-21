@@ -25,7 +25,7 @@ const MenuItem: FC<MenuItemProps> = ({
 
   const activeClasses = `flex items-center gap-2 py-2 px-4 text-muted-foreground hover:text-foreground ${
     isCurrentPath
-      ? "bg-muted rounded-lg text-foreground"
+      ? "bg-muted rounded-lg text-brand"
       : "rounded-lg hover:bg-muted lg:transform-gpu lg:transition-[transform,background-color,color] lg:duration-200 lg:ease-out lg:hover:scale-[1.01]"
   }`
 
@@ -73,7 +73,7 @@ const MenuItem: FC<MenuItemProps> = ({
       target={isExternalUrl ? "_blank" : ""}
       rel={isExternalUrl ? "noopener noreferrer" : undefined}
       onClick={handleClick}
-      className="block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
       {itemComponent()}
     </Link>

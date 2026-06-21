@@ -2,10 +2,9 @@
   <h1>premgautam.me</h1>
   <p>🔥 Personal website built with Next.js, TypeScript, Tailwind CSS, SWR and Prisma with Vercel Postgres</p>
 
- <p align="center">
-<a href="https://biomejs.dev"><img alt="Checked with Biome" src="https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome"></a>
-</p>
-
+  <p align="center">
+    <a href="https://biomejs.dev"><img alt="Checked with Biome" src="https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome"></a>
+  </p>
 </div>
 
 <br />
@@ -52,9 +51,9 @@ Data is retrieved using the Wakatime API and then displayed on the dashboard, bu
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm install
+cp .env.example .env.local   # fill in the keys
+pnpm dev                     # http://localhost:3000
 ```
 
 ### 🕗 Wakatime

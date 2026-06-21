@@ -1,5 +1,5 @@
-import axios from "axios"
 import { env } from "@/lib/env"
+import { resilientFetch } from "@/lib/http"
 
 const API_KEY = env.WAKATIME_API_KEY
 
@@ -64,7 +64,7 @@ export const getReadStats = async (): Promise<{
   status: number
   data: ReadStatsData | Record<string, never>
 }> => {
-  const response = await axios.get(`${STATS_ENDPOINT}/last_30_days`, {
+  const response = await resilientFetch(`${STATS_ENDPOINT}/last_30_days`, {
     headers: {
       Authorization: `Basic ${API_KEY}`,
     },
@@ -73,7 +73,7 @@ export const getReadStats = async (): Promise<{
   const status = response.status
   if (status >= 400) return { status, data: {} }
 
-  const getData = response.data
+  const getData = await response.json()
 
   // Extracting data with fallback in case of undefined values
   const start_date = getData?.data?.start || ""
@@ -114,7 +114,7 @@ export const getALLTimeSinceToday = async (): Promise<{
   status: number
   data: AllTimeData | Record<string, never>
 }> => {
-  const response = await axios.get(ALL_TIME_SINCE_TODAY, {
+  const response = await resilientFetch(ALL_TIME_SINCE_TODAY, {
     headers: {
       Authorization: `Basic ${API_KEY}`,
     },
@@ -123,7 +123,7 @@ export const getALLTimeSinceToday = async (): Promise<{
   const status = response.status
   if (status >= 400) return { status, data: {} }
 
-  const getData = response.data
+  const getData = await response.json()
 
   const data = {
     text: getData?.data?.text || "",

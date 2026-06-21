@@ -1,9 +1,9 @@
 "use client"
 
+import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
 import { type FC } from "react"
 import { BsGithub } from "react-icons/bs"
-import useSWR from "swr"
 import SectionHeading from "@/components/ds/section-heading"
 import SectionSubHeading from "@/components/ds/section-sub-heading"
 import Skeleton from "@/components/ds/skeleton"
@@ -12,7 +12,10 @@ import Calendar from "./Calendar"
 import Overview from "./Overview"
 
 const Contributions: FC = () => {
-  const { data, error } = useSWR("api/github", fetcher)
+  const { data, error } = useQuery({
+    queryKey: ["github"],
+    queryFn: () => fetcher("/api/github"),
+  })
 
   const contributionCalendar =
     data?.contributionsCollection?.contributionCalendar

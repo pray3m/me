@@ -1,4 +1,5 @@
 import { env } from "@/lib/env"
+import { resilientFetch } from "@/lib/http"
 
 const GITHUB_USER_ENDPOINT: string = "https://api.github.com/graphql"
 
@@ -31,7 +32,7 @@ const GITHUB_USER_QUERY: string = `
 `
 
 export const getGithubUser = async (userID: string) => {
-  const response = await fetch(GITHUB_USER_ENDPOINT, {
+  const response = await resilientFetch(GITHUB_USER_ENDPOINT, {
     method: "POST",
     headers: {
       Authorization: `bearer ${readUserToken}`,

@@ -1,4 +1,4 @@
-import { Onest } from "next/font/google"
+import { Geist_Mono, Onest } from "next/font/google"
 
 // Body/UI font. Weights 400–700: 400/500/600 are used via Tailwind utilities;
 // 700 covers implicit bold (markdown `**` → <strong>). 300/800 are unused.
@@ -12,4 +12,10 @@ export const onestSans = Onest({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
+})
+
+export const geistMono = Geist_Mono({
+  variable: "--geistMono-font",
+  subsets: ["latin"],
+  display: "swap",
 })
