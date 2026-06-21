@@ -1,6 +1,6 @@
 "use client"
 
-import { type FC, useEffect, useState } from "react"
+import { type FC, useCallback, useEffect, useMemo, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import { MenuContext } from "@/common/context/MenuContext"
 import Status from "@/components/blocks/Status"
@@ -25,16 +25,18 @@ const Profile: FC = () => {
     }
   }, [expandMenu, hasMounted, isCompact])
 
+  const hideNavbar = useCallback(() => {
+    setExpandMenu(false)
+  }, [])
+
+  const menuValue = useMemo(() => ({ hideNavbar }), [hideNavbar])
+
   if (!hasMounted) return null
 
   const imageSize = isCompact ? 40 : 100
 
-  const hideNavbar = () => {
-    setExpandMenu(false)
-  }
-
   return (
-    <MenuContext.Provider value={{ hideNavbar }}>
+    <MenuContext.Provider value={menuValue}>
       <div
         className={cn(
           "fixed z-10 w-full border-border border-b bg-background p-5 shadow-xs lg:relative lg:border-none lg:bg-transparent! lg:p-0 xl:shadow-none"

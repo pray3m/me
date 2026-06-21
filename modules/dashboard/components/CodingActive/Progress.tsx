@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { motion, type Variants } from "framer-motion"
+import { m, type Variants } from "framer-motion"
 import type { FC } from "react"
 
 interface ProgressProps {
@@ -22,7 +22,7 @@ const Progress: FC<ProgressProps> = ({ data, className }) => {
     <div className="flex items-center justify-between gap-3">
       <div className="w-24">{name}</div>
       <div className="relative flex h-3 flex-1 justify-center rounded-full bg-neutral-200 dark:bg-neutral-800">
-        <motion.span
+        <m.span
           initial="initial"
           animate="animate"
           variants={progressVariants}
@@ -32,7 +32,7 @@ const Progress: FC<ProgressProps> = ({ data, className }) => {
           )}
         >
           &ensp;
-        </motion.span>
+        </m.span>
       </div>
       <div className="w-8 text-right text-neutral-600 dark:text-neutral-100">
         {percent.toFixed(0)}%

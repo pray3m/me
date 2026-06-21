@@ -1,5 +1,5 @@
+import { Inbox } from "lucide-react"
 import { type FC } from "react"
-import Icon from "supercons"
 
 interface Props {
   message: string
@@ -8,7 +8,7 @@ interface Props {
 const EmptyState: FC<Props> = ({ message }) => {
   return (
     <div className="flex flex-col items-center justify-center space-y-1 py-3 text-neutral-400 dark:text-neutral-500">
-      <Icon glyph="sam" size={48} />
+      <Inbox size={48} />
       <p>{message}</p>
     </div>
   )

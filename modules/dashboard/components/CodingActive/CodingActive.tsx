@@ -1,12 +1,12 @@
 "use client"
 
-import moment from "moment"
 import Link from "next/link"
 import type { FC } from "react"
 import { SiWakatime as WakatimeIcon } from "react-icons/si"
 import useSWR from "swr"
 import SectionHeading from "@/components/ds/section-heading"
 import SectionSubHeading from "@/components/ds/section-sub-heading"
+import { relativeTimeFromNow } from "@/lib/date"
 import { fetcher } from "@/services/fetcher"
 import CodingActiveList from "./CodingActiveList"
 import Overview from "./Overview"
@@ -15,11 +15,11 @@ const CodingActive: FC = () => {
   const { data } = useSWR("/api/wakatime", fetcher)
 
   const formatLastUpdate = (): string => {
-    const lastUpdate = moment(data?.last_update)
-    if (lastUpdate.isValid()) {
-      return lastUpdate.startOf("hour").fromNow()
-    }
-    return ""
+    if (!data?.last_update) return ""
+    const lastUpdate = new Date(data.last_update)
+    if (Number.isNaN(lastUpdate.getTime())) return ""
+    lastUpdate.setMinutes(0, 0, 0) // startOf("hour")
+    return relativeTimeFromNow(lastUpdate)
   }
 
   return (

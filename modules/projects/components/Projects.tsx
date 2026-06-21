@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { type FC, useEffect, useState } from "react"
 import ProductCardSkeleton from "@/components/blocks/ProductCardSkeleton"
 import EmptyState from "@/components/ds/empty-state"
@@ -28,14 +28,14 @@ const Projects: FC = () => {
     <div className="grid gap-5 pt-2 sm:grid-cols-2">
       {!isLoading
         ? filteredProjects?.map((project, index: number) => (
-            <motion.div
+            <m.div
               key={index}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
               <ProjectCard {...project} />
-            </motion.div>
+            </m.div>
           ))
         : [1, 2].map((_, index) => <ProductCardSkeleton key={index} />)}
     </div>

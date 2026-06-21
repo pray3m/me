@@ -1,10 +1,10 @@
-import moment from "moment"
 import Image from "next/image"
 import Link from "next/link"
 import { type FC } from "react"
 import { BsBuildings as CompanyIcon } from "react-icons/bs"
 import type { CareerProps } from "@/common/lib/types"
 import Card from "@/components/ds/card"
+import { formatDuration, formatMonthYear } from "@/lib/date"
 
 const CareerCard: FC<CareerProps> = ({
   position,
@@ -18,18 +18,7 @@ const CareerCard: FC<CareerProps> = ({
   industry,
   link,
 }) => {
-  const startDate = moment(start_date)
-  const endDate = end_date ? moment(end_date) : moment()
-
-  const durationYears = endDate.diff(startDate, "years")
-  const durationMonths = endDate.diff(startDate, "months") % 12
-
-  let durationText = ""
-  if (durationYears > 0) {
-    durationText = `${durationYears} year${durationYears > 1 ? "s" : ""}`
-  } else {
-    durationText = `${durationMonths} month${durationMonths > 1 ? "s" : ""}`
-  }
+  const durationText = formatDuration(start_date, end_date)
 
   return (
     <Card className="flex items-center gap-5 border border-neutral-300 px-6 py-4 dark:border-neutral-800">
@@ -54,8 +43,8 @@ const CareerCard: FC<CareerProps> = ({
 
           <div className="flex flex-col text-sm">
             <div className="flex gap-1">
-              <span>{startDate.format("MMM YYYY")}</span> -{" "}
-              <span>{end_date ? endDate.format("MMM YYYY") : "Present"}</span>
+              <span>{formatMonthYear(start_date)}</span> -{" "}
+              <span>{end_date ? formatMonthYear(end_date) : "Present"}</span>
             </div>
 
             <span className="text-muted-foreground">~ {durationText}</span>

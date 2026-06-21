@@ -20,4 +20,10 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+let config = nextConfig
+if (process.env.ANALYZE === "true") {
+  const { default: bundleAnalyzer } = await import("@next/bundle-analyzer")
+  config = bundleAnalyzer({ enabled: true })(nextConfig)
+}
+
+export default config

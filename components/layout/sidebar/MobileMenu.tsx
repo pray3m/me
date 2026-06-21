@@ -1,7 +1,7 @@
+import { Home, LayoutGrid } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { type FC, useContext } from "react"
-import Icon from "supercons"
 import { MenuContext } from "@/common/context/MenuContext"
 import ThemeToggleButton from "@/components/blocks/ThemeToggleButton"
 import Breakline from "@/components/ds/breakline"
@@ -40,7 +40,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ open, onOpenChange }) => {
               className="inline-flex h-13 items-center justify-center gap-2 rounded-2xl bg-secondary px-4 font-medium text-foreground transition-colors hover:bg-secondary/85"
               onClick={hideNavbar}
             >
-              <Icon glyph={isHome ? "grid" : "home"} size={18} />
+              {isHome ? <LayoutGrid size={18} /> : <Home size={18} />}
               <span>{isHome ? "Dashboard" : "Home"}</span>
             </Link>
           </div>

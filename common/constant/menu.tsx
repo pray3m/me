@@ -1,5 +1,14 @@
+import {
+  Bug,
+  Compass,
+  Home,
+  LayoutGrid,
+  Mail,
+  Newspaper,
+  User,
+} from "lucide-react"
 import { BiLineChart as AnalyticsIcon } from "react-icons/bi"
-import Icon from "supercons"
+import { FaGithub, FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6"
 import type { MenuItemProps } from "../lib/types"
 
 const iconSize = 20
@@ -9,49 +18,49 @@ export const MENU_ITEMS: MenuItemProps[] = [
   {
     title: "Home",
     href: "/",
-    icon: <Icon glyph="home" size={iconSize} />,
+    icon: <Home size={iconSize} />,
     isShow: true,
     isExternal: false,
   },
   {
     title: "Dashboard",
     href: "/dashboard",
-    icon: <Icon glyph="grid" size={iconSize} />,
+    icon: <LayoutGrid size={iconSize} />,
     isShow: true,
     isExternal: false,
   },
   {
     title: "Projects",
     href: "/projects",
-    icon: <Icon glyph="explore" size={iconSize} />,
+    icon: <Compass size={iconSize} />,
     isShow: true,
     isExternal: false,
   },
   {
     title: "Blog",
     href: "/blog",
-    icon: <Icon glyph="post" size={iconSize} />,
+    icon: <Newspaper size={iconSize} />,
     isShow: false,
     isExternal: false,
   },
   {
     title: "Tools",
     href: "/tools",
-    icon: <Icon glyph="bug" size={iconSize} />,
+    icon: <Bug size={iconSize} />,
     isShow: false,
     isExternal: false,
   },
   {
     title: "About",
     href: "/about",
-    icon: <Icon glyph="profile" size={iconSize} />,
+    icon: <User size={iconSize} />,
     isShow: true,
     isExternal: false,
   },
   {
     title: "Contact",
     href: "/contact",
-    icon: <Icon glyph="email" size={iconSize} />,
+    icon: <Mail size={iconSize} />,
     isShow: true,
     isExternal: false,
   },
@@ -61,28 +70,28 @@ export const SOCIAL_MEDIA: MenuItemProps[] = [
   {
     title: "Linkedin",
     href: "https://www.linkedin.com/in/pray3m/",
-    icon: <Icon glyph="channels" size={iconSizeSocial} />,
+    icon: <FaLinkedin size={iconSizeSocial} />,
     isShow: true,
     isExternal: true,
   },
   {
     title: "Github",
     href: "https://github.com/pray3m",
-    icon: <Icon glyph="github" size={iconSizeSocial} />,
+    icon: <FaGithub size={iconSizeSocial} />,
     isShow: true,
     isExternal: true,
   },
   {
     title: "Instagram",
     href: "https://instagram.com/pray3m",
-    icon: <Icon glyph="instagram" size={iconSizeSocial} />,
+    icon: <FaInstagram size={iconSizeSocial} />,
     isShow: true,
     isExternal: true,
   },
   {
     title: "Twitter",
     href: "https://twitter.com/pray3m_",
-    icon: <Icon glyph="twitter" size={iconSizeSocial} />,
+    icon: <FaXTwitter size={iconSizeSocial} />,
     isShow: true,
     isExternal: true,
   },

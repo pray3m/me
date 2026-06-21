@@ -1,8 +1,8 @@
 "use client"
 
+import { Send } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { type FC } from "react"
-import Icon from "supercons"
 import Button from "@/components/ds/button"
 import SectionHeading from "@/components/ds/section-heading"
 
@@ -22,7 +22,7 @@ const Services: FC = () => {
       </div>
       <div className="space-y-4 rounded-xl border bg-neutral-100 p-8 dark:border-none dark:bg-neutral-800">
         <div className="flex items-center gap-1">
-          <Icon glyph="send-fill" size={28} className="pt-1" />
+          <Send size={28} className="pt-1" />
           <h3 className="font-medium text-xl">Lets work together!</h3>
         </div>
         <p className="pl-2 text-neutral-800 leading-loose dark:text-neutral-300">

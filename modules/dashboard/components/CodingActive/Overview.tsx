@@ -1,5 +1,5 @@
-import moment from "moment"
 import type { FC } from "react"
+import { daysAgo, formatLongDate } from "@/lib/date"
 import OverviewItem from "./OverviewItem"
 
 interface OverviewProps {
@@ -26,19 +26,19 @@ const Overview: FC<OverviewProps> = ({ data }) => {
   const allTimeSinceToday = data?.all_time_since_today?.text ?? "N/A"
 
   const startDate = data?.start_date
-    ? moment(data.start_date).format("MMMM DD, YYYY")
+    ? formatLongDate(data.start_date)
     : data?.range === "last_7_days"
-      ? moment().subtract(7, "days").format("MMMM DD, YYYY")
+      ? formatLongDate(daysAgo(7))
       : "N/A"
 
   const endDate = data?.end_date
-    ? moment(data.end_date).format("MMMM DD, YYYY")
+    ? formatLongDate(data.end_date)
     : data?.range === "last_7_days"
-      ? moment().format("MMMM DD, YYYY")
+      ? formatLongDate()
       : "N/A"
 
   const bestDayTime = data?.best_day?.date
-    ? ` ${moment(data.best_day.date).format("MMMM DD, YYYY")} ~ ${bestDay}`
+    ? ` ${formatLongDate(data.best_day.date)} ~ ${bestDay}`
     : "N/A"
 
   return (

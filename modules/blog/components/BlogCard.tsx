@@ -1,13 +1,13 @@
 "use client"
 
-import moment from "moment"
+import { Clock, Eye } from "lucide-react"
 import Link from "next/link"
 import type { FC } from "react"
-import Icon from "supercons"
 import type { BlogItemProps } from "@/common/lib/types"
 import Card from "@/components/ds/card"
 import Image from "@/components/ds/image"
 import useWindowSize from "@/hooks/use-window-size"
+import { formatShortDate } from "@/lib/date"
 
 const BlogCard: FC<BlogItemProps> = ({
   title,
@@ -40,13 +40,11 @@ const BlogCard: FC<BlogItemProps> = ({
           </h3>
           <div className="flex gap-5">
             <div className="flex items-center gap-1 dark:text-neutral-400">
-              <Icon glyph="clock" size={16} />
-              <span className="text-xs">
-                {moment(date).format("DD MMM YYYY")}
-              </span>
+              <Clock size={16} />
+              <span className="text-xs">{formatShortDate(date)}</span>
             </div>
             <div className="flex items-center gap-1 dark:text-neutral-400">
-              <Icon glyph="view" size={16} />
+              <Eye size={16} />
               <span className="text-xs">{views}</span>
               <span className="text-xs">views</span>
             </div>

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, useCallback, useMemo, useState } from "react"
 
 interface CommandPaletteContextType {
   isOpen: boolean
@@ -19,12 +19,14 @@ export const CommandPaletteProvider = ({
 }: CommandPaletteProviderProps) => {
   const [isOpen, setOpen] = useState(false)
 
-  const setIsOpen = (open: boolean) => {
+  const setIsOpen = useCallback((open: boolean) => {
     setOpen(open)
-  }
+  }, [])
+
+  const value = useMemo(() => ({ isOpen, setIsOpen }), [isOpen, setIsOpen])
 
   return (
-    <CommandPaletteContext.Provider value={{ isOpen, setIsOpen }}>
+    <CommandPaletteContext.Provider value={value}>
       {children}
     </CommandPaletteContext.Provider>
   )

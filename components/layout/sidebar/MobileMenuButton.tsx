@@ -1,5 +1,5 @@
+import { Menu, X } from "lucide-react"
 import type { FC } from "react"
-import Icon from "supercons"
 
 interface MobileMenuButtonProps {
   expandMenu: boolean
@@ -17,11 +17,7 @@ const MobileMenuButton: FC<MobileMenuButtonProps> = ({
         className="inline-flex h-9 w-9 items-center justify-center hover:text-gray-900 dark:hover:text-white"
         onClick={() => setExpandMenu(!expandMenu)}
       >
-        {!expandMenu ? (
-          <Icon glyph="menu" size={34} />
-        ) : (
-          <Icon glyph="view-close" size={34} />
-        )}
+        {!expandMenu ? <Menu size={34} /> : <X size={34} />}
       </button>
     </div>
   )
