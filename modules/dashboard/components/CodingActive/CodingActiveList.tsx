@@ -68,7 +68,7 @@ const CodingActiveList: FC<CodingActiveListProps> = ({ data }) => {
       total: getEditorTotalTimeDisplay,
       data: data?.categories,
       styles: {
-        bg: "bg-linear-to-r from-blue-400 to-purple-600",
+        bg: "bg-linear-to-r from-indigo-400 to-purple-600",
       },
     },
   ]

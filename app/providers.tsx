@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { domAnimation, LazyMotion, MotionConfig } from "framer-motion"
 import { ThemeProvider } from "next-themes"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { CommandPaletteProvider } from "@/common/context/CommandPaletteContext"
 import { AOSInit } from "@/common/lib/aos"
 import CommandPalette from "@/components/blocks/CommandPalette"
@@ -24,6 +24,11 @@ export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
       })
   )
 
+  const [showDevtools, setShowDevtools] = useState(false)
+  useEffect(() => {
+    setShowDevtools(true)
+  }, [])
+
   return (
     <LazyMotion features={domAnimation}>
       <MotionConfig reducedMotion="user">
@@ -40,7 +45,7 @@ export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
                 {children}
               </ProgressProvider>
               <CommandPalette />
-              {process.env.NODE_ENV === "development" && (
+              {process.env.NODE_ENV === "development" && showDevtools && (
                 <ReactQueryDevtools initialIsOpen={false} />
               )}
             </QueryClientProvider>
