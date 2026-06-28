@@ -1,49 +1,21 @@
-import type { Metadata } from "next"
+import type { Viewport } from "next"
+import type { CSSProperties } from "react"
 import { geistMono, onestSans } from "@/common/styles/fonts"
 import Layout from "@/components/layout"
+import { NoiseTexture } from "@/components/ui/noise-texture"
+import { JsonLd, rootGraph, rootMetadata } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 import "./globals.css"
 import Script from "next/script"
 import { ProvidersSandwich } from "./providers"
 
-export const metadata: Metadata = {
-  title: "Prem Gautam - Full Stack Developer | Tech Enthusiast",
-  description:
-    "Personal website of Prem Gautam, a learner and full stack developer passionate about technology and innovation.",
-  keywords:
-    "prem gautam,prem, prem gautam, pray3m , Prem Gautam, Full Stack Developer, Web Development, Tech Enthusiast, Portfolio",
-  authors: [{ name: "Prem Gautam" }],
-  creator: "Prem Gautam",
-  publisher: "Prem Gautam",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://premgautam.me",
-    siteName: "Prem Gautam Portfolio",
-    title: "Prem Gautam - Full Stack Developer & Tech Enthusiast",
-    description:
-      "Explore the portfolio of Prem Gautam, a passionate full stack developer and tech enthusiast.",
-    images: [
-      {
-        url: "https://premgautam.me/og-image.jpg", // Replace with your actual OG image URL
-        width: 1200,
-        height: 630,
-        alt: "Prem Gautam Portfolio",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@pray3m_",
-    creator: "@pray3m_",
-    title: "Prem Gautam - Full Stack Developer & Tech Enthusiast",
-    description:
-      "Explore the portfolio of Prem Gautam, a passionate full stack developer and tech enthusiast.",
-    images: ["https://premgautam.me/twitter-image.jpg"], // Replace with your actual Twitter card image URL
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
+export const metadata = rootMetadata
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f3f9fd" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d1115" },
+  ],
 }
 
 export default function RootLayout({
@@ -56,6 +28,14 @@ export default function RootLayout({
       <body
         className={cn("min-h-screen", onestSans.variable, geistMono.variable)}
       >
+        <JsonLd data={rootGraph()} />
+        <NoiseTexture
+          aria-hidden
+          octaves={3}
+          frequency={0.65}
+          className="fixed inset-0 -z-10 [mask-image:radial-gradient(ellipse_75%_75%_at_50%_30%,#000,transparent)] [mix-blend-mode:var(--paper-pattern-blend)]"
+          style={{ opacity: "var(--paper-pattern-opacity)" } as CSSProperties}
+        />
         <ProvidersSandwich>
           <Layout>{children}</Layout>
         </ProvidersSandwich>

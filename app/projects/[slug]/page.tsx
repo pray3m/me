@@ -1,13 +1,41 @@
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
 import BackButton from "@/components/ds/back-button"
 import Container from "@/components/ds/container"
 import PageHeading from "@/components/ds/page-heading"
+import Reveal from "@/components/ds/reveal"
 import { PROJECTS } from "@/data/projects"
+import { breadcrumbSchema, createMetadata, JsonLd } from "@/lib/seo"
 import ProjectDetail from "@/modules/projects/components/ProjectDetail"
+
+// Only the slugs from generateStaticParams are valid; any other slug 404s
+// with a proper status instead of soft-rendering a "not found" 200 page.
+export const dynamicParams = false
 
 export async function generateStaticParams() {
   return PROJECTS.map((project) => ({
     slug: project.slug,
   }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const project = PROJECTS.find((p) => p.slug === slug)
+
+  if (!project) {
+    return createMetadata({ title: "Project Not Found", noIndex: true })
+  }
+
+  return createMetadata({
+    title: project.title,
+    description: project.description,
+    path: `/projects/${slug}`,
+    type: "article",
+  })
 }
 
 const ProjectsDetailPage = async ({
@@ -19,25 +47,27 @@ const ProjectsDetailPage = async ({
   const project = PROJECTS.find((p) => p.slug === slug)
 
   if (!project) {
-    return (
-      <Container>
-        <PageHeading
-          title="Project Not Found"
-          subtitle="Please check the URL."
-        />
-      </Container>
-    )
+    notFound()
   }
 
   return (
-    <Container data-aos="fade-up">
-      <BackButton url="/projects" />
-      <PageHeading
-        title="Projects Details"
-        subtitle="Showcasing my passion for technology, design, and problem-solving through code."
+    <Container>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Projects", path: "/projects" },
+          { name: project.title, path: `/projects/${slug}` },
+        ])}
       />
+      <Reveal>
+        <BackButton url="/projects" />
+        <PageHeading
+          title="Projects Details"
+          subtitle="Showcasing my passion for technology, design, and problem-solving through code."
+        />
 
-      <ProjectDetail {...project} />
+        <ProjectDetail {...project} />
+      </Reveal>
     </Container>
   )
 }
