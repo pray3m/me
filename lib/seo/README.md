@@ -13,7 +13,7 @@ Open Graph, and Twitter tags so they can't drift apart.
 | `metadata.ts` | `rootMetadata`, `createMetadata()` | `rootMetadata` = the set-once layout metadata (metadataBase, title template, robots defaults). `createMetadata()` = per-page factory. |
 | `structured-data.ts` | `rootGraph()`, `breadcrumbSchema()` | JSON-LD builders. `rootGraph` = Person + WebSite. `breadcrumbSchema` = a BreadcrumbList. |
 | `json-ld.tsx` | `JsonLd` | Renders a `<script type="application/ld+json">`. The single place that uses `dangerouslySetInnerHTML`. |
-| `og.tsx` | `ogCard()`, `OG_SIZE`, `OG_CONTENT_TYPE` | Shared branded Open Graph card + dimensions for the `opengraph-image` routes. Import directly (`@/lib/seo/og`), not via the barrel. |
+| `og.tsx` | `renderOgImage()`, `OG_SIZE`, `OG_CONTENT_TYPE` | Builds the branded Open Graph `ImageResponse` (loads the Onest font, inlines the avatar). Import directly (`@/lib/seo/og`), not via the barrel. |
 | `index.ts` | (barrel) | Import everything from `@/lib/seo`. |
 
 ## Usage

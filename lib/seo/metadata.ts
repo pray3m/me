@@ -72,7 +72,9 @@ export function createMetadata({
   const ogTitle = title ?? siteConfig.title
 
   return {
-    title,
+    // Omit when absent so Next inherits the layout's `title.default` instead of
+    // an explicit `undefined`, which suppresses the <title> entirely.
+    ...(title ? { title } : {}),
     description,
     alternates: { canonical: path },
     openGraph: {
