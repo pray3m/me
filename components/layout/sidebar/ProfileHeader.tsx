@@ -16,6 +16,7 @@ const ProfileHeader: FC<ProfileHeaderProps> = ({ imageSize }) => {
         height={imageSize}
         rounded="rounded-full"
         className="lg:hover:scale-105"
+        priority
       />
       <Link href="/" passHref>
         <h1 className="grow font-medium text-lg lg:text-xl">Prem Gautam</h1>

@@ -1,3 +1,5 @@
+"use client"
+
 import { type FC, useContext } from "react"
 import { BiCommand as CommandIcon } from "react-icons/bi"
 import { MENU_ITEMS, SOCIAL_MEDIA } from "@/common/constant/menu"

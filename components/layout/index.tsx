@@ -1,7 +1,4 @@
-"use client"
-
 import type { ReactNode } from "react"
-import { useMediaQuery } from "usehooks-ts"
 import NowPlayingBar from "@/components/blocks/NowPlayingBar"
 import NowPlayingCard from "@/components/blocks/NowPlayingCard"
 import Sidebar from "./partials/Sidebar"
@@ -11,7 +8,6 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const isCompact = useMediaQuery("(max-width: 1023px)")
   return (
     <>
       <div className="mx-auto max-w-6xl lg:px-8 lg:py-4 xl:py-8">
@@ -25,7 +21,11 @@ const Layout = ({ children }: LayoutProps) => {
           </main>
         </div>
       </div>
-      {isCompact ? <NowPlayingCard /> : <NowPlayingBar />}
+
+      <div className="lg:hidden">
+        <NowPlayingCard />
+      </div>
+      <NowPlayingBar />
     </>
   )
 }
