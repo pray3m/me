@@ -1,7 +1,7 @@
-import styled from "@emotion/styled"
 import { useTheme } from "next-themes"
 import { useId, useRef } from "react"
 import useHasMounted from "@/hooks/use-has-mounted"
+import "./theme-toggle.css"
 
 const ThemeToggleButton = () => {
   const { resolvedTheme, setTheme } = useTheme()
@@ -36,7 +36,7 @@ const ThemeToggleButton = () => {
   }
 
   return (
-    <StyledToggle ref={buttonRef}>
+    <div ref={buttonRef} className="theme-toggle">
       <input
         checked={resolvedTheme === "dark"}
         type="checkbox"
@@ -121,123 +121,8 @@ const ThemeToggleButton = () => {
           </g>
         </svg>
       </label>
-    </StyledToggle>
+    </div>
   )
 }
 
 export default ThemeToggleButton
-
-const StyledToggle = styled.div`
-  margin-top: 5px;
-
-  .mode-toggle {
-    width: 0;
-    height: 0;
-    margin: 0;
-    display: none;
-  }
-
-  .mode-toggle + label {
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 25px;
-    position: relative;
-  }
-
-  .mode-toggle + label::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: 1000px;
-    transition: box-shadow 150ms ease-in-out;
-  }
-
-  .mode-toggle + label svg {
-    vertical-align: middle;
-  }
-
-  .mode-toggle + label .source {
-    transition: fill, transform 250ms ease-in-out;
-  }
-
-  .mode-toggle + label .bg-stop-start,
-  .mode-toggle + label .bg-stop-end {
-    transition: stop-color 150ms ease-in-out;
-  }
-
-  .mode-toggle + label .stars {
-    transition: 50ms ease-in-out;
-  }
-
-  .mode-toggle + label::after {
-    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.25);
-  }
-
-  .mode-toggle + label .source {
-    fill: #f7f7e7;
-    transform: translate(70%, 50%);
-  }
-
-  .mode-toggle + label .bg-stop-start {
-    stop-color: #93d4cc;
-  }
-
-  .mode-toggle + label .bg-stop-end {
-    stop-color: #c7dfc3;
-  }
-
-  .mode-toggle + label .stars {
-    transform: translateX(100%);
-  }
-
-  .mode-toggle:checked + label::after {
-    box-shadow: none;
-  }
-
-  .mode-toggle:checked + label .source {
-    fill: #ffffff;
-    transform: translate(30%, 50%);
-  }
-
-  .mode-toggle:checked + label .bg-stop-start {
-    stop-color: #173754;
-  }
-
-  .mode-toggle:checked + label .bg-stop-end {
-    stop-color: #388296;
-  }
-
-  .mode-toggle:checked + label .stars {
-    transform: translateX(0);
-  }
-
-  .mode-toggle:checked + label .star-1,
-  .mode-toggle:checked + label .star-2,
-  .mode-toggle:checked + label .star-3 {
-    animation-name: star;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-  }
-
-  .mode-toggle:checked + label .star-1 {
-    animation-delay: 0s;
-  }
-
-  .mode-toggle:checked + label .star-2 {
-    animation-delay: 0.5s;
-  }
-
-  .mode-toggle:checked + label .star-3 {
-    animation-delay: 1s;
-  }
-
-  @keyframes star {
-    50% {
-      opacity: 0.25;
-    }
-  }
-`

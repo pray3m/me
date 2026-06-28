@@ -9,8 +9,10 @@ type ImageProps = {
 } & NextImageProps
 
 const Image = (props: ImageProps) => {
-  const { alt, src, className, rounded, priority, loading, ...rest } = props
-  const [isLoading, setLoading] = React.useState(true)
+  const { alt, src, className, rounded, priority, loading, quality, ...rest } =
+    props
+
+  const [isLoading, setLoading] = React.useState(!priority)
 
   return (
     <div
@@ -34,7 +36,7 @@ const Image = (props: ImageProps) => {
         alt={alt}
         priority={priority}
         loading={priority ? undefined : (loading ?? "lazy")}
-        quality={100}
+        quality={quality ?? 80}
         onLoad={() => setLoading(false)}
         {...rest}
       />
