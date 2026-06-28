@@ -1,12 +1,12 @@
+import { Home, LayoutGrid } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { type FC, useContext } from "react"
-import { MENU_ITEMS, SOCIAL_MEDIA } from "@/common/constant/menu"
-import { CommandPaletteContext } from "@/common/context/CommandPaletteContext"
 import { MenuContext } from "@/common/context/MenuContext"
 import ThemeToggleButton from "@/components/blocks/ThemeToggleButton"
+import Breakline from "@/components/ds/breakline"
 import { Drawer, DrawerContent, DrawerTitle } from "@/components/ui/drawer"
-import { cn } from "@/lib/utils"
+import Navigation from "./Navigation"
 
 interface MobileMenuProps {
   open: boolean
@@ -15,16 +15,8 @@ interface MobileMenuProps {
 
 const MobileMenu: FC<MobileMenuProps> = ({ open, onOpenChange }) => {
   const { hideNavbar } = useContext(MenuContext)
-  const { setIsOpen } = useContext(CommandPaletteContext)
   const pathname = usePathname()
-
-  const navItems = MENU_ITEMS.filter((item) => item?.isShow)
-  const socials = SOCIAL_MEDIA.filter((item) => item?.isShow)
-
-  const openCommandPalette = () => {
-    hideNavbar()
-    setIsOpen(true)
-  }
+  const isHome = pathname === "/"
 
   return (
     <Drawer
@@ -32,57 +24,26 @@ const MobileMenu: FC<MobileMenuProps> = ({ open, onOpenChange }) => {
       onOpenChange={onOpenChange}
       shouldScaleBackground={false}
     >
-      <DrawerContent className="max-h-[86dvh] rounded-b-none border-border/80 bg-background px-6 pt-0 pb-[calc(env(safe-area-inset-bottom)+1.1rem)] shadow-[0_-12px_35px_rgba(0,0,0,0.22)] sm:inset-x-4 sm:mx-auto sm:max-w-2xl sm:rounded-t-[34px] sm:rounded-b-none sm:border lg:hidden">
+      <DrawerContent className="max-h-[86dvh] rounded-b-none border-border/80 bg-background px-5 pt-0 pb-[calc(env(safe-area-inset-bottom)+0.9rem)] shadow-[0_-12px_35px_rgba(0,0,0,0.22)] sm:inset-x-4 sm:mx-auto sm:max-w-2xl sm:rounded-t-[34px] sm:rounded-b-none sm:border lg:hidden">
         <DrawerTitle className="sr-only">Mobile navigation menu</DrawerTitle>
+        <Navigation excludedHrefs={[isHome ? "/dashboard" : "/"]} />
 
-        <nav className="mt-2 flex flex-col">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={hideNavbar}
-                className={cn(
-                  "border-border/60 border-b py-4 font-medium text-lg transition-colors last:border-b-0",
-                  isActive
-                    ? "text-brand"
-                    : "text-foreground/90 hover:text-brand"
-                )}
-              >
-                {item.title}
-              </Link>
-            )
-          })}
+        <Breakline className="mt-3 mb-4" />
 
-          <button
-            type="button"
-            onClick={openCommandPalette}
-            className="flex items-center justify-between py-4 font-medium text-foreground/90 text-lg transition-colors hover:text-brand"
-          >
-            <span>Command Menu</span>
-            <span className="inline-flex items-center rounded-full bg-green-200 px-2 py-0.5 font-medium text-[10px] text-green-800">
-              AI Powered
-            </span>
-          </button>
-        </nav>
-
-        <div className="mt-5 flex items-center justify-between border-border/60 border-t pt-4">
-          <div className="flex items-center gap-5">
-            {socials.map((social) => (
-              <Link
-                key={social.href}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.title}
-                className="text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {social.icon}
-              </Link>
-            ))}
+        <div className="sticky bottom-0 -mx-5 border-border/60 border-t bg-background/95 px-5 pt-3 backdrop-blur supports-backdrop-filter:bg-background/80">
+          <div className="grid grid-cols-[auto_1fr] items-center gap-3">
+            <div className="inline-flex h-13 w-13 items-center justify-center rounded-2xl">
+              <ThemeToggleButton />
+            </div>
+            <Link
+              href={isHome ? "/dashboard" : "/"}
+              className="inline-flex h-13 items-center justify-center gap-2 rounded-2xl bg-secondary px-4 font-medium text-foreground transition-colors hover:bg-secondary/85"
+              onClick={hideNavbar}
+            >
+              {isHome ? <LayoutGrid size={18} /> : <Home size={18} />}
+              <span>{isHome ? "Dashboard" : "Home"}</span>
+            </Link>
           </div>
-          <ThemeToggleButton />
         </div>
       </DrawerContent>
     </Drawer>

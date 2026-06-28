@@ -1,11 +1,11 @@
 "use client"
 
-import Link from "next/link"
 import { type FC, useCallback, useEffect, useMemo, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import { MenuContext } from "@/common/context/MenuContext"
 import Status from "@/components/blocks/Status"
 import useHasMounted from "@/hooks/use-has-mounted"
+import { cn } from "@/lib/utils"
 import MobileMenu from "./MobileMenu"
 import MobileMenuButton from "./MobileMenuButton"
 import ProfileHeader from "./ProfileHeader"
@@ -33,38 +33,49 @@ const Profile: FC = () => {
 
   if (!hasMounted) return null
 
-  // Mobile (< lg): aulianza-style floating pill bar + a profile block below it.
-  if (isCompact) {
-    return (
-      <MenuContext.Provider value={menuValue}>
-        <div className="fixed inset-x-0 top-0 z-[60] px-4 pt-4">
-          <nav className="flex items-center justify-between rounded-3xl border-2 border-[#e7f0ff] bg-black px-6 py-3.5 shadow-[4px_4px_0px_0px_rgba(99,102,241,0.4)] dark:border-[#e7f0ff] dark:bg-black">
-            <Link
-              href="/"
-              className="font-semibold text-2xl text-white tracking-wide"
-            >
-              pray3m
-            </Link>
-            <MobileMenuButton
-              expandMenu={expandMenu}
-              setExpandMenu={setExpandMenu}
-            />
-          </nav>
-        </div>
+  const imageSize = isCompact ? 40 : 100
 
-        <MobileMenu open={expandMenu} onOpenChange={setExpandMenu} />
-      </MenuContext.Provider>
-    )
-  }
-
-  // Desktop (>= lg): the sidebar profile, unchanged.
   return (
     <MenuContext.Provider value={menuValue}>
-      <div className="relative w-full">
-        <div className="flex flex-col items-start space-y-3">
-          <ProfileHeader imageSize={100} />
-          <Status />
+      <div
+        className={cn(
+          "fixed z-10 w-full border-border border-b bg-background p-5 shadow-xs lg:relative lg:border-none lg:bg-transparent! lg:p-0 xl:shadow-none"
+        )}
+      >
+        <div className="flex items-center justify-between lg:flex-col lg:items-start lg:space-y-3">
+          <ProfileHeader imageSize={imageSize} />
+          {!isCompact && <Status />}
+
+          {/* RY: new profile avatar design idea  */}
+          {/* {!isMobile && (
+            <div className="fixed top-0 flex flex-col gap-2 px-6 py-8 max-w-[214px] xl:min-w-[214px] items-center text-center rounded-b-2xl bg-neutral-100 border dark:border-none dark:bg-neutral-800">
+              <Image
+                src="/images/prem.jpg"
+                alt="Ryan Aulia"
+                width={expandMenu ? 75 : imageSize}
+                height={expandMenu ? 75 : imageSize}
+                className="rounded-full lg:hover:scale-105 mb-3"
+              />
+              <h2 className="flex-grow text-lg lg:text-xl font-medium">
+                Prem Gautam
+              </h2>
+              <Status />
+            </div>
+          )} */}
+
+          {isCompact && (
+            <div className="flex items-center">
+              <MobileMenuButton
+                expandMenu={expandMenu}
+                setExpandMenu={setExpandMenu}
+              />
+            </div>
+          )}
         </div>
+
+        {isCompact && (
+          <MobileMenu open={expandMenu} onOpenChange={setExpandMenu} />
+        )}
       </div>
     </MenuContext.Provider>
   )

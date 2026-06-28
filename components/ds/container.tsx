@@ -8,10 +8,7 @@ interface Props {
 
 const Container = ({ children, className = "", ...others }: Props) => {
   return (
-    <div
-      className={`mt-20 mb-10 px-4 py-8 lg:mt-0 lg:p-8 ${className} `}
-      {...others}
-    >
+    <div className={`mt-20 mb-10 p-8 lg:mt-0 ${className} `} {...others}>
       {children}
     </div>
   )
