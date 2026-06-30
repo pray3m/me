@@ -1,0 +1,20 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#0b1220"/>
+  <rect x="58" y="52" width="1084" height="571" rx="26" fill="#f8fafc"/>
+  <rect x="94" y="92" width="1012" height="74" rx="18" fill="#0f172a"/>
+  <text x="132" y="140" fill="#fbbf24" font-family="Arial, sans-serif" font-size="30" font-weight="700">Netra Guardian</text>
+  <rect x="94" y="202" width="650" height="344" rx="22" fill="#dbeafe"/>
+  <path d="M160 478C250 392 314 406 390 326C478 234 564 250 680 210" stroke="#2563eb" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="300" cy="390" r="18" fill="#ef4444"/>
+  <circle cx="500" cy="286" r="18" fill="#f59e0b"/>
+  <circle cx="628" cy="236" r="18" fill="#22c55e"/>
+  <rect x="790" y="202" width="316" height="344" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="826" y="258" fill="#111827" font-family="Arial, sans-serif" font-size="24" font-weight="700">Patrol dispatch</text>
+  <rect x="826" y="304" width="224" height="14" rx="7" fill="#94a3b8"/>
+  <rect x="826" y="340" width="180" height="14" rx="7" fill="#cbd5e1"/>
+  <rect x="826" y="390" width="178" height="42" rx="21" fill="#fbbf24"/>
+  <text x="864" y="419" fill="#111827" font-family="Arial, sans-serif" font-size="18" font-weight="700">Notify unit</text>
+  <rect x="130" y="578" width="178" height="18" rx="9" fill="#0f172a"/>
+  <rect x="338" y="578" width="206" height="18" rx="9" fill="#475569"/>
+  <rect x="574" y="578" width="154" height="18" rx="9" fill="#64748b"/>
+</svg>

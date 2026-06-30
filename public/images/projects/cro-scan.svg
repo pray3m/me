@@ -1,0 +1,21 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#111827"/>
+  <rect x="70" y="66" width="1060" height="543" rx="30" fill="#f8fafc"/>
+  <rect x="112" y="112" width="976" height="70" rx="18" fill="#0f172a"/>
+  <circle cx="150" cy="147" r="10" fill="#ef4444"/>
+  <circle cx="180" cy="147" r="10" fill="#f59e0b"/>
+  <circle cx="210" cy="147" r="10" fill="#22c55e"/>
+  <rect x="260" y="135" width="568" height="24" rx="12" fill="#334155"/>
+  <text x="120" y="255" fill="#111827" font-family="Arial, sans-serif" font-size="38" font-weight="700">CRO scan</text>
+  <text x="120" y="292" fill="#475569" font-family="Arial, sans-serif" font-size="20">AI conversion audit with prioritized fixes</text>
+  <rect x="120" y="340" width="310" height="164" rx="22" fill="#ecfeff" stroke="#a5f3fc" stroke-width="2"/>
+  <rect x="466" y="340" width="310" height="164" rx="22" fill="#fef3c7" stroke="#fde68a" stroke-width="2"/>
+  <rect x="812" y="340" width="236" height="164" rx="22" fill="#fce7f3" stroke="#fbcfe8" stroke-width="2"/>
+  <text x="152" y="394" fill="#155e75" font-family="Arial, sans-serif" font-size="24" font-weight="700">Friction</text>
+  <text x="498" y="394" fill="#92400e" font-family="Arial, sans-serif" font-size="24" font-weight="700">Trust</text>
+  <text x="844" y="394" fill="#9d174d" font-family="Arial, sans-serif" font-size="24" font-weight="700">CTA</text>
+  <rect x="152" y="430" width="210" height="14" rx="7" fill="#22d3ee"/>
+  <rect x="498" y="430" width="210" height="14" rx="7" fill="#fbbf24"/>
+  <rect x="844" y="430" width="128" height="14" rx="7" fill="#f472b6"/>
+  <path d="M916 236L965 285L1052 198" stroke="#22c55e" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

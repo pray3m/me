@@ -8,8 +8,6 @@ const ProjectCard: FC<Project> = ({
   slug,
   description,
   image,
-  link_demo,
-  link_github,
   stacks,
 }) => {
   return (
@@ -23,6 +21,7 @@ const ProjectCard: FC<Project> = ({
             className="object-cover object-top"
             sizes="(max-width: 640px) 100vw, 50vw"
             priority={false}
+            quality={75}
           />
         </div>
         <div className="space-y-2 p-5">

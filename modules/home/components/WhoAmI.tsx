@@ -63,8 +63,8 @@ const WhoAmI: FC = () => {
               delay={0.2}
               className="text-base text-neutral-300 leading-relaxed"
             >
-              I&apos;m Prem, a full-stack developer turning ideas into web and
-              mobile products people actually use.
+              I&apos;m Prem, a full-stack engineer turning ideas into products
+              people actually use.
             </Reveal>
             <Reveal
               as="p"

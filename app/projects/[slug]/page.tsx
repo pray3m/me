@@ -61,10 +61,7 @@ const ProjectsDetailPage = async ({
       />
       <Reveal>
         <BackButton url="/projects" />
-        <PageHeading
-          title="Projects Details"
-          subtitle="Showcasing my passion for technology, design, and problem-solving through code."
-        />
+        <PageHeading title={project.title} subtitle={project.description} />
 
         <ProjectDetail {...project} />
       </Reveal>

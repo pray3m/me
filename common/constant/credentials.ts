@@ -8,19 +8,35 @@ export type Credential = {
 
 export const CREDENTIALS: Credential[] = [
   {
-    title: "Full Stack Open 2025",
+    title: "Full Stack Open",
     issuer: "University of Helsinki",
     year: "2025",
     description:
-      "Completed the University of Helsinki's deep-dive into modern web development with React, Node.js, GraphQL, and TypeScript.",
+      "University of Helsinki's deep-dive into modern web development — React, Node.js, GraphQL, TypeScript, testing, and CI/CD.",
     link: "https://github.com/pray3m/FullStackOpen2025",
+  },
+  {
+    title: "Advanced React",
+    issuer: "Meta",
+    year: "2025",
+    description:
+      "Meta's advanced React course — hooks in depth, performance, reusable component patterns, and testing.",
+    link: "https://www.linkedin.com/in/pray3m/",
+  },
+  {
+    title: "Postman API Fundamentals",
+    issuer: "Postman",
+    year: "2024",
+    description:
+      "Student Expert certification covering API design, testing, and debugging with Postman.",
+    link: "https://www.linkedin.com/in/pray3m/",
   },
   {
     title: "ETHGlobal Superhack 2024",
     issuer: "ETHGlobal",
     year: "2024",
     description:
-      "Built Nepathya DeFi — AI-powered cross-chain DeFi with account abstraction — at a global Web3 hackathon.",
+      "Participated in ETHGlobal Superhack, building Nepathya DeFi — an AI-assisted cross-chain DeFi experiment with account abstraction.",
     link: "https://github.com/pray3m/AI-CrossFi-with-AA",
   },
   {

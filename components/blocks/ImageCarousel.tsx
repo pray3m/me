@@ -21,6 +21,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
   const width = useWindowSize() ?? 1024
   const isMobile = width < 480
+  const logoSize = isMobile ? 64 : 76
 
   const getDeviceWidth = () => {
     let slidesToShow = 5
@@ -82,13 +83,13 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   return (
     <Slider ref={sliderRef} {...settings} className="pt-5">
       {images?.map((image, index) => (
-        <div key={index}>
+        <div key={index} className="px-2">
           <Image
             src={image}
             alt={`Image ${index + 1}`}
-            width={isMobile ? 130 : 145}
-            height={isMobile ? 130 : 145}
-            className="rounded-full bg-card px-3 hover:shadow-xl"
+            width={logoSize}
+            height={logoSize}
+            className="mx-auto rounded-full bg-card p-3 shadow-xs transition-shadow hover:shadow-md"
           />
         </div>
       ))}
