@@ -9,7 +9,10 @@ import "slick-carousel/slick/slick-theme.css"
 import "slick-carousel/slick/slick.css"
 
 interface ImageCarouselProps {
-  images: string[]
+  images: {
+    src: string
+    alt: string
+  }[]
   interval?: number
 }
 
@@ -32,7 +35,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       slidesToShow = 4
     }
 
-    return slidesToShow
+    return Math.min(slidesToShow, images.length)
   }
 
   useEffect(() => {
@@ -71,7 +74,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   const settings = {
     dots: false,
     arrows: false,
-    infinite: true,
+    infinite: images.length > getDeviceWidth(),
     speed: interval,
     slidesToShow: getDeviceWidth(),
     slidesToScroll: 1,
@@ -80,13 +83,15 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
     cssEase: "linear",
   }
 
+  if (images.length === 0) return null
+
   return (
     <Slider ref={sliderRef} {...settings} className="pt-5">
       {images?.map((image, index) => (
         <div key={index} className="px-2">
           <Image
-            src={image}
-            alt={`Image ${index + 1}`}
+            src={image.src}
+            alt={image.alt}
             width={logoSize}
             height={logoSize}
             className="mx-auto rounded-full bg-card p-3 shadow-xs transition-shadow hover:shadow-md"

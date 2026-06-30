@@ -23,6 +23,7 @@ const ProjectDetail: FC<Project> = ({
     { title: "Constraints", body: constraints },
     { title: "Outcome", body: outcome },
   ].filter((section) => section.body)
+  const hasProjectLinks = Boolean(link_demo || link_github)
 
   return (
     <article className="space-y-8">
@@ -61,12 +62,14 @@ const ProjectDetail: FC<Project> = ({
             <p className="mt-1 font-medium">{role ?? "Full-stack builder"}</p>
           </div>
 
-          <div className="rounded-xl border border-border bg-muted p-4">
-            <p className="text-muted-foreground text-sm">Links</p>
-            <div className="mt-3">
-              <ProjectLink link_demo={link_demo} link_github={link_github} />
+          {hasProjectLinks && (
+            <div className="rounded-xl border border-border bg-muted p-4">
+              <p className="text-muted-foreground text-sm">Links</p>
+              <div className="mt-3">
+                <ProjectLink link_demo={link_demo} link_github={link_github} />
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="rounded-xl border border-border bg-muted p-4">
             <p className="text-muted-foreground text-sm">Stack</p>

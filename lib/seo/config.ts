@@ -8,7 +8,7 @@ import site from "./site.json"
  */
 export const siteConfig = {
   name: "Prem Gautam",
-  title: "Prem Gautam - Full-Stack Engineer | AI-Driven Product Builder",
+  title: "Prem Gautam · Full-Stack Engineer · AI-Driven Product Builder",
   description:
     "Personal site of Prem Gautam, a full-stack engineer who builds and ships production SaaS end to end — frontend, backend, and the infrastructure behind it.",
   url: process.env.SITE_URL ?? site.url,

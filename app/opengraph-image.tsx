@@ -2,7 +2,7 @@ import { siteConfig } from "@/lib/seo"
 import { OG_CONTENT_TYPE, OG_SIZE, renderOgImage } from "@/lib/seo/og"
 
 export const alt =
-  "Prem Gautam — Full-Stack Engineer & AI-Driven Product Builder"
+  "Prem Gautam · Full-Stack Engineer · AI-Driven Product Builder"
 export const size = OG_SIZE
 export const contentType = OG_CONTENT_TYPE
 
