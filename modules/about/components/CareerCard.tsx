@@ -19,6 +19,7 @@ const CareerCard: FC<CareerProps> = ({
   link,
 }) => {
   const durationText = formatDuration(start_date, end_date)
+  const details = [type, location_type, industry].filter(Boolean)
 
   return (
     <Card className="flex items-center gap-5 border border-neutral-300 px-6 py-4 dark:border-neutral-800">
@@ -48,7 +49,7 @@ const CareerCard: FC<CareerProps> = ({
             </div>
 
             <span className="text-muted-foreground">~ {durationText}</span>
-            <span>{location}</span>
+            <span className="capitalize">{details.join(" • ")}</span>
           </div>
         </div>
       </div>
