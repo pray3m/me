@@ -28,6 +28,12 @@ export default function RootLayout({
       <body
         className={cn("min-h-screen", onestSans.variable, geistMono.variable)}
       >
+        <link
+          rel="preconnect"
+          href="https://gateway.umami.is"
+          crossOrigin="anonymous"
+        />
+        <link rel="preconnect" href="https://cloud.umami.is" />
         <JsonLd data={rootGraph()} />
         <NoiseTexture
           aria-hidden

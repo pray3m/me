@@ -1,6 +1,5 @@
 "use client"
 
-import { AppProgressProvider as ProgressProvider } from "@bprogress/next"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { domAnimation, LazyMotion, MotionConfig } from "framer-motion"
@@ -36,14 +35,7 @@ export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <CommandPaletteProvider>
             <QueryClientProvider client={queryClient}>
-              <ProgressProvider
-                height="2px"
-                color="#fffd00"
-                options={{ showSpinner: false }}
-                shallowRouting
-              >
-                {children}
-              </ProgressProvider>
+              {children}
               <CommandPalette />
               {mounted && process.env.NODE_ENV === "development" && (
                 <ReactQueryDevtools initialIsOpen={false} />

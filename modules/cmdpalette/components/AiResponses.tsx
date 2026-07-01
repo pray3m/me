@@ -1,7 +1,18 @@
+"use client"
+
+import dynamic from "next/dynamic"
 import { BiLeftArrowCircle as BackButton } from "react-icons/bi"
 import Typewriter from "typewriter-effect"
-import MarkdownRenderer from "@/components/blocks/MarkdownRenderer"
 import Button from "@/components/ds/button"
+
+// react-markdown (+ micromark/hast) is heavy and only needed to render
+// code-block answers — load it client-side on demand (ssr:false keeps Turbopack
+// from eagerly emitting the chunk) so it stays off the initial bundle that
+// ships on every page via the always-mounted command palette.
+const MarkdownRenderer = dynamic(
+  () => import("@/components/blocks/MarkdownRenderer"),
+  { ssr: false }
+)
 
 type AiResponseProps = {
   response: string

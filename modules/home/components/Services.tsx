@@ -4,7 +4,7 @@ import { Send } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { type FC } from "react"
 import { CLIENT_IMAGES } from "@/common/constant/client"
-import { ImageCarousel } from "@/components/blocks"
+import ImageCarousel from "@/components/blocks/ImageCarousel"
 import Button from "@/components/ds/button"
 import SectionHeading from "@/components/ds/section-heading"
 
