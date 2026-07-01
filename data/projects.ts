@@ -58,7 +58,7 @@ export const PROJECTS: Project[] = [
       "The new production site went live with staging/production environments, search indexing, analytics, and post-deploy checks across hosting, database, and asset storage.",
     metrics: [
       "Serves roughly 8,000 companies and 2,200+ architects",
-      "294 commits on the main frontend in the private org snapshot",
+      "Owns the client-facing frontend end to end",
       "Public, admin, partner, shared-kit, and backend surfaces",
     ],
     highlights: [
@@ -118,7 +118,7 @@ export const PROJECTS: Project[] = [
       "Team Infinity was selected among the top 20 teams to compete and shipped a complete operational demo loop for safety detection and vehicle investigation.",
     metrics: [
       "Top-20 selected team at Lumbini Province Police Hackathon 2026",
-      "46 backend tests passing in the final build log",
+      "Backed by a comprehensive backend test suite",
       "5 dashboard tabs covering monitor, vehicle track, cameras, watchlist, and demo lab",
     ],
     highlights: [
@@ -206,7 +206,7 @@ export const PROJECTS: Project[] = [
     constraints:
       "The site has to stay fast, maintainable, public-safe, and easy to update as the private career knowledge base evolves.",
     outcome:
-      "The site now acts as the public projection of my SecondBrain career notes, with stronger project proof and a clearer full-cycle engineering position.",
+      "The site now acts as a polished public projection of my work, with stronger project proof and a clearer full-cycle engineering position.",
     metrics: [
       "Next.js 16 App Router",
       "Static project pages generated from typed data",
