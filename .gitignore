@@ -41,5 +41,5 @@ pnpm-debug.log*
 next-env.d.ts
 
 # sitemaps
-public/sitemap-0.xml
+public/sitemap*.xml
 CLAUDE.local.md
