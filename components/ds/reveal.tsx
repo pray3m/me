@@ -1,7 +1,12 @@
 "use client"
 
-import { type HTMLMotionProps, m, useInView } from "framer-motion"
-import { useRef } from "react"
+import {
+  type HTMLMotionProps,
+  m,
+  useInView,
+  useReducedMotion,
+} from "framer-motion"
+import { useEffect, useRef, useState } from "react"
 
 type RevealTag =
   | "div"
@@ -22,22 +27,40 @@ interface RevealProps extends HTMLMotionProps<"div"> {
   as?: RevealTag
 }
 
+// Strong ease-out (easing.dev). The built-in "easeOut" is too weak to read as
+// intentional — this gives the entrance an immediate, snappy feel.
+const EASE_OUT = [0.23, 1, 0.32, 1] as const
+
 /**
- * Scroll-triggered fade-up wrapper — the framer-motion replacement for AOS.
- * Uses `useInView` (IntersectionObserver) so it works regardless of the
- * LazyMotion feature bundle loaded in providers.
+ * Scroll-triggered fade-up — the framer-motion replacement for AOS. Content
+ * renders visible on first paint (no JS dependency, no flash), and only
+ * below-the-fold elements are armed to fade up as they scroll into view.
  */
 const Reveal = ({ delay = 0, as = "div", children, ...props }: RevealProps) => {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" })
+  const prefersReducedMotion = useReducedMotion()
+  const [primed, setPrimed] = useState(false)
   const MotionTag = m[as] as typeof m.div
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    // Only arm the reveal for content that starts off-screen, so the first
+    // paint is never gated behind JS.
+    if (el.getBoundingClientRect().top > window.innerHeight) setPrimed(true)
+  }, [])
+
+  const hidden = primed && !inView && !prefersReducedMotion
 
   return (
     <MotionTag
       ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={inView ? { opacity: 1, y: 0 } : undefined}
-      transition={{ duration: 0.6, ease: "easeOut", delay }}
+      initial={false}
+      animate={{ opacity: hidden ? 0 : 1, y: hidden ? 12 : 0 }}
+      transition={
+        hidden ? { duration: 0 } : { duration: 0.4, ease: EASE_OUT, delay }
+      }
       {...props}
     >
       {children}

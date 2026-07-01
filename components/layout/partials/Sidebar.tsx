@@ -1,4 +1,3 @@
-import ThemeToggle from "@/components/blocks/ThemeToggle"
 import Breakline from "@/components/ds/breakline"
 import Navigation from "@/components/layout/sidebar/Navigation"
 import Profile from "@/components/layout/sidebar/Profile"
@@ -10,10 +9,8 @@ const Sidebar = () => {
 
       {/* Desktop-only nav; CSS-hidden on mobile so the shell still SSRs. */}
       <div className="hidden lg:block">
-        <Breakline />
+        <Breakline className="my-3" />
         <Navigation />
-        <Breakline />
-        <ThemeToggle />
       </div>
     </div>
   )

@@ -26,7 +26,7 @@ const MobileNav: FC = () => {
     <MenuContext.Provider value={menuValue}>
       <div className="fixed z-10 w-full border-border border-b bg-background p-5 shadow-xs lg:hidden">
         <div className="flex items-center justify-between">
-          <ProfileHeader imageSize={40} />
+          <ProfileHeader imageSize={44} variant="compact" />
           <div className="flex items-center">
             <MobileMenuButton
               expandMenu={expandMenu}

@@ -28,23 +28,25 @@ const Greeting: FC = () => {
 
   const greeting = GREETINGS[index]
 
+  // Name group is block on mobile so long greetings (Bonjour, नमस्ते) drop it to
+  // their own line as one unit; inline on desktop where the whole line fits.
   return (
-    <div className="flex gap-2 font-semibold text-2xl lg:text-3xl">
-      <h1>
-        <span
-          key={index}
-          lang={greeting.lang}
-          dir={greeting.rtl ? "rtl" : "ltr"}
-          className="fade-in-0 slide-in-from-bottom-1 inline-block animate-in duration-500"
-        >
-          {greeting.text}
+    <h1 className="font-semibold text-2xl tracking-normal lg:text-3xl">
+      <span
+        key={index}
+        lang={greeting.lang}
+        dir={greeting.rtl ? "rtl" : "ltr"}
+        className="fade-in-0 slide-in-from-bottom-1 inline-block animate-in duration-500"
+      >
+        {greeting.text},
+      </span>{" "}
+      <span className="block whitespace-nowrap lg:inline">
+        I&apos;m Prem Gautam.{" "}
+        <span className="inline-block origin-[70%_70%] animate-waving-hand">
+          👋
         </span>
-        , I&apos;m Prem
-      </h1>
-      <div className="ml-1 inline-block origin-[70%_70%] animate-waving-hand">
-        👋
-      </div>
-    </div>
+      </span>
+    </h1>
   )
 }
 

@@ -8,8 +8,10 @@ module.exports = {
   // Keep out of the sitemap:
   // - opengraph-image routes are image endpoints, not pages
   // - /design is noindex, so listing it would be a contradictory signal
+  // - /blog is noindex until real posts are published
   // - manifest.webmanifest is a PWA manifest, not a page
   exclude: [
+    "/blog",
     "/design",
     "/manifest.webmanifest",
     "/opengraph-image",

@@ -10,11 +10,15 @@ export const siteConfig = {
   name: "Prem Gautam",
   title: "Prem Gautam · Full-Stack Engineer · AI-Driven Product Builder",
   description:
-    "Personal site of Prem Gautam, a full-stack engineer who builds and ships production SaaS end to end — frontend, backend, and the infrastructure behind it.",
+    "Personal site of Prem Gautam, also known online as pray3m — a full-stack engineer who builds and ships production SaaS end to end.",
   url: process.env.SITE_URL ?? site.url,
   locale: "en_US",
   jobTitle: "Full-Stack Engineer",
   twitterHandle: "@pray3m_",
+  /** Current employer — drives the Person `worksFor` structured data. */
+  employer: { name: "Hyteno", url: "https://www.hyteno.com" },
+  /** Home base — drives the Person `address` structured data. */
+  location: { city: "Butwal", country: "NP" },
   /** Used for the Person `sameAs` structured data. */
   socials: {
     github: "https://github.com/pray3m",

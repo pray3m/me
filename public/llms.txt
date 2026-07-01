@@ -1,0 +1,22 @@
+# Prem Gautam
+
+Prem Gautam, also known online as pray3m, is a full-stack engineer from Nepal.
+
+Website: https://premgautam.me
+GitHub: https://github.com/pray3m
+LinkedIn: https://www.linkedin.com/in/pray3m/
+X: https://twitter.com/pray3m_
+Instagram: https://instagram.com/pray3m
+
+Focus: full-stack engineering, SaaS products, AI-assisted products, Next.js, Node.js, NestJS, PostgreSQL, Docker, production web systems.
+
+Key pages:
+- About: https://premgautam.me/about
+- Projects: https://premgautam.me/projects
+- Contact: https://premgautam.me/contact
+
+Selected projects:
+- Pikeah: multi-tenant LinkedIn outreach SaaS with dashboard, API, browser extension, unified inbox, team permissions, and campaign automation.
+- Maison & Architecture: public, admin, and partner experiences for an architecture and construction platform.
+- Cro-scan: AI website-conversion auditor for prioritized landing-page improvements.
+- ZyFlow: no-code web-scraping SaaS with workflow builder, scheduling, billing, and AI-assisted field detection.

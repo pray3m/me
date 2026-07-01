@@ -10,6 +10,7 @@ export const metadata = createMetadata({
   description:
     "Writing by Prem Gautam on web development, code, creativity, and continuous learning.",
   path: "/blog",
+  noIndex: true,
 })
 
 const BlogPage: NextPage = () => {

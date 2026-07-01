@@ -1,5 +1,6 @@
 import type { FC } from "react"
 import Status from "@/components/blocks/Status"
+import ThemeToggleButton from "@/components/blocks/ThemeToggleButton"
 import MobileNav from "./MobileNav"
 import ProfileHeader from "./ProfileHeader"
 
@@ -12,8 +13,11 @@ const Profile: FC = () => {
       {/* Desktop (>= lg): static sidebar profile, server-rendered. */}
       <div className="hidden lg:block">
         <div className="flex flex-col items-start space-y-3">
-          <ProfileHeader imageSize={100} />
-          <Status />
+          <ProfileHeader imageSize={112} />
+          <div className="flex w-full items-center justify-between gap-3">
+            <Status />
+            <ThemeToggleButton size="compact" />
+          </div>
         </div>
       </div>
     </>

@@ -1,19 +1,25 @@
+"use client"
+
 import { useTheme } from "next-themes"
 import { useId, useRef } from "react"
 import useHasMounted from "@/hooks/use-has-mounted"
 import "./theme-toggle.css"
 
-const ThemeToggleButton = () => {
+interface ThemeToggleButtonProps {
+  size?: "default" | "compact"
+}
+
+const ThemeToggleButton = ({ size = "default" }: ThemeToggleButtonProps) => {
   const { resolvedTheme, setTheme } = useTheme()
   const hasMounted = useHasMounted()
   const buttonRef = useRef<HTMLDivElement>(null)
   const inputId = useId()
 
-  if (!hasMounted) return null
-
-  const isDarkMode = resolvedTheme === "dark"
+  const isDarkMode = hasMounted && resolvedTheme === "dark"
 
   const handleToggle = () => {
+    if (!hasMounted) return
+
     if (buttonRef.current) {
       const { top, left, width, height } =
         buttonRef.current.getBoundingClientRect()
@@ -36,23 +42,32 @@ const ThemeToggleButton = () => {
   }
 
   return (
-    <div ref={buttonRef} className="theme-toggle">
+    <div
+      ref={buttonRef}
+      className={`theme-toggle theme-toggle--${size}`}
+      data-mounted={hasMounted ? "true" : "false"}
+    >
       <input
-        checked={resolvedTheme === "dark"}
+        checked={isDarkMode}
         type="checkbox"
         aria-label="Toggle dark mode"
         className="mode-toggle"
         id={inputId}
+        disabled={!hasMounted}
         onChange={handleToggle}
       />
-      <label className="mode-toggle-label" htmlFor={inputId}>
+      <label
+        aria-label="Toggle dark mode"
+        className="mode-toggle-label"
+        htmlFor={inputId}
+      >
         <svg
           width="50"
           height="30"
           viewBox="0 0 300 180"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
-          <title>Theme toggle button icon</title>
           <defs>
             <linearGradient id="bg-night">
               <stop className="bg-stop-start" offset="0%" />

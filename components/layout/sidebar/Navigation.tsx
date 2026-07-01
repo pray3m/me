@@ -1,15 +1,42 @@
 "use client"
 
+import Link from "next/link"
 import { type FC, useContext } from "react"
 import { BiCommand as CommandIcon } from "react-icons/bi"
 import { MENU_ITEMS, SOCIAL_MEDIA } from "@/common/constant/menu"
 import { CommandPaletteContext } from "@/common/context/CommandPaletteContext"
+import type { MenuItemProps } from "@/common/lib/types"
 import Breakline from "@/components/ds/breakline"
 import Menu from "./Menu"
 import MenuItem from "./MenuItem"
 
 interface NavigationProps {
   excludedHrefs?: string[]
+}
+
+function SocialLinks({ list }: { list: MenuItemProps[] }) {
+  return (
+    <div>
+      <div className="mt-1 mb-2 ml-2 hidden text-muted-foreground text-sm lg:block">
+        Let&apos;s Connect
+      </div>
+      <div className="flex items-center gap-2 px-1">
+        {list.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={item.title}
+            title={item.title}
+            className="inline-flex size-9 items-center justify-center rounded-lg text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            {item.icon}
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 const Navigation: FC<NavigationProps> = ({ excludedHrefs = [] }) => {
@@ -42,8 +69,8 @@ const Navigation: FC<NavigationProps> = ({ excludedHrefs = [] }) => {
         </MenuItem>
       </div>
 
-      <Breakline />
-      <Menu title="Let's Connect" list={filteredSocialMedia} />
+      <Breakline className="my-3" />
+      <SocialLinks list={filteredSocialMedia} />
     </div>
   )
 }
