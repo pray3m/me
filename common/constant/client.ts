@@ -1,25 +1,7 @@
-// export const CLIENT_IMAGES = [
-//   "/images/clients/sirka.png",
-//   "/images/clients/mitech.png",
-//   "/images/clients/areakampus.png",
-//   "/images/clients/unsyiah.png",
-//   "/images/clients/telkom.png",
-//   "/images/clients/travelkuala.png",
-//   "/images/clients/daneen.png",
-//   "/images/clients/phe.png",
-//   "/images/clients/fixature.png",
-//   "/images/clients/negeriantara.png",
-// ];
-
+// Companies and products I've built / worked on. Logos live in
+// /public/images/clients (favicon-based for now — swap in proper logos later).
 export const CLIENT_IMAGES = [
-  "/images/placeholder.png",
-  "/images/placeholder.png",
-  "/images/placeholder.png",
-  "/images/placeholder.png",
-  "/images/placeholder.png",
-  "/images/placeholder.png",
-  "/images/placeholder.png",
-  "/images/placeholder.png",
-  "/images/placeholder.png",
-  "/images/placeholder.png",
+  { src: "/images/clients/hyteno.png", alt: "Hyteno logo" },
+  { src: "/images/clients/maison.png", alt: "Maison & Architecture logo" },
+  { src: "/images/clients/pikeah.png", alt: "Pikeah logo" },
 ]

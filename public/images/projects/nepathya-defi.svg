@@ -1,0 +1,11 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#111827"/>
+  <circle cx="312" cy="338" r="154" fill="#1d4ed8"/>
+  <circle cx="888" cy="338" r="154" fill="#7c3aed"/>
+  <path d="M468 338H732" stroke="#f8fafc" stroke-width="18" stroke-linecap="round"/>
+  <path d="M690 294L746 338L690 382" stroke="#f8fafc" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="168" y="356" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="700">Chain A</text>
+  <text x="744" y="356" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="700">Chain B</text>
+  <rect x="260" y="520" width="680" height="68" rx="34" fill="#f8fafc"/>
+  <text x="352" y="564" fill="#111827" font-family="Arial, sans-serif" font-size="24" font-weight="700">AI-assisted cross-chain DeFi experiment</text>
+</svg>

@@ -8,12 +8,12 @@ import site from "./site.json"
  */
 export const siteConfig = {
   name: "Prem Gautam",
-  title: "Prem Gautam - Full Stack Developer | Tech Enthusiast",
+  title: "Prem Gautam · Full-Stack Engineer · AI-Driven Product Builder",
   description:
-    "Personal website of Prem Gautam, a learner and full stack developer passionate about technology and innovation.",
+    "Personal site of Prem Gautam, a full-stack engineer who builds and ships production SaaS end to end — frontend, backend, and the infrastructure behind it.",
   url: process.env.SITE_URL ?? site.url,
   locale: "en_US",
-  jobTitle: "Full Stack Developer",
+  jobTitle: "Full-Stack Engineer",
   twitterHandle: "@pray3m_",
   /** Used for the Person `sameAs` structured data. */
   socials: {

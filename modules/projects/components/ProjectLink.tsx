@@ -19,7 +19,7 @@ const ProjectLink: React.FC<ProjectLinkProps> = ({
   link_demo,
 }) => {
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-wrap gap-3">
       {link_github && (
         <LinkComponent
           url={link_github}
@@ -28,9 +28,6 @@ const ProjectLink: React.FC<ProjectLinkProps> = ({
         />
       )}
 
-      {link_github && link_demo && (
-        <span className="text-muted-foreground">|</span>
-      )}
       {link_demo && (
         <LinkComponent
           url={link_demo}
@@ -44,13 +41,11 @@ const ProjectLink: React.FC<ProjectLinkProps> = ({
 
 const LinkComponent = ({ icon, text, url }: LinkComponentProps) => {
   return (
-    <Link href={url} target="_blank" passHref>
-      <div className="flex items-center gap-2 font-medium text-muted-foreground">
+    <Link href={url} target="_blank" rel="noopener noreferrer">
+      <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 font-medium text-muted-foreground transition-colors hover:text-foreground">
         {icon}
 
-        <span className="text-sm transition-all duration-300 dark:text-teal-500 dark:hover:text-teal-400">
-          {text}
-        </span>
+        <span className="text-sm">{text}</span>
       </div>
     </Link>
   )

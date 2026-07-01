@@ -3,8 +3,8 @@ import Greeting from "@/components/blocks/Greeting"
 
 const Introduction: FC = () => {
   const currentYear = new Date().getFullYear()
-  const workStart = 2024
-  const codingStart = 2022
+  const workYears = currentYear - 2024
+  const codingYears = currentYear - 2022
 
   return (
     <section className="space-y-5 bg-cover bg-no-repeat">
@@ -18,13 +18,13 @@ const Introduction: FC = () => {
           </li>
         </ul>
         <p className="text-foreground leading-8">
-          I&apos;m a full-stack developer with {currentYear - workStart} year
-          experience and {currentYear - codingStart} year in web development. I
-          specialize in building responsive interfaces with React.js and
-          Next.js, and developing robust backends using Node.js, NestJS,
-          MongoDB, and MySQL via Prisma ORM. Currently expanding my DevOps
-          skills to create scalable and reliable applications. Committed to
-          continuous learning and growth.
+          I&apos;m a full-stack engineer with {workYears} year
+          {workYears === 1 ? "" : "s"} of professional experience and{" "}
+          {codingYears} years in web development. I build responsive interfaces
+          with React.js and Next.js, robust backends with Node.js, NestJS, and
+          PostgreSQL, and own the deployment and infrastructure behind them with
+          Docker and self-managed servers — bringing in AI where it genuinely
+          helps. Always learning, always shipping.
         </p>
       </div>
     </section>
