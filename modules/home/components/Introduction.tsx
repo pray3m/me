@@ -5,7 +5,7 @@ import Status from "@/components/blocks/Status"
 
 const Introduction: FC = () => {
   const currentYear = new Date().getFullYear()
-  const codingYears = currentYear - 2022
+  const professionalYears = currentYear - 2024
 
   return (
     <section className="space-y-4 bg-cover bg-no-repeat lg:space-y-5">
@@ -26,7 +26,7 @@ const Introduction: FC = () => {
         </span>
         <span className="inline-flex items-center gap-1.5">
           <Briefcase aria-hidden="true" className="size-4" />
-          {codingYears}+ yrs experience
+          {professionalYears}.5+ yrs experience
         </span>
         <span className="inline-flex items-center gap-1.5">
           <span className="relative flex size-2">
