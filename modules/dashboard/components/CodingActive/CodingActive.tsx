@@ -1,30 +1,44 @@
-"use client"
-
-import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
-import type { FC } from "react"
 import { SiWakatime as WakatimeIcon } from "react-icons/si"
 import SectionHeading from "@/components/ds/section-heading"
 import SectionSubHeading from "@/components/ds/section-sub-heading"
-import Skeleton from "@/components/ds/skeleton"
 import { relativeTimeFromNow } from "@/lib/date"
-import { fetcher } from "@/services/fetcher"
+import {
+  getALLTimeSinceToday,
+  getReadStats,
+  type ReadStatsData,
+} from "@/services/wakatime"
 import CodingActiveList from "./CodingActiveList"
 import Overview from "./Overview"
 
-const CodingActive: FC = () => {
-  const { data, error } = useQuery({
-    queryKey: ["wakatime"],
-    queryFn: () => fetcher("/api/wakatime"),
-  })
+const formatLastUpdate = (raw?: string): string => {
+  if (!raw) return ""
+  const lastUpdate = new Date(raw)
+  if (Number.isNaN(lastUpdate.getTime())) return ""
+  lastUpdate.setMinutes(0, 0, 0) // startOf("hour")
+  return relativeTimeFromNow(lastUpdate)
+}
 
-  const formatLastUpdate = (): string => {
-    if (!data?.last_update) return ""
-    const lastUpdate = new Date(data.last_update)
-    if (Number.isNaN(lastUpdate.getTime())) return ""
-    lastUpdate.setMinutes(0, 0, 0) // startOf("hour")
-    return relativeTimeFromNow(lastUpdate)
+const getStats = async () => {
+  try {
+    const [readStats, allTime] = await Promise.all([
+      getReadStats(),
+      getALLTimeSinceToday(),
+    ])
+    if (readStats.status >= 400 || !("last_update" in readStats.data)) {
+      return null
+    }
+    return {
+      ...(readStats.data as ReadStatsData),
+      all_time_since_today: allTime.data,
+    }
+  } catch {
+    return null
   }
+}
+
+const CodingActive = async () => {
+  const data = await getStats()
 
   return (
     <section className="flex flex-col gap-y-2">
@@ -45,17 +59,19 @@ const CodingActive: FC = () => {
           <span> last 30 days stats.</span>
         </div>
         <div className="text-muted-foreground text-sm">
-          Last update: <span>{formatLastUpdate()}</span>
+          Last update: <span>{formatLastUpdate(data?.last_update)}</span>
         </div>
       </SectionSubHeading>
 
-      {!data && !error ? (
-        <Skeleton className="mt-2 h-44 w-full rounded-xl" />
-      ) : (
+      {data ? (
         <>
           <Overview data={data} />
           <CodingActiveList data={data} />
         </>
+      ) : (
+        <p className="text-muted-foreground text-sm">
+          Couldn&apos;t load WakaTime stats right now.
+        </p>
       )}
     </section>
   )

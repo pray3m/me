@@ -42,7 +42,7 @@ interface WakatimeBestDay {
   text: string
 }
 
-interface ReadStatsData {
+export interface ReadStatsData {
   last_update: string
   start_date: string
   end_date: string

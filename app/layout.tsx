@@ -1,8 +1,6 @@
 import type { Viewport } from "next"
-import type { CSSProperties } from "react"
 import { geistMono, onestSans } from "@/common/styles/fonts"
 import Layout from "@/components/layout"
-import { NoiseTexture } from "@/components/ui/noise-texture"
 import { JsonLd, rootGraph, rootMetadata } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 import "./globals.css"
@@ -35,13 +33,7 @@ export default function RootLayout({
         />
         <link rel="preconnect" href="https://cloud.umami.is" />
         <JsonLd data={rootGraph()} />
-        <NoiseTexture
-          aria-hidden
-          octaves={3}
-          frequency={0.65}
-          className="fixed inset-x-0 top-0 -z-10 h-lvh [mask-image:radial-gradient(ellipse_75%_75%_at_50%_30%,#000,transparent)] [mix-blend-mode:var(--paper-pattern-blend)]"
-          style={{ opacity: "var(--paper-pattern-opacity)" } as CSSProperties}
-        />
+        {/* Paper grain lives on body::after in globals.css. */}
         <ProvidersSandwich>
           <Layout>{children}</Layout>
         </ProvidersSandwich>

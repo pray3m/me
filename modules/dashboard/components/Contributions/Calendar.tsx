@@ -1,3 +1,5 @@
+"use client"
+
 import clsx from "clsx"
 import { m } from "framer-motion"
 import { type FC, useState } from "react"

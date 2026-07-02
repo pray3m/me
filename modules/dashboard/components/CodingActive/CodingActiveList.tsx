@@ -5,8 +5,8 @@ import Progress from "./Progress"
 
 interface ItemProps {
   name: string
-  hours: number
-  minutes: number
+  hours?: number
+  minutes?: number
 }
 
 interface CodingActiveListProps {
@@ -16,16 +16,13 @@ interface CodingActiveListProps {
   }
 }
 
-const sumTotalFromArray = <T extends { hours: number; minutes: number }>(
+const sumTotalFromArray = <T extends { hours?: number; minutes?: number }>(
   data: T[],
-  key: keyof T
+  key: "hours" | "minutes"
 ) => {
-  return (
-    data.reduce(
-      (previousValue, currentValue) =>
-        previousValue + (currentValue[key] as number),
-      0
-    ) ?? 0
+  return data.reduce(
+    (previousValue, currentValue) => previousValue + (currentValue[key] ?? 0),
+    0
   )
 }
 

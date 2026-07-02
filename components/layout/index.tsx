@@ -15,7 +15,7 @@ const Layout = ({ children }: LayoutProps) => {
           <header className="lg:w-1/5">
             <Sidebar />
           </header>
-          <main className="max-w-[854px] transition-all duration-300 lg:w-4/5">
+          <main className="max-w-[854px] lg:w-4/5">
             {children}
             {/* <Footer /> */}
           </main>

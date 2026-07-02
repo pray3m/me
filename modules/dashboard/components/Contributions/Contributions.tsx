@@ -1,24 +1,24 @@
-"use client"
-
-import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
-import { type FC } from "react"
 import { BsGithub } from "react-icons/bs"
 import SectionHeading from "@/components/ds/section-heading"
 import SectionSubHeading from "@/components/ds/section-sub-heading"
-import Skeleton from "@/components/ds/skeleton"
-import { fetcher } from "@/services/fetcher"
+import { getGithubUser } from "@/services/github"
 import Calendar from "./Calendar"
 import Overview from "./Overview"
 
-const Contributions: FC = () => {
-  const { data, error } = useQuery({
-    queryKey: ["github"],
-    queryFn: () => fetcher("/api/github"),
-  })
+const GITHUB_USERNAME = "pray3m"
 
-  const contributionCalendar =
-    data?.contributionsCollection?.contributionCalendar
+const Contributions = async () => {
+  let contributionCalendar = null
+  try {
+    const { status, data } = await getGithubUser(GITHUB_USERNAME)
+    if (status < 400 && !data?.error) {
+      contributionCalendar =
+        data?.contributionsCollection?.contributionCalendar ?? null
+    }
+  } catch {
+    contributionCalendar = null
+  }
 
   return (
     <section className="flex flex-col gap-y-2">
@@ -42,19 +42,15 @@ const Contributions: FC = () => {
         </Link>
       </SectionSubHeading>
 
-      {!data && !error && <Skeleton className="mt-2 h-32 w-full rounded-xl" />}
-
-      {error && (
-        <p className="text-muted-foreground text-sm">
-          Couldn&apos;t load contributions right now.
-        </p>
-      )}
-
-      {data && (
+      {contributionCalendar ? (
         <div className="space-y-3">
           <Overview data={contributionCalendar} />
           <Calendar data={contributionCalendar} />
         </div>
+      ) : (
+        <p className="text-muted-foreground text-sm">
+          Couldn&apos;t load contributions right now.
+        </p>
       )}
     </section>
   )
