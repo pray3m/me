@@ -1,7 +1,6 @@
 import type { NextPage } from "next"
 import Container from "@/components/ds/container"
 import PageHeading from "@/components/ds/page-heading"
-import Reveal from "@/components/ds/reveal"
 import { createMetadata } from "@/lib/seo"
 import BlogList from "@/modules/blog/components/BlogList"
 
@@ -16,13 +15,11 @@ export const metadata = createMetadata({
 const BlogPage: NextPage = () => {
   return (
     <Container>
-      <Reveal>
-        <PageHeading
-          title="Blog"
-          subtitle="Exploring the world of code, creativity, and constant learning."
-        />
-        <BlogList />
-      </Reveal>
+      <PageHeading
+        title="Blog"
+        subtitle="Exploring the world of code, creativity, and constant learning."
+      />
+      <BlogList />
     </Container>
   )
 }

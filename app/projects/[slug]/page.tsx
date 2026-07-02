@@ -3,7 +3,6 @@ import { notFound } from "next/navigation"
 import BackButton from "@/components/ds/back-button"
 import Container from "@/components/ds/container"
 import PageHeading from "@/components/ds/page-heading"
-import Reveal from "@/components/ds/reveal"
 import { PROJECTS } from "@/data/projects"
 import { breadcrumbSchema, createMetadata, JsonLd } from "@/lib/seo"
 import ProjectDetail from "@/modules/projects/components/ProjectDetail"
@@ -61,12 +60,10 @@ const ProjectsDetailPage = async ({
           { name: project.title, path: `/projects/${slug}` },
         ])}
       />
-      <Reveal>
-        <BackButton url="/projects" />
-        <PageHeading title={project.title} subtitle={project.description} />
+      <BackButton url="/projects" />
+      <PageHeading title={project.title} subtitle={project.description} />
 
-        <ProjectDetail {...project} />
-      </Reveal>
+      <ProjectDetail {...project} />
     </Container>
   )
 }

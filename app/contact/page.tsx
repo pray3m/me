@@ -1,7 +1,6 @@
 import type { NextPage } from "next"
 import Container from "@/components/ds/container"
 import PageHeading from "@/components/ds/page-heading"
-import Reveal from "@/components/ds/reveal"
 import { createMetadata } from "@/lib/seo"
 import Contact from "@/modules/contact/components/Contact"
 
@@ -15,13 +14,11 @@ export const metadata = createMetadata({
 const ContactPage: NextPage = () => {
   return (
     <Container>
-      <Reveal>
-        <PageHeading
-          title="Contact"
-          subtitle="Feel free to get in touch and let's have a discussion about how we can work together."
-        />
-        <Contact />
-      </Reveal>
+      <PageHeading
+        title="Contact"
+        subtitle="Feel free to get in touch and let's have a discussion about how we can work together."
+      />
+      <Contact />
     </Container>
   )
 }

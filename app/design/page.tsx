@@ -1,7 +1,6 @@
 import type { NextPage } from "next"
 import Container from "@/components/ds/container"
 import PageHeading from "@/components/ds/page-heading"
-import Reveal from "@/components/ds/reveal"
 import { createMetadata } from "@/lib/seo"
 import StyleGuide from "@/modules/design/components/StyleGuide"
 
@@ -15,13 +14,11 @@ export const metadata = createMetadata({
 
 const DesignPage: NextPage = () => (
   <Container>
-    <Reveal>
-      <PageHeading
-        title="Design"
-        subtitle="The tokens, type, and components behind this site."
-      />
-      <StyleGuide />
-    </Reveal>
+    <PageHeading
+      title="Design"
+      subtitle="The tokens, type, and components behind this site."
+    />
+    <StyleGuide />
   </Container>
 )
 

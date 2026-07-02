@@ -2,7 +2,6 @@ import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import type { CSSProperties, FC } from "react"
 import Image from "@/components/ds/image"
-import Reveal from "@/components/ds/reveal"
 
 const BorderBeam: FC<{ size?: number; duration?: number }> = ({
   size = 200,
@@ -35,7 +34,7 @@ const WhoAmI: FC = () => {
   return (
     <section className="lg:hidden">
       <div className="flex flex-col gap-6">
-        <Reveal className="overflow-hidden rounded-3xl border-2 border-foreground/15 bg-muted shadow-[6px_6px_0px_0px_rgba(0,0,0,0.85)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.12)]">
+        <div className="overflow-hidden rounded-3xl border-2 border-foreground/15 bg-muted shadow-[6px_6px_0px_0px_rgba(0,0,0,0.85)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.12)]">
           <Image
             src="/images/prem.jpg"
             alt="Prem Gautam"
@@ -44,47 +43,31 @@ const WhoAmI: FC = () => {
             rounded="rounded-3xl"
             className="h-full max-h-72 w-full object-cover"
           />
-        </Reveal>
+        </div>
 
-        <Reveal className="group relative overflow-hidden rounded-3xl border-2 border-white/10 bg-[#141414] p-6 shadow-[6px_6px_0px_0px_rgba(99,102,241,0.4)]">
+        <div className="group relative overflow-hidden rounded-3xl border-2 border-white/10 bg-[#141414] p-6 shadow-[6px_6px_0px_0px_rgba(99,102,241,0.4)]">
           <BorderBeam />
 
-          <Reveal
-            as="h2"
-            delay={0.1}
-            className="mb-4 font-semibold text-2xl text-neutral-100 tracking-tight md:text-3xl"
-          >
+          <h2 className="mb-4 font-semibold text-2xl text-neutral-100 tracking-tight md:text-3xl">
             Who am I?
-          </Reveal>
+          </h2>
 
           <div className="space-y-4">
-            <Reveal
-              as="p"
-              delay={0.2}
-              className="text-base text-neutral-300 leading-relaxed"
-            >
+            <p className="text-base text-neutral-300 leading-relaxed">
               I&apos;m Prem, a full-stack engineer turning ideas into products
               people actually use.
-            </Reveal>
-            <Reveal
-              as="p"
-              delay={0.3}
-              className="text-base text-neutral-300 leading-relaxed"
-            >
+            </p>
+            <p className="text-base text-neutral-300 leading-relaxed">
               I build with React, Next.js, and Node.js. what drives me? creating
               stuff that looks great and just works.
-            </Reveal>
-            <Reveal
-              as="p"
-              delay={0.4}
-              className="text-base text-neutral-300 leading-relaxed"
-            >
+            </p>
+            <p className="text-base text-neutral-300 leading-relaxed">
               Always learning, always building. Let&apos;s make something
               awesome together!
-            </Reveal>
+            </p>
           </div>
 
-          <Reveal delay={0.5} className="mt-6">
+          <div className="mt-6">
             <Link
               href="/about"
               className="group/link inline-flex items-center gap-2 text-white transition-colors hover:text-neutral-300"
@@ -97,8 +80,8 @@ const WhoAmI: FC = () => {
                 className="transition-transform group-hover/link:translate-x-1"
               />
             </Link>
-          </Reveal>
-        </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   )
