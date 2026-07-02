@@ -19,16 +19,14 @@ const Image = (props: ImageProps) => {
       className={clsx(
         "overflow-hidden",
         rest.fill ? "relative size-full" : "",
-        isLoading ? "animate-pulse" : "",
+        isLoading ? "animate-pulse bg-muted" : "",
         rounded
       )}
     >
       <NextImage
         className={clsx(
-          "duration-700 ease-in-out",
-          isLoading
-            ? "scale-[1.02] blur-xl grayscale"
-            : "scale-100 blur-0 grayscale-0",
+          "transition-opacity duration-500 ease-out",
+          isLoading ? "opacity-0" : "opacity-100",
           rounded,
           className
         )}

@@ -223,12 +223,21 @@
   body {
     position: relative;
     line-height: 1.65;
+    isolation: isolate;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  body::before {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: -20;
+    height: 100lvh;
+    pointer-events: none;
+    content: "";
     background-image: var(--paper-tint);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    isolation: isolate;
-    @apply bg-background text-foreground font-sans antialiased;
   }
 
   * {

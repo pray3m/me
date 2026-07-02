@@ -39,7 +39,7 @@ export default function RootLayout({
           aria-hidden
           octaves={3}
           frequency={0.65}
-          className="fixed inset-0 -z-10 [mask-image:radial-gradient(ellipse_75%_75%_at_50%_30%,#000,transparent)] [mix-blend-mode:var(--paper-pattern-blend)]"
+          className="fixed inset-x-0 top-0 -z-10 h-lvh [mask-image:radial-gradient(ellipse_75%_75%_at_50%_30%,#000,transparent)] [mix-blend-mode:var(--paper-pattern-blend)]"
           style={{ opacity: "var(--paper-pattern-opacity)" } as CSSProperties}
         />
         <ProvidersSandwich>
