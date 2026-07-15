@@ -16,7 +16,7 @@ const ContactPage: NextPage = () => {
     <Container>
       <PageHeading
         title="Contact"
-        subtitle="Feel free to get in touch and let's have a discussion about how we can work together."
+        subtitle="Got a product to build, or a role to fill? Let's talk."
       />
       <Contact />
     </Container>

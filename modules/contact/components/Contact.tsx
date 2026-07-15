@@ -1,46 +1,60 @@
-"use client"
-
 import { type FC, type ReactNode } from "react"
 import { FaTelegramPlane as TelegramIcon } from "react-icons/fa"
 import { HiOutlineMail as EmailIcon } from "react-icons/hi"
 import Button from "@/components/ds/button"
 
-const CONTACTS = [
+const EMAIL = "prem.gtm9@gmail.com"
+
+interface ContactLink {
+  title: string
+  icon: ReactNode
+  link: string
+  external?: boolean
+}
+
+const CONTACTS: ContactLink[] = [
   {
-    title: "prem.gtm9@gmail.com",
+    title: EMAIL,
     icon: <EmailIcon size={18} />,
-    link: "mailto:prem.gtm9@gmail.com",
+    link: `mailto:${EMAIL}`,
   },
   {
     title: "@onlyprems",
     icon: <TelegramIcon size={18} />,
     link: "https://t.me/onlyprems",
+    external: true,
   },
 ]
 
-interface ContactProps {
-  title: string
-  icon: ReactNode
-  link: string
-}
-
 const Contact: FC = () => {
-  const handleAction = (link: string) => window.open(link, "_blank")
-
   return (
     <section className="space-y-5">
-      <p>
-        You can reach out to me directly by sending an email, texting on
-        Telegram, or connecting on social media.
+      <p className="leading-loose">
+        The fastest way to reach me is email — I usually reply{" "}
+        <strong className="font-medium text-foreground">within 24 hours</strong>
+        . Currently open to freelance projects and full-time roles.
+      </p>
+      <p className="text-muted-foreground leading-loose">
+        Building something? Tell me what it is, roughly when you need it, and
+        where you&apos;re starting from. That&apos;s enough for me to say
+        whether I&apos;m the right fit.
       </p>
       <div className="flex flex-wrap gap-3">
-        {CONTACTS.map((contact: ContactProps, index: number) => (
+        {CONTACTS.map((contact) => (
           <Button
-            key={index}
+            key={contact.link}
             icon={contact.icon}
-            onClick={() => handleAction(contact?.link)}
+            nativeButton={false}
+            render={
+              <a
+                href={contact.link}
+                {...(contact.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              />
+            }
           >
-            {contact?.title}
+            {contact.title}
           </Button>
         ))}
       </div>

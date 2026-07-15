@@ -43,7 +43,9 @@ export const rootMetadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
   },
-  icons: { icon: "/favicon.ico" },
+  // Icons are wired up automatically from the file conventions in `app/`:
+  // favicon.ico, icon.png (512), and apple-icon.png (180). Setting `icons`
+  // here would override that convention and suppress the PNG links.
 }
 
 interface CreateMetadataOptions {

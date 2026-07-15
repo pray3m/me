@@ -43,7 +43,9 @@ const Services: FC = () => {
           I&apos;m open for freelance projects — feel free to email me and
           let&apos;s see how we can collaborate.
         </p>
-        <Button render={<Link href="/contact" />}>Contact me</Button>
+        <Button nativeButton={false} render={<Link href="/contact" />}>
+          Contact me
+        </Button>
       </div>
     </section>
   )
