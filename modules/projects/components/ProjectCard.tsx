@@ -17,7 +17,7 @@ const ProjectCard: FC<Project & { priority?: boolean }> = ({
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-xl">
           <Image
             src={image}
-            alt={title}
+            alt={`${title} screenshot`}
             fill
             className="object-cover object-top"
             sizes="(max-width: 640px) 100vw, 50vw"

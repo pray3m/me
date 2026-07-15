@@ -17,4 +17,18 @@ module.exports = {
     "/opengraph-image",
     "/projects/*/opengraph-image",
   ],
+  changefreq: "weekly",
+  // Rank the pages that matter above the rest: home first, then the work under
+  // /projects, everything else default.
+  transform: async (config, path) => ({
+    loc: path,
+    changefreq: config.changefreq,
+    priority:
+      path === "/"
+        ? 1
+        : path === "/projects" || path.startsWith("/projects/")
+          ? 0.8
+          : 0.6,
+    lastmod: new Date().toISOString(),
+  }),
 }

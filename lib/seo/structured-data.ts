@@ -2,6 +2,7 @@ import { siteConfig, siteName } from "./config"
 
 const PERSON_ID = `${siteConfig.url}/#person`
 const WEBSITE_ID = `${siteConfig.url}/#website`
+const PROFILE_ID = `${siteConfig.url}/#profilepage`
 
 function personSchema() {
   return {
@@ -48,11 +49,25 @@ function websiteSchema() {
   }
 }
 
-/** Site-wide Person + WebSite graph — render once in the root layout. */
+// The site is one person's portfolio, so the profile *is* the site: mark it a
+// ProfilePage whose subject is the Person. Google reads mainEntity to attribute
+// the page to that person.
+function profilePageSchema() {
+  return {
+    "@type": "ProfilePage",
+    "@id": PROFILE_ID,
+    url: siteConfig.url,
+    name: siteName,
+    isPartOf: { "@id": WEBSITE_ID },
+    mainEntity: { "@id": PERSON_ID },
+  }
+}
+
+/** Site-wide graph — render once in the root layout. */
 export function rootGraph() {
   return {
     "@context": "https://schema.org",
-    "@graph": [personSchema(), websiteSchema()],
+    "@graph": [personSchema(), websiteSchema(), profilePageSchema()],
   }
 }
 
