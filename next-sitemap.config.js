@@ -10,9 +10,12 @@ module.exports = {
   // - /design is noindex, so listing it would be a contradictory signal
   // - /blog is noindex until real posts are published
   // - manifest.webmanifest is a PWA manifest, not a page
+  // - icon.png / apple-icon.png are favicon assets from the app/ file convention
   exclude: [
+    "/apple-icon.png",
     "/blog",
     "/design",
+    "/icon.png",
     "/manifest.webmanifest",
     "/opengraph-image",
     "/projects/*/opengraph-image",
