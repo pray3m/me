@@ -1,4 +1,4 @@
-import { SectionHeading } from "@/components/ds"
+import SectionHeading from "@/components/ds/section-heading"
 import Skills from "@/modules/about/components/Skills"
 
 const SkillsSection = () => {

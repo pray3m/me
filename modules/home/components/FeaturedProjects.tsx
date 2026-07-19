@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { SectionHeading } from "@/components/ds"
+import SectionHeading from "@/components/ds/section-heading"
 import { PROJECTS } from "@/data/projects"
 import ProjectCard from "@/modules/projects/components/ProjectCard"
 

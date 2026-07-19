@@ -1,6 +1,6 @@
 <div align="center">
   <h1>premgautam.me</h1>
-  <p>🔥 Personal website built with Next.js, TypeScript, Tailwind CSS, SWR and Prisma with Vercel Postgres</p>
+  <p>🔥 Personal website built with Next.js, TypeScript and Tailwind CSS</p>
 
   <p align="center">
     <a href="https://biomejs.dev"><img alt="Checked with Biome" src="https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome"></a>
@@ -11,44 +11,29 @@
 
 ## Introduction
 
-This website was built from scratch using Next.js and was first initialized in April 2024. It will undergo regular updates and serve as both a valuable learning resource and a platform for me to share my knowledge.
+My personal site — portfolio, dashboard, and a place to try things out. Built from scratch on the Next.js App Router with React 19, TypeScript and Tailwind CSS v4.
+
+All content is static (`data/`, `common/constant/`). There is no database.
 
 ## Features
 
-On this website there are several features that will continue to be updated and added in the future.
-
-### 🤖 ChatGPT AI
+### 🤖 Command palette with ChatGPT
 
 You can access this feature by opening the command palette [cmd+k], then typing whatever you want to search/ask for.
 
-Note: 
-Due this site is using free cloud hosting services (Vercel) with certain limitations (Serverless Function Execution Timeout), sometimes an error will occur if the response from the open AI API is too long, but you can change it in the vercel.json file to upgrade memory and maxDuration to be bigger according to the capabilities of your vercel plan.
+> **Note:** `/api/chat` runs as a serverless function, so a long OpenAI response can hit the execution timeout. Memory and `maxDuration` for that route are raised in [vercel.json](vercel.json); bump them further if your plan allows.
 
-### 🕗 Wakatime
+### 📊 Dashboard
 
-Data is retrieved using the Wakatime API and then displayed on the dashboard, built with Next.js API routes deployed as serverless functions.
+- **WakaTime** — coding activity, fetched server-side from the WakaTime API.
+- **GitHub** — contribution graph, fetched server-side from the GitHub API.
+- **Spotify** — now-playing, fetched client-side through `/api/now-playing`.
 
-## 🎯 FOCUS TASKS (Jun 23 '23)
+### 🗳 Projects
 
-- [x] Fix: toggle (Jun 23 `23)
-- [x] Command Palette (Jun 25 `23)
-- [x] Feature: integrate Command Palette with chatGPT (ask ai assistant)
-- [ ] add vercel json (memory, duration) for api/chat (Jun 27 & Jun 28 `23) ALL
-- [ ] spotify player (Jun 29 `23)
-
-## TODO :
-
-- [ ] remove vercel analytics
-- [ ] Feature add jest unit test (Jun 23 `23)
-- [ ] remove supercons (update icons with react-icons)
-
-## NICE TO HAVE:
-
-- [ ] buy me a beer (support me)
+Project content lives in [data/projects.ts](data/projects.ts) and drives `generateStaticParams`, so every `/projects/[slug]` page is statically generated at build time. Any slug not in that list 404s.
 
 ## Getting Started
-
-First, run the development server:
 
 ```bash
 pnpm install
@@ -56,46 +41,21 @@ cp .env.example .env.local   # fill in the keys
 pnpm dev                     # http://localhost:3000
 ```
 
-### 🕗 Wakatime
+Requires Node 24 and pnpm.
 
-Data is retrieved using the Wakatime API and then displayed on the dashboard, built with Next.js API routes deployed as serverless functions.
+### Scripts
 
-### 🗳 Projects
+```bash
+pnpm build        # production build (postbuild runs next-sitemap)
+pnpm start        # serve the production build
 
-The data projects on this blog are taken from the MySQL database connected through the Prisma Client. The database for this application is hosted on PlanetScale DB. (WIP)
+pnpm lint         # biome check .
+pnpm lint:fix     # biome check --write .
+pnpm typecheck    # tsc --noEmit
+```
 
-The data fetching method used to retrieve data projects is Incremental Static Regeneration (ISR) with 1 second revalidation and Server-Side Rendering (SSR) for the project details..
+Tooling is [Biome](https://biomejs.dev), not ESLint/Prettier. Husky runs Biome on staged files pre-commit and commitlint (Conventional Commits) on the message.
 
 ## Deployment
 
-This project is deployed on Vercel. Any push to the `main` branch will trigger a deployment.
-
-### TODO LATER:
-
-- [ ] Integrate projects api (may 30 `23)
-- [ ] Integrate prisma client (may 31 `23)
-- [ ] update prisma db (may 31 `23) to init project detail (may 31 `23)
-- [ ] feat: add favicon for different devices (may 31 `23)
-- [ ] chore: add prisma migration (Jun 3 `23)
-
-## FOR BLOGS (NICE TO HAVE )
-
-- [ ] feat: integrate blog (may 31 `23)
-- [ ] feat: add pagination (Jun 1 `23)
-- [ ] feat: blog detail to add loading state (Jun 1 `23)
-- [ ] fix: improve ssr (Jun 1 `23) to fix: remove styled emotion library (Jun 1 `23)
-- [ ] feat: integrate comment system (Jun 2 `23)
-- [ ] feat: add blog tags (Jun 2 `23) && fix : blog
-- [ ] All Commits on Jun 5, `23
-- [ ] fix: blog card and params #8 (jun 6 )
-- [ ] fix: codeblock dynamic import #11
-- [ ] feat: add blog header sticky effect #13 (jun 22 )
-- [ ] feat: add blog list comment counter #22 (jun 23 `23)
-- [ ] fix: update blog detail reference #23 (jun 23 `23)
-- [ ] fix: validate blog data source owner
-- [ ] feat: change default blog list view #25 (jun 23 `23)
-- feat: add blog card skeleton component (jun 23 `23)
-- Fix update blog card
-- Feature add blog list render animation
-- Feature add blog carousel component
-- Feature new homepage blog preview for desktop view (Jun 23 `23)
+Deployed on Vercel. Any push to `main` triggers a deployment.

@@ -63,19 +63,6 @@ export default function CommandPalette() {
     return () => clearTimeout(timer)
   }, [isMobile])
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
-        event.preventDefault()
-        setIsOpen(!isOpen)
-      } else if (event.key === "Escape") {
-        setIsOpen(false)
-      }
-    }
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [isOpen, setIsOpen])
-
   const handleAiClose = () => {
     setAskAssistantClicked(false)
     setAiResponse("")

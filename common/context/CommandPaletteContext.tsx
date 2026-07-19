@@ -1,4 +1,10 @@
-import React, { createContext, useCallback, useMemo, useState } from "react"
+import React, {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react"
 
 interface CommandPaletteContextType {
   isOpen: boolean
@@ -21,6 +27,19 @@ export const CommandPaletteProvider = ({
 
   const setIsOpen = useCallback((open: boolean) => {
     setOpen(open)
+  }, [])
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault()
+        setOpen((prev) => !prev)
+      } else if (event.key === "Escape") {
+        setOpen(false)
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
   }, [])
 
   const value = useMemo(() => ({ isOpen, setIsOpen }), [isOpen, setIsOpen])

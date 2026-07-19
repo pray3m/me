@@ -1,5 +1,6 @@
 import { STACKS } from "@/common/constant/stacks"
-import { Badge, Marquee } from "@/components/ds"
+import { Badge } from "@/components/ds/badge"
+import Marquee from "@/components/ds/marquee"
 import { cn } from "@/lib/utils"
 
 const seededRandom = (seed: number) => {

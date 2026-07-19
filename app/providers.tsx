@@ -6,7 +6,7 @@ import { domAnimation, LazyMotion, MotionConfig } from "framer-motion"
 import { ThemeProvider } from "next-themes"
 import { useEffect, useState } from "react"
 import { CommandPaletteProvider } from "@/common/context/CommandPaletteContext"
-import CommandPalette from "@/components/blocks/CommandPalette"
+import CommandPaletteMount from "@/components/blocks/CommandPaletteMount"
 
 export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(
@@ -36,7 +36,7 @@ export function ProvidersSandwich({ children }: { children: React.ReactNode }) {
           <CommandPaletteProvider>
             <QueryClientProvider client={queryClient}>
               {children}
-              <CommandPalette />
+              <CommandPaletteMount />
               {mounted && process.env.NODE_ENV === "development" && (
                 <ReactQueryDevtools initialIsOpen={false} />
               )}

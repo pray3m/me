@@ -7,7 +7,7 @@ interface Props {
 
 const EmptyState: FC<Props> = ({ message }) => {
   return (
-    <div className="flex flex-col items-center justify-center space-y-1 py-3 text-neutral-400 dark:text-neutral-500">
+    <div className="flex flex-col items-center justify-center space-y-1 py-3 text-muted-foreground">
       <Inbox size={48} />
       <p>{message}</p>
     </div>
