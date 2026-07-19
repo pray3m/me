@@ -34,7 +34,7 @@ const Contributions = async () => {
         <Link
           href={"https://github.com/pray3m"}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           passHref
           className="font-mono text-muted-foreground text-sm hover:text-foreground"
         >

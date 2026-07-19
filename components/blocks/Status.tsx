@@ -8,7 +8,7 @@ const Status: FC = () => {
     <a
       href="https://pikeah.com"
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener"
       className="group inline-flex items-center gap-1.5 rounded-full border border-border bg-card/60 py-1 pr-2.5 pl-2 text-sm transition-colors hover:border-foreground/20 hover:bg-muted"
     >
       <span className="relative flex size-1.5" aria-hidden="true">

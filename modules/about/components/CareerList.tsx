@@ -22,6 +22,7 @@ const CareerList = () => {
             href={RESUME_URL}
             passHref
             target="_blank"
+            rel="noopener"
             className="flex items-center gap-2 text-muted-foreground transition-all duration-300 hover:gap-3 hover:text-foreground"
           >
             <LuDownload /> <span>Download Resume</span>

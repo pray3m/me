@@ -49,7 +49,7 @@ const Contact: FC = () => {
               <a
                 href={contact.link}
                 {...(contact.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  ? { target: "_blank", rel: "noopener" }
                   : {})}
               />
             }

@@ -26,7 +26,7 @@ function SocialLinks({ list }: { list: MenuItemProps[] }) {
             key={item.href}
             href={item.href}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             aria-label={item.title}
             title={item.title}
             className="inline-flex size-9 items-center justify-center rounded-lg text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"

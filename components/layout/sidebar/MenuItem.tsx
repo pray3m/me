@@ -71,7 +71,7 @@ const MenuItem: FC<MenuItemProps> = ({
     <Link
       href={href}
       target={isExternalUrl ? "_blank" : ""}
-      rel={isExternalUrl ? "noopener noreferrer" : undefined}
+      rel={isExternalUrl ? "noopener" : undefined}
       onClick={handleClick}
       className="block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >

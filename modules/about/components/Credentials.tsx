@@ -28,6 +28,7 @@ const Credentials: FC = () => {
             href={credential.link || "#"}
             key={index}
             target="_blank"
+            rel="noopener"
             className="group"
           >
             <Card className="h-full space-y-2 border border-border px-6 py-4 transition-all duration-300 lg:hover:scale-[102%]">

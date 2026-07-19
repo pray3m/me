@@ -19,7 +19,7 @@ const NowPlayingBar = () => {
   })
 
   const handleOpenSongUrl = (url?: string) => {
-    url && window.open(url, "_blank")
+    url && window.open(url, "_blank", "noopener")
   }
 
   return (

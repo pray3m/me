@@ -84,11 +84,14 @@ export default function CommandPalette() {
   const menuOptions: MenuOptionProps[] = [
     {
       title: "PAGES",
-      children: MENU_ITEMS?.map((menu) => ({ ...menu, closeOnSelect: true })),
+      children: MENU_ITEMS?.filter((menu) => menu.isShow).map((menu) => ({
+        ...menu,
+        closeOnSelect: true,
+      })),
     },
     {
       title: "EXTERNAL LINKS",
-      children: EXTERNAL_LINKS?.map((menu) => ({
+      children: EXTERNAL_LINKS?.filter((menu) => menu.isShow).map((menu) => ({
         ...menu,
         closeOnSelect: true,
       })),
@@ -139,7 +142,7 @@ export default function CommandPalette() {
     }
 
     if (menu.isExternal) {
-      window.open(menu.href, "_blank")
+      window.open(menu.href, "_blank", "noopener")
     } else {
       router.push(menu.href as string)
     }
@@ -147,7 +150,7 @@ export default function CommandPalette() {
 
   const handleFindGoogle = () => {
     const url = `https://www.google.com/search?q=${queryDebounce}&ref=premgautam.me`
-    window.open(url, "_blank")
+    window.open(url, "_blank", "noopener")
   }
 
   const handleAskAiAssistant = async () => {

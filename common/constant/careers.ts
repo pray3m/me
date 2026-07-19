@@ -48,6 +48,6 @@ export const CAREERS = [
     start_date: "2024-08",
     end_date: "2024-11",
     industry: "software",
-    link: "https://novaloop.com.co/en",
+    link: "",
   },
 ]

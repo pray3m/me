@@ -16,7 +16,7 @@ const BlogList: FC = () => {
           <a
             href="https://github.com/pray3m"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener"
             className="underline hover:text-foreground"
           >
             GitHub

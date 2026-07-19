@@ -41,7 +41,7 @@ const ProjectLink: React.FC<ProjectLinkProps> = ({
 
 const LinkComponent = ({ icon, text, url }: LinkComponentProps) => {
   return (
-    <Link href={url} target="_blank" rel="noopener noreferrer">
+    <Link href={url} target="_blank" rel="noopener">
       <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 font-medium text-muted-foreground transition-colors hover:text-foreground">
         {icon}
 
