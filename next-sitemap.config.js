@@ -21,6 +21,12 @@ module.exports = {
     "/projects/*/opengraph-image",
   ],
   changefreq: "weekly",
+  // No lastmod. The build-time timestamp this defaults to would claim every
+  // page changed on every deploy, and Google discounts the field on sites that
+  // do that. Git dates are no better here: Vercel shallow-clones, and all nine
+  // project pages come from one data file, so they'd share a date regardless of
+  // which project was edited. Better to say nothing than something false.
+  autoLastmod: false,
   // Rank the pages that matter above the rest: home first, then the work under
   // /projects, everything else default.
   transform: async (config, path) => ({
@@ -32,6 +38,5 @@ module.exports = {
         : path === "/projects" || path.startsWith("/projects/")
           ? 0.8
           : 0.6,
-    lastmod: new Date().toISOString(),
   }),
 }
