@@ -1,17 +1,13 @@
-import site from "./site.json"
-
 /**
  * Single source of truth for site-wide SEO. To reuse this module in another
- * project, edit the fields below — and `site.json` for the URL, which is shared
- * with `next-sitemap.config.js` (a CommonJS file that can't import this one).
- * `SITE_URL` env var overrides the URL in both places.
+ * project, edit the fields below. The `SITE_URL` env var overrides the URL.
  */
 export const siteConfig = {
   name: "Prem Gautam",
   title: "Prem Gautam · Full-Stack Engineer · AI-Driven Product Builder",
   description:
     "Personal site of Prem Gautam, also known online as pray3m — a full-stack engineer who builds and ships production SaaS end to end.",
-  url: process.env.SITE_URL ?? site.url,
+  url: process.env.SITE_URL ?? "https://premgautam.me",
   locale: "en_US",
   jobTitle: "Full-Stack Engineer",
   twitterHandle: "@pray3m_",

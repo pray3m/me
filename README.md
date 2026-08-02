@@ -46,7 +46,7 @@ Requires Node 24 and pnpm.
 ### Scripts
 
 ```bash
-pnpm build        # production build (postbuild runs next-sitemap)
+pnpm build        # production build
 pnpm start        # serve the production build
 
 pnpm lint         # biome check .

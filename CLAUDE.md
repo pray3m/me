@@ -10,7 +10,7 @@ Personal portfolio site `premgautam.me` — Next.js 16 (App Router), React 19, T
 
 ```bash
 pnpm dev           # next dev --turbo
-pnpm build         # next build (postbuild runs next-sitemap)
+pnpm build         # next build
 pnpm start         # serve production build
 
 pnpm lint          # biome check .            (lint + format check)

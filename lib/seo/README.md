@@ -8,8 +8,7 @@ Open Graph, and Twitter tags so they can't drift apart.
 
 | File | Exports | Role |
 | --- | --- | --- |
-| `config.ts` | `siteConfig`, `siteName` | Edit this when reusing the module: site name, default title/description, socials, twitter handle. |
-| `site.json` | (data) | Holds the URL only. Shared with `next-sitemap.config.js`, which is CommonJS and can't import `config.ts`. `SITE_URL` env overrides it. |
+| `config.ts` | `siteConfig`, `siteName` | Edit this when reusing the module: URL, site name, default title/description, socials, twitter handle. `SITE_URL` env overrides the URL. |
 | `metadata.ts` | `rootMetadata`, `createMetadata()` | `rootMetadata` = the set-once layout metadata (metadataBase, title template, robots defaults). `createMetadata()` = per-page factory. |
 | `structured-data.ts` | `rootGraph()`, `breadcrumbSchema()` | JSON-LD builders. `rootGraph` = Person + WebSite. `breadcrumbSchema` = a BreadcrumbList. |
 | `json-ld.tsx` | `JsonLd` | Renders a `<script type="application/ld+json">`. The single place that uses `dangerouslySetInnerHTML`. |
@@ -81,7 +80,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 ## Reusing in another project
 
 1. Copy the `lib/seo/` folder.
-2. Edit `config.ts` (fields) and `site.json` (the URL).
+2. Edit `config.ts` — fields and the URL.
 3. Use `rootMetadata` + `<JsonLd data={rootGraph()} />` in the layout, and
    `createMetadata()` on pages.
 
