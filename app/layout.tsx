@@ -1,7 +1,7 @@
 import type { Viewport } from "next"
 import { geistMono, onestSans } from "@/common/styles/fonts"
 import Layout from "@/components/layout"
-import { JsonLd, rootGraph, rootMetadata } from "@/lib/seo"
+import { rootMetadata } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 import "./globals.css"
 import Script from "next/script"
@@ -32,7 +32,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="preconnect" href="https://cloud.umami.is" />
-        <JsonLd data={rootGraph()} />
         {/* Paper grain lives on body::after in globals.css. */}
         <ProvidersSandwich>
           <Layout>{children}</Layout>

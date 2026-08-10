@@ -4,9 +4,9 @@
  */
 export const siteConfig = {
   name: "Prem Gautam",
-  title: "Prem Gautam · Full-Stack Engineer · AI-Driven Product Builder",
+  title: "Prem Gautam (pray3m) | Full-Stack Engineer",
   description:
-    "Personal site of Prem Gautam, also known online as pray3m — a full-stack engineer who builds and ships production SaaS end to end.",
+    "I design and build web products across the full stack, from rough idea to production.",
   url: process.env.SITE_URL ?? "https://premgautam.me",
   locale: "en_US",
   jobTitle: "Full-Stack Engineer",
@@ -24,5 +24,6 @@ export const siteConfig = {
   },
 } as const
 
-/** `Site Name Portfolio` style label used for openGraph.siteName. */
-export const siteName = `${siteConfig.name} Portfolio`
+export const siteName = siteConfig.name
+
+export const siteAlternateNames = ["pray3m", "premgautam.me"] as const

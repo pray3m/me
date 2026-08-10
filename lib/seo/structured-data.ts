@@ -1,4 +1,4 @@
-import { siteConfig, siteName } from "./config"
+import { siteAlternateNames, siteConfig, siteName } from "./config"
 
 const PERSON_ID = `${siteConfig.url}/#person`
 const WEBSITE_ID = `${siteConfig.url}/#website`
@@ -44,6 +44,7 @@ function websiteSchema() {
     "@id": WEBSITE_ID,
     url: siteConfig.url,
     name: siteName,
+    alternateName: siteAlternateNames,
     description: siteConfig.description,
     publisher: { "@id": PERSON_ID },
   }
@@ -63,7 +64,7 @@ function profilePageSchema() {
   }
 }
 
-/** Site-wide graph — render once in the root layout. */
+/** Homepage identity graph — render only on the domain root page. */
 export function rootGraph() {
   return {
     "@context": "https://schema.org",
