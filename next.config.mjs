@@ -16,9 +16,6 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    viewTransition: true,
-  },
 }
 
 let config = nextConfig

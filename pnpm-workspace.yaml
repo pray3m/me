@@ -1,9 +1,6 @@
-# pnpm 11 replaced `onlyBuiltDependencies` with `allowBuilds` (name -> boolean).
-# sharp = native image lib used by Next.js image optimization, must build.
 allowBuilds:
   msw: true
   sharp: true
-
 overrides:
-  '@types/react': 19.2.14
-  '@types/react-dom': 19.2.3
+  '@types/react': 19.2.18
+  '@types/react-dom': 19.2.4
