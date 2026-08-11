@@ -27,3 +27,12 @@ export const siteConfig = {
 export const siteName = siteConfig.name
 
 export const siteAlternateNames = ["pray3m", "premgautam.me"] as const
+
+/** Shared social card used when a route does not define a more specific one. */
+export const defaultSocialImage = {
+  path: "/opengraph-image",
+  alt: "Prem Gautam · Full-Stack Engineer · AI-Driven Product Builder",
+  width: 1200,
+  height: 630,
+  type: "image/png",
+} as const

@@ -21,26 +21,34 @@ const shuffleBySeed = <T,>(items: readonly T[], seed: number) => {
   return shuffled
 }
 
-const rows = [
+const rowSettings = [
   {
-    stacks: shuffleBySeed(STACKS, 1),
-    duration: "80s",
+    id: "forward",
+    duration: "32s",
     delay: "0s",
     reverse: false,
   },
   {
-    stacks: shuffleBySeed(STACKS, 2),
-    duration: "100s",
+    id: "reverse",
+    duration: "38s",
     delay: "-30s",
     reverse: true,
   },
   {
-    stacks: shuffleBySeed(STACKS, 3),
-    duration: "90s",
+    id: "offset",
+    duration: "35s",
     delay: "-55s",
     reverse: false,
   },
 ] as const
+
+const shuffledStacks = shuffleBySeed(STACKS, 1)
+const rows = rowSettings.map((settings, rowIndex) => ({
+  ...settings,
+  stacks: shuffledStacks.filter(
+    (_, stackIndex) => stackIndex % rowSettings.length === rowIndex
+  ),
+}))
 
 function SkillBadge({ skill }: { skill: (typeof STACKS)[number] }) {
   const Icon = skill.icon
@@ -67,9 +75,9 @@ const Skills = () => {
         aria-hidden="true"
         className="mask-[linear-gradient(90deg,transparent,black_12%,black_88%,transparent)] flex w-full flex-col gap-4 overflow-hidden py-2"
       >
-        {rows.map((row, rowIndex) => (
+        {rows.map((row) => (
           <Marquee
-            key={rowIndex}
+            key={row.id}
             duration={row.duration}
             delay={row.delay}
             reverse={row.reverse}

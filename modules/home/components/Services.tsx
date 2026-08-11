@@ -22,18 +22,25 @@ const Services: FC = () => {
           A few of the companies and products I&apos;ve worked on:
         </p>
       </div>
-      <Marquee className="pt-5" duration="20s">
-        {LOGO_LOOP.map((image, index) => (
-          <Image
-            key={`${image.src}-${index}`}
-            src={image.src}
-            alt={image.alt}
-            width={76}
-            height={76}
-            className="size-16 rounded-full bg-card p-3 shadow-xs sm:size-[76px]"
-          />
+      <ul className="sr-only">
+        {CLIENT_IMAGES.map((image) => (
+          <li key={image.src}>{image.alt}</li>
         ))}
-      </Marquee>
+      </ul>
+      <div aria-hidden="true">
+        <Marquee className="pt-5" duration="20s">
+          {LOGO_LOOP.map((image, index) => (
+            <Image
+              key={`${image.src}-${index}`}
+              src={image.src}
+              alt=""
+              width={76}
+              height={76}
+              className="size-16 rounded-full bg-card p-3 shadow-xs sm:size-[76px]"
+            />
+          ))}
+        </Marquee>
+      </div>
       <div className="space-y-4 rounded-xl border bg-muted p-8 dark:border-none">
         <div className="flex items-center gap-1">
           <Send size={28} className="pt-1" />

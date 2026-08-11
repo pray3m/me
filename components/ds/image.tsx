@@ -9,10 +9,10 @@ type ImageProps = {
 } & NextImageProps
 
 const Image = (props: ImageProps) => {
-  const { alt, src, className, rounded, priority, loading, quality, ...rest } =
+  const { alt, src, className, rounded, preload, loading, quality, ...rest } =
     props
 
-  const [isLoading, setLoading] = React.useState(!priority)
+  const [isLoading, setLoading] = React.useState(!preload)
 
   return (
     <div
@@ -32,8 +32,8 @@ const Image = (props: ImageProps) => {
         )}
         src={src}
         alt={alt}
-        priority={priority}
-        loading={priority ? undefined : (loading ?? "lazy")}
+        preload={preload}
+        loading={preload ? undefined : (loading ?? "lazy")}
         quality={quality ?? 75}
         onLoad={() => setLoading(false)}
         {...rest}

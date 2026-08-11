@@ -3,13 +3,12 @@ import { FC } from "react"
 import Card from "@/components/ds/card"
 import Image from "@/components/ds/image"
 
-const ProjectCard: FC<Project & { priority?: boolean }> = ({
+const ProjectCard: FC<Project> = ({
   title,
   slug,
   description,
   image,
   stacks,
-  priority = false,
 }) => {
   return (
     <Link href={`/projects/${slug}`}>
@@ -21,7 +20,6 @@ const ProjectCard: FC<Project & { priority?: boolean }> = ({
             fill
             className="object-cover object-top"
             sizes="(max-width: 640px) 100vw, 50vw"
-            priority={priority}
             quality={75}
           />
         </div>

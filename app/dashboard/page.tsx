@@ -3,10 +3,12 @@ import PageHeading from "@/components/ds/page-heading"
 import { createMetadata } from "@/lib/seo"
 import Dashboard from "@/modules/dashboard/components/Dashboard"
 
+export const revalidate = 3600
+
 export const metadata = createMetadata({
   title: "Dashboard",
   description:
-    "A live look at Prem Gautam's coding activity — GitHub, WakaTime, and Spotify stats, served via Next.js serverless functions.",
+    "A regularly refreshed view of Prem Gautam's coding activity, contributions, and day-to-day tools.",
   path: "/dashboard",
 })
 
@@ -15,7 +17,7 @@ const DashboardPage = () => {
     <Container>
       <PageHeading
         title="Dashboard"
-        subtitle="This is my personal dashboard, built with Next.js API routes deployed as serverless functions."
+        subtitle="My coding activity and contributions, refreshed throughout the day."
       />
       <Dashboard />
     </Container>

@@ -25,7 +25,6 @@ const ProfileHeader: FC<ProfileHeaderProps> = ({
         height={imageSize}
         rounded="rounded-2xl"
         className="shadow-sm ring-1 ring-border lg:hover:scale-105"
-        priority
       />
       {variant === "compact" ? (
         <Link

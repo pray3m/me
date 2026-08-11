@@ -36,6 +36,7 @@ export async function generateMetadata({
     description: project.description,
     path: `/projects/${slug}`,
     type: "article",
+    socialImage: "route",
   })
 }
 

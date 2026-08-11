@@ -25,14 +25,8 @@ import { siteConfig } from "@/lib/seo"
  */
 const absoluteUrl = (path: string) => `${siteConfig.url}${path}`
 
-/** Ranked above the rest: home first, then the work. Home is "" — see above. */
-const STATIC_ROUTES: Array<{ path: string; priority: number }> = [
-  { path: "", priority: 1 },
-  { path: "/projects", priority: 0.8 },
-  { path: "/about", priority: 0.6 },
-  { path: "/contact", priority: 0.6 },
-  { path: "/dashboard", priority: 0.6 },
-]
+/** Canonical indexable routes. Home is "" — see above. */
+const STATIC_ROUTES = ["", "/projects", "/about", "/contact", "/dashboard"]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Same filter as generateStaticParams in /projects/[slug], so a hidden
@@ -40,16 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const projectRoutes = PROJECTS.filter((project) => project.is_visible).map(
     (project) => ({
       url: absoluteUrl(`/projects/${project.slug}`),
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
     })
   )
 
   return [
-    ...STATIC_ROUTES.map(({ path, priority }) => ({
+    ...STATIC_ROUTES.map((path) => ({
       url: absoluteUrl(path),
-      changeFrequency: "weekly" as const,
-      priority,
     })),
     ...projectRoutes,
   ]

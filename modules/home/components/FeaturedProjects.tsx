@@ -30,8 +30,8 @@ const FeaturedProjects = () => {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        {featuredProjects.map((project, index) => (
-          <ProjectCard key={project.slug} {...project} priority={index === 0} />
+        {featuredProjects.map((project) => (
+          <ProjectCard key={project.slug} {...project} />
         ))}
       </div>
     </section>

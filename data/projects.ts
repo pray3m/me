@@ -221,7 +221,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "freelanceX",
-    slug: "freelanceX",
+    slug: "freelancex",
     description:
       "A freelance marketplace where sellers list gigs and buyers order services, with real-time chat, Stripe payments, ratings, and reviews.",
     image: "/images/projects/freelancex.png",

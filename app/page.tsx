@@ -3,7 +3,7 @@ import Container from "@/components/ds/container"
 import { createMetadata, JsonLd, rootGraph } from "@/lib/seo"
 import Home from "@/modules/home/components/Home"
 
-export const metadata = createMetadata({ path: "/" })
+export const metadata = createMetadata({ path: "/", socialImage: "route" })
 
 const HomePage: NextPage = () => {
   return (

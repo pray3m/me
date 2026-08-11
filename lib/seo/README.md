@@ -8,7 +8,7 @@ Open Graph, and Twitter tags so they can't drift apart.
 
 | File | Exports | Role |
 | --- | --- | --- |
-| `config.ts` | `siteConfig`, `siteName` | Edit this when reusing the module: URL, site name, default title/description, socials, twitter handle. `SITE_URL` env overrides the URL. |
+| `config.ts` | `siteConfig`, `siteName`, `defaultSocialImage` | Edit this when reusing the module: URL, site name, default title/description, socials, twitter handle, and shared social card. `SITE_URL` env overrides the URL. |
 | `metadata.ts` | `rootMetadata`, `createMetadata()` | `rootMetadata` = the set-once layout metadata (metadataBase, title template, robots defaults). `createMetadata()` = per-page factory. |
 | `structured-data.ts` | `rootGraph()`, `breadcrumbSchema()` | JSON-LD builders. `rootGraph` = Person + WebSite. `breadcrumbSchema` = a BreadcrumbList. |
 | `json-ld.tsx` | `JsonLd` | Renders a `<script type="application/ld+json">`. The single place that uses `dangerouslySetInnerHTML`. |
@@ -58,6 +58,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     description: project.description,
     path: `/projects/${slug}`,
     type: "article",
+    socialImage: "route",
   })
 }
 
@@ -76,6 +77,8 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 - `path?` — canonical path, e.g. `/about`. Defaults to `/`.
 - `type?` — `"website"` (default) or `"article"`.
 - `noIndex?` — when true, emits `robots: noindex, follow`.
+- `socialImage?` — `"shared"` (default), or `"route"` when the route has a
+  colocated `opengraph-image` file.
 
 ## Reusing in another project
 
@@ -86,10 +89,12 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 
 ## Notes
 
-- This module does **not** generate OG images. Those come from Next's
-  `opengraph-image` file convention (`app/opengraph-image.tsx`,
-  `app/projects/[slug]/opengraph-image.tsx`); Next merges the resulting
-  `og:image` / `twitter:image` tags in automatically.
+- Generated OG images come from Next's `opengraph-image` file convention
+  (`app/opengraph-image.tsx`, `app/projects/[slug]/opengraph-image.tsx`).
+  `createMetadata()` explicitly carries the shared image into child routes
+  because Next shallowly replaces nested `openGraph` and `twitter` objects.
+  Routes with their own image file pass `socialImage: "route"` so the file
+  convention can supply its generated URL and metadata.
 - `metadataBase` (set in `rootMetadata`) is what lets `path` be relative.
 - The title `template` applies to the `<title>` only, not to `og:title`.
 - A page's `openGraph` from `createMetadata` replaces the layout's `openGraph`

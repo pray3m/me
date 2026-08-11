@@ -1,8 +1,7 @@
-import { siteConfig } from "@/lib/seo"
+import { defaultSocialImage, siteConfig } from "@/lib/seo/config"
 import { OG_CONTENT_TYPE, OG_SIZE, renderOgImage } from "@/lib/seo/og"
 
-export const alt =
-  "Prem Gautam · Full-Stack Engineer · AI-Driven Product Builder"
+export const alt = defaultSocialImage.alt
 export const size = OG_SIZE
 export const contentType = OG_CONTENT_TYPE
 

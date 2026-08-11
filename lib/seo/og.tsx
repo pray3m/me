@@ -1,10 +1,14 @@
 import { readFile } from "node:fs/promises"
 import { join } from "node:path"
 import { ImageResponse } from "next/og"
+import { defaultSocialImage } from "./config"
 
 /** Standard Open Graph image dimensions and type, shared by all OG routes. */
-export const OG_SIZE = { width: 1200, height: 630 }
-export const OG_CONTENT_TYPE = "image/png"
+export const OG_SIZE = {
+  width: defaultSocialImage.width,
+  height: defaultSocialImage.height,
+}
+export const OG_CONTENT_TYPE = defaultSocialImage.type
 
 const COLORS = {
   bg: "linear-gradient(135deg, #0b0b10 0%, #14141c 100%)",

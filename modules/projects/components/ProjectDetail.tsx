@@ -34,7 +34,7 @@ const ProjectDetail: FC<Project> = ({
           height={675}
           alt={`${title} project preview`}
           className="aspect-video w-full object-cover object-top"
-          priority
+          preload
           quality={75}
         />
       </div>
