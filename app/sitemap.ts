@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/seo"
  *
  * Routes are listed *explicitly* rather than crawled-then-excluded: a new page
  * stays out of the sitemap until someone decides it belongs there, which is the
- * safer default. /blog and /design are noindex, and the icon/manifest/OG routes
+ * safer default. /blog and /design are noindex, and the icon/manifest/OG/llms.txt routes
  * are assets, so none of them appear here.
  *
  * No `lastModified`. The build timestamp it would default to claims every page

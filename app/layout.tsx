@@ -32,6 +32,8 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="preconnect" href="https://cloud.umami.is" />
+        {/* Machine-readable profile for AI agents; nothing discovers /llms.txt on its own, so link to it (see app/llms.txt/route.ts). */}
+        <link rel="llms-txt" href="/llms.txt" type="text/plain" />
         {/* Paper grain lives on body::after in globals.css. */}
         <ProvidersSandwich>
           <Layout>{children}</Layout>
