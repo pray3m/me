@@ -10,7 +10,7 @@ const BackButton: FC<Props> = ({ url }) => {
     <div className="w-fit">
       <Link href={url} passHref>
         <div className="flex w-max items-center gap-1 pb-5 font-medium text-neutral-600 transition-all duration-300 hover:gap-2 dark:text-neutral-400">
-          <ArrowLeft size={32} />
+          <ArrowLeft size={20} />
           <span>Back</span>
         </div>
       </Link>

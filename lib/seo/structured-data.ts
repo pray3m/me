@@ -1,4 +1,13 @@
+import { STACKS } from "@/common/constant/stacks"
 import { siteAlternateNames, siteConfig, siteName } from "./config"
+
+const KNOWS_ABOUT_DOMAINS = [
+  "Full-stack web development",
+  "SaaS products",
+  "Browser extensions",
+  "LinkedIn automation",
+  "AI-assisted products",
+]
 
 const PERSON_ID = `${siteConfig.url}/#person`
 const WEBSITE_ID = `${siteConfig.url}/#website`
@@ -24,15 +33,7 @@ function personSchema() {
       addressLocality: siteConfig.location.city,
       addressCountry: siteConfig.location.country,
     },
-    knowsAbout: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Node.js",
-      "NestJS",
-      "PostgreSQL",
-      "Docker",
-    ],
+    knowsAbout: [...KNOWS_ABOUT_DOMAINS, ...STACKS.map((stack) => stack.name)],
     image: `${siteConfig.url}/images/prem.jpg`,
     sameAs: Object.values(siteConfig.socials),
   }

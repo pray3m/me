@@ -25,9 +25,7 @@ const ProjectCard: FC<Project> = ({
         </div>
         <div className="space-y-2 p-5">
           <div className="flex justify-between">
-            <div className="cursor-pointer font-medium text-lg text-muted-foreground">
-              {title}
-            </div>
+            <h3 className="font-medium text-foreground text-lg">{title}</h3>
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed">
             {description}

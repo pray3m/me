@@ -62,8 +62,7 @@ const WhoAmI: FC = () => {
               stuff that looks great and just works.
             </p>
             <p className="text-base text-neutral-300 leading-relaxed">
-              Always learning, always building. Let&apos;s make something
-              awesome together!
+              Let&apos;s make something awesome together!
             </p>
           </div>
 

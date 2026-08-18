@@ -25,6 +25,24 @@ const ProjectDetail: FC<Project> = ({
   ].filter((section) => section.body)
   const hasProjectLinks = Boolean(link_demo || link_github)
 
+  const RoleAndLinks = () => (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 lg:gap-5">
+      <div className="rounded-xl border border-border bg-muted p-4">
+        <p className="text-muted-foreground text-sm">Role</p>
+        <p className="mt-1 font-medium">{role ?? "Full-stack builder"}</p>
+      </div>
+
+      {hasProjectLinks && (
+        <div className="rounded-xl border border-border bg-muted p-4">
+          <p className="text-muted-foreground text-sm">Links</p>
+          <div className="mt-3">
+            <ProjectLink link_demo={link_demo} link_github={link_github} />
+          </div>
+        </div>
+      )}
+    </div>
+  )
+
   return (
     <article className="space-y-8">
       <div className="overflow-hidden rounded-xl border border-border bg-card">
@@ -37,6 +55,10 @@ const ProjectDetail: FC<Project> = ({
           preload
           quality={75}
         />
+      </div>
+
+      <div className="lg:hidden">
+        <RoleAndLinks />
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem]">
@@ -57,19 +79,9 @@ const ProjectDetail: FC<Project> = ({
         </div>
 
         <aside className="space-y-5">
-          <div className="rounded-xl border border-border bg-muted p-4">
-            <p className="text-muted-foreground text-sm">Role</p>
-            <p className="mt-1 font-medium">{role ?? "Full-stack builder"}</p>
+          <div className="hidden space-y-5 lg:block">
+            <RoleAndLinks />
           </div>
-
-          {hasProjectLinks && (
-            <div className="rounded-xl border border-border bg-muted p-4">
-              <p className="text-muted-foreground text-sm">Links</p>
-              <div className="mt-3">
-                <ProjectLink link_demo={link_demo} link_github={link_github} />
-              </div>
-            </div>
-          )}
 
           <div className="rounded-xl border border-border bg-muted p-4">
             <p className="text-muted-foreground text-sm">Stack</p>

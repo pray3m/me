@@ -4,7 +4,7 @@ import Profile from "@/components/layout/sidebar/Profile"
 
 const Sidebar = () => {
   return (
-    <div className="sticky top-0 z-10 flex flex-col lg:py-14">
+    <div className="sticky top-0 z-10 flex flex-col lg:max-h-screen lg:overflow-y-auto lg:py-14">
       <Profile />
 
       {/* Desktop-only nav; CSS-hidden on mobile so the shell still SSRs. */}

@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     is_visible: true,
   },
   {
-    title: "Cro-scan",
+    title: "CRO Scan",
     slug: "cro-scan",
     description:
       "An AI website-conversion auditor that analyzes a site and turns broad conversion advice into concrete, prioritized improvements.",
@@ -115,9 +115,9 @@ export const PROJECTS: Project[] = [
     constraints:
       "The system had to work in a 36-hour sprint, handle unreliable connectivity, avoid claiming fully automated enforcement, and stay useful as an investigation aid.",
     outcome:
-      "Team Infinity was selected among the top 20 teams to compete and shipped a complete operational demo loop for safety detection and vehicle investigation.",
+      "Team Infinity was one of 20 teams selected to compete in the onsite round and shipped a complete operational demo loop for safety detection and vehicle investigation.",
     metrics: [
-      "Top-20 selected team at Lumbini Province Police Hackathon 2026",
+      "One of 20 teams selected to compete at the Lumbini Province Police Hackathon 2026",
       "Backed by a comprehensive backend test suite",
       "5 dashboard tabs covering monitor, vehicle track, cameras, watchlist, and demo lab",
     ],
@@ -236,8 +236,11 @@ export const PROJECTS: Project[] = [
     constraints:
       "The app needed to cover both buyer and seller workflows while keeping the architecture understandable as a learning project.",
     outcome:
-      "Shipped a complete marketplace project that reached 18 stars on GitHub.",
-    metrics: ["18 stars on GitHub", "Buyer, seller, chat, and payment flows"],
+      "Shipped a complete marketplace project, open-sourced on GitHub, covering the full buyer and seller loop.",
+    metrics: [
+      "Open source with a public live demo",
+      "Buyer, seller, chat, and payment flows",
+    ],
     highlights: [
       "Stripe payment flow",
       "Real-time chat",

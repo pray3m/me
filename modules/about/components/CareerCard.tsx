@@ -30,7 +30,7 @@ const CareerCard: FC<CareerProps> = ({
       )}
 
       <div className="space-y-1">
-        <h6> {position}</h6>
+        <h3 className="font-medium">{position}</h3>
         <div className="space-y-2 text-muted-foreground text-sm">
           <div className="flex items-center gap-1 md:gap-2">
             {link ? (

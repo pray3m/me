@@ -27,22 +27,23 @@ const Greeting: FC = () => {
   }, [])
 
   const greeting = GREETINGS[index]
-
-  // Name group is block on mobile so long greetings (Bonjour, नमस्ते) drop it to
-  // their own line as one unit; inline on desktop where the whole line fits.
   return (
     <h1 className="font-semibold text-2xl tracking-normal lg:text-3xl">
       <span
         key={index}
         lang={greeting.lang}
         dir={greeting.rtl ? "rtl" : "ltr"}
+        aria-hidden="true"
         className="fade-in-0 slide-in-from-bottom-1 inline-block animate-in duration-500"
       >
         {greeting.text},
       </span>{" "}
       <span className="block whitespace-nowrap lg:inline">
         I&apos;m Prem Gautam.{" "}
-        <span className="inline-block origin-[70%_70%] animate-waving-hand">
+        <span
+          aria-hidden="true"
+          className="inline-block origin-[70%_70%] animate-waving-hand"
+        >
           👋
         </span>
       </span>

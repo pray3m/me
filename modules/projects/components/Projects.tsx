@@ -18,9 +18,9 @@ const Projects: FC = () => {
       {filteredProjects.map((project, index: number) => (
         <m.div
           key={project.slug}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: index * 0.1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.25, delay: Math.min(index * 0.05, 0.3) }}
         >
           <ProjectCard {...project} />
         </m.div>

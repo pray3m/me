@@ -33,7 +33,7 @@ const Credentials: FC = () => {
           >
             <Card className="h-full space-y-2 border border-border px-6 py-4 transition-all duration-300 lg:hover:scale-[102%]">
               <div className="flex items-start justify-between gap-2">
-                <h6 className="font-medium">{credential.title}</h6>
+                <h3 className="font-medium">{credential.title}</h3>
                 <LuArrowUpRight className="shrink-0 text-muted-foreground transition-all group-hover:text-foreground" />
               </div>
               <div className="flex items-center gap-2 text-muted-foreground text-sm">
