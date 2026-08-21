@@ -15,7 +15,7 @@
 - External calls use `fetch` / `resilientFetch`; `axios`, `moment`,
   `supercons`, Headless UI, and Emotion have already been removed.
 - Image config already enables AVIF and WebP in `next.config.mjs`.
-- Bundle analysis is available with `pnpm analyze`.
+- Bundle analysis is available with `bun analyze`.
 
 ## Recently Completed
 

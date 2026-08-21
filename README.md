@@ -36,22 +36,21 @@ Project content lives in [data/projects.ts](data/projects.ts) and drives `genera
 ## Getting Started
 
 ```bash
-pnpm install
+bun install    
 cp .env.example .env.local   # fill in the keys
-pnpm dev                     # http://localhost:3000
+bun dev                     # http://localhost:3000
 ```
 
-Requires Node 24 and pnpm.
+Requires Node 24 and Bun.
 
 ### Scripts
-
 ```bash
-pnpm build        # production build
-pnpm start        # serve the production build
+bun run build        # production build
+bun dev          # serve the production build
 
-pnpm lint         # biome check .
-pnpm lint:fix     # biome check --write .
-pnpm typecheck    # tsc --noEmit
+bun lint         # biome check .
+bun lint:fix     # biome check --write .
+bun typecheck    # tsc --noEmit
 ```
 
 Tooling is [Biome](https://biomejs.dev), not ESLint/Prettier. Husky runs Biome on staged files pre-commit and commitlint (Conventional Commits) on the message.
