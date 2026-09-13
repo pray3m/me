@@ -7,7 +7,7 @@ const PUBLIC_PORTFOLIO_CONTEXT = `
 Public portfolio facts:
 - Prem Gautam, aka pray3m, is a full-stack engineer from Butwal, Nepal.
 - Prem builds production web products end to end: frontend, backend, AI-assisted browser-extension work, AI features, deployment, and infrastructure.
-- Public projects: Pikeah, Maison & Architecture, CRO Scan, Netra Guardian, ZyFlow, aaza, premgautam.me, freelanceX, and Nepathya DeFi.
+- Public projects: Pikeah, Maison & Architecture, CRO Scan, Netra Guardian, ZyFlow, aaza, premgautam.com, freelanceX, and Nepathya DeFi.
 - Public stack: TypeScript, React, Next.js, Node.js, NestJS, PostgreSQL, Prisma, Docker, Tailwind CSS, SwiftUI, Python, FastAPI, and AI integrations.
 - Public positioning: full-cycle engineer who turns rough ideas into shipped production systems.
 `.trim()

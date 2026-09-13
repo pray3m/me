@@ -7,7 +7,7 @@ import StyleGuide from "@/modules/design/components/StyleGuide"
 export const metadata = createMetadata({
   title: "Design",
   description:
-    "The design system behind premgautam.me — color tokens, type scale, and components.",
+    "The design system behind premgautam.com — color tokens, type scale, and components.",
   path: "/design",
   noIndex: true,
 })

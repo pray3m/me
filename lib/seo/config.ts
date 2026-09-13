@@ -7,7 +7,7 @@ export const siteConfig = {
   title: "Prem Gautam (pray3m) | Full-Stack Engineer",
   description:
     "I design and build web products across the full stack, from rough idea to production.",
-  url: process.env.SITE_URL ?? "https://premgautam.me",
+  url: process.env.SITE_URL ?? "https://premgautam.com",
   locale: "en_US",
   jobTitle: "Full-Stack Engineer",
   twitterHandle: "@pray3m_",
@@ -26,7 +26,11 @@ export const siteConfig = {
 
 export const siteName = siteConfig.name
 
-export const siteAlternateNames = ["pray3m", "premgautam.me"] as const
+export const siteAlternateNames = [
+  "pray3m",
+  "premgautam.com",
+  "premgautam.me",
+] as const
 
 /** Shared social card used when a route does not define a more specific one. */
 export const defaultSocialImage = {

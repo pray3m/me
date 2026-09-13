@@ -2,7 +2,7 @@
 
 ## Project
 
-Personal portfolio site `premgautam.me` — Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4. Package manager is **bun** (Node 24). No test runner is configured.
+Personal portfolio site `premgautam.com` — Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4. Package manager is **bun** (Node 24). No test runner is configured.
 
 ## Commands
 

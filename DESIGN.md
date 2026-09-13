@@ -1,6 +1,6 @@
-# Design System — premgautam.me
+# Design System — premgautam.com
 
-> **Name:** premgautam.me design system · **Version:** 0.1 · **Source of truth:**
+> **Name:** premgautam.com design system · **Version:** 0.1 · **Source of truth:**
 > [app/globals.css](app/globals.css)
 >
 > The visual contract for the portfolio. A calm, "papered" surface with one

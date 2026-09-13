@@ -190,12 +190,12 @@ export const PROJECTS: Project[] = [
     is_visible: true,
   },
   {
-    title: "premgautam.me",
+    title: "premgautam.com",
     slug: "portfolio",
     description:
       "This site: a personal portfolio with projects, career history, live dashboard data, SEO metadata, and an AI command palette.",
     image: "/images/projects/portfolio.svg",
-    link_demo: "https://premgautam.me",
+    link_demo: "https://premgautam.com",
     link_github: "https://github.com/pray3m/me",
     stacks: ["Next.js", "TypeScript", "Tailwind CSS", "React Query", "OpenAI"],
     role: "Designer and full-stack maintainer",

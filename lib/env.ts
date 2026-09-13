@@ -21,7 +21,7 @@ const serverSchema = z.object({
   SPOTIFY_REFRESH_TOKEN: z.string().min(1),
   WAKATIME_API_KEY: z.string().min(1),
   GITHUB_READ_USER_TOKEN: z.string().min(1),
-  SITE_URL: z.url().default("https://premgautam.me"),
+  SITE_URL: z.url().default("https://premgautam.com"),
 })
 
 const clientSchema = z.object({

@@ -1,7 +1,7 @@
 # Architecture & Portfolio Roadmap
 
 > Current as of 2026-06-30. This is a living engineering roadmap for
-> `premgautam.me`, focused on improvements that make the site stronger as a
+> `premgautam.com`, focused on improvements that make the site stronger as a
 > portfolio and better as a learning project.
 
 ## Current Baseline

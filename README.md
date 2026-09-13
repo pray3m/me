@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>premgautam.me</h1>
+  <h1>premgautam.com</h1>
   <p>🔥 Personal website built with Next.js, TypeScript and Tailwind CSS</p>
 
   <p align="center">

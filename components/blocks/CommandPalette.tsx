@@ -149,7 +149,7 @@ export default function CommandPalette() {
   }
 
   const handleFindGoogle = () => {
-    const url = `https://www.google.com/search?q=${queryDebounce}&ref=premgautam.me`
+    const url = `https://www.google.com/search?q=${queryDebounce}&ref=premgautam.com`
     window.open(url, "_blank", "noopener")
   }
 

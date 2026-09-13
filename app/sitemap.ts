@@ -18,8 +18,8 @@ import { siteConfig } from "@/lib/seo"
 
 /**
  * Plain concatenation, not `new URL()` — the latter turns the home path into
- * `https://premgautam.me/` while `alternates.canonical` in `createMetadata`
- * resolves the same page to `https://premgautam.me`. Google treats those as one
+ * `https://premgautam.com/` while `alternates.canonical` in `createMetadata`
+ * resolves the same page to `https://premgautam.com`. Google treats those as one
  * URL, but a sitemap that disagrees with its own page's canonical is a needless
  * mixed signal. `siteConfig.url` carries no trailing slash.
  */
