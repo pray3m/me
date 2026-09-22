@@ -1,94 +1,37 @@
-import { STACKS } from "@/common/constant/stacks"
-import { Badge } from "@/components/ds/badge"
-import Marquee from "@/components/ds/marquee"
+import { STACK_GROUPS, type Stack } from "@/common/constant/stacks"
 import { cn } from "@/lib/utils"
 
-const seededRandom = (seed: number) => {
-  let value = seed
-  return () => {
-    value = (value * 1664525 + 1013904223) % 4294967296
-    return value / 4294967296
-  }
-}
-
-const shuffleBySeed = <T,>(items: readonly T[], seed: number) => {
-  const random = seededRandom(seed)
-  const shuffled = [...items]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-  return shuffled
-}
-
-const rowSettings = [
-  {
-    id: "forward",
-    duration: "32s",
-    delay: "0s",
-    reverse: false,
-  },
-  {
-    id: "reverse",
-    duration: "38s",
-    delay: "-30s",
-    reverse: true,
-  },
-  {
-    id: "offset",
-    duration: "35s",
-    delay: "-55s",
-    reverse: false,
-  },
-] as const
-
-const shuffledStacks = shuffleBySeed(STACKS, 1)
-const rows = rowSettings.map((settings, rowIndex) => ({
-  ...settings,
-  stacks: shuffledStacks.filter(
-    (_, stackIndex) => stackIndex % rowSettings.length === rowIndex
-  ),
-}))
-
-function SkillBadge({ skill }: { skill: (typeof STACKS)[number] }) {
+function SkillBadge({ skill }: { skill: Stack }) {
   const Icon = skill.icon
   return (
-    <Badge
-      variant="outline"
-      className="shrink-0 gap-2 rounded-full border-border bg-background px-5 py-4 font-medium text-[15px] text-foreground shadow-sm [&>svg]:size-5"
-    >
+    <div className="flex justify-center gap-2 rounded-full border-border bg-background px-3 py-2 text-center font-medium text-[13px] text-foreground hover:bg-primary/10 [&>svg]:size-4">
       <Icon className={cn(skill.className)} aria-hidden="true" />
       <span>{skill.name}</span>
-    </Badge>
+    </div>
   )
 }
 
 const Skills = () => {
   return (
-    <>
-      <ul className="sr-only">
-        {STACKS.map((skill) => (
-          <li key={skill.name}>{skill.name}</li>
-        ))}
-      </ul>
-      <div
-        aria-hidden="true"
-        className="mask-[linear-gradient(90deg,transparent,black_12%,black_88%,transparent)] flex w-full flex-col gap-4 overflow-hidden py-2"
-      >
-        {rows.map((row) => (
-          <Marquee
-            key={row.id}
-            duration={row.duration}
-            delay={row.delay}
-            reverse={row.reverse}
-          >
-            {row.stacks.map((skill) => (
-              <SkillBadge key={skill.name} skill={skill} />
+    <div className="flex flex-col gap-4">
+      {STACK_GROUPS.map((group) => (
+        <div
+          key={group.category}
+          className="relative rounded-xl border border-border px-4 pt-4 pb-3"
+        >
+          <h3 className="absolute top-0 right-3 -translate-y-1/2 bg-[#EDF4F9] px-1 font-medium font-mono text-[11px] text-muted-foreground uppercase tracking-widest dark:bg-[#0D1013]">
+            {group.category}
+          </h3>
+          <ul className="flex flex-wrap gap-2">
+            {group.stacks.map((skill) => (
+              <li key={skill.name}>
+                <SkillBadge skill={skill} />
+              </li>
             ))}
-          </Marquee>
-        ))}
-      </div>
-    </>
+          </ul>
+        </div>
+      ))}
+    </div>
   )
 }
 

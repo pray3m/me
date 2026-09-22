@@ -5,7 +5,7 @@ const SkillsSection = () => {
   return (
     <section className="space-y-5">
       <div className="space-y-3">
-        <SectionHeading title="Stack" />
+        <SectionHeading title="Skills" />
       </div>
       <Skills />
     </section>

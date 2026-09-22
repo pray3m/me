@@ -31,7 +31,7 @@ const FeaturedProjects = () => {
 
       <div className="grid gap-5 sm:grid-cols-2">
         {featuredProjects.map((project) => (
-          <ProjectCard key={project.slug} {...project} />
+          <ProjectCard key={project.slug} {...project} stackVariant="icons" />
         ))}
       </div>
     </section>

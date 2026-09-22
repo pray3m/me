@@ -1,64 +1,58 @@
-import type { IconType } from "react-icons"
-import { BsRobot } from "react-icons/bs"
 import {
-  SiDocker,
-  SiExpress,
-  SiFirebase,
-  SiGit,
-  SiGithub,
-  SiGraphql,
-  SiJavascript,
-  SiMongodb,
-  SiMysql,
-  SiNestjs,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiOpenapiinitiative,
-  SiPostgresql,
-  SiPrisma,
-  SiPython,
-  SiReact,
-  SiShadcnui,
-  SiSupabase,
-  SiTailwindcss,
-  SiTypescript,
-  SiVite,
-  SiWxt,
-} from "react-icons/si"
+  STACK_ICONS,
+  type StackIcon,
+  type StackName,
+} from "@/common/constant/stack-icons"
 
-export type Stack = {
-  name: string
-  icon: IconType
-  className?: string
+export const STACK_CATEGORIES = [
+  "Frontend",
+  "Backend",
+  "DevOps",
+  "Apps & Tools",
+] as const
+
+export type StackCategory = (typeof STACK_CATEGORIES)[number]
+
+type StackEntry = {
+  name: StackName
+  category: StackCategory
 }
 
-export const STACKS = [
-  { name: "JavaScript", icon: SiJavascript, className: "text-yellow-400" },
-  { name: "TypeScript", icon: SiTypescript, className: "text-blue-400" },
-  { name: "Python", icon: SiPython, className: "text-blue-500" },
-  { name: "React", icon: SiReact, className: "text-sky-500" },
-  { name: "Next.js", icon: SiNextdotjs },
-  { name: "Tailwind CSS", icon: SiTailwindcss, className: "text-cyan-300" },
-  { name: "shadcn/ui", icon: SiShadcnui },
-  { name: "Vite", icon: SiVite, className: "text-purple-500" },
-  { name: "Node.js", icon: SiNodedotjs, className: "text-green-600" },
-  { name: "NestJS", icon: SiNestjs, className: "text-red-600" },
-  { name: "Express", icon: SiExpress },
-  { name: "REST APIs", icon: SiOpenapiinitiative, className: "text-lime-600" },
-  { name: "GraphQL", icon: SiGraphql, className: "text-pink-600" },
-  { name: "Prisma", icon: SiPrisma, className: "text-emerald-500" },
-  { name: "PostgreSQL", icon: SiPostgresql, className: "text-blue-500" },
-  { name: "MySQL", icon: SiMysql, className: "text-sky-600" },
-  { name: "MongoDB", icon: SiMongodb, className: "text-green-500" },
-  { name: "Supabase", icon: SiSupabase, className: "text-emerald-500" },
-  { name: "Firebase", icon: SiFirebase, className: "text-yellow-500" },
-  { name: "Docker", icon: SiDocker, className: "text-sky-500" },
-  { name: "Git", icon: SiGit, className: "text-orange-600" },
-  { name: "GitHub", icon: SiGithub },
-  { name: "WXT", icon: SiWxt, className: "text-violet-500" },
-  {
-    name: "Artificial Intelligence",
-    icon: BsRobot,
-    className: "text-rose-500",
-  },
-] satisfies Stack[]
+export type Stack = StackEntry & StackIcon
+
+const STACK_ENTRIES = [
+  { name: "TypeScript", category: "Frontend" },
+  { name: "React", category: "Frontend" },
+  { name: "Next.js", category: "Frontend" },
+  { name: "Tailwind CSS", category: "Frontend" },
+  { name: "shadcn/ui", category: "Frontend" },
+  { name: "Vite", category: "Frontend" },
+  { name: "Python", category: "Backend" },
+  { name: "Node.js", category: "Backend" },
+  { name: "NestJS", category: "Backend" },
+  { name: "Express", category: "Backend" },
+  { name: "REST APIs", category: "Backend" },
+  { name: "GraphQL", category: "Backend" },
+  { name: "PostgreSQL", category: "Backend" },
+  { name: "Prisma", category: "Backend" },
+  { name: "MongoDB", category: "Backend" },
+  { name: "Supabase", category: "Backend" },
+  { name: "Firebase", category: "Backend" },
+  { name: "Docker", category: "DevOps" },
+  { name: "Git", category: "Apps & Tools" },
+  { name: "GitHub", category: "Apps & Tools" },
+  { name: "WXT", category: "Apps & Tools" },
+  { name: "Artificial Intelligence", category: "Apps & Tools" },
+] satisfies StackEntry[]
+
+export const STACKS: Stack[] = STACK_ENTRIES.map((entry) => ({
+  ...entry,
+  ...STACK_ICONS[entry.name],
+}))
+
+export const STACK_GROUPS = STACK_CATEGORIES.map((category) => ({
+  category,
+  stacks: STACKS.filter((stack) => stack.category === category).sort((a, b) =>
+    a.name.localeCompare(b.name)
+  ),
+})).filter((group) => group.stacks.length > 0)
