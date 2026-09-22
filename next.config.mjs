@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingIncludes: {
+    "/opengraph-image": ["./common/styles/fonts/og/*.ttf"],
+    "/projects/[slug]/opengraph-image": ["./common/styles/fonts/og/*.ttf"],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 100],
