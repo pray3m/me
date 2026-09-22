@@ -12,11 +12,14 @@ const BlogPreview: FC = () => {
         <SectionHeading title="Latest Articles" icon={<Rss size={32} />} />
         <SectionSubHeading>
           <Link href="/blog">
-            <div className="mt-1 flex cursor-pointer gap-1 text-muted-foreground text-sm transition-all duration-300 hover:gap-3 hover:text-foreground">
+            <div className="group mt-1 flex cursor-pointer gap-1 text-muted-foreground text-sm transition-colors duration-150 ease-snappy hover:text-foreground">
               <div className="flex">
                 View All <span className="ml-1 hidden sm:block"> Articles</span>
               </div>
-              <ArrowRight size={22} />
+              <ArrowRight
+                size={22}
+                className="transition-transform duration-150 ease-snappy group-hover:translate-x-1"
+              />
             </div>
           </Link>
         </SectionSubHeading>

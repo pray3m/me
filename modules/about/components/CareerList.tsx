@@ -23,9 +23,10 @@ const CareerList = () => {
             passHref
             target="_blank"
             rel="noopener"
-            className="flex items-center gap-2 text-muted-foreground transition-all duration-300 hover:gap-3 hover:text-foreground"
+            className="group flex items-center gap-2 text-muted-foreground transition-colors duration-150 ease-snappy hover:text-foreground"
           >
-            <LuDownload /> <span>Download Resume</span>
+            <LuDownload className="transition-transform duration-150 ease-snappy group-hover:-translate-x-0.5" />{" "}
+            <span>Download Resume</span>
           </Link>
         </SectionSubHeading>
       </div>

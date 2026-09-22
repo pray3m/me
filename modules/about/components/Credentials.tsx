@@ -31,10 +31,10 @@ const Credentials: FC = () => {
             rel="noopener"
             className="group"
           >
-            <Card className="h-full space-y-2 border border-border px-6 py-4 transition-all duration-300 lg:hover:scale-[102%]">
+            <Card className="h-full space-y-2 border border-border px-6 py-4 active:scale-[0.98] active:duration-100 lg:hover:scale-[102%]">
               <div className="flex items-start justify-between gap-2">
                 <h3 className="font-medium">{credential.title}</h3>
-                <LuArrowUpRight className="shrink-0 text-muted-foreground transition-all group-hover:text-foreground" />
+                <LuArrowUpRight className="shrink-0 text-muted-foreground transition-colors duration-150 ease-snappy group-hover:text-foreground" />
               </div>
               <div className="flex items-center gap-2 text-muted-foreground text-sm">
                 <span>{credential.issuer}</span>

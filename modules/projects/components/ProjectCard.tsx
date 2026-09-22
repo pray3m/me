@@ -44,7 +44,7 @@ const ProjectCard: FC<Props> = ({
 }) => {
   return (
     <Link href={`/projects/${slug}`}>
-      <Card className="cursor-pointer border border-border lg:hover:scale-[102%]">
+      <Card className="cursor-pointer border border-border active:scale-[0.98] active:duration-100 lg:hover:scale-[102%]">
         <div className="relative aspect-video w-full overflow-hidden rounded-t-xl">
           <Image
             src={image}

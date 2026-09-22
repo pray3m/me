@@ -26,7 +26,7 @@ const MenuItem: FC<MenuItemProps> = ({
   const activeClasses = `flex items-center gap-2 py-2 px-4 text-muted-foreground hover:text-foreground ${
     isCurrentPath
       ? "bg-muted rounded-lg text-brand"
-      : "rounded-lg hover:bg-muted lg:transform-gpu lg:transition-[transform,background-color,color] lg:duration-200 lg:ease-out lg:hover:scale-[1.01]"
+      : "rounded-lg transform-gpu transition-[transform,background-color,color] duration-150 ease-snappy hover:bg-muted active:scale-[0.98] active:duration-100 lg:hover:scale-[1.01]"
   }`
 
   const handleClick = () => {

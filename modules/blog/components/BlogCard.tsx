@@ -19,7 +19,7 @@ const BlogCard: FC<BlogItemProps> = ({
 
   return (
     <Link href={`blog/${slug}`}>
-      <Card className="flex cursor-pointer flex-col gap-6 border border-border sm:flex-row sm:p-5 lg:hover:scale-[102%]">
+      <Card className="flex cursor-pointer flex-col gap-6 border border-border active:scale-[0.98] active:duration-100 sm:flex-row sm:p-5 lg:hover:scale-[102%]">
         <div className="w-full sm:w-40 sm:shrink-0">
           <Image
             src={image}
