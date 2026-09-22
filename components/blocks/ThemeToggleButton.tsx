@@ -3,6 +3,7 @@
 import { useTheme } from "next-themes"
 import { useId, useRef } from "react"
 import useHasMounted from "@/hooks/use-has-mounted"
+import useSoundEffect from "@/hooks/use-sound-effect"
 import "./theme-toggle.css"
 
 interface ThemeToggleButtonProps {
@@ -15,10 +16,14 @@ const ThemeToggleButton = ({ size = "default" }: ThemeToggleButtonProps) => {
   const buttonRef = useRef<HTMLDivElement>(null)
   const inputId = useId()
 
+  const playClick = useSoundEffect("/sounds/click.wav", 1)
+
   const isDarkMode = hasMounted && resolvedTheme === "dark"
 
   const handleToggle = () => {
     if (!hasMounted) return
+
+    playClick()
 
     if (buttonRef.current) {
       const { top, left, width, height } =
