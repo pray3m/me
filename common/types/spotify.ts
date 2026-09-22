@@ -1,5 +1,7 @@
 export interface AccessTokenResponseProps {
-  access_token: string
+  access_token?: string
+  error?: string
+  error_description?: string
 }
 
 export interface SongProps {
@@ -36,7 +38,6 @@ export interface TrackProps {
 }
 
 export interface NowPlayingResponseProps {
-  status: number
   isPlaying: boolean
   data: {
     album: string
@@ -48,6 +49,5 @@ export interface NowPlayingResponseProps {
 }
 
 export interface TopTracksResponseProps {
-  status: number
   data: TrackProps[]
 }

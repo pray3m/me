@@ -8,6 +8,7 @@ import {
 } from "@/common/types/spotify"
 import { env } from "@/lib/env"
 import { resilientFetch } from "@/lib/http"
+import { logger } from "@/lib/logger"
 
 const CLIENT_ID = env.SPOTIFY_CLIENT_ID
 const CLIENT_SECRET = env.SPOTIFY_CLIENT_SECRET
@@ -20,7 +21,7 @@ const NOW_PLAYING_ENDPOINT =
   "https://api.spotify.com/v1/me/player/currently-playing"
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`
 
-const getAccessToken = async (): Promise<AccessTokenResponseProps> => {
+const getAccessToken = async (): Promise<string> => {
   const response = await resilientFetch(TOKEN_ENDPOINT, {
     method: "POST",
     headers: {
@@ -32,28 +33,47 @@ const getAccessToken = async (): Promise<AccessTokenResponseProps> => {
       refresh_token: REFRESH_TOKEN ?? "",
     }),
   })
-  return response.json()
+
+  const body: AccessTokenResponseProps = await response.json()
+
+  if (!response.ok || !body.access_token) {
+    logger.error("spotify token refresh failed", {
+      status: response.status,
+      error: body.error,
+      description: body.error_description,
+    })
+    throw new Error(
+      `Spotify token refresh failed (${response.status} ${body.error ?? "unknown"})`
+    )
+  }
+
+  return body.access_token
 }
 
 export const getNowPlaying = async (): Promise<NowPlayingResponseProps> => {
-  const { access_token } = await getAccessToken()
+  const accessToken = await getAccessToken()
 
   const request = await resilientFetch(NOW_PLAYING_ENDPOINT, {
     headers: {
-      Authorization: `Bearer ${access_token}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   })
 
-  const status = request.status
+  if (request.status === 204) {
+    return { isPlaying: false, data: null }
+  }
 
-  if (status === 204 || status > 400) {
-    return { status, isPlaying: false, data: null }
+  if (!request.ok) {
+    logger.error("spotify now-playing request failed", {
+      status: request.status,
+    })
+    throw new Error(`Spotify now-playing failed (${request.status})`)
   }
 
   const song: SongProps = await request.json()
 
   if (!song.item) {
-    return { status, isPlaying: false, data: null }
+    return { isPlaying: false, data: null }
   }
 
   const isPlaying: boolean = song.is_playing
@@ -66,7 +86,6 @@ export const getNowPlaying = async (): Promise<NowPlayingResponseProps> => {
   const title: string = song.item.name ?? ""
 
   return {
-    status,
     isPlaying,
     data: {
       album,
@@ -79,19 +98,24 @@ export const getNowPlaying = async (): Promise<NowPlayingResponseProps> => {
 }
 
 export const getTopTracks = async (): Promise<TopTracksResponseProps> => {
-  const { access_token } = await getAccessToken()
+  const accessToken = await getAccessToken()
 
   const request = await resilientFetch(`${TOP_TRACKS_ENDPOINT}?limit=10`, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${access_token}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   })
 
-  const status = request.status
+  if (request.status === 204) {
+    return { data: [] }
+  }
 
-  if (status === 204 || status > 400) {
-    return { status, data: [] }
+  if (!request.ok) {
+    logger.error("spotify top-tracks request failed", {
+      status: request.status,
+    })
+    throw new Error(`Spotify top tracks failed (${request.status})`)
   }
 
   const getData = await request.json()
@@ -112,5 +136,5 @@ export const getTopTracks = async (): Promise<TopTracksResponseProps> => {
     })
   )
 
-  return { status, data: tracks }
+  return { data: tracks }
 }

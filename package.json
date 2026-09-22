@@ -23,6 +23,8 @@
     "lint:fix": "biome check --write .",
     "lint:strict": "biome ci .",
     "typecheck": "tsc --noEmit --incremental false",
+    "fonts:vendor": "bash scripts/vendor-fonts.sh",
+    "spotify:token": "bun scripts/spotify-token.mjs",
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },
