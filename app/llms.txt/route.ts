@@ -54,7 +54,7 @@ Facts, current as of ${LAST_UPDATED}:
 
 ## Pages
 
-- [Home](${url()}): Introduction, featured work, stack, and how to work together.
+- [Home](${url()}): Introduction, projects, stack, and how to work together.
 - [About](${url("/about")}): Story, career timeline (Hyteno, freelance), and credentials.
 - [Projects](${url("/projects")}): Every project with a short case study — problem, what was built, constraints, outcome.
 - [Contact](${url("/contact")}): Email and Telegram; open to freelance and full-time roles.

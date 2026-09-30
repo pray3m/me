@@ -1,7 +1,7 @@
 import type { FC } from "react"
 import Breakline from "@/components/ds/breakline"
-import FeaturedProjects from "./FeaturedProjects"
 import Introduction from "./Introduction"
+import ProjectsSection from "./ProjectsSection"
 import Services from "./Services"
 import SkillsSection from "./SkillsSection"
 
@@ -11,7 +11,7 @@ const Home: FC = () => {
       <Introduction />
 
       <Breakline className="mt-8 mb-6 lg:mt-10 lg:mb-8" />
-      <FeaturedProjects />
+      <ProjectsSection />
 
       <Breakline className="my-8 lg:my-10" />
       <SkillsSection />

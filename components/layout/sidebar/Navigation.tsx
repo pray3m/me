@@ -63,7 +63,7 @@ const Navigation: FC<NavigationProps> = ({ excludedHrefs = [] }) => {
           isExternal={false}
           onClick={() => handleOpenCommandPalette()}
         >
-          <div className="relative inline-flex items-center rounded-full bg-green-200 px-2 py-0.5 font-medium text-[10px] text-green-800">
+          <div className="relative inline-flex items-center rounded-full bg-green-200 px-2 py-0.5 font-medium text-green-800 text-xs">
             <span>AI Powered</span>
           </div>
         </MenuItem>

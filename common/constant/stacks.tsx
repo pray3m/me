@@ -5,10 +5,10 @@ import {
 } from "@/common/constant/stack-icons"
 
 export const STACK_CATEGORIES = [
+  "Language",
   "Frontend",
-  "Backend",
-  "DevOps",
-  "Apps & Tools",
+  "Backend & Database",
+  "Workflow & AI",
 ] as const
 
 export type StackCategory = (typeof STACK_CATEGORIES)[number]
@@ -20,29 +20,37 @@ type StackEntry = {
 
 export type Stack = StackEntry & StackIcon
 
+// Order is deliberate (most-used first within each group) — not alphabetical.
 const STACK_ENTRIES = [
-  { name: "TypeScript", category: "Frontend" },
+  { name: "TypeScript", category: "Language" },
+  { name: "JavaScript", category: "Language" },
+
   { name: "React", category: "Frontend" },
   { name: "Next.js", category: "Frontend" },
   { name: "Tailwind CSS", category: "Frontend" },
   { name: "shadcn/ui", category: "Frontend" },
   { name: "Vite", category: "Frontend" },
-  { name: "Python", category: "Backend" },
-  { name: "Node.js", category: "Backend" },
-  { name: "NestJS", category: "Backend" },
-  { name: "Express", category: "Backend" },
-  { name: "REST APIs", category: "Backend" },
-  { name: "GraphQL", category: "Backend" },
-  { name: "PostgreSQL", category: "Backend" },
-  { name: "Prisma", category: "Backend" },
-  { name: "MongoDB", category: "Backend" },
-  { name: "Supabase", category: "Backend" },
-  { name: "Firebase", category: "Backend" },
-  { name: "Docker", category: "DevOps" },
-  { name: "Git", category: "Apps & Tools" },
-  { name: "GitHub", category: "Apps & Tools" },
-  { name: "WXT", category: "Apps & Tools" },
-  { name: "Artificial Intelligence", category: "Apps & Tools" },
+
+  { name: "Node.js", category: "Backend & Database" },
+  { name: "NestJS", category: "Backend & Database" },
+  { name: "Express", category: "Backend & Database" },
+  { name: "REST APIs", category: "Backend & Database" },
+  { name: "GraphQL", category: "Backend & Database" },
+  { name: "PostgreSQL", category: "Backend & Database" },
+  { name: "Prisma", category: "Backend & Database" },
+  { name: "MongoDB", category: "Backend & Database" },
+  { name: "Supabase", category: "Backend & Database" },
+  { name: "Firebase", category: "Backend & Database" },
+
+  { name: "Claude", category: "Workflow & AI" },
+  { name: "Cursor", category: "Workflow & AI" },
+  { name: "Gemini", category: "Workflow & AI" },
+  { name: "ChatGPT", category: "Workflow & AI" },
+  { name: "Git", category: "Workflow & AI" },
+  { name: "GitHub", category: "Workflow & AI" },
+  { name: "Docker", category: "Workflow & AI" },
+  { name: "Vercel", category: "Workflow & AI" },
+  { name: "WXT", category: "Workflow & AI" },
 ] satisfies StackEntry[]
 
 export const STACKS: Stack[] = STACK_ENTRIES.map((entry) => ({
@@ -52,7 +60,5 @@ export const STACKS: Stack[] = STACK_ENTRIES.map((entry) => ({
 
 export const STACK_GROUPS = STACK_CATEGORIES.map((category) => ({
   category,
-  stacks: STACKS.filter((stack) => stack.category === category).sort((a, b) =>
-    a.name.localeCompare(b.name)
-  ),
+  stacks: STACKS.filter((stack) => stack.category === category),
 })).filter((group) => group.stacks.length > 0)

@@ -8,7 +8,7 @@ interface Props {
 
 const SectionHeading: FC<Props> = ({ title, icon }) => {
   return (
-    <div className="flex items-center gap-1 font-medium text-foreground text-xl">
+    <div className="flex items-center gap-1 font-medium text-2xl text-foreground tracking-tight">
       {icon && <>{icon}</>}
       <h2>{title}</h2>
     </div>

@@ -187,7 +187,7 @@ export default function CommandPalette() {
                 onValueChange={setQuery}
                 disabled={askAssistantClicked}
                 placeholder={askAssistantClicked ? queryDebounce : placeholder}
-                className="h-14 w-full bg-transparent text-[15px] text-foreground outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-60"
+                className="h-14 w-full bg-transparent text-body text-foreground outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-60"
               />
             </div>
 

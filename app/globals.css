@@ -4,9 +4,13 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--onestSans-font);
+  --font-sans: var(--geistSans-font);
   --font-mono: var(--geistMono-font);
   --font-emoji: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+
+  /* Body copy step between text-sm and text-base: 15px / 24px. */
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.6;
 
   --radius: 0.625rem;
   --radius-sm: calc(var(--radius) - 4px);

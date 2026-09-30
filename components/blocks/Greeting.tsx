@@ -28,7 +28,7 @@ const Greeting: FC = () => {
 
   const greeting = GREETINGS[index]
   return (
-    <h1 className="font-semibold text-2xl tracking-normal lg:text-3xl">
+    <h1 className="font-semibold text-2xl tracking-tight lg:text-3xl">
       <span
         key={index}
         lang={greeting.lang}

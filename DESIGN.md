@@ -1,6 +1,6 @@
 # Design System — premgautam.com
 
-> **Name:** premgautam.com design system · **Version:** 0.1 · **Source of truth:**
+> **Name:** premgautam.com design system · **Version:** 0.2 · **Source of truth:**
 > [app/globals.css](app/globals.css)
 >
 > The visual contract for the portfolio. A calm, "papered" surface with one
@@ -32,8 +32,9 @@ reinvent their values inline.
 | `destructive` | `oklch(.577 .245 27)` | `oklch(.704 .191 22)` | errors |
 
 **Radius** — base `--radius: 0.625rem` (10px), scaled `sm … 4xl`.
-**Type** — **Onest** (`--font-sans`) for everything; **Geist Mono** (`--font-mono`)
-for code and tabular figures. Tailwind step scale.
+**Type** — **Geist** (`--font-sans`) for everything; **Geist Mono** (`--font-mono`)
+for tags, indices, code, and tabular figures. Tailwind steps plus one custom
+step, `text-body` (15px / 24px). Eight roles, §Typography.
 **Motion** — `--ease-snappy` (one curve) + 150/200/300ms tiers.
 **Elevation** — `--shadow-card` / `--shadow-popover` / `--shadow-modal`.
 **Spacing** — Tailwind 4px scale; rhythm in §Layout.
@@ -77,35 +78,50 @@ so a `dark:` on a color is the signal you reached for a raw value you shouldn't.
 rings, and the active nav state — not decoration. Everything else stays neutral.
 
 **Allowed literals** (brand accents that must read identically in both themes):
-the `green-400/500` "available / now-playing" strip, the `#fffd00` route
-progress bar, `react-icons` brand marks (monochrome marks like Next.js / GitHub
+the `green-400/500` "available / now-playing" strip, `react-icons` brand marks (monochrome marks like Next.js / GitHub
 correctly inherit `text-foreground`), and syntax-highlighting colors.
 
 ---
 
 ## Typography
 
-- **Onest** is the only sans family — body, UI, and headings. Applied on
-  `<body>`; never set it explicitly. (Sora and Plus Jakarta were removed: loaded
-  but unused.)
-- **Geist Mono** (`font-mono`) for **code blocks and figures that should align** —
-  stats, counts, percentages. Pair with `tabular-nums` so digits line up.
-- Weights: 400 / 500 / 600 / 700.
+- **Geist** is the only sans family — body, UI, and headings. Applied on
+  `<body>`; never set it explicitly. (Replaced Onest; Sora and Plus Jakarta were
+  removed earlier: loaded but unused.)
+- **Geist Mono** (`font-mono`) is for **small machine-ish text only**: tags,
+  row indices (`01`, `02`…), code, and figures that should align (pair with
+  `tabular-nums`). Never for sentences.
+- Weights: **400** text · **500** titles, labels, links · **600** the page h1.
+- Fonts are vendored and subset by `pnpm fonts:vendor`
+  ([scripts/vendor-fonts.sh](scripts/vendor-fonts.sh)); the OG cards use static
+  Geist faces from the same script.
 
-**Scale — use the steps, not arbitrary px:**
+**Roles — every piece of text is exactly one of these.** If a new element
+doesn't fit a role, it's the element that's wrong, not the scale.
 
-| Role | Class |
-|---|---|
-| Page title (h1) | `text-2xl font-semibold` |
-| Section title (h2) | `text-xl font-medium` |
-| Card title | `text-base` / `md:text-lg font-medium` |
-| Body | inherited (`leading-1.65` from `body`) |
-| Secondary / meta | `text-sm text-muted-foreground` |
-| Caption / label | `text-xs` |
+| Role | Classes | Size / line | Use for |
+|---|---|---|---|
+| Display | `text-2xl lg:text-3xl font-semibold tracking-tight` | 24–30 / 36 | the one page h1 (`Greeting`, `PageHeading`) |
+| Title | `SectionHeading` → `text-2xl font-medium tracking-tight` | 24 / 32 | section h2 |
+| Heading | `text-base font-medium leading-snug` | 16 / 22 | row, card, and callout titles (h3) |
+| Lead | `text-base leading-7` | 16 / 28 | the intro paragraph under the h1 — once per page |
+| Body | `text-body` (foreground) | 15 / 24 | descriptions, bullet lists, section intros |
+| Meta | `text-sm text-muted-foreground` | 14 / 20 | roles, dates, locations, subtitles, secondary links |
+| Label | `text-sm` (foreground) · `font-medium` for actions | 14 / 20 | row labels, buttons, "Read case study", "Show more" |
+| Tag | `Tag` → `font-mono text-xs text-muted-foreground` | 12 / 16 | stack names, short chips |
+| Eyebrow | `text-xs font-medium uppercase tracking-[0.18em] text-brand` | 12 / 16 | the role line above the h1 only |
 
-Map any arbitrary size: `15px → text-sm`, `17–18px → text-lg`, `10px → text-xs`.
-Headings always go through `PageHeading` / `SectionHeading` / `SectionSubHeading`
-— never a hand-rolled `<h1>` with ad-hoc classes.
+Rules that keep it from drifting:
+
+- **Body text is foreground, not muted.** Muted is for *meta* — metadata about
+  the content, never the content itself.
+- **No arbitrary sizes** (`text-[15px]`, `text-[10px]`…). 15px is `text-body`;
+  anything else maps to the nearest step (`10–13px → text-xs`,
+  `17–18px → text-lg`).
+- **Tighten only large type.** `tracking-tight` on Display and Title; body and
+  smaller stay at the font's default spacing.
+- Headings go through `PageHeading` / `SectionHeading` / `SectionSubHeading` —
+  never a hand-rolled `<h2>` with ad-hoc classes.
 
 ---
 
@@ -116,7 +132,18 @@ Headings always go through `PageHeading` / `SectionHeading` / `SectionSubHeading
 - **`Container`** owns the frame (`mt-20 mb-10 p-8 lg:mt-0`); don't re-pad on top.
 - **Three-step rhythm:** tight groups `gap-2/3`, related blocks `space-y-4`,
   sections `space-y-6`. Pick one rhythm per page and hold it.
-- **Grids:** cards in `grid gap-5 sm:grid-cols-2`.
+- **Panel list** (homepage Projects, Stack, "What I've been working on") — the
+  default way to present a set of items:
+  - one `rounded-xl border border-border` panel, `overflow-hidden`;
+  - rows separated by `border-b` (`last:border-b-0`), hover `bg-accent/60`;
+  - a leading `IconTile` column split from the content by a **dashed**
+    `border-l border-dashed`; labelled rows use a fixed label column instead
+    (`sm:grid-cols-[12rem_1fr]`, index in mono: `01 Frontend`);
+  - row padding `p-4` (`py-3.5` for single-line collapsible rows);
+  - expandable rows use the Base UI `Collapsible`; lists longer than four rows
+    end in a centred "Show more" trigger in its own `border-t` footer.
+- **Grids:** only where the image *is* the content (the `/projects` card grid):
+  `grid gap-5 sm:grid-cols-2`.
 - **Breakpoints:** Tailwind defaults; `lg` (1024px) is the desktop/sidebar pivot.
 
 ---
@@ -131,8 +158,9 @@ Prefer **hairline + soft shadow** over heavy borders.
   a crisp edge. In dark mode, lean on borders/rings (shadows fade on dark).
 - Modal backdrop: `bg-background/70 backdrop-blur-sm` — strong enough to focus
   attention.
-- **Paper texture:** `--paper-tint` gradient on `<body>` + a tiled
-  `bg-pattern.png` via `body::before` (opacity/blend differ per theme). Keep
+- **Paper texture:** `--paper-tint` gradient via `body::before` + a tiled
+  160px `feTurbulence` noise data-URI via `body::after` (opacity/blend differ
+  per theme). Keep
   content on `bg-background`/`bg-card` so it reads above the texture.
 
 ---
@@ -146,7 +174,8 @@ Radius is consistent **per element type** — hold this line.
 | Cards, panels, callouts | `rounded-xl` |
 | Command palette / large surfaces | `rounded-2xl` |
 | Buttons, inputs, list items | `rounded-lg` |
-| Badges, pills, status dots | `rounded-full` |
+| Badges, pills, `Tag`, status dots | `rounded-full` |
+| `IconTile`, logo tiles | `rounded-md` |
 | Inline code, tiny chips | `rounded-sm` / `rounded-md` |
 
 ---
@@ -161,11 +190,14 @@ variant, so mobile gets it too.
 - **Reduced motion:** honored globally — a `prefers-reduced-motion` CSS reset
   plus `<MotionConfig reducedMotion="user">` for framer. Non-essential motion
   (marquee, reveals, the theme bubble) stops for users who ask.
-- **Scroll reveal:** AOS via `data-aos` on containers.
+- **Collapsibles:** height animates from Base UI's `--collapsible-panel-height`
+  (`transition-[height] duration-200 ease-out`, `data-starting-style:h-0`,
+  `data-ending-style:h-0`, `motion-reduce:transition-none`); chevrons rotate
+  180°.
 - **Component animation:** `framer-motion` through **`LazyMotion` + `m.*`** with
   `domAnimation` (provider in [app/providers.tsx](app/providers.tsx)). Never
   import `motion` directly — it ships the full engine.
-- **Marquee:** `--animate-marquee` (skills row).
+- **Marquee:** `--animate-marquee` (client-logo row); pauses on hover.
 - **Theme switch:** circular view-transition "bubble" wipe (globals.css).
 - Honor `prefers-reduced-motion` for non-essential motion.
 
@@ -178,8 +210,8 @@ Three buckets — keep them separate:
 - **`components/ui/`** — shadcn primitives (generated; add via CLI), Base UI under
   the hood.
 - **`components/ds/`** — the project's own wrappers (`Container`, `Button`,
-  `Badge`, `PageHeading`, `SectionHeading`, `Card`…). **Prefer these in
-  app/module code** — they're the leverage points: fix a token here and every
+  `Badge`, `PageHeading`, `SectionHeading`, `Card`, `Tag`, `IconTile`…).
+  **Prefer these in app/module code** — they're the leverage points: fix a token here and every
   page benefits.
 - **`components/blocks/`** — composite widgets (CommandPalette, NowPlaying,
   MarkdownRenderer, ThemeToggle…).
@@ -187,6 +219,10 @@ Three buckets — keep them separate:
 
 Component states:
 
+- **Tag** — the only pill for stack names. Label-only in project rows (the
+  Stack panel already pairs each icon with its name); icon + label in Stack.
+- **IconTile** — the leading square in a panel row: a monogram letter, a lucide
+  icon, or a logo.
 - **Buttons** — the primary CTA is `bg-brand text-brand-foreground` with
   `hover:bg-brand/90`, `ease-snappy`, and `hover:scale-[101%]`.
 - **Focus:** every interactive element shows a brand ring —
@@ -213,6 +249,7 @@ Component states:
 - **Do** give icon-only controls an `aria-label` and external links
   `rel="noopener noreferrer"`.
 - **Don't** hardcode `neutral/gray/zinc` for surfaces or text.
-- **Don't** introduce a new radius or font size for a one-off — use the scale.
+- **Don't** introduce a new radius or font size for a one-off — use the roles.
+- **Don't** hand-roll a pill or a row tile — use `Tag` / `IconTile`.
 - **Don't** communicate state by color alone (pair the green dot with text).
 - **Don't** add a CSS-in-JS engine or a second font for a single component.

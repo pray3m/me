@@ -6,6 +6,7 @@ interface Project {
   link_demo?: string
   link_github?: string
   stacks: string[]
+  period?: string
   role?: string
   problem?: string
   built?: string

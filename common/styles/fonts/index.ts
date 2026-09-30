@@ -1,8 +1,8 @@
 import localFont from "next/font/local"
 
-export const onestSans = localFont({
-  src: "./onest-variable.woff2",
-  variable: "--onestSans-font",
+export const geistSans = localFont({
+  src: "./geist-variable.woff2",
+  variable: "--geistSans-font",
   display: "swap",
   weight: "100 900",
 })

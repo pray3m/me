@@ -29,9 +29,9 @@ type FontWeight = 400 | 600 | 800
 async function loadFont(weight: FontWeight) {
   try {
     const data = await readFile(
-      join(process.cwd(), `common/styles/fonts/og/onest-${weight}.ttf`)
+      join(process.cwd(), `common/styles/fonts/og/geist-${weight}.ttf`)
     )
-    return { name: "Onest", data, weight, style: "normal" as const }
+    return { name: "Geist", data, weight, style: "normal" as const }
   } catch {
     return null
   }
@@ -89,7 +89,7 @@ export async function renderOgImage({
         padding: "72px 80px",
         background: COLORS.bg,
         color: COLORS.text,
-        fontFamily: "Onest",
+        fontFamily: "Geist",
         position: "relative",
       }}
     >

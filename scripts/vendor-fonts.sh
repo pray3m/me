@@ -26,8 +26,8 @@ cd "$(dirname "$0")/.."
 OUT="common/styles/fonts"
 
 # Pinned to the commit that last touched each family's upstream directory.
-ONEST_REF="4c1db3aec83c67dd223dd82a68c039cab30917a9"
-GEIST_REF="9e25e2ba265e5298f70f6182dd4e8a3ebf1b9123"
+GEIST_REF="718e1db4deb9e4d9d85a0ead1b9f5fde2761ccfd"
+GEIST_MONO_REF="9e25e2ba265e5298f70f6182dd4e8a3ebf1b9123"
 
 # Google's own "latin" + "latin-ext" unicode-ranges, merged into one file: a
 # single @font-face beats per-subset slices here, since next/font/local has no
@@ -36,7 +36,7 @@ LATIN="U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+
 LATIN_EXT="U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
 # Nothing outside those two ranges is worth carrying: the only non-latin glyphs
 # in rendered copy are ✦ (CommandPalette) and the Devanagari/CJK/emoji in
-# Greeting and Footer, and upstream Onest has none of them — those already fell
+# Greeting and Footer, and upstream Geist has none of them — those already fell
 # back to a system font under next/font/google.
 RANGES="$LATIN,$LATIN_EXT"
 
@@ -72,21 +72,23 @@ vendor_og() {
   tmp="$(mktemp -d)"
   trap 'rm -rf "$tmp"' RETURN
 
-  echo "→ Onest (Open Graph static faces)"
+  echo "→ Geist (Open Graph static faces)"
   mkdir -p "$OUT/og"
   curl -gsSfL "https://raw.githubusercontent.com/google/fonts/$ref/ofl/$dir/$file" -o "$tmp/src.ttf"
+  # No layout features: Satori measures words without Geist's kerning but draws
+  # them with it, which leaves ragged double-width gaps between words.
   uvx --quiet --from 'fonttools[woff]' pyftsubset "$tmp/src.ttf" \
     --unicodes="$RANGES" \
-    --layout-features='*' \
+    --layout-features='' \
     --output-file="$tmp/subset.ttf"
 
   for w in "${OG_WEIGHTS[@]}"; do
     uvx --quiet --from 'fonttools[woff]' fonttools varLib.instancer \
-      "$tmp/subset.ttf" "wght=$w" -o "$OUT/og/onest-$w.ttf" >/dev/null 2>&1
-    echo "  $OUT/og/onest-$w.ttf ($(du -h "$OUT/og/onest-$w.ttf" | cut -f1))"
+      "$tmp/subset.ttf" "wght=$w" -o "$OUT/og/geist-$w.ttf" >/dev/null 2>&1
+    echo "  $OUT/og/geist-$w.ttf ($(du -h "$OUT/og/geist-$w.ttf" | cut -f1))"
   done
 }
 
-vendor "Onest"      "$ONEST_REF" "onest"     "Onest[wght].ttf"     "onest-variable"
-vendor "Geist Mono" "$GEIST_REF" "geistmono" "GeistMono[wght].ttf" "geist-mono-variable"
-vendor_og           "$ONEST_REF" "onest"     "Onest[wght].ttf"
+vendor "Geist"      "$GEIST_REF"      "geist"     "Geist[wght].ttf"     "geist-variable"
+vendor "Geist Mono" "$GEIST_MONO_REF" "geistmono" "GeistMono[wght].ttf" "geist-mono-variable"
+vendor_og           "$GEIST_REF"      "geist"     "Geist[wght].ttf"

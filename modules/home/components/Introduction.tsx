@@ -42,7 +42,7 @@ const Introduction: FC = () => {
         <Status />
       </div>
 
-      <p className="max-w-2xl text-pretty text-foreground leading-8">
+      <p className="max-w-2xl text-pretty text-base text-foreground leading-7">
         I craft responsive interfaces in React &amp; Next.js, robust backends
         with Node.js, NestJS, and PostgreSQL, and own the deployment and infra
         behind them — Docker, self-managed servers, and AI where it genuinely
