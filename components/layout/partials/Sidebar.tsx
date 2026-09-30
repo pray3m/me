@@ -4,7 +4,8 @@ import Profile from "@/components/layout/sidebar/Profile"
 
 const Sidebar = () => {
   return (
-    <div className="sticky top-0 z-10 flex flex-col lg:max-h-screen lg:overflow-y-auto lg:py-14">
+    // The sticky offset matches the shell's top padding (lg:py-4 xl:py-8 in components/layout), so the sidebar never drifts.
+    <div className="flex flex-col lg:sticky lg:top-4 lg:z-10 lg:max-h-[calc(100dvh-2rem)] lg:overflow-y-auto lg:py-14 xl:top-8 xl:max-h-[calc(100dvh-4rem)]">
       <Profile />
 
       {/* Desktop-only nav; CSS-hidden on mobile so the shell still SSRs. */}
