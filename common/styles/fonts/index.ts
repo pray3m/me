@@ -13,3 +13,10 @@ export const geistMono = localFont({
   display: "swap",
   weight: "100 900",
 })
+
+export const caveat = localFont({
+  src: "./caveat-500.woff2",
+  variable: "--caveat-font",
+  display: "swap",
+  weight: "500",
+})

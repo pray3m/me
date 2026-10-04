@@ -99,3 +99,22 @@ export function formatDuration(start: DateInput, end?: DateInput): string {
   if (years > 0) return `${years} year${years > 1 ? "s" : ""}`
   return `${months} month${months > 1 ? "s" : ""}`
 }
+
+export function timeOfDayGreeting(date: Date): string {
+  const hour = date.getHours()
+  if (hour >= 5 && hour < 12) return "Good morning"
+  if (hour >= 12 && hour < 17) return "Good afternoon"
+  return "Good evening"
+}
+
+const nepalTimeFmt = new Intl.DateTimeFormat("en-US", {
+  timeZone: "Asia/Kathmandu",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+})
+
+export function formatNepalTime(input?: DateInput): string {
+  const d = toDate(input)
+  return isValidDate(d) ? nepalTimeFmt.format(d) : ""
+}

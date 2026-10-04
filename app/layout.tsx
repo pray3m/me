@@ -1,5 +1,5 @@
 import type { Viewport } from "next"
-import { geistMono, geistSans } from "@/common/styles/fonts"
+import { caveat, geistMono, geistSans } from "@/common/styles/fonts"
 import Layout from "@/components/layout"
 import { rootMetadata } from "@/lib/seo"
 import { cn } from "@/lib/utils"
@@ -24,7 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
-        className={cn("min-h-screen", geistSans.variable, geistMono.variable)}
+        className={cn(
+          "min-h-screen",
+          geistSans.variable,
+          geistMono.variable,
+          caveat.variable
+        )}
       >
         <link
           rel="preconnect"

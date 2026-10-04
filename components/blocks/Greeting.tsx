@@ -1,44 +1,24 @@
 "use client"
 
-import { type FC, useEffect, useState } from "react"
-
-type GreetingItem = { text: string; lang: string; rtl?: boolean }
-
-const GREETINGS: GreetingItem[] = [
-  { text: "Hi", lang: "en" },
-  { text: "Hola", lang: "es" },
-  { text: "Bonjour", lang: "fr" },
-  { text: "नमस्ते", lang: "ne" },
-  { text: "Olá", lang: "pt" },
-  { text: "Hallo", lang: "de" },
-  { text: "你好", lang: "zh" },
-]
+import type { FC } from "react"
+import useClock from "@/hooks/use-clock"
+import { timeOfDayGreeting } from "@/lib/date"
 
 const Greeting: FC = () => {
-  const [index, setIndex] = useState(0)
+  const now = useClock()
 
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-
-    const id = setInterval(() => {
-      setIndex((prev) => (prev + 1) % GREETINGS.length)
-    }, 2400)
-    return () => clearInterval(id)
-  }, [])
-
-  const greeting = GREETINGS[index]
   return (
     <h1 className="font-semibold text-2xl tracking-tight lg:text-3xl">
-      <span
-        key={index}
-        lang={greeting.lang}
-        dir={greeting.rtl ? "rtl" : "ltr"}
-        aria-hidden="true"
-        className="fade-in-0 slide-in-from-bottom-1 inline-block animate-in duration-500"
-      >
-        {greeting.text},
-      </span>{" "}
-      <span className="block whitespace-nowrap lg:inline">
+      <span className="mb-1 block font-handwriting font-medium text-[26px] text-foreground/80 tracking-normal lg:text-[30px]">
+        {now ? (
+          <span className="fade-in-0 slide-in-from-bottom-1 inline-block duration-500 motion-safe:animate-in">
+            {timeOfDayGreeting(now)},
+          </span>
+        ) : (
+          " "
+        )}
+      </span>
+      <span className="block">
         I&apos;m Prem Gautam.{" "}
         <span
           aria-hidden="true"

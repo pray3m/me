@@ -7,6 +7,7 @@
   --font-sans: var(--geistSans-font);
   --font-mono: var(--geistMono-font);
   --font-emoji: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --font-handwriting: var(--caveat-font);
 
   /* Body copy step between text-sm and text-base: 15px / 24px. */
   --text-body: 0.9375rem;
