@@ -38,6 +38,28 @@ export interface CareerProps {
   link: string | null
 }
 
+/** One role held at a company. `end_date: null` means it's the current one. */
+export interface ExperiencePositionProps {
+  position: string
+  location: string
+  location_type: string
+  type: string
+  start_date: string
+  end_date: string | null
+  industry: string
+  highlights: string[]
+  stacks: string[]
+}
+
+/** An employer plus every role held there, most recent first. */
+export interface ExperienceProps {
+  company: string
+  logo: string | null
+  link: string | null
+  is_current?: boolean
+  positions: ExperiencePositionProps[]
+}
+
 // projects.ts
 export interface ProjectItemProps {
   title: string

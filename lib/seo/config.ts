@@ -4,7 +4,7 @@
  */
 export const siteConfig = {
   name: "Prem Gautam",
-  title: "Prem Gautam (pray3m) | Full-Stack Engineer",
+  title: "Prem Gautam - Software Engineer",
   description:
     "I design and build web products across the full stack, from rough idea to production.",
   url: process.env.SITE_URL ?? "https://premgautam.com",

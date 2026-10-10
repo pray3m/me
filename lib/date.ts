@@ -100,6 +100,29 @@ export function formatDuration(start: DateInput, end?: DateInput): string {
   return `${months} month${months > 1 ? "s" : ""}`
 }
 
+/**
+ * Compact tenure for the experience timeline: "1 yr 8 mos", "4 mos", "2 yrs".
+ * Unlike `formatDuration` this keeps the remaining months once a year is
+ * reached, and counts inclusively — a Feb→Dec role reads as 11 mos, not 10 —
+ * which is the convention LinkedIn and every CV use. `end` defaults to now.
+ */
+export function formatExactDuration(start: DateInput, end?: DateInput): string {
+  const s = toDate(start)
+  const e = toDate(end)
+  if (!isValidDate(s) || !isValidDate(e)) return ""
+
+  const months =
+    (e.getFullYear() - s.getFullYear()) * 12 + (e.getMonth() - s.getMonth()) + 1 // both the start and end month count
+  if (months < 1) return ""
+
+  const years = Math.floor(months / 12)
+  const restMonths = months % 12
+  const parts: string[] = []
+  if (years > 0) parts.push(`${years} yr${years > 1 ? "s" : ""}`)
+  if (restMonths > 0) parts.push(`${restMonths} mo${restMonths > 1 ? "s" : ""}`)
+  return parts.join(" ")
+}
+
 export function timeOfDayGreeting(date: Date): string {
   const hour = date.getHours()
   if (hour >= 5 && hour < 12) return "Good morning"
