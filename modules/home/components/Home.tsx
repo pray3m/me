@@ -1,5 +1,6 @@
 import type { FC } from "react"
 import Breakline from "@/components/ds/breakline"
+import ActivitySection from "./ActivitySection"
 import ExperienceSection from "./ExperienceSection"
 import Introduction from "./Introduction"
 import ProjectsSection from "./ProjectsSection"
@@ -12,13 +13,16 @@ const Home: FC = () => {
       <Introduction />
 
       <Breakline className="mt-8 mb-6 lg:mt-10 lg:mb-8" />
-      <ExperienceSection />
-
-      <Breakline className="my-8 lg:my-10" />
       <ProjectsSection />
 
       <Breakline className="my-8 lg:my-10" />
+      <ExperienceSection />
+
+      <Breakline className="my-8 lg:my-10" />
       <SkillsSection />
+
+      <Breakline className="my-8 lg:my-10" />
+      <ActivitySection />
 
       <Breakline className="my-8 lg:my-10" />
       <Services />

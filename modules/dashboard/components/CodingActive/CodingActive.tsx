@@ -3,11 +3,7 @@ import { SiWakatime as WakatimeIcon } from "react-icons/si"
 import SectionHeading from "@/components/ds/section-heading"
 import SectionSubHeading from "@/components/ds/section-sub-heading"
 import { relativeTimeFromNow } from "@/lib/date"
-import {
-  getALLTimeSinceToday,
-  getReadStats,
-  type ReadStatsData,
-} from "@/services/wakatime"
+import { getCodingStats } from "@/modules/dashboard/data/coding-stats"
 import CodingActiveList from "./CodingActiveList"
 import Overview from "./Overview"
 
@@ -19,26 +15,8 @@ const formatLastUpdate = (raw?: string): string => {
   return relativeTimeFromNow(lastUpdate)
 }
 
-const getStats = async () => {
-  try {
-    const [readStats, allTime] = await Promise.all([
-      getReadStats(),
-      getALLTimeSinceToday(),
-    ])
-    if (readStats.status >= 400 || !("last_update" in readStats.data)) {
-      return null
-    }
-    return {
-      ...(readStats.data as ReadStatsData),
-      all_time_since_today: allTime.data,
-    }
-  } catch {
-    return null
-  }
-}
-
 const CodingActive = async () => {
-  const data = await getStats()
+  const data = await getCodingStats()
 
   return (
     <section className="flex flex-col gap-y-2">

@@ -14,7 +14,8 @@ interface Month {
   name: string
   firstDay: string
   totalWeeks: number
-  contributionsCount: number
+  /** Computed below from the weeks — never supplied by the GitHub payload. */
+  contributionsCount?: number
 }
 
 interface CalendarProps {
@@ -61,58 +62,66 @@ const Calendar: FC<CalendarProps> = ({ data }) => {
 
   return (
     <>
-      <div className="relative flex flex-col">
-        <ul className="flex justify-end gap-[3px] overflow-hidden text-muted-foreground text-xs md:justify-start">
-          {months.map((month) => (
-            <li
-              key={month.firstDay}
-              className={clsx(`${month.totalWeeks < 2 ? "invisible" : ""}`)}
-              style={{ minWidth: 14.3 * month.totalWeeks }}
-            >
-              {month.name}
-            </li>
-          ))}
-        </ul>
+      {/* A full year is ~795px of squares, wider than the column on phones.
+          `dir="rtl"` parks the scroller at its right edge on first paint, so
+          the most recent weeks are the ones you see — no effect, no flash. */}
+      <div
+        dir="rtl"
+        className="relative overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        <div dir="ltr" className="flex w-max flex-col">
+          <ul className="flex justify-start gap-[3px] text-muted-foreground text-xs">
+            {months.map((month) => (
+              <li
+                key={month.firstDay}
+                className={clsx(`${month.totalWeeks < 2 ? "invisible" : ""}`)}
+                style={{ minWidth: 14.3 * month.totalWeeks }}
+              >
+                {month.name}
+              </li>
+            ))}
+          </ul>
 
-        <div className="flex justify-start gap-[3px] overflow-hidden">
-          {weeks?.map((week) => (
-            <div key={week.firstDay}>
-              {week.contributionDays.map((contribution) => {
-                const backgroundColor =
-                  contribution.contributionCount > 0 && contribution.color
+          <div className="flex justify-start gap-[3px]">
+            {weeks?.map((week) => (
+              <div key={week.firstDay}>
+                {week.contributionDays.map((contribution) => {
+                  const backgroundColor =
+                    contribution.contributionCount > 0 && contribution.color
 
-                const getRandomDelayAnimate =
-                  Math.random() * week.contributionDays.length * 0.15
+                  const getRandomDelayAnimate =
+                    Math.random() * week.contributionDays.length * 0.15
 
-                return (
-                  <m.span
-                    key={contribution.date}
-                    initial="initial"
-                    animate="animate"
-                    variants={{
-                      initial: { opacity: 0, translateY: -20 },
-                      animate: {
-                        opacity: 1,
-                        translateY: 0,
-                        transition: { delay: getRandomDelayAnimate },
-                      },
-                    }}
-                    className="my-[2px] block h-[12px] w-[12px] rounded-xs bg-muted"
-                    style={backgroundColor ? { backgroundColor } : undefined}
-                    onMouseEnter={() =>
-                      setSelectContribution({
-                        count: contribution.contributionCount,
-                        date: contribution.date,
-                      })
-                    }
-                    onMouseLeave={() =>
-                      setSelectContribution({ count: null, date: null })
-                    }
-                  />
-                )
-              })}
-            </div>
-          ))}
+                  return (
+                    <m.span
+                      key={contribution.date}
+                      initial="initial"
+                      animate="animate"
+                      variants={{
+                        initial: { opacity: 0, translateY: -20 },
+                        animate: {
+                          opacity: 1,
+                          translateY: 0,
+                          transition: { delay: getRandomDelayAnimate },
+                        },
+                      }}
+                      className="my-[2px] block h-[12px] w-[12px] rounded-xs bg-muted"
+                      style={backgroundColor ? { backgroundColor } : undefined}
+                      onMouseEnter={() =>
+                        setSelectContribution({
+                          count: contribution.contributionCount,
+                          date: contribution.date,
+                        })
+                      }
+                      onMouseLeave={() =>
+                        setSelectContribution({ count: null, date: null })
+                      }
+                    />
+                  )
+                })}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

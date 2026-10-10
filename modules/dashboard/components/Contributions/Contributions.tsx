@@ -2,23 +2,12 @@ import Link from "next/link"
 import { BsGithub } from "react-icons/bs"
 import SectionHeading from "@/components/ds/section-heading"
 import SectionSubHeading from "@/components/ds/section-sub-heading"
-import { getGithubUser } from "@/services/github"
+import { getContributionCalendar } from "@/modules/dashboard/data/contributions"
 import Calendar from "./Calendar"
 import Overview from "./Overview"
 
-const GITHUB_USERNAME = "pray3m"
-
 const Contributions = async () => {
-  let contributionCalendar = null
-  try {
-    const { status, data } = await getGithubUser(GITHUB_USERNAME)
-    if (status < 400 && !data?.error) {
-      contributionCalendar =
-        data?.contributionsCollection?.contributionCalendar ?? null
-    }
-  } catch {
-    contributionCalendar = null
-  }
+  const contributionCalendar = await getContributionCalendar()
 
   return (
     <section className="flex flex-col gap-y-2">
