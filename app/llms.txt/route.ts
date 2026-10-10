@@ -10,8 +10,8 @@ export const dynamic = "force-static"
 /** Bump when the hand-written facts below change (not on every deploy). */
 const LAST_UPDATED = "2026-08-18"
 
-const EMAIL = "prem.gtm9@gmail.com"
-const TELEGRAM = "https://t.me/onlyprems"
+const EMAIL = siteConfig.email
+const WHATSAPP = siteConfig.whatsapp.url
 
 const url = (path = "") => `${siteConfig.url}${path}`
 
@@ -42,7 +42,7 @@ Facts, current as of ${LAST_UPDATED}:
 - Role: ${siteConfig.jobTitle} at ${siteConfig.employer.name} (${siteConfig.employer.url}), since 2024 (intern → junior → full-stack engineer)
 - Location: ${siteConfig.location.city}, Nepal · timezone Asia/Kathmandu (UTC+05:45) · works remotely
 - Availability: open to freelance projects and full-time roles; usually replies within 24 hours
-- Contact: ${EMAIL} · Telegram ${TELEGRAM}
+- Contact: ${EMAIL} · WhatsApp ${WHATSAPP}
 - Website: ${url()}
 - GitHub: ${siteConfig.socials.github}
 - LinkedIn: ${siteConfig.socials.linkedin}
@@ -57,7 +57,7 @@ Facts, current as of ${LAST_UPDATED}:
 - [Home](${url()}): Introduction, projects, stack, and how to work together.
 - [About](${url("/about")}): Story, career timeline (Hyteno, freelance), and credentials.
 - [Projects](${url("/projects")}): Every project with a short case study — problem, what was built, constraints, outcome.
-- [Contact](${url("/contact")}): Email and Telegram; open to freelance and full-time roles.
+- [Contact](${url("/contact")}): Email and WhatsApp; open to freelance and full-time roles.
 
 ## Featured projects
 

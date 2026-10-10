@@ -11,6 +11,14 @@ export const siteConfig = {
   locale: "en_US",
   jobTitle: "Full-Stack Engineer",
   twitterHandle: "@pray3m_",
+  /** Public contact details — the footer, /contact and /llms.txt all read these. */
+  email: "prem.gtm9@gmail.com",
+  /** `wa.me/<username>` resolves to WhatsApp's username endpoint — no number. */
+  whatsapp: { handle: "@prembtw", url: "https://wa.me/prembtw" },
+  /** Kept on hand but deliberately not surfaced anywhere right now. */
+  telegram: { handle: "@onlyprems", url: "https://t.me/onlyprems" },
+  /** This site's own repository, linked from the footer colophon. */
+  repository: "https://github.com/pray3m/me",
   /** Current employer — drives the Person `worksFor` structured data. */
   employer: { name: "Hyteno", url: "https://www.hyteno.com" },
   /** Home base — drives the Person `address` structured data. */

@@ -7,6 +7,7 @@ import Button from "@/components/ds/button"
 import IconTile from "@/components/ds/icon-tile"
 import Marquee from "@/components/ds/marquee"
 import SectionHeading from "@/components/ds/section-heading"
+import { siteConfig } from "@/lib/seo"
 
 // The logo list is short, so repeat it until the track is wider than the
 // content column — Marquee duplicates the track once more for a seamless loop.
@@ -52,9 +53,18 @@ const Services: FC = () => {
               <h3 className="font-medium text-foreground leading-snug">
                 Let&apos;s work together!
               </h3>
+              {/* The address is spelled out, not just linked through to
+                  /contact — this is the page's one conversion action, so it
+                  shouldn't cost a navigation. */}
               <p className="mt-0.5 text-muted-foreground text-sm">
-                I&apos;m open for freelance projects — email me and let&apos;s
-                see how we can collaborate.
+                I&apos;m open for freelance projects — email me at{" "}
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="rounded-sm font-medium text-foreground underline underline-offset-2 outline-none transition-colors hover:text-brand focus-visible:ring-2 focus-visible:ring-brand"
+                >
+                  {siteConfig.email}
+                </a>{" "}
+                and let&apos;s see how we can collaborate.
               </p>
             </div>
             <Button

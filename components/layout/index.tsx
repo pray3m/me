@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 import NowPlayingBar from "@/components/blocks/NowPlayingBar"
 import NowPlayingCard from "@/components/blocks/NowPlayingCard"
+import Footer from "./partials/Footer"
 import Sidebar from "./partials/Sidebar"
 
 interface LayoutProps {
@@ -15,10 +16,12 @@ const Layout = ({ children }: LayoutProps) => {
           <header className="lg:w-1/5">
             <Sidebar />
           </header>
-          <main className="max-w-[854px] lg:w-4/5">
-            {children}
-            {/* <Footer /> */}
-          </main>
+          {/* `footer` sits outside `main` so it keeps its contentinfo
+              landmark; the wrapper holds the column width `main` used to. */}
+          <div className="max-w-[854px] lg:w-4/5">
+            <main>{children}</main>
+            <Footer />
+          </div>
         </div>
       </div>
 

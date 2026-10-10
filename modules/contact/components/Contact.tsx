@@ -1,9 +1,10 @@
 import { type FC, type ReactNode } from "react"
-import { FaTelegramPlane as TelegramIcon } from "react-icons/fa"
+import { FaWhatsapp as WhatsappIcon } from "react-icons/fa6"
 import { HiOutlineMail as EmailIcon } from "react-icons/hi"
 import Button from "@/components/ds/button"
+import { siteConfig } from "@/lib/seo"
 
-const EMAIL = "prem.gtm9@gmail.com"
+const EMAIL = siteConfig.email
 
 interface ContactLink {
   title: string
@@ -19,9 +20,9 @@ const CONTACTS: ContactLink[] = [
     link: `mailto:${EMAIL}`,
   },
   {
-    title: "@onlyprems",
-    icon: <TelegramIcon size={18} />,
-    link: "https://t.me/onlyprems",
+    title: siteConfig.whatsapp.handle,
+    icon: <WhatsappIcon size={18} />,
+    link: siteConfig.whatsapp.url,
     external: true,
   },
 ]
